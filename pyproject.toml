@@ -1,0 +1,22 @@
+[project]
+name = "ai-document-intelligence"
+version = "0.1.0"
+description = "Feature prototype for evidence-based document retrieval"
+requires-python = ">=3.7"
+dependencies = []
+
+[project.optional-dependencies]
+ml = [
+  "sentence-transformers>=2.7.0",
+  "numpy>=1.26.0"
+]
+pdf = [
+  "pymupdf>=1.24.0"
+]
+dev = [
+  "pytest>=8.0.0"
+]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
