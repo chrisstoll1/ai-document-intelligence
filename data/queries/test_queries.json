@@ -14,5 +14,21 @@
   {
     "query": "How should generated answers show evidence?",
     "expected_documents": ["rag_notes", "privacy_policy"]
+  },
+  {
+    "query": "Where does it explain that image-only reports are invisible until text is extracted?",
+    "expected_documents": ["ocr_notes"]
+  },
+  {
+    "query": "Which source says summaries should sit beside the material they are based on?",
+    "expected_documents": ["rag_notes"]
+  },
+  {
+    "query": "Where are repeatable known-answer tasks recommended for testing retrieval?",
+    "expected_documents": ["research_methods", "assessment_brief"]
+  },
+  {
+    "query": "Which document warns about customer information being exposed through poor access control?",
+    "expected_documents": ["privacy_policy"]
   }
 ]

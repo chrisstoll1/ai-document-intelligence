@@ -4,24 +4,42 @@ from pathlib import Path
 
 from .chunking import split_into_chunks
 from .loaders import load_documents
-from .models import Chunk, SearchResult
-from .search import HashVectorIndex, KeywordIndex
+from .models import Chunk, Document, SearchResult
+from .search import HashVectorIndex, KeywordIndex, combined_search
 
 
 class RetrievalPipeline:
     def __init__(self, data_folder: Path, max_words: int = 120) -> None:
         self.documents = load_documents(data_folder)
+        self._build_indexes(max_words=max_words)
+
+    @classmethod
+    def from_documents(cls, documents: list[Document], max_words: int = 120) -> "RetrievalPipeline":
+        pipeline = cls.__new__(cls)
+        pipeline.documents = documents
+        pipeline._build_indexes(max_words=max_words)
+        return pipeline
+
+    def _build_indexes(self, max_words: int) -> None:
         self.chunks: list[Chunk] = split_into_chunks(self.documents, max_words=max_words)
         self.keyword_index = KeywordIndex(self.chunks)
         self.vector_index = HashVectorIndex(self.chunks)
 
-    def search(self, query: str, mode: str = "both", limit: int = 5) -> list[SearchResult]:
+    def search(self, query: str, mode: str = "combined", limit: int = 5) -> list[SearchResult]:
         if mode == "keyword":
             return self.keyword_index.search(query, limit=limit)
         if mode == "vector":
             return self.vector_index.search(query, limit=limit)
+        if mode == "combined":
+            return combined_search(
+                self.chunks,
+                self.keyword_index.score_all(query),
+                self.vector_index.score_all(query),
+                query,
+                limit=limit,
+            )
         if mode != "both":
-            raise ValueError("mode must be one of: keyword, vector, both")
+            raise ValueError("mode must be one of: keyword, vector, combined, both")
 
         merged: dict[str, SearchResult] = {}
         for result in self.keyword_index.search(query, limit=limit):
