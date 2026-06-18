@@ -1,8 +1,8 @@
 [project]
 name = "ai-document-intelligence"
 version = "0.1.0"
-description = "Feature prototype for evidence-based document retrieval"
-requires-python = ">=3.7"
+description = "Evidence-based document retrieval prototype"
+requires-python = ">=3.11"
 dependencies = []
 
 [project.optional-dependencies]

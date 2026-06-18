@@ -10,6 +10,7 @@ from .models import Chunk, SearchResult
 
 
 TOKEN_RE = re.compile(r"[a-zA-Z0-9]+")
+DEFAULT_RANKING_WEIGHTS = {"vector": 0.6, "keyword": 0.3, "metadata": 0.1}
 
 
 def tokenize(text: str) -> list[str]:
@@ -123,6 +124,55 @@ class HashVectorIndex:
         return [embedding.tolist() for embedding in embeddings]
 
 
+class HybridRanker:
+    def __init__(self, weights: dict[str, float] | None = None) -> None:
+        self.weights = weights or DEFAULT_RANKING_WEIGHTS
+
+    def rank(
+        self,
+        chunks: list[Chunk],
+        keyword_scores: dict[Chunk, float],
+        vector_scores: dict[Chunk, float],
+        query: str,
+        limit: int = 5,
+    ) -> list[SearchResult]:
+        keyword_norm = self._normalise(keyword_scores)
+        vector_norm = self._normalise(vector_scores)
+        results: list[SearchResult] = []
+
+        for chunk in chunks:
+            keyword = keyword_norm.get(chunk, 0.0)
+            vector = vector_norm.get(chunk, 0.0)
+            metadata = metadata_match_score(query, chunk.metadata)
+            score = self._weighted_score(keyword=keyword, vector=vector, metadata=metadata)
+            if score <= 0:
+                continue
+            results.append(
+                SearchResult(
+                    chunk=chunk,
+                    score=score,
+                    method="combined",
+                    components={"keyword": keyword, "vector": vector, "metadata": metadata},
+                )
+            )
+
+        return sorted(results, key=lambda result: result.score, reverse=True)[:limit]
+
+    def _weighted_score(self, keyword: float, vector: float, metadata: float) -> float:
+        return (
+            self.weights["vector"] * vector
+            + self.weights["keyword"] * keyword
+            + self.weights["metadata"] * metadata
+        )
+
+    @staticmethod
+    def _normalise(scores: dict[Chunk, float]) -> dict[Chunk, float]:
+        max_score = max(scores.values()) if scores else 0.0
+        if max_score <= 0:
+            return {chunk: 0.0 for chunk in scores}
+        return {chunk: score / max_score for chunk, score in scores.items()}
+
+
 def combined_search(
     chunks: list[Chunk],
     keyword_scores: dict[Chunk, float],
@@ -133,31 +183,9 @@ def combined_search(
     keyword_weight: float = 0.3,
     metadata_weight: float = 0.1,
 ) -> list[SearchResult]:
-    keyword_norm = _normalise(keyword_scores)
-    vector_norm = _normalise(vector_scores)
-    results: list[SearchResult] = []
-
-    for chunk in chunks:
-        keyword = keyword_norm.get(chunk, 0.0)
-        vector = vector_norm.get(chunk, 0.0)
-        metadata = metadata_match_score(query, chunk.metadata)
-        score = vector_weight * vector + keyword_weight * keyword + metadata_weight * metadata
-        if score <= 0:
-            continue
-        results.append(
-            SearchResult(
-                chunk=chunk,
-                score=score,
-                method="combined",
-                components={"keyword": keyword, "vector": vector, "metadata": metadata},
-            )
-        )
-
-    return sorted(results, key=lambda result: result.score, reverse=True)[:limit]
+    weights = {"vector": vector_weight, "keyword": keyword_weight, "metadata": metadata_weight}
+    return HybridRanker(weights).rank(chunks, keyword_scores, vector_scores, query, limit=limit)
 
 
 def _normalise(scores: dict[Chunk, float]) -> dict[Chunk, float]:
-    max_score = max(scores.values()) if scores else 0.0
-    if max_score <= 0:
-        return {chunk: 0.0 for chunk in scores}
-    return {chunk: score / max_score for chunk, score in scores.items()}
+    return HybridRanker._normalise(scores)

@@ -1,18 +1,18 @@
-# AI Document Intelligence Prototype
+# Evidence Retrieval Prototype
 
 This is the feature prototype for the final project idea: **AI-Assisted Document Intelligence**.
 
-The prototype focuses on the core technical feature: evidence-based retrieval from a small document collection. It loads documents, splits them into passages, indexes them, and lets a user compare keyword search, semantic vector search and combined ranking. The aim is to prove that the retrieval part of the project is feasible before building the full web app.
+The prototype focuses on the retrieval part of the system. It loads a small document collection, splits files into passages, indexes them, and compares keyword search, semantic vector search and a hybrid ranking method. The aim is to check whether evidence-based retrieval is feasible before adding upload handling, OCR and generated summaries.
 
 ## What It Demonstrates
 
-- Document loading from text or Markdown files.
+- Class-based document loading from text or Markdown files.
 - Paragraph-aware chunking into searchable passages.
 - Keyword retrieval as a baseline.
 - Vector retrieval using `sentence-transformers/all-MiniLM-L6-v2` when available.
 - Rule-based metadata extraction for dates, document type and entity-like phrases.
-- Combined ranking using semantic, keyword and metadata scores.
-- Result display with document name and source passage.
+- Hybrid ranking using semantic, keyword and metadata scores.
+- A plain browser workbench that shows document name, scores and source passage.
 - An eight-query known-answer evaluation set.
 - Public BEIR/SciFact benchmark evaluation with Recall@k, Precision@k, MRR@k and nDCG@k.
 
@@ -25,7 +25,7 @@ ai-document-intelligence/
   data/
     sample_docs/       Example documents for testing
     queries/           Known-answer evaluation queries
-  src/docintel/         Prototype package
+  src/docintel/         Prototype package and browser workbench
   tests/                Smoke tests
   pyproject.toml        Project metadata
 ```
@@ -55,7 +55,7 @@ Run the public SciFact benchmark. This downloads the BEIR SciFact dataset into `
 .\.venv\Scripts\python.exe -m src.docintel.cli benchmark --dataset scifact --mode all --limit 10
 ```
 
-Run the browser demo:
+Run the browser workbench:
 
 ```powershell
 .\.venv\Scripts\python.exe -m src.docintel.web
@@ -73,7 +73,7 @@ If the virtual environment is not available, the system can still run with the d
 
 ## Prototype Scope
 
-This is not the final system. It includes a lightweight browser demo, but intentionally leaves out the full upload interface, OCR and LLM summaries for now. The first goal is to prove the retrieval core works and can be evaluated against known queries.
+This is not the final system. It includes a lightweight browser workbench, but intentionally leaves out the full upload interface, OCR and LLM summaries for now. The first goal is to prove the retrieval core works and can be evaluated against known queries.
 
 ## Next Steps
 

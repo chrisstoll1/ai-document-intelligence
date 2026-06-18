@@ -35,44 +35,66 @@ class BenchmarkDataset:
     cases: list[BenchmarkCase]
 
 
-def load_beir_dataset(name: str = "scifact", data_dir: Path = DEFAULT_BENCHMARK_DIR) -> BenchmarkDataset:
-    if name not in BEIR_DATASETS:
-        supported = ", ".join(sorted(BEIR_DATASETS))
-        raise ValueError(f"Unsupported benchmark dataset '{name}'. Supported datasets: {supported}")
+class BeirDatasetLoader:
+    def __init__(self, data_dir: Path = DEFAULT_BENCHMARK_DIR) -> None:
+        self.data_dir = data_dir
 
-    dataset_dir = _ensure_beir_dataset(name, data_dir)
-    documents = _load_corpus(dataset_dir, name)
-    queries = _load_queries(dataset_dir)
-    qrels = _load_qrels(dataset_dir)
-    cases = [
-        BenchmarkCase(query_id=query_id, query=query, relevant_documents=qrels[query_id])
-        for query_id, query in queries.items()
-        if query_id in qrels
-    ]
-    return BenchmarkDataset(name=name, documents=documents, cases=cases)
+    def load(self, name: str = "scifact") -> BenchmarkDataset:
+        if name not in BEIR_DATASETS:
+            supported = ", ".join(sorted(BEIR_DATASETS))
+            raise ValueError(f"Unsupported benchmark dataset '{name}'. Supported datasets: {supported}")
+
+        dataset_dir = _ensure_beir_dataset(name, self.data_dir)
+        documents = _load_corpus(dataset_dir, name)
+        queries = _load_queries(dataset_dir)
+        qrels = _load_qrels(dataset_dir)
+        cases = [
+            BenchmarkCase(query_id=query_id, query=query, relevant_documents=qrels[query_id])
+            for query_id, query in queries.items()
+            if query_id in qrels
+        ]
+        return BenchmarkDataset(name=name, documents=documents, cases=cases)
+
+
+class BenchmarkRunner:
+    def __init__(self, max_words: int = 220) -> None:
+        self.max_words = max_words
+
+    def run(
+        self,
+        dataset: BenchmarkDataset,
+        modes: list[str],
+        limit: int = 10,
+        query_limit: Optional[int] = None,
+    ) -> dict[str, dict[str, float]]:
+        pipeline = RetrievalPipeline.from_documents(dataset.documents, max_words=self.max_words)
+        cases = dataset.cases[:query_limit] if query_limit else dataset.cases
+        output: dict[str, dict[str, float]] = {}
+
+        for mode in modes:
+            rankings: dict[str, list[str]] = {}
+            qrels: dict[str, dict[str, int]] = {}
+            for case in cases:
+                results = pipeline.search(case.query, mode=mode, limit=limit * 3)
+                rankings[case.query_id] = _dedupe_doc_ids(results)[:limit]
+                qrels[case.query_id] = case.relevant_documents
+            output[mode] = evaluate_rankings(qrels, rankings, k=limit)
+
+        output["_meta"] = {
+            "documents": float(len(dataset.documents)),
+            "queries": float(len(cases)),
+            "k": float(limit),
+            "chunks": float(len(pipeline.chunks)),
+        }
+        return output
+
+
+def load_beir_dataset(name: str = "scifact", data_dir: Path = DEFAULT_BENCHMARK_DIR) -> BenchmarkDataset:
+    return BeirDatasetLoader(data_dir).load(name)
 
 
 def run_benchmark(dataset: BenchmarkDataset, modes: list[str], limit: int = 10, query_limit: Optional[int] = None) -> dict[str, dict[str, float]]:
-    pipeline = RetrievalPipeline.from_documents(dataset.documents, max_words=220)
-    cases = dataset.cases[:query_limit] if query_limit else dataset.cases
-    output: dict[str, dict[str, float]] = {}
-
-    for mode in modes:
-        rankings: dict[str, list[str]] = {}
-        qrels: dict[str, dict[str, int]] = {}
-        for case in cases:
-            results = pipeline.search(case.query, mode=mode, limit=limit * 3)
-            rankings[case.query_id] = _dedupe_doc_ids(results)[:limit]
-            qrels[case.query_id] = case.relevant_documents
-        output[mode] = evaluate_rankings(qrels, rankings, k=limit)
-
-    output["_meta"] = {
-        "documents": float(len(dataset.documents)),
-        "queries": float(len(cases)),
-        "k": float(limit),
-        "chunks": float(len(pipeline.chunks)),
-    }
-    return output
+    return BenchmarkRunner().run(dataset, modes=modes, limit=limit, query_limit=query_limit)
 
 
 def evaluate_rankings(qrels: dict[str, dict[str, int]], rankings: dict[str, list[str]], k: int = 10) -> dict[str, float]:

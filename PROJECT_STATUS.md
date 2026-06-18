@@ -20,17 +20,18 @@ Build a small evidence-based retrieval prototype that proves the core project id
 - `sentence-transformers/all-MiniLM-L6-v2` installed and working.
 - Paragraph-aware chunking implemented.
 - Rule-based metadata extraction implemented.
-- Combined ranking implemented with 0.6 semantic, 0.3 keyword and 0.1 metadata score.
+- Hybrid ranking implemented with 0.6 semantic, 0.3 keyword and 0.1 metadata score.
 - Evaluation compares keyword, vector and combined modes.
-- Lightweight browser demo implemented with Python's standard library HTTP server.
+- Plain browser workbench implemented with Python's standard library HTTP server.
 - Public BEIR/SciFact benchmark command implemented.
+- Retrieval code organised around loader, chunker, metadata extractor, ranker and benchmark runner classes.
 
 ## Design Decisions
 
 - First prototype uses local Markdown/text documents.
 - Chunking should be paragraph-aware where possible.
 - Metadata extraction starts with simple rules: filename type, dates and capitalised entity-like phrases.
-- Combined ranking uses weighted keyword, vector and metadata scores.
+- Hybrid ranking uses weighted keyword, vector and metadata scores.
 - Real Sentence-BERT embeddings use `sentence-transformers/all-MiniLM-L6-v2` when the Python 3.11 virtual environment is used.
 - The fallback hashed vector search remains available for machines without ML dependencies.
 

@@ -2,15 +2,16 @@ from __future__ import annotations
 
 from pathlib import Path
 
-from .chunking import split_into_chunks
-from .loaders import load_documents
+from .chunking import PassageChunker
+from .loaders import DocumentLoader
 from .models import Chunk, Document, SearchResult
-from .search import HashVectorIndex, KeywordIndex, combined_search
+from .search import HashVectorIndex, HybridRanker, KeywordIndex
 
 
 class RetrievalPipeline:
-    def __init__(self, data_folder: Path, max_words: int = 120) -> None:
-        self.documents = load_documents(data_folder)
+    def __init__(self, data_folder: Path, max_words: int = 120, loader: DocumentLoader | None = None) -> None:
+        self.loader = loader or DocumentLoader()
+        self.documents = self.loader.load_folder(data_folder)
         self._build_indexes(max_words=max_words)
 
     @classmethod
@@ -21,9 +22,11 @@ class RetrievalPipeline:
         return pipeline
 
     def _build_indexes(self, max_words: int) -> None:
-        self.chunks: list[Chunk] = split_into_chunks(self.documents, max_words=max_words)
+        self.chunker = PassageChunker(max_words=max_words)
+        self.chunks: list[Chunk] = self.chunker.build_chunks(self.documents)
         self.keyword_index = KeywordIndex(self.chunks)
         self.vector_index = HashVectorIndex(self.chunks)
+        self.hybrid_ranker = HybridRanker()
 
     def search(self, query: str, mode: str = "combined", limit: int = 5) -> list[SearchResult]:
         if mode == "keyword":
@@ -31,7 +34,7 @@ class RetrievalPipeline:
         if mode == "vector":
             return self.vector_index.search(query, limit=limit)
         if mode == "combined":
-            return combined_search(
+            return self.hybrid_ranker.rank(
                 self.chunks,
                 self.keyword_index.score_all(query),
                 self.vector_index.score_all(query),
