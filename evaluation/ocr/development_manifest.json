@@ -1,0 +1,532 @@
+{
+  "schema_version": 1,
+  "name": "TAT-DQA controlled OCR development benchmark",
+  "split": "development",
+  "source_dataset": "TAT-DQA",
+  "source_dataset_url": "https://nextplusplus.github.io/TAT-DQA/",
+  "license": "CC BY 4.0",
+  "source_manifest": "evaluation/tat_dqa/development_manifest.json",
+  "source_manifest_sha256": "f87799c0627def3bd74984d19997afa9287bf6e7343590f31c57986036f8df3a",
+  "selection": {
+    "seed": "docintel-ocr-development-v1",
+    "categories": [
+      "prose",
+      "number_heavy"
+    ],
+    "base_samples_per_category": 6,
+    "maximum_samples_per_document_per_category": 1,
+    "method": "SHA-256 ordering of visible directly extracted PDF line regions"
+  },
+  "rendering": {
+    "dpi": 300,
+    "clean": "300 DPI RGB crop with 3-point horizontal and 1.5-point vertical padding",
+    "degraded": "55% downsample/upsample, deterministic +/-0.6 degree rotation, 0.72 contrast, 0.7 blur"
+  },
+  "reference": "NFKC-normalized direct PDF line text; silver standard",
+  "samples": [
+    {
+      "id": "0d402142a5482534-clean",
+      "base_id": "0d402142a5482534",
+      "category": "number_heavy",
+      "variant": "clean",
+      "document_uid": "11ba155b7577c83fe5f3c4f766039e93",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/11ba155b7577c83fe5f3c4f766039e93.pdf",
+      "page": 1,
+      "source_line": 9,
+      "source_bbox": [
+        21.8,
+        136.9731,
+        570.4457,
+        145.9709
+      ],
+      "reference": "control) to December 31, 2018; (v) $49.4 million proceeds from Navios Containers\u2019 long term debt (net of deferred financing costs of $0.6 million); and",
+      "image_file": "data/evaluation/ocr/development/0d402142a5482534-clean.png",
+      "image_sha256": "e990f3474efd51f8ff3d572e94ec37b55545cda07ca6ac7f6fc5c3431fb46b9f",
+      "width": 2311,
+      "height": 49
+    },
+    {
+      "id": "0d402142a5482534-degraded",
+      "base_id": "0d402142a5482534",
+      "category": "number_heavy",
+      "variant": "degraded",
+      "document_uid": "11ba155b7577c83fe5f3c4f766039e93",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/11ba155b7577c83fe5f3c4f766039e93.pdf",
+      "page": 1,
+      "source_line": 9,
+      "source_bbox": [
+        21.8,
+        136.9731,
+        570.4457,
+        145.9709
+      ],
+      "reference": "control) to December 31, 2018; (v) $49.4 million proceeds from Navios Containers\u2019 long term debt (net of deferred financing costs of $0.6 million); and",
+      "image_file": "data/evaluation/ocr/development/0d402142a5482534-degraded.png",
+      "image_sha256": "aa1a6dec6afc54162474905f581d576ed7f78e3ca50bb2fe18a541ef58c3f890",
+      "width": 2311,
+      "height": 49
+    },
+    {
+      "id": "0f52b4cf55d1935d-clean",
+      "base_id": "0f52b4cf55d1935d",
+      "category": "number_heavy",
+      "variant": "clean",
+      "document_uid": "eb2a796ed0547c324297fb88898b9d71",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/eb2a796ed0547c324297fb88898b9d71.pdf",
+      "page": 1,
+      "source_line": 17,
+      "source_bbox": [
+        36.025,
+        273.45,
+        576.36,
+        283.45
+      ],
+      "reference": "Non-GAAP diluted earnings per share 4.75 3.88 3.29 22% 18%",
+      "image_file": "data/evaluation/ocr/development/0f52b4cf55d1935d-clean.png",
+      "image_sha256": "7118ca76c937c8c004ee53cf3e9f1815008b3fdc702be1e563734c1d2bed7b91",
+      "width": 2276,
+      "height": 54
+    },
+    {
+      "id": "0f52b4cf55d1935d-degraded",
+      "base_id": "0f52b4cf55d1935d",
+      "category": "number_heavy",
+      "variant": "degraded",
+      "document_uid": "eb2a796ed0547c324297fb88898b9d71",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/eb2a796ed0547c324297fb88898b9d71.pdf",
+      "page": 1,
+      "source_line": 17,
+      "source_bbox": [
+        36.025,
+        273.45,
+        576.36,
+        283.45
+      ],
+      "reference": "Non-GAAP diluted earnings per share 4.75 3.88 3.29 22% 18%",
+      "image_file": "data/evaluation/ocr/development/0f52b4cf55d1935d-degraded.png",
+      "image_sha256": "39e2ea635ae5197bb89dc9a922677c8580dc81724d3d81188fa6827955540014",
+      "width": 2276,
+      "height": 54
+    },
+    {
+      "id": "113959c0e3cf14ef-clean",
+      "base_id": "113959c0e3cf14ef",
+      "category": "number_heavy",
+      "variant": "clean",
+      "document_uid": "4d41ea7a63b2d9b5cc3cb24ca6c7e9ac",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/4d41ea7a63b2d9b5cc3cb24ca6c7e9ac.pdf",
+      "page": 1,
+      "source_line": 15,
+      "source_bbox": [
+        24.3,
+        189.7872,
+        575.1397,
+        197.5872
+      ],
+      "reference": "Loss before income taxes (150)% (108)% (116)%",
+      "image_file": "data/evaluation/ocr/development/113959c0e3cf14ef-clean.png",
+      "image_sha256": "303182dfe01f0eb7089bf33efaea0b33cd3072e9ac1c8f833dbfb51d8cf7dbeb",
+      "width": 2320,
+      "height": 45
+    },
+    {
+      "id": "113959c0e3cf14ef-degraded",
+      "base_id": "113959c0e3cf14ef",
+      "category": "number_heavy",
+      "variant": "degraded",
+      "document_uid": "4d41ea7a63b2d9b5cc3cb24ca6c7e9ac",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/4d41ea7a63b2d9b5cc3cb24ca6c7e9ac.pdf",
+      "page": 1,
+      "source_line": 15,
+      "source_bbox": [
+        24.3,
+        189.7872,
+        575.1397,
+        197.5872
+      ],
+      "reference": "Loss before income taxes (150)% (108)% (116)%",
+      "image_file": "data/evaluation/ocr/development/113959c0e3cf14ef-degraded.png",
+      "image_sha256": "136fff866a67430632a0d3007869289e3c21b1f56708df7ceb8a46fa6dda24b2",
+      "width": 2320,
+      "height": 45
+    },
+    {
+      "id": "1331e051403550e7-clean",
+      "base_id": "1331e051403550e7",
+      "category": "number_heavy",
+      "variant": "clean",
+      "document_uid": "c1ea2ff4819e824e68f44b1b60a1cd8a",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/c1ea2ff4819e824e68f44b1b60a1cd8a.pdf",
+      "page": 1,
+      "source_line": 44,
+      "source_bbox": [
+        102.6,
+        631.9843,
+        476.5656,
+        642.0043
+      ],
+      "reference": "Net income (loss) from continuing operations (2,351) (5,146) 3,208",
+      "image_file": "data/evaluation/ocr/development/1331e051403550e7-clean.png",
+      "image_sha256": "d6504cfbe3a6b4909600de3184723e381344df96a0cffe59545249c60c46992e",
+      "width": 1583,
+      "height": 54
+    },
+    {
+      "id": "1331e051403550e7-degraded",
+      "base_id": "1331e051403550e7",
+      "category": "number_heavy",
+      "variant": "degraded",
+      "document_uid": "c1ea2ff4819e824e68f44b1b60a1cd8a",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/c1ea2ff4819e824e68f44b1b60a1cd8a.pdf",
+      "page": 1,
+      "source_line": 44,
+      "source_bbox": [
+        102.6,
+        631.9843,
+        476.5656,
+        642.0043
+      ],
+      "reference": "Net income (loss) from continuing operations (2,351) (5,146) 3,208",
+      "image_file": "data/evaluation/ocr/development/1331e051403550e7-degraded.png",
+      "image_sha256": "6a7dbb34b15839a53067edb8b014ecfc293482a721e3b57342eb7242ba6cd9b1",
+      "width": 1583,
+      "height": 54
+    },
+    {
+      "id": "18948d4a9f09a32c-clean",
+      "base_id": "18948d4a9f09a32c",
+      "category": "number_heavy",
+      "variant": "clean",
+      "document_uid": "23c221a22dd69ef8fb163f78614aa1d6",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/23c221a22dd69ef8fb163f78614aa1d6.pdf",
+      "page": 2,
+      "source_line": 22,
+      "source_bbox": [
+        25.3138,
+        273.4204,
+        576.9238,
+        282.4216
+      ],
+      "reference": "Clinicals and Series2000 Revenue Cycle $ 3,731 $ 4,676",
+      "image_file": "data/evaluation/ocr/development/18948d4a9f09a32c-clean.png",
+      "image_sha256": "9af4cc6e378c1cbea858d80f7fd367cf374c15fde622331f7d3809363bcfa395",
+      "width": 2323,
+      "height": 50
+    },
+    {
+      "id": "18948d4a9f09a32c-degraded",
+      "base_id": "18948d4a9f09a32c",
+      "category": "number_heavy",
+      "variant": "degraded",
+      "document_uid": "23c221a22dd69ef8fb163f78614aa1d6",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/23c221a22dd69ef8fb163f78614aa1d6.pdf",
+      "page": 2,
+      "source_line": 22,
+      "source_bbox": [
+        25.3138,
+        273.4204,
+        576.9238,
+        282.4216
+      ],
+      "reference": "Clinicals and Series2000 Revenue Cycle $ 3,731 $ 4,676",
+      "image_file": "data/evaluation/ocr/development/18948d4a9f09a32c-degraded.png",
+      "image_sha256": "e49fe3729f61e02b2fc480ef41cd4aaf5ebd8f31a52d07fb96a6f4f4ac84c72e",
+      "width": 2323,
+      "height": 50
+    },
+    {
+      "id": "19a2d68e51ad80f9-clean",
+      "base_id": "19a2d68e51ad80f9",
+      "category": "number_heavy",
+      "variant": "clean",
+      "document_uid": "018ba3b4adee47eef3555fc300cbde94",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/018ba3b4adee47eef3555fc300cbde94.pdf",
+      "page": 1,
+      "source_line": 33,
+      "source_bbox": [
+        56.6927,
+        397.2042,
+        537.1505,
+        406.2042
+      ],
+      "reference": "(2018: $26.94), comprised of purchases under the Employee Share Purchase Plan and the Non-executive Directors\u2019 Equity Plan.",
+      "image_file": "data/evaluation/ocr/development/19a2d68e51ad80f9-clean.png",
+      "image_sha256": "5d9c638e62ea2547045947e4b5351455891153330962a8c79f848e10553b35e8",
+      "width": 2027,
+      "height": 50
+    },
+    {
+      "id": "19a2d68e51ad80f9-degraded",
+      "base_id": "19a2d68e51ad80f9",
+      "category": "number_heavy",
+      "variant": "degraded",
+      "document_uid": "018ba3b4adee47eef3555fc300cbde94",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/018ba3b4adee47eef3555fc300cbde94.pdf",
+      "page": 1,
+      "source_line": 33,
+      "source_bbox": [
+        56.6927,
+        397.2042,
+        537.1505,
+        406.2042
+      ],
+      "reference": "(2018: $26.94), comprised of purchases under the Employee Share Purchase Plan and the Non-executive Directors\u2019 Equity Plan.",
+      "image_file": "data/evaluation/ocr/development/19a2d68e51ad80f9-degraded.png",
+      "image_sha256": "f996eb3edfbd58252b006e50f500a7f6018bfa32706dc246c57dc5cc90238c42",
+      "width": 2027,
+      "height": 50
+    },
+    {
+      "id": "012d34044ba9a10f-clean",
+      "base_id": "012d34044ba9a10f",
+      "category": "prose",
+      "variant": "clean",
+      "document_uid": "23c221a22dd69ef8fb163f78614aa1d6",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/23c221a22dd69ef8fb163f78614aa1d6.pdf",
+      "page": 2,
+      "source_line": 29,
+      "source_bbox": [
+        12.4021,
+        383.488,
+        566.7222,
+        392.4892
+      ],
+      "reference": "our reportable segments to Provider and Veradigm. The new Provider segment is comprised of our core integrated clinical software applications, financial",
+      "image_file": "data/evaluation/ocr/development/012d34044ba9a10f-clean.png",
+      "image_sha256": "acbe3c8c85eaa25995549c98f24e09a083e35edf023aa4726af195eacb09b960",
+      "width": 2334,
+      "height": 50
+    },
+    {
+      "id": "012d34044ba9a10f-degraded",
+      "base_id": "012d34044ba9a10f",
+      "category": "prose",
+      "variant": "degraded",
+      "document_uid": "23c221a22dd69ef8fb163f78614aa1d6",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/23c221a22dd69ef8fb163f78614aa1d6.pdf",
+      "page": 2,
+      "source_line": 29,
+      "source_bbox": [
+        12.4021,
+        383.488,
+        566.7222,
+        392.4892
+      ],
+      "reference": "our reportable segments to Provider and Veradigm. The new Provider segment is comprised of our core integrated clinical software applications, financial",
+      "image_file": "data/evaluation/ocr/development/012d34044ba9a10f-degraded.png",
+      "image_sha256": "4001065a3c89f9d14848ebaf23fa98d5de939625412db23eceae5629fef75f90",
+      "width": 2334,
+      "height": 50
+    },
+    {
+      "id": "0446ddc0455400fa-clean",
+      "base_id": "0446ddc0455400fa",
+      "category": "prose",
+      "variant": "clean",
+      "document_uid": "6c7eaa692c25edb5cc125d550deb77ca",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/6c7eaa692c25edb5cc125d550deb77ca.pdf",
+      "page": 1,
+      "source_line": 6,
+      "source_bbox": [
+        34.02,
+        209.1101,
+        530.4412,
+        217.6301
+      ],
+      "reference": "property is established under the Trust Deed as being undertaken by an entity jointly controlled by the beneficial owners of the property.",
+      "image_file": "data/evaluation/ocr/development/0446ddc0455400fa-clean.png",
+      "image_sha256": "ca1781921d182e6ea0742f98c0eee4e2bc6b8f227d2b9f5ace6b9f6a0854ced7",
+      "width": 2093,
+      "height": 48
+    },
+    {
+      "id": "0446ddc0455400fa-degraded",
+      "base_id": "0446ddc0455400fa",
+      "category": "prose",
+      "variant": "degraded",
+      "document_uid": "6c7eaa692c25edb5cc125d550deb77ca",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/6c7eaa692c25edb5cc125d550deb77ca.pdf",
+      "page": 1,
+      "source_line": 6,
+      "source_bbox": [
+        34.02,
+        209.1101,
+        530.4412,
+        217.6301
+      ],
+      "reference": "property is established under the Trust Deed as being undertaken by an entity jointly controlled by the beneficial owners of the property.",
+      "image_file": "data/evaluation/ocr/development/0446ddc0455400fa-degraded.png",
+      "image_sha256": "c0dc083a32d4d97a04046ded3e24afb49d21576357aa0ceccaade94059a15efc",
+      "width": 2093,
+      "height": 48
+    },
+    {
+      "id": "04ee292a62a74cbc-clean",
+      "base_id": "04ee292a62a74cbc",
+      "category": "prose",
+      "variant": "clean",
+      "document_uid": "c1ea2ff4819e824e68f44b1b60a1cd8a",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/c1ea2ff4819e824e68f44b1b60a1cd8a.pdf",
+      "page": 1,
+      "source_line": 40,
+      "source_bbox": [
+        54.0002,
+        577.082,
+        513.2941,
+        587.102
+      ],
+      "reference": "The aggregate impact of net changes in contract estimates are presented in the table below (amounts in thousands).",
+      "image_file": "data/evaluation/ocr/development/04ee292a62a74cbc-clean.png",
+      "image_sha256": "995b72ed77fcc91b83c9f828ccdd539e42d15d21a09882ef971f19e319918e1c",
+      "width": 1938,
+      "height": 54
+    },
+    {
+      "id": "04ee292a62a74cbc-degraded",
+      "base_id": "04ee292a62a74cbc",
+      "category": "prose",
+      "variant": "degraded",
+      "document_uid": "c1ea2ff4819e824e68f44b1b60a1cd8a",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/c1ea2ff4819e824e68f44b1b60a1cd8a.pdf",
+      "page": 1,
+      "source_line": 40,
+      "source_bbox": [
+        54.0002,
+        577.082,
+        513.2941,
+        587.102
+      ],
+      "reference": "The aggregate impact of net changes in contract estimates are presented in the table below (amounts in thousands).",
+      "image_file": "data/evaluation/ocr/development/04ee292a62a74cbc-degraded.png",
+      "image_sha256": "9725636420aa6bdd9db2db459e7d28d9a4224420ac026292345ea964a9b159fe",
+      "width": 1938,
+      "height": 54
+    },
+    {
+      "id": "055636800df05bc8-clean",
+      "base_id": "055636800df05bc8",
+      "category": "prose",
+      "variant": "clean",
+      "document_uid": "adaad2efcb109915eb3a70e2d992555c",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/adaad2efcb109915eb3a70e2d992555c.pdf",
+      "page": 1,
+      "source_line": 3,
+      "source_bbox": [
+        36.0,
+        58.047,
+        328.8922,
+        66.547
+      ],
+      "reference": "The components of the provision (benefit) for income taxes are as follows:",
+      "image_file": "data/evaluation/ocr/development/055636800df05bc8-clean.png",
+      "image_sha256": "b19ba7141d149b2d82822c093756fa8412d9560ae51e4acf7a0273f128720000",
+      "width": 1245,
+      "height": 47
+    },
+    {
+      "id": "055636800df05bc8-degraded",
+      "base_id": "055636800df05bc8",
+      "category": "prose",
+      "variant": "degraded",
+      "document_uid": "adaad2efcb109915eb3a70e2d992555c",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/adaad2efcb109915eb3a70e2d992555c.pdf",
+      "page": 1,
+      "source_line": 3,
+      "source_bbox": [
+        36.0,
+        58.047,
+        328.8922,
+        66.547
+      ],
+      "reference": "The components of the provision (benefit) for income taxes are as follows:",
+      "image_file": "data/evaluation/ocr/development/055636800df05bc8-degraded.png",
+      "image_sha256": "734119282fd16c61d33f73778aff21e3be718455b130f690e8fd69ee397d5a85",
+      "width": 1245,
+      "height": 47
+    },
+    {
+      "id": "07f0cb2f74d2dd17-clean",
+      "base_id": "07f0cb2f74d2dd17",
+      "category": "prose",
+      "variant": "clean",
+      "document_uid": "1dcc49e0d122ddd39f5df46093f57e4d",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/1dcc49e0d122ddd39f5df46093f57e4d.pdf",
+      "page": 1,
+      "source_line": 23,
+      "source_bbox": [
+        69.0,
+        401.2599,
+        516.02,
+        411.2599
+      ],
+      "reference": "exposure into a fixed interest rate in order to hedge a portion of the Group\u2019s exposure to fluctuations",
+      "image_file": "data/evaluation/ocr/development/07f0cb2f74d2dd17-clean.png",
+      "image_sha256": "ad65600f20bfb56763c47cc4321bf1f4d831a82f2cf08f163537422c4ecff1a6",
+      "width": 1887,
+      "height": 54
+    },
+    {
+      "id": "07f0cb2f74d2dd17-degraded",
+      "base_id": "07f0cb2f74d2dd17",
+      "category": "prose",
+      "variant": "degraded",
+      "document_uid": "1dcc49e0d122ddd39f5df46093f57e4d",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/1dcc49e0d122ddd39f5df46093f57e4d.pdf",
+      "page": 1,
+      "source_line": 23,
+      "source_bbox": [
+        69.0,
+        401.2599,
+        516.02,
+        411.2599
+      ],
+      "reference": "exposure into a fixed interest rate in order to hedge a portion of the Group\u2019s exposure to fluctuations",
+      "image_file": "data/evaluation/ocr/development/07f0cb2f74d2dd17-degraded.png",
+      "image_sha256": "12199ed64825f977e7a4be1705585f33a7596bd768a750dc2d2aa501ed967398",
+      "width": 1887,
+      "height": 54
+    },
+    {
+      "id": "0878c4bbd6da66e9-clean",
+      "base_id": "0878c4bbd6da66e9",
+      "category": "prose",
+      "variant": "clean",
+      "document_uid": "4bac0b8169e05a0e8d1220fab5e165d5",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/4bac0b8169e05a0e8d1220fab5e165d5.pdf",
+      "page": 1,
+      "source_line": 21,
+      "source_bbox": [
+        72.0236,
+        444.2005,
+        551.648,
+        452.7005
+      ],
+      "reference": "Non-current assets by country excludes deferred tax assets and goodwill. Goodwill has been excluded as a split by country",
+      "image_file": "data/evaluation/ocr/development/0878c4bbd6da66e9-clean.png",
+      "image_sha256": "19635b04b6b9eb0f5ac388720d6ef1af65a8bac97ec7cf3d2c6779567c42487e",
+      "width": 2024,
+      "height": 47
+    },
+    {
+      "id": "0878c4bbd6da66e9-degraded",
+      "base_id": "0878c4bbd6da66e9",
+      "category": "prose",
+      "variant": "degraded",
+      "document_uid": "4bac0b8169e05a0e8d1220fab5e165d5",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/4bac0b8169e05a0e8d1220fab5e165d5.pdf",
+      "page": 1,
+      "source_line": 21,
+      "source_bbox": [
+        72.0236,
+        444.2005,
+        551.648,
+        452.7005
+      ],
+      "reference": "Non-current assets by country excludes deferred tax assets and goodwill. Goodwill has been excluded as a split by country",
+      "image_file": "data/evaluation/ocr/development/0878c4bbd6da66e9-degraded.png",
+      "image_sha256": "0f38c2ae83365ff2021ea519a5160b5d6248834420fa5521aa951890a489844a",
+      "width": 2024,
+      "height": 47
+    }
+  ]
+}
