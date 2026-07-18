@@ -29,7 +29,22 @@ class FakeExtractor:
         ]
 
 
-def _service(tmp_path, extractor: FakeExtractor) -> IngestionService:
+class FakeSemanticIndex:
+    model_name = "fake-embedding-model"
+
+    def __init__(self, *, error: Exception | None = None) -> None:
+        self.calls = 0
+        self.error = error
+
+    def replace_document(self, document_id: str, chunks) -> None:
+        self.calls += 1
+        if self.error is not None:
+            raise self.error
+
+
+def _service(
+    tmp_path, extractor: FakeExtractor, semantic_index: FakeSemanticIndex | None = None
+) -> IngestionService:
     database_path = tmp_path / "docintel.sqlite3"
     initialize_database(database_path)
     documents = DocumentRepository(database_path)
@@ -39,6 +54,7 @@ def _service(tmp_path, extractor: FakeExtractor) -> IngestionService:
         extractor,
         ExtractionRepository(database_path),
         ChunkRepository(database_path),
+        semantic_index,
     )
 
 
@@ -68,3 +84,33 @@ def test_ingestion_records_extraction_failure(tmp_path) -> None:
     assert document is not None
     assert document.status == "failed"
     assert document.error_message == "extraction failed"
+
+
+def test_ingestion_records_semantic_index_and_reuses_ready_document(tmp_path) -> None:
+    extractor = FakeExtractor()
+    semantic_index = FakeSemanticIndex()
+    service = _service(tmp_path, extractor, semantic_index)
+    pdf_bytes = b"%PDF-1.7\nexample\n%%EOF"
+
+    first = service.ingest(BytesIO(pdf_bytes), "first.pdf")
+    second = service.ingest(BytesIO(pdf_bytes), "second.pdf")
+
+    assert first.status == second.status == "ready"
+    assert first.embedding_model == "fake-embedding-model"
+    assert extractor.calls == 1
+    assert semantic_index.calls == 1
+
+
+def test_ingestion_preserves_lexical_data_when_semantic_index_fails(tmp_path) -> None:
+    extractor = FakeExtractor()
+    semantic_index = FakeSemanticIndex(error=RuntimeError("index failed"))
+    service = _service(tmp_path, extractor, semantic_index)
+
+    with pytest.raises(RuntimeError, match="index failed"):
+        service.ingest(BytesIO(b"%PDF-1.7\nexample\n%%EOF"), "example.pdf")
+
+    document_id = next((tmp_path / "pdfs").rglob("*.pdf")).stem
+    document = service.documents.get(document_id)
+    assert document is not None
+    assert document.status == "index_failed"
+    assert service.chunks.search("evidence")

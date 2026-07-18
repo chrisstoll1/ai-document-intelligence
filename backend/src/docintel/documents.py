@@ -16,6 +16,7 @@ class DocumentRecord:
     size_bytes: int
     status: str
     error_message: str | None
+    embedding_model: str | None
 
 
 class DocumentRepository:
@@ -49,7 +50,7 @@ class DocumentRepository:
         with database_connection(self.database_path) as connection:
             row = connection.execute(
                 """
-                SELECT id, storage_key, media_type, size_bytes, status, error_message
+                SELECT id, storage_key, media_type, size_bytes, status, error_message, embedding_model
                 FROM documents
                 WHERE id = ?
                 """,
@@ -66,6 +67,20 @@ class DocumentRepository:
                 WHERE id = ?
                 """,
                 (status, error_message, document_id),
+            )
+            if cursor.rowcount == 0:
+                raise ValueError(f"Unknown document: {document_id}")
+
+    def mark_ready(self, document_id: str, embedding_model: str) -> None:
+        with database_connection(self.database_path) as connection, connection:
+            cursor = connection.execute(
+                """
+                UPDATE documents
+                SET status = 'ready', error_message = NULL, embedding_model = ?,
+                    updated_at = CURRENT_TIMESTAMP
+                WHERE id = ?
+                """,
+                (embedding_model, document_id),
             )
             if cursor.rowcount == 0:
                 raise ValueError(f"Unknown document: {document_id}")

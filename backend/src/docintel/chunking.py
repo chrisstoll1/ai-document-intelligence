@@ -212,6 +212,36 @@ class ChunkRepository:
             )
         return chunks
 
+    def list_document(self, document_id: str) -> list[ProvenanceChunk]:
+        with database_connection(self.database_path) as connection:
+            rows = connection.execute(
+                """
+                SELECT id, document_id, ordinal, text, page_start, page_end, chunker_version
+                FROM chunks
+                WHERE document_id = ?
+                ORDER BY ordinal
+                """,
+                (document_id,),
+            ).fetchall()
+            chunks = []
+            for row in rows:
+                span_rows = connection.execute(
+                    """
+                    SELECT block_id, block_start, block_end, chunk_start, chunk_end
+                    FROM chunk_spans
+                    WHERE chunk_id = ?
+                    ORDER BY span_order
+                    """,
+                    (row["id"],),
+                ).fetchall()
+                chunks.append(
+                    ProvenanceChunk(
+                        **dict(row),
+                        spans=tuple(ChunkSpan(**dict(span)) for span in span_rows),
+                    )
+                )
+        return chunks
+
     def search(self, query: str, *, limit: int = 20) -> list[LexicalHit]:
         terms = QUERY_TERM_RE.findall(query)
         if not terms or limit <= 0:
