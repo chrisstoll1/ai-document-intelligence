@@ -6,7 +6,7 @@ The React frontend is still a minimal shell. Use the generated API documentation
 
 ## Setup
 
-Requires Python 3.11-3.13 and Node.js. Scanned PDFs also require Tesseract 5 with the `tesseract` executable available on `PATH`.
+Requires Python 3.11-3.13 and Node.js. Scanned PDFs also require Tesseract 5. On Windows, the backend detects the standard `C:\Program Files\Tesseract-OCR` installation automatically. For another location, set `TESSERACT_CMD` to the full executable path.
 
 ```powershell
 python -m venv .venv

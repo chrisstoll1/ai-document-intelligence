@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import os
+import shutil
 from collections import defaultdict
 from collections.abc import Sequence
 from dataclasses import dataclass
@@ -41,10 +43,12 @@ class OcrEngine(Protocol):
 
 
 class TesseractOcrEngine:
-    def __init__(self, *, language: str = "eng") -> None:
+    def __init__(self, *, language: str = "eng", executable: str | Path | None = None) -> None:
         self.language = language
+        self.executable = _resolve_tesseract_executable(executable)
 
     def recognize(self, image: Image.Image) -> list[OcrWord]:
+        pytesseract.pytesseract.tesseract_cmd = self.executable
         try:
             data = pytesseract.image_to_data(
                 image,
@@ -53,7 +57,9 @@ class TesseractOcrEngine:
                 output_type=pytesseract.Output.DICT,
             )
         except pytesseract.TesseractNotFoundError as error:
-            raise OcrUnavailableError("Tesseract is required to process image-only PDF pages") from error
+            raise OcrUnavailableError(
+                f"Tesseract is required to process image-only PDF pages (tried: {self.executable})"
+            ) from error
 
         words = []
         for index, value in enumerate(data["text"]):
@@ -77,6 +83,20 @@ class TesseractOcrEngine:
                 )
             )
         return words
+
+
+def _resolve_tesseract_executable(executable: str | Path | None) -> str:
+    configured = executable or os.environ.get("TESSERACT_CMD")
+    if configured:
+        return str(configured)
+    discovered = shutil.which("tesseract")
+    if discovered:
+        return discovered
+    if os.name == "nt":
+        standard_install = Path(os.environ.get("ProgramFiles", "C:/Program Files")) / "Tesseract-OCR/tesseract.exe"
+        if standard_install.is_file():
+            return str(standard_install)
+    return "tesseract"
 
 
 @dataclass(frozen=True)

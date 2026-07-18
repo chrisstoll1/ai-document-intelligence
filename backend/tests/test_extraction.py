@@ -1,5 +1,6 @@
 from io import BytesIO
 
+import pytesseract
 from docintel.db import database_connection, initialize_database
 from docintel.documents import DocumentCatalog, DocumentRepository
 from docintel.extraction import (
@@ -8,8 +9,10 @@ from docintel.extraction import (
     ExtractionRepository,
     OcrWord,
     PdfExtractor,
+    TesseractOcrEngine,
 )
 from docintel.storage import PdfStore
+from PIL import Image
 
 
 class FakeOcrEngine:
@@ -73,6 +76,32 @@ def test_pdf_extractor_routes_empty_page_through_ocr(tmp_path) -> None:
     assert pages[0].blocks[0].method == "ocr"
     assert pages[0].blocks[0].confidence == 90.0
     assert pages[0].blocks[0].bbox[0] > 0
+
+
+def test_tesseract_engine_uses_explicit_executable(monkeypatch) -> None:
+    captured = {}
+    monkeypatch.setattr(pytesseract.pytesseract, "tesseract_cmd", "tesseract")
+
+    def fake_image_to_data(image, **kwargs):
+        captured["command"] = pytesseract.pytesseract.tesseract_cmd
+        return {
+            "text": [],
+            "conf": [],
+            "left": [],
+            "top": [],
+            "width": [],
+            "height": [],
+            "block_num": [],
+            "par_num": [],
+            "line_num": [],
+        }
+
+    monkeypatch.setattr(pytesseract, "image_to_data", fake_image_to_data)
+
+    words = TesseractOcrEngine(executable="custom-tesseract.exe").recognize(Image.new("RGB", (10, 10)))
+
+    assert words == []
+    assert captured["command"] == "custom-tesseract.exe"
 
 
 def test_extraction_repository_replaces_page_and_block_records(tmp_path) -> None:
