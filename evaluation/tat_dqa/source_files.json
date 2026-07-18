@@ -1,0 +1,39 @@
+{
+  "dataset": "TAT-DQA",
+  "dataset_url": "https://nextplusplus.github.io/TAT-DQA/",
+  "download_folder": "https://drive.google.com/drive/folders/1SGpZyRWqycMd_dZim1ygvWhl5KdJYDR2",
+  "license": "CC BY 4.0",
+  "retrieved_on": "2026-07-18",
+  "files": [
+    {
+      "name": "tatdqa_dataset_dev.json",
+      "drive_id": "1dmXKledPa6ptXuFibUCtoJMEP6oCD60N",
+      "size_bytes": 1210555,
+      "sha256": "07395642f317754ed22bd8330525af7c1e15b7189efdf046cd0a257fc3178fcb"
+    },
+    {
+      "name": "tatdqa_dataset_test.json",
+      "drive_id": "1Dqvlu83R4t5odayhtt65qwFkxHWmieOr",
+      "size_bytes": 351652,
+      "sha256": "92e20a746efc203936fa38d76e3f3762df4f7a15b815bb6c247a5a1049d27982"
+    },
+    {
+      "name": "tatdqa_dataset_test_gold.json",
+      "drive_id": "1ZQjjIC0BB14l6t9b1Ryq0t-CNAP6iC2J",
+      "size_bytes": 1229595,
+      "sha256": "e6758315b839203a72e05f8849ce4d56fc8d6d7c34dc0240352769014807f5da"
+    },
+    {
+      "name": "tatdqa_docs_dev.zip",
+      "drive_id": "1M1CtHAS4SzFFnNVsFVGgpaGq84mEzPcR",
+      "size_bytes": 155773433,
+      "sha256": "0e463045f3f89dcfd0e7238480fc931bd5f301883d9a022d4bd54d3f9c3ee080"
+    },
+    {
+      "name": "tatdqa_docs_test.zip",
+      "drive_id": "1iqe5r-qgQZLhGtM4G6LkNp9S6OCwOF2L",
+      "size_bytes": 173931848,
+      "sha256": "83c3baf38102fe5b17041efe41ea770912e6afa32eb603fece5337318259ffc8"
+    }
+  ]
+}

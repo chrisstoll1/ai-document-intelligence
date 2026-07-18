@@ -50,3 +50,13 @@ Digital pages use direct extraction. Pages with fewer than 20 alphanumeric chara
 npm --prefix frontend run lint
 npm --prefix frontend run build
 ```
+
+## Evaluation Data
+
+The reproducible TAT-DQA development and locked-test subsets are defined under `evaluation/tat_dqa/`. Raw source archives and extracted PDFs are stored under the ignored `data/evaluation/tat-dqa/` directory.
+
+```powershell
+.\.venv\Scripts\python.exe scripts\prepare_tat_dqa.py --download
+```
+
+The command downloads only the official development and test artifacts, verifies fixed SHA-256 checksums, and prepares 25 documents with 50 evidence-mapped queries. Development data may be used for tuning; the locked-test subset must not be scored until the retrieval configuration is frozen. TAT-DQA contains digitally extractable PDFs, so a separate declared benchmark is still required for OCR comparison.

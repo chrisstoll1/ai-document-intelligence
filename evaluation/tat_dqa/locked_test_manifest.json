@@ -1,0 +1,627 @@
+{
+  "schema_version": 1,
+  "dataset": "TAT-DQA",
+  "dataset_url": "https://nextplusplus.github.io/TAT-DQA/",
+  "license": "CC BY 4.0",
+  "split": "locked_test",
+  "source_split": "test",
+  "selection": {
+    "seed": "docintel-tat-dqa-v1",
+    "method": "SHA-256 ordering over public IDs with a fixed multipage quota",
+    "document_count": 10,
+    "multipage_document_count": 2,
+    "questions_per_document": 2
+  },
+  "documents": [
+    {
+      "uid": "3e2109c375cbf670d40c77b22b430b20",
+      "source": "macom-technology_2019.pdf",
+      "source_page": 1,
+      "page_count": 2,
+      "pdf_sha256": "05383a146421b2f030a62de6a76d95f4725d584bf1c48abdfe3ae24a37011e56",
+      "pdf_file": "data/evaluation/tat-dqa/subset/test/3e2109c375cbf670d40c77b22b430b20.pdf"
+    },
+    {
+      "uid": "48adf518eb23b8900b86a6c63066d799",
+      "source": "asm-international-nv_2019.pdf",
+      "source_page": 2,
+      "page_count": 2,
+      "pdf_sha256": "a53aba5eea3f9159c2a170159bb070215533ac7b629189c8227090d8fe12da19",
+      "pdf_file": "data/evaluation/tat-dqa/subset/test/48adf518eb23b8900b86a6c63066d799.pdf"
+    },
+    {
+      "uid": "637fab7088ea6c78a5dba55f17e833bd",
+      "source": "plexus-corp_2019.pdf",
+      "source_page": 1,
+      "page_count": 1,
+      "pdf_sha256": "885c336e12fafc683231566bd1086c23d52712124d3cc260e1a1565c8c8d2e15",
+      "pdf_file": "data/evaluation/tat-dqa/subset/test/637fab7088ea6c78a5dba55f17e833bd.pdf"
+    },
+    {
+      "uid": "7618a93f40fbba431a7543cb1587330e",
+      "source": "nordic-american-tankers-limited_2019.pdf",
+      "source_page": 1,
+      "page_count": 1,
+      "pdf_sha256": "a393f5f4edc523c04b858e014ce43c7c758d89fe318e60f66f5b78c219e171f6",
+      "pdf_file": "data/evaluation/tat-dqa/subset/test/7618a93f40fbba431a7543cb1587330e.pdf"
+    },
+    {
+      "uid": "7c1a0fac586f2de1336256cc0bf74e68",
+      "source": "csp-inc_2019.pdf",
+      "source_page": 1,
+      "page_count": 1,
+      "pdf_sha256": "1b112cafc4b70310adb40a7a32c966c442ab3314d6fcfadef0b366da5ec9d4e9",
+      "pdf_file": "data/evaluation/tat-dqa/subset/test/7c1a0fac586f2de1336256cc0bf74e68.pdf"
+    },
+    {
+      "uid": "a7dd7ece6cae1b2aefaa138af72df8ff",
+      "source": "allscripts-healthcare-solutions-inc_2019.pdf",
+      "source_page": 1,
+      "page_count": 1,
+      "pdf_sha256": "e7dc6a22612c8b007ab4c988cd62f0852eac23f1cd57e85198fc9e4fd0a42838",
+      "pdf_file": "data/evaluation/tat-dqa/subset/test/a7dd7ece6cae1b2aefaa138af72df8ff.pdf"
+    },
+    {
+      "uid": "b8cf8e9ebf71c892eda0a3ed9ee57852",
+      "source": "carpenter-technology-corp_2019.pdf",
+      "source_page": 1,
+      "page_count": 1,
+      "pdf_sha256": "15574e464087410835619fcf9a9895fa825d6054ba9fc0698e13b36da917114c",
+      "pdf_file": "data/evaluation/tat-dqa/subset/test/b8cf8e9ebf71c892eda0a3ed9ee57852.pdf"
+    },
+    {
+      "uid": "bf597f45d92a8c21e7536c0a00c8f445",
+      "source": "bce-inc_2019.pdf",
+      "source_page": 1,
+      "page_count": 1,
+      "pdf_sha256": "24c09bb91e0daa9a2ec0337721ac086f74ba55f8107c1ff5742c1c200b9cd519",
+      "pdf_file": "data/evaluation/tat-dqa/subset/test/bf597f45d92a8c21e7536c0a00c8f445.pdf"
+    },
+    {
+      "uid": "de0319bc30e6dff7c4736f1fa9de8361",
+      "source": "consolidated-communications-holdings-inc_2019.pdf",
+      "source_page": 1,
+      "page_count": 1,
+      "pdf_sha256": "3d846c0a86eaa33b501f0476f58c41171cbd69d8d8f3322dfa50cd7390c38f79",
+      "pdf_file": "data/evaluation/tat-dqa/subset/test/de0319bc30e6dff7c4736f1fa9de8361.pdf"
+    },
+    {
+      "uid": "eacd9d2c0223e2acd395af609bbe05d1",
+      "source": "gaslog-ltd_2019.pdf",
+      "source_page": 1,
+      "page_count": 1,
+      "pdf_sha256": "1415def72b1696e90af12df00cf6cc027d6768c279cc1c694955c1c831a47110",
+      "pdf_file": "data/evaluation/tat-dqa/subset/test/eacd9d2c0223e2acd395af609bbe05d1.pdf"
+    }
+  ],
+  "queries": [
+    {
+      "uid": "c91185569a4dee8ffc347ca66f16797e",
+      "document_uid": "3e2109c375cbf670d40c77b22b430b20",
+      "question": "What was the gross federal net operating loss in 2019?",
+      "answer_type": "span",
+      "scale": "",
+      "relevant_pages": [
+        2
+      ],
+      "evidence": [
+        {
+          "block_id": "574f0ce7-bcfd-408c-bca7-591893d9e46b",
+          "page": 2,
+          "char_start": 32,
+          "char_end": 48,
+          "text": " $923.4 million ",
+          "block_text": "As of September 27, 2019, we had $923.4 million of gross federal net operating loss (\"NOL\") carryforwards consisting of $479.2 million relating to the"
+        }
+      ]
+    },
+    {
+      "uid": "0a5bf43b11e96289f11f5f5105b1da4a",
+      "document_uid": "3e2109c375cbf670d40c77b22b430b20",
+      "question": "In which year was intangible assets negative?",
+      "answer_type": "span",
+      "scale": "",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "5c58c2c5-db35-4333-9f5d-5f08ef6bf19c",
+          "page": 1,
+          "char_start": 0,
+          "char_end": 4,
+          "text": "2018",
+          "block_text": "2018"
+        }
+      ]
+    },
+    {
+      "uid": "09a9c49a44e30749284f930b2affe2bf",
+      "document_uid": "48adf518eb23b8900b86a6c63066d799",
+      "question": "What is the percentage change in Loans due from subsidiaries - current portion from 2018 to 2019?",
+      "answer_type": "arithmetic",
+      "scale": "percent",
+      "relevant_pages": [
+        2
+      ],
+      "evidence": [
+        {
+          "block_id": "68522b40-e919-47cb-a2bb-29b66c0ffb51",
+          "page": 2,
+          "char_start": 46,
+          "char_end": 51,
+          "text": "2,064",
+          "block_text": "Loans due from subsidiaries - current portion 2,064 2,123"
+        },
+        {
+          "block_id": "68522b40-e919-47cb-a2bb-29b66c0ffb51",
+          "page": 2,
+          "char_start": 52,
+          "char_end": 57,
+          "text": "2,123",
+          "block_text": "Loans due from subsidiaries - current portion 2,064 2,123"
+        }
+      ]
+    },
+    {
+      "uid": "68f438d7411a9b2a3bed90fd19bace3d",
+      "document_uid": "48adf518eb23b8900b86a6c63066d799",
+      "question": "What is the change in Loans due from subsidiaries - current portion from 2018 to 2019?",
+      "answer_type": "arithmetic",
+      "scale": "",
+      "relevant_pages": [
+        2
+      ],
+      "evidence": [
+        {
+          "block_id": "68522b40-e919-47cb-a2bb-29b66c0ffb51",
+          "page": 2,
+          "char_start": 46,
+          "char_end": 51,
+          "text": "2,064",
+          "block_text": "Loans due from subsidiaries - current portion 2,064 2,123"
+        },
+        {
+          "block_id": "68522b40-e919-47cb-a2bb-29b66c0ffb51",
+          "page": 2,
+          "char_start": 52,
+          "char_end": 57,
+          "text": "2,123",
+          "block_text": "Loans due from subsidiaries - current portion 2,064 2,123"
+        }
+      ]
+    },
+    {
+      "uid": "15e4d550e10a33bb0402bebb5b791458",
+      "document_uid": "637fab7088ea6c78a5dba55f17e833bd",
+      "question": "What was the total assets from AMER in 2018?",
+      "answer_type": "span",
+      "scale": "thousand",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "4e13ff19-60b5-44f5-9840-176eec106777",
+          "page": 1,
+          "char_start": 17,
+          "char_end": 24,
+          "text": "645,791",
+          "block_text": "AMER $ 751,990 $ 645,791"
+        }
+      ]
+    },
+    {
+      "uid": "467031848d7d448173b9b7e412941197",
+      "document_uid": "637fab7088ea6c78a5dba55f17e833bd",
+      "question": "What was the percentage change in the total assets from Corporate and eliminations between 2018 and 2019?",
+      "answer_type": "arithmetic",
+      "scale": "percent",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "e1c4d6d5-0fa8-4a3c-9361-1866b7627ac4",
+          "page": 1,
+          "char_start": 34,
+          "char_end": 41,
+          "text": "155,544",
+          "block_text": "Corporate and eliminations 80,608 155,544"
+        },
+        {
+          "block_id": "e1c4d6d5-0fa8-4a3c-9361-1866b7627ac4",
+          "page": 1,
+          "char_start": 27,
+          "char_end": 33,
+          "text": "80,608",
+          "block_text": "Corporate and eliminations 80,608 155,544"
+        }
+      ]
+    },
+    {
+      "uid": "f06234ff58098fd4fd1683a1fa9778e7",
+      "document_uid": "7618a93f40fbba431a7543cb1587330e",
+      "question": "What are the respective accrued interest in 2018 and 2019?",
+      "answer_type": "multi-span",
+      "scale": "thousand",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "0f6543b6-663c-4921-aa95-807d40aaac29",
+          "page": 1,
+          "char_start": 17,
+          "char_end": 20,
+          "text": "163",
+          "block_text": "Accrued Interest 163 1,598"
+        },
+        {
+          "block_id": "0f6543b6-663c-4921-aa95-807d40aaac29",
+          "page": 1,
+          "char_start": 21,
+          "char_end": 26,
+          "text": "1,598",
+          "block_text": "Accrued Interest 163 1,598"
+        }
+      ]
+    },
+    {
+      "uid": "5c370f07c571d9d9d2240a6adb9cdb5a",
+      "document_uid": "7618a93f40fbba431a7543cb1587330e",
+      "question": "What are the respective accrued expense in 2018 and 2019?",
+      "answer_type": "multi-span",
+      "scale": "thousand",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "b7ca12b5-4e5f-440e-8fe6-36d1ec4352c5",
+          "page": 1,
+          "char_start": 24,
+          "char_end": 29,
+          "text": "7,362",
+          "block_text": "Accrued Expenses 11,569 7,362"
+        },
+        {
+          "block_id": "b7ca12b5-4e5f-440e-8fe6-36d1ec4352c5",
+          "page": 1,
+          "char_start": 17,
+          "char_end": 23,
+          "text": "11,569",
+          "block_text": "Accrued Expenses 11,569 7,362"
+        }
+      ]
+    },
+    {
+      "uid": "7a53859343e19e5d89dd4e749a896e89",
+      "document_uid": "7c1a0fac586f2de1336256cc0bf74e68",
+      "question": "What is the difference in revenue earned from customer A and customer B in 2019?",
+      "answer_type": "arithmetic",
+      "scale": "million",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "f07aa5d7-dc76-4bf2-8e59-3773c43f2403",
+          "page": 1,
+          "char_start": 13,
+          "char_end": 17,
+          "text": "10.2",
+          "block_text": "Customer B $ 10.2 13 % $ 1.1 3 %"
+        },
+        {
+          "block_id": "0eb4cbb3-7a5a-472c-8d7f-3c56929df67b",
+          "page": 1,
+          "char_start": 13,
+          "char_end": 16,
+          "text": "3.8",
+          "block_text": "Customer A $ 3.8 5 % $ 7.5 10 %"
+        }
+      ]
+    },
+    {
+      "uid": "a7d1cbfe9fd8b97d8fdacad4dbe214e6",
+      "document_uid": "7c1a0fac586f2de1336256cc0bf74e68",
+      "question": "What is the value of the accounts receivable due from Customer A in 2019?",
+      "answer_type": "span",
+      "scale": "",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "830b902b-061e-48e3-8b01-6e32065e67f1",
+          "page": 1,
+          "char_start": 70,
+          "char_end": 83,
+          "text": " $0.3 million",
+          "block_text": "In addition, accounts receivable from Customer A totaled approximately $0.3 million, or 1%, and approximately $1.1"
+        }
+      ]
+    },
+    {
+      "uid": "50d6a01be8a0986d1b43bdb3a32e3446",
+      "document_uid": "a7dd7ece6cae1b2aefaa138af72df8ff",
+      "question": "What was the change in the Loss from discontinued operations from 2017 to 2018?",
+      "answer_type": "arithmetic",
+      "scale": "thousand",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "87d0ab2c-f959-4f9e-9b34-f125f91c0bbb",
+          "page": 1,
+          "char_start": 41,
+          "char_end": 47,
+          "text": "72,836",
+          "block_text": "Loss from discontinued operations $ 0 $ (72,836) $ (11,915) (100.0%) NM"
+        },
+        {
+          "block_id": "87d0ab2c-f959-4f9e-9b34-f125f91c0bbb",
+          "page": 1,
+          "char_start": 52,
+          "char_end": 58,
+          "text": "11,915",
+          "block_text": "Loss from discontinued operations $ 0 $ (72,836) $ (11,915) (100.0%) NM"
+        }
+      ]
+    },
+    {
+      "uid": "0cc2a888dd2540ce9991a759eb85bbaf",
+      "document_uid": "a7dd7ece6cae1b2aefaa138af72df8ff",
+      "question": "What was the average Income tax effect on discontinued operations between 2017-2019?",
+      "answer_type": "arithmetic",
+      "scale": "thousand",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "70ffa1a8-699a-4922-a25a-48c7e6351105",
+          "page": 1,
+          "char_start": 48,
+          "char_end": 54,
+          "text": "32,497",
+          "block_text": "Income tax effect on discontinued operations 0 (32,497) 42,263 (100.0%) (176.9%)"
+        },
+        {
+          "block_id": "70ffa1a8-699a-4922-a25a-48c7e6351105",
+          "page": 1,
+          "char_start": 45,
+          "char_end": 46,
+          "text": "0",
+          "block_text": "Income tax effect on discontinued operations 0 (32,497) 42,263 (100.0%) (176.9%)"
+        },
+        {
+          "block_id": "70ffa1a8-699a-4922-a25a-48c7e6351105",
+          "page": 1,
+          "char_start": 56,
+          "char_end": 62,
+          "text": "42,263",
+          "block_text": "Income tax effect on discontinued operations 0 (32,497) 42,263 (100.0%) (176.9%)"
+        }
+      ]
+    },
+    {
+      "uid": "0758ba46bed17f09d48c3c5d9cd907fd",
+      "document_uid": "b8cf8e9ebf71c892eda0a3ed9ee57852",
+      "question": "In which years was the gross margin calculated?",
+      "answer_type": "multi-span",
+      "scale": "",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "3d6c875e-d7d1-45ce-9154-1d751a1e9c31",
+          "page": 1,
+          "char_start": 28,
+          "char_end": 32,
+          "text": "2019",
+          "block_text": "Fiscal Year ($ in millions) 2019 2018 Net sales $ 2,380.2 $ 2,157.7 Less: surcharge revenue 438.1 365.4 Net sales excluding surcharge revenue $ 1,942.1 $ 1,792.3"
+        },
+        {
+          "block_id": "3d6c875e-d7d1-45ce-9154-1d751a1e9c31",
+          "page": 1,
+          "char_start": 33,
+          "char_end": 37,
+          "text": "2018",
+          "block_text": "Fiscal Year ($ in millions) 2019 2018 Net sales $ 2,380.2 $ 2,157.7 Less: surcharge revenue 438.1 365.4 Net sales excluding surcharge revenue $ 1,942.1 $ 1,792.3"
+        }
+      ]
+    },
+    {
+      "uid": "16b876d750f60ee9bbe05551a883be87",
+      "document_uid": "b8cf8e9ebf71c892eda0a3ed9ee57852",
+      "question": "In which year was the gross margin larger?",
+      "answer_type": "span",
+      "scale": "",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "3d6c875e-d7d1-45ce-9154-1d751a1e9c31",
+          "page": 1,
+          "char_start": 28,
+          "char_end": 32,
+          "text": "2019",
+          "block_text": "Fiscal Year ($ in millions) 2019 2018 Net sales $ 2,380.2 $ 2,157.7 Less: surcharge revenue 438.1 365.4 Net sales excluding surcharge revenue $ 1,942.1 $ 1,792.3"
+        }
+      ]
+    },
+    {
+      "uid": "96b821be95abc59e079c123bef8a759c",
+      "document_uid": "bf597f45d92a8c21e7536c0a00c8f445",
+      "question": "What is the weighted average duration of the post-employment benefit obligation?",
+      "answer_type": "span",
+      "scale": "",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "3bf90149-368a-4df0-9aea-240e205079cf",
+          "page": 1,
+          "char_start": 75,
+          "char_end": 83,
+          "text": "14 years",
+          "block_text": "The weighted average duration of the post-employment benefit obligation is 14 years."
+        }
+      ]
+    },
+    {
+      "uid": "cba448f7114df62a298deb6c4d97bffc",
+      "document_uid": "bf597f45d92a8c21e7536c0a00c8f445",
+      "question": "What is the cost of living indexation rate applicable to?",
+      "answer_type": "span",
+      "scale": "",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "7281cb48-ef0f-4219-bc14-fc6e23956519",
+          "page": 1,
+          "char_start": 38,
+          "char_end": 73,
+          "text": "only applicable to DB pension plans",
+          "block_text": "(1) Cost of living indexation rate is only applicable to DB pension plans."
+        }
+      ]
+    },
+    {
+      "uid": "58261c573ed7041f7e1c1337bba522ec",
+      "document_uid": "de0319bc30e6dff7c4736f1fa9de8361",
+      "question": "What was the average performance shares for 2017-2019?",
+      "answer_type": "arithmetic",
+      "scale": "thousand",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "2a7b3844-bcd0-4c3b-92f2-83b6a5cead02",
+          "page": 1,
+          "char_start": 19,
+          "char_end": 24,
+          "text": "2,823",
+          "block_text": "Performance shares 2,823 1,870 780"
+        },
+        {
+          "block_id": "2a7b3844-bcd0-4c3b-92f2-83b6a5cead02",
+          "page": 1,
+          "char_start": 31,
+          "char_end": 34,
+          "text": "780",
+          "block_text": "Performance shares 2,823 1,870 780"
+        },
+        {
+          "block_id": "2a7b3844-bcd0-4c3b-92f2-83b6a5cead02",
+          "page": 1,
+          "char_start": 25,
+          "char_end": 30,
+          "text": "1,870",
+          "block_text": "Performance shares 2,823 1,870 780"
+        }
+      ]
+    },
+    {
+      "uid": "f9fed3d67c1a38fe5cf5811c272dc8f0",
+      "document_uid": "de0319bc30e6dff7c4736f1fa9de8361",
+      "question": "What was the average restricted stock for 2017-2019?",
+      "answer_type": "arithmetic",
+      "scale": "thousand",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "a696c1f7-b2ce-4221-8363-d12b30b76374",
+          "page": 1,
+          "char_start": 35,
+          "char_end": 40,
+          "text": "1,986",
+          "block_text": "Restricted stock $ 4,013 $ 3,249 $ 1,986"
+        },
+        {
+          "block_id": "a696c1f7-b2ce-4221-8363-d12b30b76374",
+          "page": 1,
+          "char_start": 19,
+          "char_end": 24,
+          "text": "4,013",
+          "block_text": "Restricted stock $ 4,013 $ 3,249 $ 1,986"
+        },
+        {
+          "block_id": "a696c1f7-b2ce-4221-8363-d12b30b76374",
+          "page": 1,
+          "char_start": 27,
+          "char_end": 32,
+          "text": "3,249",
+          "block_text": "Restricted stock $ 4,013 $ 3,249 $ 1,986"
+        }
+      ]
+    },
+    {
+      "uid": "aa8e3cd966e80cafcad30cee512dcad6",
+      "document_uid": "eacd9d2c0223e2acd395af609bbe05d1",
+      "question": "What was the change in lease charge from 2018 to 2019?",
+      "answer_type": "arithmetic",
+      "scale": "thousand",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "e21e7fd1-af26-4de1-bc88-64d99e609531",
+          "page": 1,
+          "char_start": 297,
+          "char_end": 303,
+          "text": "10,520",
+          "block_text": "Financial Costs Amortization and write-off of deferred loan/bond issuance costs/premium . 12,398 12,593 14,154 Interest expense on loans and realized loss on cash flow hedges . 85,813 111,600 122,819 Interest expense on bonds and realized loss on CCSs . 27,085 30,029 34,607 Lease charge . 10,875 10,520 10,506 Loss arising on bond repurchases at a premium (Note 13) . 1,459 \u2014 2,119 Other financial costs, including unrealized foreign exchange losses on cash and bonds . 1,551 1,885 6,276 Total financial costs . 139,181 166,627 190,481"
+        },
+        {
+          "block_id": "e21e7fd1-af26-4de1-bc88-64d99e609531",
+          "page": 1,
+          "char_start": 304,
+          "char_end": 310,
+          "text": "10,506",
+          "block_text": "Financial Costs Amortization and write-off of deferred loan/bond issuance costs/premium . 12,398 12,593 14,154 Interest expense on loans and realized loss on cash flow hedges . 85,813 111,600 122,819 Interest expense on bonds and realized loss on CCSs . 27,085 30,029 34,607 Lease charge . 10,875 10,520 10,506 Loss arising on bond repurchases at a premium (Note 13) . 1,459 \u2014 2,119 Other financial costs, including unrealized foreign exchange losses on cash and bonds . 1,551 1,885 6,276 Total financial costs . 139,181 166,627 190,481"
+        }
+      ]
+    },
+    {
+      "uid": "c7a09c0292dbc03de3784629cfd11cff",
+      "document_uid": "eacd9d2c0223e2acd395af609bbe05d1",
+      "question": "What was the percentage change in total financial costs from 2017 to 2019?",
+      "answer_type": "arithmetic",
+      "scale": "percent",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "e21e7fd1-af26-4de1-bc88-64d99e609531",
+          "page": 1,
+          "char_start": 529,
+          "char_end": 536,
+          "text": "190,481",
+          "block_text": "Financial Costs Amortization and write-off of deferred loan/bond issuance costs/premium . 12,398 12,593 14,154 Interest expense on loans and realized loss on cash flow hedges . 85,813 111,600 122,819 Interest expense on bonds and realized loss on CCSs . 27,085 30,029 34,607 Lease charge . 10,875 10,520 10,506 Loss arising on bond repurchases at a premium (Note 13) . 1,459 \u2014 2,119 Other financial costs, including unrealized foreign exchange losses on cash and bonds . 1,551 1,885 6,276 Total financial costs . 139,181 166,627 190,481"
+        },
+        {
+          "block_id": "e21e7fd1-af26-4de1-bc88-64d99e609531",
+          "page": 1,
+          "char_start": 513,
+          "char_end": 520,
+          "text": "139,181",
+          "block_text": "Financial Costs Amortization and write-off of deferred loan/bond issuance costs/premium . 12,398 12,593 14,154 Interest expense on loans and realized loss on cash flow hedges . 85,813 111,600 122,819 Interest expense on bonds and realized loss on CCSs . 27,085 30,029 34,607 Lease charge . 10,875 10,520 10,506 Loss arising on bond repurchases at a premium (Note 13) . 1,459 \u2014 2,119 Other financial costs, including unrealized foreign exchange losses on cash and bonds . 1,551 1,885 6,276 Total financial costs . 139,181 166,627 190,481"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,875 @@
+{
+  "schema_version": 1,
+  "dataset": "TAT-DQA",
+  "dataset_url": "https://nextplusplus.github.io/TAT-DQA/",
+  "license": "CC BY 4.0",
+  "split": "development",
+  "source_split": "dev",
+  "selection": {
+    "seed": "docintel-tat-dqa-v1",
+    "method": "SHA-256 ordering over public IDs with a fixed multipage quota",
+    "document_count": 15,
+    "multipage_document_count": 3,
+    "questions_per_document": 2
+  },
+  "documents": [
+    {
+      "uid": "018ba3b4adee47eef3555fc300cbde94",
+      "source": "Woolworths-Limited_2019.pdf",
+      "source_page": 1,
+      "page_count": 1,
+      "pdf_sha256": "9d544da2edaa996cc0f5dfe0372358c89822d3af490a00ab2190b2247ee91a38",
+      "pdf_file": "data/evaluation/tat-dqa/subset/dev/018ba3b4adee47eef3555fc300cbde94.pdf"
+    },
+    {
+      "uid": "11ba155b7577c83fe5f3c4f766039e93",
+      "source": "navios-maritime-holdings-inc_2019.pdf",
+      "source_page": 1,
+      "page_count": 1,
+      "pdf_sha256": "dc2adc93656717163a18f601c1058a7d68ecc0aa3dd2eb453b83482bd08c8338",
+      "pdf_file": "data/evaluation/tat-dqa/subset/dev/11ba155b7577c83fe5f3c4f766039e93.pdf"
+    },
+    {
+      "uid": "1b54b462b06a8786c7b0b63587f93122",
+      "source": "cts-corporation_2019.pdf",
+      "source_page": 1,
+      "page_count": 1,
+      "pdf_sha256": "dc1c6b6db682684e3bc33a457b230c1bfc514e6cd01b297e08d4b60d99eed3e9",
+      "pdf_file": "data/evaluation/tat-dqa/subset/dev/1b54b462b06a8786c7b0b63587f93122.pdf"
+    },
+    {
+      "uid": "1dcc49e0d122ddd39f5df46093f57e4d",
+      "source": "gaslog-ltd_2019.pdf",
+      "source_page": 1,
+      "page_count": 1,
+      "pdf_sha256": "930ae864353cb163b40fad3ac381fb954f8e455f2d09ce733080352c88472964",
+      "pdf_file": "data/evaluation/tat-dqa/subset/dev/1dcc49e0d122ddd39f5df46093f57e4d.pdf"
+    },
+    {
+      "uid": "23c221a22dd69ef8fb163f78614aa1d6",
+      "source": "allscripts-healthcare-solutions-inc_2019.pdf",
+      "source_page": 2,
+      "page_count": 2,
+      "pdf_sha256": "799d0e71387e6d9ae8448cec9907ff7d67342a1b81b654ef69c96f5a4b5bc336",
+      "pdf_file": "data/evaluation/tat-dqa/subset/dev/23c221a22dd69ef8fb163f78614aa1d6.pdf"
+    },
+    {
+      "uid": "4bac0b8169e05a0e8d1220fab5e165d5",
+      "source": "sophos-group_2019.pdf",
+      "source_page": 1,
+      "page_count": 1,
+      "pdf_sha256": "052e257d30eb71b17dcd4ee1e9bb7415804496abac12e104626d18cd2c574d14",
+      "pdf_file": "data/evaluation/tat-dqa/subset/dev/4bac0b8169e05a0e8d1220fab5e165d5.pdf"
+    },
+    {
+      "uid": "4d41ea7a63b2d9b5cc3cb24ca6c7e9ac",
+      "source": "quicklogic-corporation_2019.pdf",
+      "source_page": 1,
+      "page_count": 1,
+      "pdf_sha256": "62871983ea38b52b09a6a2ad94aad52bd6cae634f9105bd65ad9ce5f4faa3ca9",
+      "pdf_file": "data/evaluation/tat-dqa/subset/dev/4d41ea7a63b2d9b5cc3cb24ca6c7e9ac.pdf"
+    },
+    {
+      "uid": "6c7eaa692c25edb5cc125d550deb77ca",
+      "source": "Intu-Properties_2019.pdf",
+      "source_page": 1,
+      "page_count": 1,
+      "pdf_sha256": "d635fcbdf692e4a668de62401ed43d363ac0e8323996bd70c3d92586924b9569",
+      "pdf_file": "data/evaluation/tat-dqa/subset/dev/6c7eaa692c25edb5cc125d550deb77ca.pdf"
+    },
+    {
+      "uid": "8151aa1c9aa6f6a7c9cd3b003dec18e3",
+      "source": "Auto-Trader_2019.pdf",
+      "source_page": 1,
+      "page_count": 1,
+      "pdf_sha256": "6b6f8ac6fd7c12e259df8ff7a4660a9997a3e7a0f53876e31dda0584590527af",
+      "pdf_file": "data/evaluation/tat-dqa/subset/dev/8151aa1c9aa6f6a7c9cd3b003dec18e3.pdf"
+    },
+    {
+      "uid": "adaad2efcb109915eb3a70e2d992555c",
+      "source": "verizon-communications-inc_2019.pdf",
+      "source_page": 1,
+      "page_count": 1,
+      "pdf_sha256": "5d401bb25b0b1ec3f41845f261e97951651381c8ea7559c4ab208b7deaefe99a",
+      "pdf_file": "data/evaluation/tat-dqa/subset/dev/adaad2efcb109915eb3a70e2d992555c.pdf"
+    },
+    {
+      "uid": "b16e4c159791654187742d7ecc49f3cd",
+      "source": "lam-research-corporation_2019.pdf",
+      "source_page": 1,
+      "page_count": 2,
+      "pdf_sha256": "500d7aab81babf8a7365c116f8274a169563e9d05d32300d1c21706b8a4a9421",
+      "pdf_file": "data/evaluation/tat-dqa/subset/dev/b16e4c159791654187742d7ecc49f3cd.pdf"
+    },
+    {
+      "uid": "c1ea2ff4819e824e68f44b1b60a1cd8a",
+      "source": "cubic-corp_2019.pdf",
+      "source_page": 1,
+      "page_count": 1,
+      "pdf_sha256": "c3c9b323f32db5ba1d02fcf9ed6254d42b894ea8186f7c3c4cf84368275e2bd6",
+      "pdf_file": "data/evaluation/tat-dqa/subset/dev/c1ea2ff4819e824e68f44b1b60a1cd8a.pdf"
+    },
+    {
+      "uid": "e2018edc5002efd48cf4cd9a7f7040d3",
+      "source": "oracle-corporation_2019.pdf",
+      "source_page": 1,
+      "page_count": 1,
+      "pdf_sha256": "3660ae51b95604ca907a3527049b2233f3d38402e967bd38bbc9ebf47361c328",
+      "pdf_file": "data/evaluation/tat-dqa/subset/dev/e2018edc5002efd48cf4cd9a7f7040d3.pdf"
+    },
+    {
+      "uid": "eb2a796ed0547c324297fb88898b9d71",
+      "source": "microsoft-corporation_2019.pdf",
+      "source_page": 1,
+      "page_count": 2,
+      "pdf_sha256": "eef0c83a184fbf1bd76ed91b876c1496b7d9b852f465b06aeafe56eb115bbcaf",
+      "pdf_file": "data/evaluation/tat-dqa/subset/dev/eb2a796ed0547c324297fb88898b9d71.pdf"
+    },
+    {
+      "uid": "fc6df82265ed5153ed1fe3cdbc4e7b62",
+      "source": "Intu-Properties_2019.pdf",
+      "source_page": 1,
+      "page_count": 1,
+      "pdf_sha256": "b7f58d90a42fd1476c1e1a69a5bc7bef4a1fbd43aee972008a4610532636f8b9",
+      "pdf_file": "data/evaluation/tat-dqa/subset/dev/fc6df82265ed5153ed1fe3cdbc4e7b62.pdf"
+    }
+  ],
+  "queries": [
+    {
+      "uid": "0b6fbe9a9b5d492522bbb89246fface7",
+      "document_uid": "018ba3b4adee47eef3555fc300cbde94",
+      "question": "What is another name for the defined benefit plan?",
+      "answer_type": "span",
+      "scale": "",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "0c343de6-35f3-41d0-81cb-c90ee1885a85",
+          "page": 1,
+          "char_start": 71,
+          "char_end": 107,
+          "text": "Woolworths Group Superannuation Plan",
+          "block_text": "Defined benefit plans The Company sponsors a defined benefit plan, the Woolworths Group Superannuation Plan (WGSP or the Plan), that provides superannuation benefits for employees upon retirement. The defined benefit plan is closed to new members. The assets of the WGSP are held in a sub-plan within AMP SignatureSuper that is legally separated from the Group. The WGSP invests entirely in pooled unit trust products where prices are quoted on a daily basis."
+        }
+      ]
+    },
+    {
+      "uid": "0db4ccdc316a0f8a51a24a8b971e4975",
+      "document_uid": "018ba3b4adee47eef3555fc300cbde94",
+      "question": "What is the average discount rate for 2018 and 2019?",
+      "answer_type": "arithmetic",
+      "scale": "percent",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "cfc800f2-119d-424f-94de-150074d7a3b9",
+          "page": 1,
+          "char_start": 14,
+          "char_end": 17,
+          "text": "2.9",
+          "block_text": "Discount rate 2.9 3.8 Expected rate of salary increase 2.5 2.5 Rate of price inflation 2.0 2.0"
+        },
+        {
+          "block_id": "cfc800f2-119d-424f-94de-150074d7a3b9",
+          "page": 1,
+          "char_start": 18,
+          "char_end": 21,
+          "text": "3.8",
+          "block_text": "Discount rate 2.9 3.8 Expected rate of salary increase 2.5 2.5 Rate of price inflation 2.0 2.0"
+        }
+      ]
+    },
+    {
+      "uid": "aa7bf316bf3fc1fc60d6094ee163490e",
+      "document_uid": "11ba155b7577c83fe5f3c4f766039e93",
+      "question": "What does the table show?",
+      "answer_type": "span",
+      "scale": "",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "0b0ff074-b1bc-4ea6-a547-1fe3b3570cdc",
+          "page": 1,
+          "char_start": 0,
+          "char_end": 122,
+          "text": "Cash provided by operating activities for the year ended December 31, 2018 as compared to the year ended December 31, 2017",
+          "block_text": "Cash provided by operating activities for the year ended December 31, 2018 as compared to the year ended December 31, 2017:"
+        }
+      ]
+    },
+    {
+      "uid": "6453d82fa4fe65b323407550d83156c7",
+      "document_uid": "11ba155b7577c83fe5f3c4f766039e93",
+      "question": "What was the Provision for losses on accounts receivable in 2017?",
+      "answer_type": "span",
+      "scale": "thousand",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "61637d93-76fc-4790-8631-29882c246355",
+          "page": 1,
+          "char_start": 48,
+          "char_end": 51,
+          "text": "269",
+          "block_text": "Provision for losses on accounts receivable 575 269"
+        }
+      ]
+    },
+    {
+      "uid": "d72d6259210e4c2b10b45c7bd213d0f5",
+      "document_uid": "1b54b462b06a8786c7b0b63587f93122",
+      "question": "Which years does the table provide information for share count and par value data related to shareholders' equity?",
+      "answer_type": "multi-span",
+      "scale": "",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "1b914cfd-7dc5-4575-9f86-c12c2c3f65fc",
+          "page": 1,
+          "char_start": 10,
+          "char_end": 14,
+          "text": "2017",
+          "block_text": "2019 2018 2017"
+        },
+        {
+          "block_id": "1b914cfd-7dc5-4575-9f86-c12c2c3f65fc",
+          "page": 1,
+          "char_start": 0,
+          "char_end": 4,
+          "text": "2019",
+          "block_text": "2019 2018 2017"
+        },
+        {
+          "block_id": "1b914cfd-7dc5-4575-9f86-c12c2c3f65fc",
+          "page": 1,
+          "char_start": 5,
+          "char_end": 9,
+          "text": "2018",
+          "block_text": "2019 2018 2017"
+        }
+      ]
+    },
+    {
+      "uid": "53ac9622cc64aacf1ef57afb58d6d055",
+      "document_uid": "1b54b462b06a8786c7b0b63587f93122",
+      "question": "What was the percentage change in the total between 2018 and 2019?",
+      "answer_type": "arithmetic",
+      "scale": "percent",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "f7d93e55-2c37-4e17-a6f8-f4b2c000b70d",
+          "page": 1,
+          "char_start": 8,
+          "char_end": 13,
+          "text": "5,015",
+          "block_text": "Total $ 5,015 $ 5,256 $ 4,184"
+        },
+        {
+          "block_id": "f7d93e55-2c37-4e17-a6f8-f4b2c000b70d",
+          "page": 1,
+          "char_start": 16,
+          "char_end": 21,
+          "text": "5,256",
+          "block_text": "Total $ 5,015 $ 5,256 $ 4,184"
+        }
+      ]
+    },
+    {
+      "uid": "d534bc8beaefb6a159e37407fcd17ee9",
+      "document_uid": "1dcc49e0d122ddd39f5df46093f57e4d",
+      "question": "What was the fair value of derivatives non-current liability in 2019?",
+      "answer_type": "span",
+      "scale": "thousand",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "d80efd8a-e203-4089-8176-dd3bd2ac97a4",
+          "page": 1,
+          "char_start": 131,
+          "char_end": 137,
+          "text": "41,837",
+          "block_text": "Derivative financial instruments, current liability . 2,091 8,095 Derivative financial instruments, non-current liability . 10,001 41,837"
+        }
+      ]
+    },
+    {
+      "uid": "5ad5529129e5d30c96a0c61c2294431e",
+      "document_uid": "1dcc49e0d122ddd39f5df46093f57e4d",
+      "question": "In which years was the fair value of the derivative liabilities recorded for?",
+      "answer_type": "multi-span",
+      "scale": "",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "b629c103-b3c4-4fbf-939a-69b65babf3cf",
+          "page": 1,
+          "char_start": 140,
+          "char_end": 144,
+          "text": "2019",
+          "block_text": "GasLog Ltd. and its Subsidiaries Notes to the consolidated financial statements (Continued) For the years ended December 31, 2017, 2018 and 2019 (All amounts expressed in thousands of U.S. Dollars, except share and per share data)"
+        },
+        {
+          "block_id": "b629c103-b3c4-4fbf-939a-69b65babf3cf",
+          "page": 1,
+          "char_start": 131,
+          "char_end": 135,
+          "text": "2018",
+          "block_text": "GasLog Ltd. and its Subsidiaries Notes to the consolidated financial statements (Continued) For the years ended December 31, 2017, 2018 and 2019 (All amounts expressed in thousands of U.S. Dollars, except share and per share data)"
+        }
+      ]
+    },
+    {
+      "uid": "b17a38d8207aaad3ba2f66530902d30c",
+      "document_uid": "23c221a22dd69ef8fb163f78614aa1d6",
+      "question": "What is the change in Revenue of Software delivery, support and maintenance between 2017 and 2018?",
+      "answer_type": "arithmetic",
+      "scale": "thousand",
+      "relevant_pages": [
+        2
+      ],
+      "evidence": [
+        {
+          "block_id": "b7b7f3da-c08d-4ab8-aa1a-8da597c7cf65",
+          "page": 2,
+          "char_start": 53,
+          "char_end": 59,
+          "text": "10,949",
+          "block_text": "Software delivery, support and maintenance $ 9,441 $ 10,949"
+        },
+        {
+          "block_id": "b7b7f3da-c08d-4ab8-aa1a-8da597c7cf65",
+          "page": 2,
+          "char_start": 45,
+          "char_end": 50,
+          "text": "9,441",
+          "block_text": "Software delivery, support and maintenance $ 9,441 $ 10,949"
+        }
+      ]
+    },
+    {
+      "uid": "9bb527db8bb1623864d225c61c78ccd9",
+      "document_uid": "23c221a22dd69ef8fb163f78614aa1d6",
+      "question": "How much was the accrued expenses associated with the Horizon Clinicals and Series2000 Revenue Cycle businesses on the consolidated balance sheets as of December 31, 2018?",
+      "answer_type": "span",
+      "scale": "",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "1e8a9e1c-2fce-4e7d-938f-1706af896060",
+          "page": 1,
+          "char_start": 496,
+          "char_end": 510,
+          "text": " $0.9 million ",
+          "block_text": "2018. The decision to discontinue maintaining and supporting these solutions was made prior to our acquisition of the EIS Business and, therefore, they are presented below as discontinued operations. Until the end of the first quarter of 2018, we were involved in ongoing maintenance and support for these solutions until customers transitioned to other platforms. No disposal gains or losses were recognized during the year ended December 31, 2018 related to these discontinued solutions. We had $0.9 million of accrued expenses associated with the Horizon Clinicals and Series2000 Revenue Cycle businesses on the consolidated balance sheets as of December 31, 2018"
+        }
+      ]
+    },
+    {
+      "uid": "76aea549fce1101a2efdaae35c3eee7e",
+      "document_uid": "4bac0b8169e05a0e8d1220fab5e165d5",
+      "question": "How is the Group's revenue diversified?",
+      "answer_type": "span",
+      "scale": "",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "f01d70d3-00ec-47fd-aacd-8bd5c69f3785",
+          "page": 1,
+          "char_start": 35,
+          "char_end": 178,
+          "text": "across its entire end customer base and no single end user accounted for greater than 10 per cent of the Group\u2019s revenue in either 2018 or 2019",
+          "block_text": "The Group\u2019s revenue is diversified across its entire end customer base and no single end user accounted for greater than 10 per cent of the Group\u2019s revenue in either 2018 or 2019. In 2019 two distributors accounted for 15 per cent each, and one distributor for 11 per cent of Group billings which were attributable to all segments of the Group (2018: three distributors accounted for 15 per cent, 14 per cent and 12 per cent each)."
+        }
+      ]
+    },
+    {
+      "uid": "c11ea0f3ddc8a0bcb68c4e8ea960bb82",
+      "document_uid": "4bac0b8169e05a0e8d1220fab5e165d5",
+      "question": "What is the Revenue from UK in 2019?",
+      "answer_type": "span",
+      "scale": "million",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "6329c525-6f61-457b-a1b2-1387b5383477",
+          "page": 1,
+          "char_start": 3,
+          "char_end": 7,
+          "text": "83.2",
+          "block_text": "UK 83.2 73.5"
+        }
+      ]
+    },
+    {
+      "uid": "15cd3644a86e8daa20923764f700bc62",
+      "document_uid": "4d41ea7a63b2d9b5cc3cb24ca6c7e9ac",
+      "question": "What are the respective proportion of cost of revenue as a percentage of revenue in 2018 and 2019?",
+      "answer_type": "multi-span",
+      "scale": "",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "a63724e4-d6cc-483f-a7dd-efcc43eea8a4",
+          "page": 1,
+          "char_start": 16,
+          "char_end": 18,
+          "text": "43",
+          "block_text": "Cost of revenue 43 % 50 % 55 %"
+        },
+        {
+          "block_id": "a63724e4-d6cc-483f-a7dd-efcc43eea8a4",
+          "page": 1,
+          "char_start": 21,
+          "char_end": 23,
+          "text": "50",
+          "block_text": "Cost of revenue 43 % 50 % 55 %"
+        }
+      ]
+    },
+    {
+      "uid": "1194b30d85fa5c35b867687d6bba2f20",
+      "document_uid": "4d41ea7a63b2d9b5cc3cb24ca6c7e9ac",
+      "question": "What is the total proportion of cost of revenue as a percentage of revenue in 2017 and 2018?",
+      "answer_type": "arithmetic",
+      "scale": "percent",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "a63724e4-d6cc-483f-a7dd-efcc43eea8a4",
+          "page": 1,
+          "char_start": 21,
+          "char_end": 23,
+          "text": "50",
+          "block_text": "Cost of revenue 43 % 50 % 55 %"
+        },
+        {
+          "block_id": "a63724e4-d6cc-483f-a7dd-efcc43eea8a4",
+          "page": 1,
+          "char_start": 26,
+          "char_end": 28,
+          "text": "55",
+          "block_text": "Cost of revenue 43 % 50 % 55 %"
+        }
+      ]
+    },
+    {
+      "uid": "1d2e7bc0ac0cc8745298288d880b3a39",
+      "document_uid": "6c7eaa692c25edb5cc125d550deb77ca",
+      "question": "What is the percentage change in the total investment in associates from 31 December 2018 to 31 December  2019?",
+      "answer_type": "arithmetic",
+      "scale": "percent",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "a9b4c485-712f-4bbe-bba9-a5523ed74bba",
+          "page": 1,
+          "char_start": 15,
+          "char_end": 19,
+          "text": "53.7",
+          "block_text": "At 31 December 53.7 65.6"
+        },
+        {
+          "block_id": "a9b4c485-712f-4bbe-bba9-a5523ed74bba",
+          "page": 1,
+          "char_start": 20,
+          "char_end": 24,
+          "text": "65.6",
+          "block_text": "At 31 December 53.7 65.6"
+        }
+      ]
+    },
+    {
+      "uid": "710a356e3abccae068bbe658b8f8bda6",
+      "document_uid": "6c7eaa692c25edb5cc125d550deb77ca",
+      "question": "What was the market price per share of Prozone at 31 December 2019?",
+      "answer_type": "span",
+      "scale": "",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "3597e9b3-dc38-4081-885a-95c8b72f33da",
+          "page": 1,
+          "char_start": 62,
+          "char_end": 67,
+          "text": "INR19",
+          "block_text": "The market price per share of Prozone at 31 December 2019 was INR19 (31 December 2018: INR29), valuing the Group\u2019s interest at \u00a39.9 million (31 December 2018: \u00a316.4 million) compared with the Prozone carrying value pre-impairment of \u00a341.5 million (31 December 2018: \u00a345.1 million). As the share price of Prozone is lower than its carrying value, a review of the carrying value of Prozone and the Group\u2019s direct interest in Empire (as it also forms part of the Prozone group) has been undertaken. Underpinning the impairment assessment (where the fair value less costs to sell was considered) were the independent third-party valuations received for the investment and development properties, representing the underlying value of the associate\u2019s net assets. Assumptions were also made for tax and other costs that would be reasonably expected if these assets were to be disposed of. Following this review, an impairment of \u00a37.4 million was recognised."
+        }
+      ]
+    },
+    {
+      "uid": "e2a2582d121a7da6712ad4092532a6ab",
+      "document_uid": "8151aa1c9aa6f6a7c9cd3b003dec18e3",
+      "question": "What was the change in Capital redemption reserve in 2019 from 2018?",
+      "answer_type": "arithmetic",
+      "scale": "million",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "177035d8-c8f8-4429-9149-f5dc6272e9e3",
+          "page": 1,
+          "char_start": 27,
+          "char_end": 30,
+          "text": "0.7",
+          "block_text": "Capital redemption reserve 0.7 0.5"
+        },
+        {
+          "block_id": "177035d8-c8f8-4429-9149-f5dc6272e9e3",
+          "page": 1,
+          "char_start": 31,
+          "char_end": 34,
+          "text": "0.5",
+          "block_text": "Capital redemption reserve 0.7 0.5"
+        }
+      ]
+    },
+    {
+      "uid": "bcae48bb6aff1a6ecabd924db9207aa4",
+      "document_uid": "8151aa1c9aa6f6a7c9cd3b003dec18e3",
+      "question": "What was the percentage change in Capital redemption reserve in 2019 from 2018?",
+      "answer_type": "arithmetic",
+      "scale": "percent",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "177035d8-c8f8-4429-9149-f5dc6272e9e3",
+          "page": 1,
+          "char_start": 27,
+          "char_end": 30,
+          "text": "0.7",
+          "block_text": "Capital redemption reserve 0.7 0.5"
+        },
+        {
+          "block_id": "177035d8-c8f8-4429-9149-f5dc6272e9e3",
+          "page": 1,
+          "char_start": 31,
+          "char_end": 34,
+          "text": "0.5",
+          "block_text": "Capital redemption reserve 0.7 0.5"
+        }
+      ]
+    },
+    {
+      "uid": "91c9bc066bcc324bbaf20d1316f9e928",
+      "document_uid": "adaad2efcb109915eb3a70e2d992555c",
+      "question": "What was the change in the statutory federal income tax rate from 2018 to 2019?",
+      "answer_type": "arithmetic",
+      "scale": "percent",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "ca99d549-561f-445b-917c-512bfb14275d",
+          "page": 1,
+          "char_start": 34,
+          "char_end": 38,
+          "text": "21.0",
+          "block_text": "Statutory federal income tax rate 21.0% 21.0% 35.0%"
+        }
+      ]
+    },
+    {
+      "uid": "a419fa0f7bbc3031e194e3ff422cd9d6",
+      "document_uid": "adaad2efcb109915eb3a70e2d992555c",
+      "question": "What was the effective tax rate in 2019?",
+      "answer_type": "span",
+      "scale": "",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "35deeee5-62f7-4f4e-a4d3-e35f8ecafcd3",
+          "page": 1,
+          "char_start": 0,
+          "char_end": 6,
+          "text": "13.0% ",
+          "block_text": "13.0% 18.3% (48.3)%"
+        }
+      ]
+    },
+    {
+      "uid": "2cd619c6e5fc16f0f72bb2b0e7dbc15d",
+      "document_uid": "b16e4c159791654187742d7ecc49f3cd",
+      "question": "What is the percentage of capital leases in the total liabilities?",
+      "answer_type": "arithmetic",
+      "scale": "percent",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "7b638401-5eeb-4d3a-a4a5-5cd855e07b45",
+          "page": 1,
+          "char_start": 19,
+          "char_end": 25,
+          "text": "50,049",
+          "block_text": "Capital leases (1) 50,049 7,729 17,422 10,097 14,801"
+        },
+        {
+          "block_id": "dc6a0362-cd0b-4133-bf6a-4673278b5af9",
+          "page": 1,
+          "char_start": 8,
+          "char_end": 17,
+          "text": "8,031,229",
+          "block_text": "Total $ 8,031,229 $ 1,125,748 $ 1,314,675 $ 501,250 $ 5,089,556"
+        }
+      ]
+    },
+    {
+      "uid": "111aba0a989f1fa3c1503831eb6a9cea",
+      "document_uid": "b16e4c159791654187742d7ecc49f3cd",
+      "question": "What is the  one-time transition tax on accumulated unrepatriated foreign earnings during the December 2017 quarter?",
+      "answer_type": "span",
+      "scale": "",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "dcdd652c-198b-48ff-b1c7-f4752515a76e",
+          "page": 1,
+          "char_start": 119,
+          "char_end": 132,
+          "text": " $991 million",
+          "block_text": "During the December 2017 quarter, a one-time transition tax on accumulated unrepatriated foreign earnings, estimated at $991 million, was recognized associated with the December 2017 U.S. tax reform. In accordance with SAB 118, we finalized the amount of the transition tax during the period ended December 23, 2018. The final amount is $868.4 million. The Company elected"
+        }
+      ]
+    },
+    {
+      "uid": "7f08d5aba8573202a49f37d777a8c54a",
+      "document_uid": "c1ea2ff4819e824e68f44b1b60a1cd8a",
+      "question": "What is the average operating income (loss) across 2017, 2018 and 2019?",
+      "answer_type": "arithmetic",
+      "scale": "thousand",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "72119dde-f10e-4d28-a197-ea46fa1ab7a9",
+          "page": 1,
+          "char_start": 37,
+          "char_end": 42,
+          "text": "6,986",
+          "block_text": "Operating income (loss) $ (2,235) $ (6,986) $ 5,737"
+        },
+        {
+          "block_id": "72119dde-f10e-4d28-a197-ea46fa1ab7a9",
+          "page": 1,
+          "char_start": 27,
+          "char_end": 32,
+          "text": "2,235",
+          "block_text": "Operating income (loss) $ (2,235) $ (6,986) $ 5,737"
+        },
+        {
+          "block_id": "72119dde-f10e-4d28-a197-ea46fa1ab7a9",
+          "page": 1,
+          "char_start": 46,
+          "char_end": 51,
+          "text": "5,737",
+          "block_text": "Operating income (loss) $ (2,235) $ (6,986) $ 5,737"
+        }
+      ]
+    },
+    {
+      "uid": "cc3acc137c80ad7865b887540d4d9453",
+      "document_uid": "c1ea2ff4819e824e68f44b1b60a1cd8a",
+      "question": "What could result in the 2019 operating income increasing or decreasing by approximately $6.5 million?",
+      "answer_type": "span",
+      "scale": "",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "7be3f034-c056-421c-946b-7d2735318320",
+          "page": 1,
+          "char_start": 3397,
+          "char_end": 3630,
+          "text": "if underlying assumptions were to change such that our estimated profit rate at completion for all fixed-price contracts accounted for under the cost-to-cost percentage-of-completion method was higher or lower by one percentage point",
+          "block_text": "We only include amounts representing contract change orders, claims or other items in the contract value when we believe the rights and obligations become enforceable. Contract modifications routinely occur to account for changes in contract specifications or requirements. In most cases, contract modifications are for goods or services that are not distinct and, therefore, are accounted for as part of the existing contract. Transaction price estimates include additional consideration for submitted contract modifications or claims when we believe there is an enforceable right to the modification or claim, the amount can be reliably estimated, and its realization is reasonably assured. Amounts representing modifications accounted for as part of the existing contract are included in the transaction price and recognized as an adjustment to sales on a cumulative catch-up basis. In addition, we are subject to audits of incurred costs related to many of our U.S. government contracts. These audits could produce different results than we have estimated for revenue recognized on our cost-based contracts with the U.S. government; however, our experience has been that our costs are acceptable to the government. Contract Estimates Use of the cost-to-cost or other similar methods of revenue recognition requires us to make reasonably dependable estimates regarding the revenue and cost associated with the design, manufacture and delivery of our products and services. Revisions or adjustments to estimates of the transaction price, estimated costs at completion and estimated profit or loss of a performance obligation are often required as work progresses under a contract, as experience is gained, as facts and circumstances change and as new information is obtained, even though the scope of work required under the contract may not change. In determining the estimated costs at completion, we have to make assumptions regarding labor productivity and availability, the complexity of the work to be performed, the availability of materials, estimated increases in wages and prices for materials, performance by our subcontractors, and the availability and timing of funding from our customer, among other variables. Revisions or adjustments to our estimated transaction price and estimated costs at completion may also be required if contract modifications occur. The revisions in contract estimates, if significant, can materially affect our results of operations and cash flows, and in some cases result in liabilities to complete contracts in a loss position. Based upon our history, we believe we have the ability to make reasonable estimates for these items. We have accounting policies and controls in place to address these, as well as other contractual and business arrangements to properly account for long-term contracts, and we continue to monitor and improve such policies, controls, and arrangements. For other information on such policies, controls and arrangements, see our discussion in Item 9A of this Form 10-K. Products and services provided under long-term, fixed-price contracts represented approximately 97% of our sales for 2019. Because of the significance of the judgments and estimation processes, it is likely that materially different amounts could be recorded if we used different assumptions or if our underlying circumstances were to change. For example, if underlying assumptions were to change such that our estimated profit rate at completion for all fixed-price contracts accounted for under the cost-to-cost percentage-of-completion method was higher or lower by one percentage point, our 2019 operating income would have increased or decreased by approximately $6.5 million. When adjustments in estimated contract revenues or estimated costs at completion are required, any changes from prior estimates are recognized by recording adjustments in the current period for the inception-to-date effect of the changes on current and prior periods using the cumulative catch-up method of accounting. When estimates of total costs to be incurred on a contract exceed total estimates of revenue to be earned, a provision for the entire loss on the contract is recorded in the period the loss is determined. The aggregate impact of net changes in contract estimates are presented in the table below (amounts in thousands)."
+        }
+      ]
+    },
+    {
+      "uid": "c077022aa0f19adfb4fa87807bb140a5",
+      "document_uid": "e2018edc5002efd48cf4cd9a7f7040d3",
+      "question": "What is the difference between the net cash provided by operating activities from 2018 to 2019?",
+      "answer_type": "arithmetic",
+      "scale": "million",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "9a71aa02-a450-40cc-b75f-f93f6128a9a1",
+          "page": 1,
+          "char_start": 57,
+          "char_end": 63,
+          "text": "15,386",
+          "block_text": "Net cash provided by operating activities $ 14,551 -5% $ 15,386"
+        },
+        {
+          "block_id": "9a71aa02-a450-40cc-b75f-f93f6128a9a1",
+          "page": 1,
+          "char_start": 44,
+          "char_end": 50,
+          "text": "14,551",
+          "block_text": "Net cash provided by operating activities $ 14,551 -5% $ 15,386"
+        }
+      ]
+    },
+    {
+      "uid": "3ad8d1154939ab4d10d0c9b392945868",
+      "document_uid": "e2018edc5002efd48cf4cd9a7f7040d3",
+      "question": "What is the difference between the net cash used for financing activities in 2018 and 2019?",
+      "answer_type": "arithmetic",
+      "scale": "million",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "3c26da86-d23f-4c3b-a965-9a6d2b1bf223",
+          "page": 1,
+          "char_start": 58,
+          "char_end": 63,
+          "text": "9,982",
+          "block_text": "Net cash used for financing activities $ (42,056) 321% $ (9,982)"
+        },
+        {
+          "block_id": "3c26da86-d23f-4c3b-a965-9a6d2b1bf223",
+          "page": 1,
+          "char_start": 42,
+          "char_end": 48,
+          "text": "42,056",
+          "block_text": "Net cash used for financing activities $ (42,056) 321% $ (9,982)"
+        }
+      ]
+    },
+    {
+      "uid": "8342d4e791595a3bf62aa3ffb1d17718",
+      "document_uid": "eb2a796ed0547c324297fb88898b9d71",
+      "question": "What were the total expenses in 2019?",
+      "answer_type": "arithmetic",
+      "scale": "million",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "dd4ddd35-7a87-4794-b0b2-1b71ff019ca1",
+          "page": 1,
+          "char_start": 10,
+          "char_end": 17,
+          "text": "125,843",
+          "block_text": "Revenue $ 125,843 $ 110,360 $ 96,571 14% 14%"
+        },
+        {
+          "block_id": "88753239-cb00-4e11-8667-984afdee830e",
+          "page": 1,
+          "char_start": 17,
+          "char_end": 23,
+          "text": "42,959",
+          "block_text": "Operating income 42,959 35,058 29,025 23% 21%"
+        }
+      ]
+    },
+    {
+      "uid": "c59fe1ab423cb7edefe3a4be39526e19",
+      "document_uid": "eb2a796ed0547c324297fb88898b9d71",
+      "question": "How much was the LinkedIn operating loss in 2018?",
+      "answer_type": "span",
+      "scale": "",
+      "relevant_pages": [
+        2
+      ],
+      "evidence": [
+        {
+          "block_id": "a999793d-352b-4db2-880c-0bd372b69cab",
+          "page": 2,
+          "char_start": 93,
+          "char_end": 218,
+          "text": " LinkedIn operating loss increased $63 million to $987 million, including $1.5 billion of amortization of intangible assets. ",
+          "block_text": "Operating income increased $6.0 billion or 21%, driven by growth across each of our segments. LinkedIn operating loss increased $63 million to $987 million, including $1.5 billion of amortization of intangible assets. Operating income included a favorable foreign currency impact of 2%."
+        }
+      ]
+    },
+    {
+      "uid": "cf02810f6d9b8a88deb2943aba76fa71",
+      "document_uid": "fc6df82265ed5153ed1fe3cdbc4e7b62",
+      "question": "What is the total guarantee in respect of Section 106 planning obligation liabilities at Barton Square which at 31 December 2018?",
+      "answer_type": "span",
+      "scale": "",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "dcaff28e-e755-44df-ae8e-3a17505ce330",
+          "page": 1,
+          "char_start": 246,
+          "char_end": 260,
+          "text": " \u00a312.4 million",
+          "block_text": "Under the terms of the Group\u2019s acquisition of intu Trafford Centre from Peel in 2011, Peel has provided a guarantee in respect of Section 106 planning obligation liabilities at Barton Square which at 31 December 2019 totalled \u00a313.0 million (2018: \u00a312.4 million)."
+        }
+      ]
+    },
+    {
+      "uid": "73583522ac2e10f8bcea063b27953d6d",
+      "document_uid": "fc6df82265ed5153ed1fe3cdbc4e7b62",
+      "question": "What is the total guarantee in respect of Section 106 planning obligation liabilities at Barton Square which at 31 December 2019?",
+      "answer_type": "span",
+      "scale": "",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "dcaff28e-e755-44df-ae8e-3a17505ce330",
+          "page": 1,
+          "char_start": 225,
+          "char_end": 240,
+          "text": " \u00a313.0 million ",
+          "block_text": "Under the terms of the Group\u2019s acquisition of intu Trafford Centre from Peel in 2011, Peel has provided a guarantee in respect of Section 106 planning obligation liabilities at Barton Square which at 31 December 2019 totalled \u00a313.0 million (2018: \u00a312.4 million)."
+        }
+      ]
+    }
+  ]
+}
