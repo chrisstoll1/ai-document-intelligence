@@ -5,9 +5,9 @@ from collections.abc import Iterator
 from contextlib import contextmanager
 from pathlib import Path
 
-SCHEMA_VERSION = 1
+SCHEMA_VERSION = 2
 
-SCHEMA_SQL = """
+SCHEMA_V1_SQL = """
 CREATE TABLE documents (
     id TEXT PRIMARY KEY,
     storage_key TEXT NOT NULL UNIQUE,
@@ -26,6 +26,38 @@ CREATE TABLE document_names (
     uploaded_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP
 );
 """
+
+SCHEMA_V2_SQL = """
+CREATE TABLE pages (
+    id INTEGER PRIMARY KEY,
+    document_id TEXT NOT NULL REFERENCES documents(id) ON DELETE CASCADE,
+    page_number INTEGER NOT NULL CHECK (page_number > 0),
+    width REAL NOT NULL CHECK (width > 0),
+    height REAL NOT NULL CHECK (height > 0),
+    text TEXT NOT NULL,
+    method TEXT NOT NULL CHECK (method IN ('direct', 'ocr')),
+    UNIQUE (document_id, page_number)
+);
+
+CREATE TABLE blocks (
+    id INTEGER PRIMARY KEY,
+    page_id INTEGER NOT NULL REFERENCES pages(id) ON DELETE CASCADE,
+    block_order INTEGER NOT NULL CHECK (block_order > 0),
+    text TEXT NOT NULL,
+    x0 REAL NOT NULL,
+    top REAL NOT NULL,
+    x1 REAL NOT NULL,
+    bottom REAL NOT NULL,
+    method TEXT NOT NULL CHECK (method IN ('direct', 'ocr')),
+    confidence REAL,
+    UNIQUE (page_id, block_order)
+);
+"""
+
+MIGRATIONS = {
+    1: SCHEMA_V1_SQL,
+    2: SCHEMA_V2_SQL,
+}
 
 
 def connect_database(path: Path) -> sqlite3.Connection:
@@ -58,8 +90,12 @@ def initialize_database(path: Path) -> None:
             return
 
         connection.execute("PRAGMA journal_mode = DELETE")
-        connection.executescript(
-            f"BEGIN IMMEDIATE;\n{SCHEMA_SQL}\nPRAGMA user_version = {SCHEMA_VERSION};\nCOMMIT;"
-        )
+        for target_version in range(current_version + 1, SCHEMA_VERSION + 1):
+            connection.executescript(
+                "BEGIN IMMEDIATE;\n"
+                f"{MIGRATIONS[target_version]}\n"
+                f"PRAGMA user_version = {target_version};\n"
+                "COMMIT;"
+            )
     finally:
         connection.close()

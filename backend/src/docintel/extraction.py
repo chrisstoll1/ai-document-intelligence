@@ -10,6 +10,8 @@ import pdfplumber
 import pytesseract
 from PIL import Image
 
+from docintel.db import database_connection
+
 LINE_TOLERANCE = 3.0
 MINIMUM_DIRECT_CHARACTERS = 20
 OCR_DPI = 300
@@ -185,3 +187,53 @@ class PdfExtractor:
             blocks=blocks,
             method="ocr",
         )
+
+
+class ExtractionRepository:
+    def __init__(self, database_path: Path) -> None:
+        self.database_path = database_path
+
+    def replace_pages(self, document_id: str, pages: Sequence[ExtractedPage]) -> None:
+        with database_connection(self.database_path) as connection, connection:
+            document_exists = connection.execute(
+                "SELECT 1 FROM documents WHERE id = ?", (document_id,)
+            ).fetchone()
+            if document_exists is None:
+                raise ValueError(f"Unknown document: {document_id}")
+
+            connection.execute("DELETE FROM pages WHERE document_id = ?", (document_id,))
+            for page in pages:
+                cursor = connection.execute(
+                    """
+                    INSERT INTO pages (document_id, page_number, width, height, text, method)
+                    VALUES (?, ?, ?, ?, ?, ?)
+                    """,
+                    (document_id, page.page_number, page.width, page.height, page.text, page.method),
+                )
+                page_id = cursor.lastrowid
+                connection.executemany(
+                    """
+                    INSERT INTO blocks (
+                        page_id, block_order, text, x0, top, x1, bottom, method, confidence
+                    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
+                    """,
+                    [
+                        (
+                            page_id,
+                            block.order,
+                            block.text,
+                            *block.bbox,
+                            block.method,
+                            block.confidence,
+                        )
+                        for block in page.blocks
+                    ],
+                )
+            connection.execute(
+                """
+                UPDATE documents
+                SET status = 'extracted', error_message = NULL, updated_at = CURRENT_TIMESTAMP
+                WHERE id = ?
+                """,
+                (document_id,),
+            )

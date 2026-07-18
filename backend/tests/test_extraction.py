@@ -1,4 +1,15 @@
-from docintel.extraction import OcrWord, PdfExtractor
+from io import BytesIO
+
+from docintel.db import database_connection, initialize_database
+from docintel.documents import DocumentCatalog, DocumentRepository
+from docintel.extraction import (
+    ExtractedBlock,
+    ExtractedPage,
+    ExtractionRepository,
+    OcrWord,
+    PdfExtractor,
+)
+from docintel.storage import PdfStore
 
 
 class FakeOcrEngine:
@@ -62,3 +73,31 @@ def test_pdf_extractor_routes_empty_page_through_ocr(tmp_path) -> None:
     assert pages[0].blocks[0].method == "ocr"
     assert pages[0].blocks[0].confidence == 90.0
     assert pages[0].blocks[0].bbox[0] > 0
+
+
+def test_extraction_repository_replaces_page_and_block_records(tmp_path) -> None:
+    database_path = tmp_path / "docintel.sqlite3"
+    initialize_database(database_path)
+    document = DocumentCatalog(PdfStore(tmp_path), DocumentRepository(database_path)).add_pdf(
+        source=BytesIO(b"%PDF-1.7\nexample\n%%EOF"),
+        original_filename="example.pdf",
+    )
+    repository = ExtractionRepository(database_path)
+    page = ExtractedPage(
+        page_number=1,
+        width=612,
+        height=792,
+        text="First version",
+        blocks=(ExtractedBlock(1, "First version", (10, 20, 100, 40)),),
+    )
+
+    repository.replace_pages(document.id, [page])
+    repository.replace_pages(document.id, [page])
+
+    with database_connection(database_path) as connection:
+        page_count = connection.execute("SELECT COUNT(*) FROM pages").fetchone()[0]
+        block = connection.execute("SELECT text, x0, method FROM blocks").fetchone()
+        status = connection.execute("SELECT status FROM documents").fetchone()[0]
+    assert page_count == 1
+    assert dict(block) == {"text": "First version", "x0": 10.0, "method": "direct"}
+    assert status == "extracted"
