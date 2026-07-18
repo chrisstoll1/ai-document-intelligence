@@ -1,22 +1,36 @@
 [project]
 name = "ai-document-intelligence"
 version = "0.1.0"
-description = "Evidence-based document retrieval prototype"
-requires-python = ">=3.11"
-dependencies = []
+description = "Evidence-first document intelligence application"
+readme = "README.md"
+requires-python = ">=3.11,<3.14"
+dependencies = [
+  "fastapi>=0.116,<1.0",
+  "sentence-transformers>=5.1,<6.0",
+  "uvicorn[standard]>=0.35,<1.0",
+]
 
 [project.optional-dependencies]
-ml = [
-  "sentence-transformers>=2.7.0",
-  "numpy>=1.26.0"
-]
-pdf = [
-  "pymupdf>=1.24.0"
-]
 dev = [
-  "pytest>=8.0.0"
+  "httpx>=0.28,<1.0",
+  "pytest>=8.4,<9.0",
+  "ruff>=0.12,<1.0",
 ]
 
+[build-system]
+requires = ["setuptools>=80"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["backend/src"]
+
 [tool.pytest.ini_options]
-pythonpath = ["."]
-testpaths = ["tests"]
+pythonpath = ["backend/src"]
+testpaths = ["backend/tests"]
+
+[tool.ruff]
+line-length = 120
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP"]
