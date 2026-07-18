@@ -13,3 +13,4 @@ frontend/*.tsbuildinfo
 dist/
 build/
 *.egg-info/
+/data/
