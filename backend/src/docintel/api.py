@@ -52,6 +52,7 @@ class AppServices:
     documents: DocumentRepository
     pdf_store: PdfStore
     search: HybridSearchService
+    semantic_index: ChromaSemanticIndex | None = None
 
 
 def build_services(settings: Settings) -> AppServices:
@@ -72,6 +73,7 @@ def build_services(settings: Settings) -> AppServices:
         documents=documents,
         pdf_store=pdf_store,
         search=HybridSearchService(settings.database_path, chunks, semantic_index),
+        semantic_index=semantic_index,
     )
 
 
@@ -84,8 +86,13 @@ def create_app(
 
     @asynccontextmanager
     async def lifespan(application: FastAPI):
-        application.state.services = service_builder(resolved_settings)
-        yield
+        services = service_builder(resolved_settings)
+        application.state.services = services
+        try:
+            yield
+        finally:
+            if services.semantic_index is not None:
+                services.semantic_index.close()
 
     application = FastAPI(title="Document Intelligence API", lifespan=lifespan)
 

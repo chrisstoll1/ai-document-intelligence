@@ -82,3 +82,6 @@ class ChromaSemanticIndex:
         ids = result["ids"][0]
         distances = result["distances"][0]
         return [SemanticHit(chunk_id=chunk_id, distance=float(distance)) for chunk_id, distance in zip(ids, distances)]
+
+    def close(self) -> None:
+        self.client.close()

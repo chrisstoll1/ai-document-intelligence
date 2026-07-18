@@ -29,3 +29,6 @@ def test_chroma_index_persists_and_replaces_document_chunks(tmp_path) -> None:
 
     assert first_hits[0].chunk_id == privacy.id
     assert [hit.chunk_id for hit in second_hits] == [privacy.id]
+
+    index.close()
+    reopened.close()

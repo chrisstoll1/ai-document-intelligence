@@ -87,6 +87,7 @@ def _integration_services(settings: Settings) -> AppServices:
         documents,
         pdf_store,
         HybridSearchService(settings.database_path, chunks, semantic_index),
+        semantic_index,
     )
 
 
