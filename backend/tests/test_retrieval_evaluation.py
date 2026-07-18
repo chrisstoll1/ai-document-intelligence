@@ -23,8 +23,10 @@ def test_ranking_metrics_measure_recall_rank_and_graded_gain() -> None:
 
     assert metrics["recall_at_1"] == 0.0
     assert metrics["hit_at_1"] == 0.0
+    assert metrics["evidence_hit_at_1"] == 0.0
     assert metrics["recall_at_3"] == 1.0
     assert metrics["hit_at_3"] == 1.0
+    assert metrics["evidence_hit_at_3"] == 1.0
     assert metrics["mrr_at_3"] == 0.5
     assert metrics["ndcg_at_3"] == pytest.approx(0.5868826714)
 
@@ -32,3 +34,10 @@ def test_ranking_metrics_measure_recall_rank_and_graded_gain() -> None:
 def test_ranking_metrics_reject_judgments_without_indexed_relevance() -> None:
     with pytest.raises(ValueError, match="at least one relevant"):
         ranking_metrics(["chunk"], {"chunk": 0})
+
+
+def test_ranking_metrics_omit_evidence_hit_without_exact_evidence_chunk() -> None:
+    metrics = ranking_metrics(["relevant"], {"relevant": 1}, cutoffs=(1,))
+
+    assert metrics["hit_at_1"] == 1.0
+    assert metrics["evidence_hit_at_1"] is None

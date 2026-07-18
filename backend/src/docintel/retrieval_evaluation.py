@@ -60,16 +60,22 @@ def ranking_metrics(
     grades_by_id: dict[str, int],
     *,
     cutoffs: tuple[int, ...] = DEFAULT_CUTOFFS,
-) -> dict[str, float]:
+) -> dict[str, float | None]:
     relevant_count = sum(grade > 0 for grade in grades_by_id.values())
     if relevant_count == 0:
         raise ValueError("A query judgment must identify at least one relevant indexed chunk")
 
     metrics = {}
+    has_evidence_chunk = any(grade == 2 for grade in grades_by_id.values())
     for cutoff in cutoffs:
         relevant_retrieved = sum(grades_by_id.get(chunk_id, 0) > 0 for chunk_id in ranked_ids[:cutoff])
         metrics[f"recall_at_{cutoff}"] = relevant_retrieved / relevant_count
         metrics[f"hit_at_{cutoff}"] = float(relevant_retrieved > 0)
+        metrics[f"evidence_hit_at_{cutoff}"] = (
+            float(any(grades_by_id.get(chunk_id, 0) == 2 for chunk_id in ranked_ids[:cutoff]))
+            if has_evidence_chunk
+            else None
+        )
 
     evaluation_cutoff = max(cutoffs)
     first_relevant = next(
@@ -95,14 +101,18 @@ def _discounted_cumulative_gain(grades: list[int]) -> float:
     return sum((2**grade - 1) / math.log2(rank + 1) for rank, grade in enumerate(grades, start=1))
 
 
-def aggregate_metrics(query_results: list[dict], modes: tuple[str, ...]) -> dict[str, dict[str, float]]:
+def aggregate_metrics(query_results: list[dict], modes: tuple[str, ...]) -> dict[str, dict[str, float | None]]:
     aggregate = {}
     for mode in modes:
         metric_names = query_results[0]["modes"][mode]["metrics"]
-        aggregate[mode] = {
-            name: mean(result["modes"][mode]["metrics"][name] for result in query_results)
-            for name in metric_names
-        }
+        aggregate[mode] = {}
+        for name in metric_names:
+            values = [
+                result["modes"][mode]["metrics"][name]
+                for result in query_results
+                if result["modes"][mode]["metrics"][name] is not None
+            ]
+            aggregate[mode][name] = mean(values) if values else None
         aggregate[mode]["mean_latency_ms"] = mean(
             result["modes"][mode]["latency_ms"] for result in query_results
         )
