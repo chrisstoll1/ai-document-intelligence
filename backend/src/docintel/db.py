@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import sqlite3
+from collections.abc import Iterator
+from contextlib import contextmanager
 from pathlib import Path
 
 SCHEMA_VERSION = 1
@@ -32,6 +34,15 @@ def connect_database(path: Path) -> sqlite3.Connection:
     connection.execute("PRAGMA foreign_keys = ON")
     connection.execute("PRAGMA busy_timeout = 5000")
     return connection
+
+
+@contextmanager
+def database_connection(path: Path) -> Iterator[sqlite3.Connection]:
+    connection = connect_database(path)
+    try:
+        yield connection
+    finally:
+        connection.close()
 
 
 def initialize_database(path: Path) -> None:
