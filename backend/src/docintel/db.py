@@ -5,7 +5,7 @@ from collections.abc import Iterator
 from contextlib import contextmanager
 from pathlib import Path
 
-SCHEMA_VERSION = 2
+SCHEMA_VERSION = 3
 
 SCHEMA_V1_SQL = """
 CREATE TABLE documents (
@@ -54,9 +54,40 @@ CREATE TABLE blocks (
 );
 """
 
+SCHEMA_V3_SQL = """
+CREATE TABLE chunks (
+    id TEXT PRIMARY KEY,
+    document_id TEXT NOT NULL REFERENCES documents(id) ON DELETE CASCADE,
+    ordinal INTEGER NOT NULL CHECK (ordinal > 0),
+    text TEXT NOT NULL,
+    page_start INTEGER NOT NULL CHECK (page_start > 0),
+    page_end INTEGER NOT NULL CHECK (page_end >= page_start),
+    chunker_version TEXT NOT NULL,
+    UNIQUE (document_id, ordinal, chunker_version)
+);
+
+CREATE TABLE chunk_spans (
+    chunk_id TEXT NOT NULL REFERENCES chunks(id) ON DELETE CASCADE,
+    block_id INTEGER NOT NULL REFERENCES blocks(id) ON DELETE CASCADE,
+    span_order INTEGER NOT NULL CHECK (span_order > 0),
+    block_start INTEGER NOT NULL CHECK (block_start >= 0),
+    block_end INTEGER NOT NULL CHECK (block_end >= block_start),
+    chunk_start INTEGER NOT NULL CHECK (chunk_start >= 0),
+    chunk_end INTEGER NOT NULL CHECK (chunk_end >= chunk_start),
+    PRIMARY KEY (chunk_id, span_order)
+);
+
+CREATE VIRTUAL TABLE chunks_fts USING fts5(
+    chunk_id UNINDEXED,
+    text,
+    tokenize = 'porter unicode61'
+);
+"""
+
 MIGRATIONS = {
     1: SCHEMA_V1_SQL,
     2: SCHEMA_V2_SQL,
+    3: SCHEMA_V3_SQL,
 }
 
 
