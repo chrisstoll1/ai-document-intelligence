@@ -23,6 +23,8 @@ Install the evaluation-only EasyOCR candidate and run both engines:
 
 The evaluator preserves case and punctuation, applies Unicode NFKC and whitespace normalization, and reports micro-averaged Levenshtein character error rate (CER), word error rate (WER), failures, and warmed sequential CPU latency. Image loading, model initialization, and one warm-up inference are excluded from measured latency.
 
+The recorded comparison is available in `../results/ocr_development_candidate_comparison.md` with complete predictions and timings in the matching JSON file. Tesseract was selected and its runtime configuration is frozen in `../config/ocr_v1.json`.
+
 ## Limitations
 
 The reference is directly extracted PDF text rather than independently transcribed ground truth. The benchmark contains 12 base regions and controlled degradation rather than naturally scanned pages, so its results support a project-level candidate decision but do not estimate OCR performance for all document types.

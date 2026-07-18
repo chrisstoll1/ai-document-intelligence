@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "configuration_id": "ocr-v1",
+  "selected_engine": {
+    "name": "Tesseract",
+    "version": "5.4.0.20240606",
+    "license": "Apache-2.0",
+    "wrapper": "pytesseract 0.3.13",
+    "language": "eng",
+    "traineddata_size_bytes": 4113088,
+    "traineddata_sha256": "7d4322bd2a7749724879683fc3912cb542f19906c83bcc1a52132556427170b2",
+    "page_segmentation_mode": 3
+  },
+  "routing": {
+    "minimum_direct_alphanumeric_characters": 20,
+    "page_render_dpi": 300
+  },
+  "selection_evidence": {
+    "split": "development",
+    "benchmark": "evaluation/ocr/development_manifest.json",
+    "benchmark_manifest_sha256": "c8b939576fa9f721abfc68849383c1a273574fa3be92f893a2303ccebb646370",
+    "result": "evaluation/results/ocr_development_candidate_comparison.json",
+    "samples": 24,
+    "cer": 0.007506255212677231,
+    "wer": 0.04838709677419355,
+    "mean_latency_ms": 96.2805874996775,
+    "failures": 0,
+    "alternative": {
+      "name": "EasyOCR",
+      "version": "1.7.2",
+      "cer": 0.022101751459549623,
+      "wer": 0.14516129032258066,
+      "mean_latency_ms": 181.38417083370464,
+      "failures": 0
+    }
+  },
+  "limitations": [
+    "Silver-standard references are directly extracted rather than independently transcribed.",
+    "The benchmark uses controlled line crops rather than naturally scanned full pages.",
+    "Downstream retrieval impact remains to be measured in the final aggregate evaluation."
+  ]
+}

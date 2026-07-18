@@ -18,3 +18,6 @@ The first development baseline is recorded in:
 - `tat_dqa_development_*_kw*_sem*.json`: complete candidate runs used by the comparison.
 - `tat_dqa_development_chunking_comparison.md`: 80/15, 120/20, and 180/30 chunk comparison and final selection.
 - `../config/retrieval_v1.json`: machine-readable retrieval configuration frozen before locked testing.
+- `ocr_development_candidate_comparison.md`: Tesseract/EasyOCR clean and degraded development comparison.
+- `ocr_development_candidate_comparison.json`: complete OCR environment, metrics, predictions, and timings.
+- `../config/ocr_v1.json`: selected Tesseract version, trained-data checksum, routing, and benchmark evidence.

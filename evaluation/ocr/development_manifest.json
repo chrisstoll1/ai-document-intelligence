@@ -20,7 +20,12 @@
   "rendering": {
     "dpi": 300,
     "clean": "300 DPI RGB crop with 3-point horizontal and 1.5-point vertical padding",
-    "degraded": "55% downsample/upsample, deterministic +/-0.6 degree rotation, 0.72 contrast, 0.7 blur"
+    "degraded": "55% downsample/upsample, deterministic +/-0.6 degree rotation, 0.72 contrast, 0.7 blur",
+    "packages": {
+      "pdfplumber": "0.11.10",
+      "pillow": "12.3.0",
+      "pypdfium2": "5.12.1"
+    }
   },
   "reference": "NFKC-normalized direct PDF line text; silver standard",
   "samples": [

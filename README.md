@@ -61,4 +61,14 @@ The reproducible TAT-DQA development and locked-test subsets are defined under `
 .\.venv\Scripts\python.exe scripts\prepare_tat_dqa.py --download
 ```
 
-The command downloads only the official development and test artifacts, verifies fixed SHA-256 checksums, and prepares 25 documents with 50 evidence-mapped queries. Development data may be used for tuning; the locked-test subset must not be scored until the retrieval configuration is frozen. TAT-DQA contains digitally extractable PDFs, so a separate declared benchmark is still required for OCR comparison.
+The command downloads only the official development and test artifacts, verifies fixed SHA-256 checksums, and prepares 25 documents with 50 evidence-mapped queries. Development data may be used for tuning; the locked-test subset must not be scored until the retrieval configuration is frozen. TAT-DQA contains digitally extractable PDFs, so the OCR comparison uses a separately declared controlled benchmark.
+
+The controlled development-only OCR comparison can then be reproduced with:
+
+```powershell
+.\.venv\Scripts\python.exe scripts\prepare_ocr_benchmark.py
+.\.venv\Scripts\python.exe -m pip install -e ".[ocr-eval]"
+.\.venv\Scripts\python.exe scripts\evaluate_ocr.py
+```
+
+Tesseract 5.4 was selected over EasyOCR 1.7.2 for `ocr-v1` from clean and degraded prose/number-heavy evidence. The protocol, complete predictions, limitations, and frozen configuration are recorded under `evaluation/ocr/`, `evaluation/results/`, and `evaluation/config/`.

@@ -4,6 +4,7 @@ import argparse
 import hashlib
 import json
 from dataclasses import dataclass
+from importlib.metadata import version
 from pathlib import Path
 
 import pdfplumber
@@ -185,6 +186,11 @@ def prepare(source_manifest_path: Path, image_dir: Path, output_path: Path) -> d
             "dpi": RENDER_DPI,
             "clean": "300 DPI RGB crop with 3-point horizontal and 1.5-point vertical padding",
             "degraded": "55% downsample/upsample, deterministic +/-0.6 degree rotation, 0.72 contrast, 0.7 blur",
+            "packages": {
+                "pdfplumber": version("pdfplumber"),
+                "pillow": version("pillow"),
+                "pypdfium2": version("pypdfium2"),
+            },
         },
         "reference": "NFKC-normalized direct PDF line text; silver standard",
         "samples": samples,

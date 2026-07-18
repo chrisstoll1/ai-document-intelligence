@@ -49,14 +49,14 @@ def easyocr_recognizer(model_dir: Path):
         gpu=False,
         model_storage_directory=str(model_dir),
         download_enabled=True,
-        verbose=True,
+        verbose=False,
     )
 
     def recognize(image: Image.Image) -> str:
         detections = reader.readtext(np.asarray(image), detail=1, paragraph=False, decoder="greedy")
         ordered = sorted(
             detections,
-            key=lambda item: (min(point[1] for point in item[0]), min(point[0] for point in item[0])),
+            key=lambda item: min(point[0] for point in item[0]),
         )
         return " ".join(str(item[1]) for item in ordered)
 
