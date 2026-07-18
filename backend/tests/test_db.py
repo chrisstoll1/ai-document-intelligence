@@ -54,5 +54,9 @@ def test_initialize_database_upgrades_version_one_schema(tmp_path) -> None:
         page_table = connection.execute(
             "SELECT name FROM sqlite_master WHERE type = 'table' AND name = 'pages'"
         ).fetchone()
+        document_columns = {
+            row["name"] for row in connection.execute("PRAGMA table_info(documents)").fetchall()
+        }
     assert schema_version == SCHEMA_VERSION
     assert page_table["name"] == "pages"
+    assert {"embedding_model", "chunker_version"} <= document_columns

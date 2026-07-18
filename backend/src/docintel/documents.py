@@ -17,6 +17,7 @@ class DocumentRecord:
     status: str
     error_message: str | None
     embedding_model: str | None
+    chunker_version: str | None
 
 
 class DocumentRepository:
@@ -50,7 +51,8 @@ class DocumentRepository:
         with database_connection(self.database_path) as connection:
             row = connection.execute(
                 """
-                SELECT id, storage_key, media_type, size_bytes, status, error_message, embedding_model
+                SELECT id, storage_key, media_type, size_bytes, status, error_message,
+                       embedding_model, chunker_version
                 FROM documents
                 WHERE id = ?
                 """,
@@ -71,16 +73,16 @@ class DocumentRepository:
             if cursor.rowcount == 0:
                 raise ValueError(f"Unknown document: {document_id}")
 
-    def mark_ready(self, document_id: str, embedding_model: str) -> None:
+    def mark_ready(self, document_id: str, embedding_model: str, chunker_version: str) -> None:
         with database_connection(self.database_path) as connection, connection:
             cursor = connection.execute(
                 """
                 UPDATE documents
-                SET status = 'ready', error_message = NULL, embedding_model = ?,
+                SET status = 'ready', error_message = NULL, embedding_model = ?, chunker_version = ?,
                     updated_at = CURRENT_TIMESTAMP
                 WHERE id = ?
                 """,
-                (embedding_model, document_id),
+                (embedding_model, chunker_version, document_id),
             )
             if cursor.rowcount == 0:
                 raise ValueError(f"Unknown document: {document_id}")
@@ -91,7 +93,7 @@ class DocumentRepository:
                 """
                 SELECT documents.id, documents.storage_key, documents.media_type,
                        documents.size_bytes, documents.status, documents.error_message,
-                       documents.embedding_model,
+                       documents.embedding_model, documents.chunker_version,
                        COALESCE(
                            (SELECT original_filename FROM document_names
                             WHERE document_id = documents.id ORDER BY id DESC LIMIT 1),
@@ -111,6 +113,7 @@ class DocumentRepository:
                     status=row["status"],
                     error_message=row["error_message"],
                     embedding_model=row["embedding_model"],
+                    chunker_version=row["chunker_version"],
                 ),
                 row["original_filename"],
             )

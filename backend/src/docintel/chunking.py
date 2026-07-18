@@ -207,8 +207,12 @@ class ChunkRepository:
                     "INSERT INTO chunks_fts (chunk_id, text) VALUES (?, ?)", (chunk.id, chunk.text)
                 )
             connection.execute(
-                "UPDATE documents SET status = 'indexed_lexical', updated_at = CURRENT_TIMESTAMP WHERE id = ?",
-                (document_id,),
+                """
+                UPDATE documents
+                SET status = 'indexed_lexical', chunker_version = ?, updated_at = CURRENT_TIMESTAMP
+                WHERE id = ?
+                """,
+                (self.chunker.version, document_id),
             )
         return chunks
 

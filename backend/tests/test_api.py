@@ -16,7 +16,16 @@ from fastapi.testclient import TestClient
 class FakeIngestion:
     def ingest(self, source, filename: str) -> DocumentRecord:
         assert source.read() == b"%PDF-1.7\nexample\n%%EOF"
-        return DocumentRecord("a" * 64, "pdfs/aa/file.pdf", "application/pdf", 26, "ready", None, "fake")
+        return DocumentRecord(
+            "a" * 64,
+            "pdfs/aa/file.pdf",
+            "application/pdf",
+            26,
+            "ready",
+            None,
+            "fake",
+            "blocks-v1-120-20",
+        )
 
 
 class FakeDocuments:

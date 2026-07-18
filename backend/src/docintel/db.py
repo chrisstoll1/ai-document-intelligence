@@ -5,7 +5,7 @@ from collections.abc import Iterator
 from contextlib import contextmanager
 from pathlib import Path
 
-SCHEMA_VERSION = 4
+SCHEMA_VERSION = 5
 
 SCHEMA_V1_SQL = """
 CREATE TABLE documents (
@@ -88,11 +88,16 @@ SCHEMA_V4_SQL = """
 ALTER TABLE documents ADD COLUMN embedding_model TEXT;
 """
 
+SCHEMA_V5_SQL = """
+ALTER TABLE documents ADD COLUMN chunker_version TEXT;
+"""
+
 MIGRATIONS = {
     1: SCHEMA_V1_SQL,
     2: SCHEMA_V2_SQL,
     3: SCHEMA_V3_SQL,
     4: SCHEMA_V4_SQL,
+    5: SCHEMA_V5_SQL,
 }
 
 

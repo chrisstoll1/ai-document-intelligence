@@ -9,7 +9,7 @@ from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 
-from docintel.chunking import ChunkRepository
+from docintel.chunking import ChunkRepository, ProvenanceChunker
 from docintel.config import Settings
 from docintel.db import initialize_database
 from docintel.documents import DocumentCatalog, DocumentRecord, DocumentRepository
@@ -59,7 +59,10 @@ def build_services(settings: Settings) -> AppServices:
     initialize_database(settings.database_path)
     documents = DocumentRepository(settings.database_path)
     pdf_store = PdfStore(settings.data_dir)
-    chunks = ChunkRepository(settings.database_path)
+    chunks = ChunkRepository(
+        settings.database_path,
+        ProvenanceChunker(max_words=settings.chunk_max_words, overlap=settings.chunk_overlap),
+    )
     semantic_index = ChromaSemanticIndex(
         settings.data_dir / "chroma",
         model_name=settings.embedding_model,

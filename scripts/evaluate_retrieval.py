@@ -12,7 +12,12 @@ from importlib.metadata import version
 from pathlib import Path
 
 from docintel.api import build_services
-from docintel.config import DEFAULT_EMBEDDING_MODEL, Settings
+from docintel.config import (
+    DEFAULT_CHUNK_MAX_WORDS,
+    DEFAULT_CHUNK_OVERLAP,
+    DEFAULT_EMBEDDING_MODEL,
+    Settings,
+)
 from docintel.retrieval_evaluation import QueryJudgment, RetrievalEvaluator, aggregate_metrics
 from docintel.search import KEYWORD_WEIGHT, SEMANTIC_WEIGHT, HybridSearchService
 
@@ -33,6 +38,8 @@ def evaluate(
     *,
     embedding_model: str = DEFAULT_EMBEDDING_MODEL,
     query_prompt: str | None = None,
+    chunk_max_words: int = DEFAULT_CHUNK_MAX_WORDS,
+    chunk_overlap: int = DEFAULT_CHUNK_OVERLAP,
     keyword_weight: float = KEYWORD_WEIGHT,
     semantic_weight: float = SEMANTIC_WEIGHT,
 ) -> dict:
@@ -40,7 +47,13 @@ def evaluate(
     manifest_bytes = source_manifest_path.read_bytes()
     manifest = json.loads(manifest_bytes)
     documents = {document["uid"]: document for document in manifest["documents"]}
-    settings = Settings(data_dir, embedding_model, query_prompt)
+    settings = Settings(
+        data_dir=data_dir,
+        embedding_model=embedding_model,
+        embedding_query_prompt=query_prompt,
+        chunk_max_words=chunk_max_words,
+        chunk_overlap=chunk_overlap,
+    )
     services = build_services(settings)
     if services.semantic_index is None:
         raise RuntimeError("Semantic index is required for retrieval evaluation")
@@ -99,6 +112,8 @@ def evaluate(
                 "embedding_model": services.semantic_index.model_name,
                 "query_prompt": services.semantic_index.query_prompt,
                 "chunker_version": services.search.chunks.chunker.version,
+                "chunk_max_words": services.search.chunks.chunker.max_words,
+                "chunk_overlap": services.search.chunks.chunker.overlap,
                 "fusion": {
                     "method": "weighted_reciprocal_rank_fusion",
                     "rrf_k": hybrid_search.rrf_k,
@@ -149,6 +164,8 @@ def main() -> int:
     parser.add_argument("--output", type=Path)
     parser.add_argument("--embedding-model", default=DEFAULT_EMBEDDING_MODEL)
     parser.add_argument("--query-prompt")
+    parser.add_argument("--chunk-max-words", type=int, default=DEFAULT_CHUNK_MAX_WORDS)
+    parser.add_argument("--chunk-overlap", type=int, default=DEFAULT_CHUNK_OVERLAP)
     parser.add_argument("--keyword-weight", type=float, default=KEYWORD_WEIGHT)
     parser.add_argument("--semantic-weight", type=float, default=SEMANTIC_WEIGHT)
     args = parser.parse_args()
@@ -157,18 +174,29 @@ def main() -> int:
         parser.error("Locked-test evaluation requires --confirm-locked-test after configuration freeze.")
     model_name = _model_name(args.embedding_model)
     default_model = args.embedding_model == DEFAULT_EMBEDDING_MODEL
-    data_suffix = "" if default_model else f"-{model_name}"
+    default_chunking = (
+        args.chunk_max_words == DEFAULT_CHUNK_MAX_WORDS and args.chunk_overlap == DEFAULT_CHUNK_OVERLAP
+    )
+    model_suffix = "" if default_model else f"-{model_name}"
+    chunk_suffix = "" if default_chunking else f"-chunks{args.chunk_max_words}-{args.chunk_overlap}"
+    data_suffix = f"{model_suffix}{chunk_suffix}"
     data_dir = args.data_dir or DEFAULT_DATA_ROOT / f"tat-dqa-{args.split}{data_suffix}"
     default_configuration = (
-        default_model and args.keyword_weight == KEYWORD_WEIGHT and args.semantic_weight == SEMANTIC_WEIGHT
+        default_model
+        and default_chunking
+        and args.keyword_weight == KEYWORD_WEIGHT
+        and args.semantic_weight == SEMANTIC_WEIGHT
     )
     if default_configuration:
-        result_name = f"tat_dqa_{args.split}_baseline.json"
+        result_name = f"tat_dqa_{args.split}_selected.json"
     else:
         keyword = round(args.keyword_weight * 100)
         semantic = round(args.semantic_weight * 100)
         prompt_suffix = "_prompted" if args.query_prompt else ""
-        result_name = f"tat_dqa_{args.split}_{model_name}{prompt_suffix}_kw{keyword}_sem{semantic}.json"
+        result_name = (
+            f"tat_dqa_{args.split}_{model_name}{prompt_suffix}_kw{keyword}_sem{semantic}"
+            f"_chunks{args.chunk_max_words}-{args.chunk_overlap}.json"
+        )
     output = args.output or DEFAULT_RESULT_DIR / result_name
     result = evaluate(
         args.split,
@@ -176,6 +204,8 @@ def main() -> int:
         output,
         embedding_model=args.embedding_model,
         query_prompt=args.query_prompt,
+        chunk_max_words=args.chunk_max_words,
+        chunk_overlap=args.chunk_overlap,
         keyword_weight=args.keyword_weight,
         semantic_weight=args.semantic_weight,
     )

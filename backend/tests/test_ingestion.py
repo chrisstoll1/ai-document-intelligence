@@ -1,7 +1,7 @@
 from io import BytesIO
 
 import pytest
-from docintel.chunking import ChunkRepository
+from docintel.chunking import ChunkRepository, ProvenanceChunker
 from docintel.db import initialize_database
 from docintel.documents import DocumentCatalog, DocumentRepository
 from docintel.extraction import ExtractedBlock, ExtractedPage, ExtractionRepository
@@ -43,7 +43,10 @@ class FakeSemanticIndex:
 
 
 def _service(
-    tmp_path, extractor: FakeExtractor, semantic_index: FakeSemanticIndex | None = None
+    tmp_path,
+    extractor: FakeExtractor,
+    semantic_index: FakeSemanticIndex | None = None,
+    chunker: ProvenanceChunker | None = None,
 ) -> IngestionService:
     database_path = tmp_path / "docintel.sqlite3"
     initialize_database(database_path)
@@ -53,7 +56,7 @@ def _service(
         documents,
         extractor,
         ExtractionRepository(database_path),
-        ChunkRepository(database_path),
+        ChunkRepository(database_path, chunker),
         semantic_index,
     )
 
@@ -99,6 +102,26 @@ def test_ingestion_records_semantic_index_and_reuses_ready_document(tmp_path) ->
     assert first.embedding_model == "fake-embedding-model"
     assert extractor.calls == 1
     assert semantic_index.calls == 1
+
+
+def test_ingestion_rebuilds_changed_chunker_without_reextracting(tmp_path) -> None:
+    extractor = FakeExtractor()
+    semantic_index = FakeSemanticIndex()
+    pdf_bytes = b"%PDF-1.7\nexample\n%%EOF"
+    initial = _service(tmp_path, extractor, semantic_index)
+    initial.ingest(BytesIO(pdf_bytes), "first.pdf")
+
+    changed = _service(
+        tmp_path,
+        extractor,
+        semantic_index,
+        ProvenanceChunker(max_words=80, overlap=15),
+    )
+    rebuilt = changed.ingest(BytesIO(pdf_bytes), "second.pdf")
+
+    assert extractor.calls == 1
+    assert semantic_index.calls == 2
+    assert rebuilt.chunker_version == "blocks-v1-80-15"
 
 
 def test_ingestion_preserves_lexical_data_when_semantic_index_fails(tmp_path) -> None:

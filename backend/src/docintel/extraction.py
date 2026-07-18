@@ -213,6 +213,12 @@ class ExtractionRepository:
     def __init__(self, database_path: Path) -> None:
         self.database_path = database_path
 
+    def has_pages(self, document_id: str) -> bool:
+        with database_connection(self.database_path) as connection:
+            return connection.execute(
+                "SELECT 1 FROM pages WHERE document_id = ? LIMIT 1", (document_id,)
+            ).fetchone() is not None
+
     def replace_pages(self, document_id: str, pages: Sequence[ExtractedPage]) -> None:
         with database_connection(self.database_path) as connection, connection:
             document_exists = connection.execute(
