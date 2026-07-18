@@ -85,6 +85,52 @@ class DocumentRepository:
             if cursor.rowcount == 0:
                 raise ValueError(f"Unknown document: {document_id}")
 
+    def list_all(self) -> list[tuple[DocumentRecord, str]]:
+        with database_connection(self.database_path) as connection:
+            rows = connection.execute(
+                """
+                SELECT documents.id, documents.storage_key, documents.media_type,
+                       documents.size_bytes, documents.status, documents.error_message,
+                       documents.embedding_model,
+                       COALESCE(
+                           (SELECT original_filename FROM document_names
+                            WHERE document_id = documents.id ORDER BY id DESC LIMIT 1),
+                           documents.id
+                       ) AS original_filename
+                FROM documents
+                ORDER BY documents.created_at DESC, documents.id
+                """
+            ).fetchall()
+        return [
+            (
+                DocumentRecord(
+                    id=row["id"],
+                    storage_key=row["storage_key"],
+                    media_type=row["media_type"],
+                    size_bytes=row["size_bytes"],
+                    status=row["status"],
+                    error_message=row["error_message"],
+                    embedding_model=row["embedding_model"],
+                ),
+                row["original_filename"],
+            )
+            for row in rows
+        ]
+
+    def latest_name(self, document_id: str) -> str | None:
+        with database_connection(self.database_path) as connection:
+            row = connection.execute(
+                """
+                SELECT original_filename
+                FROM document_names
+                WHERE document_id = ?
+                ORDER BY id DESC
+                LIMIT 1
+                """,
+                (document_id,),
+            ).fetchone()
+        return row["original_filename"] if row is not None else None
+
 
 class DocumentCatalog:
     def __init__(self, pdf_store: PdfStore, repository: DocumentRepository) -> None:
