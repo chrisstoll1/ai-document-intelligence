@@ -57,6 +57,19 @@ class DocumentRepository:
             ).fetchone()
         return DocumentRecord(**dict(row)) if row is not None else None
 
+    def set_status(self, document_id: str, status: str, error_message: str | None = None) -> None:
+        with database_connection(self.database_path) as connection, connection:
+            cursor = connection.execute(
+                """
+                UPDATE documents
+                SET status = ?, error_message = ?, updated_at = CURRENT_TIMESTAMP
+                WHERE id = ?
+                """,
+                (status, error_message, document_id),
+            )
+            if cursor.rowcount == 0:
+                raise ValueError(f"Unknown document: {document_id}")
+
 
 class DocumentCatalog:
     def __init__(self, pdf_store: PdfStore, repository: DocumentRepository) -> None:
