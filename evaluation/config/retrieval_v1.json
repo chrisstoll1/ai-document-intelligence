@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "configuration_id": "retrieval-v1",
+  "status": "frozen_for_locked_retrieval_evaluation",
+  "frozen_on": "2026-07-18",
+  "locked_test_scored": false,
+  "embedding": {
+    "model": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "dimensions": 384,
+    "normalize_embeddings": true,
+    "query_prompt": null
+  },
+  "chunking": {
+    "implementation": "block_aware_word_windows",
+    "version": "blocks-v1-120-20",
+    "max_words": 120,
+    "overlap_words": 20
+  },
+  "lexical": {
+    "implementation": "sqlite_fts5",
+    "tokenizer": "porter unicode61"
+  },
+  "semantic": {
+    "implementation": "chroma",
+    "distance": "cosine"
+  },
+  "fusion": {
+    "implementation": "weighted_reciprocal_rank_fusion",
+    "rrf_k": 60,
+    "keyword_weight": 0.5,
+    "semantic_weight": 0.5
+  },
+  "search": {
+    "default_result_limit": 5,
+    "candidate_limit": "max(20, result_limit * 4)"
+  },
+  "development_selection": {
+    "manifest": "evaluation/tat_dqa/development_manifest.json",
+    "manifest_sha256": "f87799c0627def3bd74984d19997afa9287bf6e7343590f31c57986036f8df3a",
+    "model_and_fusion_results": "evaluation/results/tat_dqa_development_candidate_comparison.md",
+    "chunking_results": "evaluation/results/tat_dqa_development_chunking_comparison.md"
+  },
+  "locked_test_guard": "scripts/evaluate_retrieval.py --split locked_test requires --confirm-locked-test"
+}

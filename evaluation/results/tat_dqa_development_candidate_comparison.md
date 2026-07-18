@@ -44,4 +44,4 @@ MiniLM with equal keyword and semantic RRF weights is selected for the current a
 
 BGE-small is not rejected as ineffective. Its prompted equal-weight run raises Hit@10 from 0.833 to 0.900 and Recall@10 from 0.489 to 0.547. However, it lowers Hit@1 from 0.767 to 0.700, MRR from 0.794 to 0.749, and nDCG from 0.625 to 0.612 while increasing hybrid latency by approximately 70% and parameter count by approximately 47%. This is a coverage-versus-ranking tradeoff, not a universal model ordering.
 
-The embedding model and fusion weights are selected using development data only. The complete retrieval configuration remains unfrozen until chunking candidates are compared. No result in this document uses the locked-test split.
+The embedding model and fusion weights were selected using development data only. The subsequent chunking comparison retained 120/20 and froze the complete configuration in `evaluation/config/retrieval_v1.json`. No result in this document uses the locked-test split.
