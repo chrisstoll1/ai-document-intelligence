@@ -24,8 +24,14 @@ class SemanticHit:
 
 
 class SentenceTransformerEncoder:
-    def __init__(self, model_name: str = "sentence-transformers/all-MiniLM-L6-v2") -> None:
+    def __init__(
+        self,
+        model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
+        *,
+        query_prompt: str | None = None,
+    ) -> None:
         self.model_name = model_name
+        self.query_prompt = query_prompt
         self._model = None
 
     def encode_documents(self, documents: list[str], *, normalize_embeddings: bool) -> Sequence[Sequence[float]]:
@@ -40,7 +46,11 @@ class SentenceTransformerEncoder:
             from sentence_transformers import SentenceTransformer
 
             self._model = SentenceTransformer(self.model_name)
-        return self._model.encode_query(query, normalize_embeddings=normalize_embeddings)
+        return self._model.encode_query(
+            query,
+            prompt=self.query_prompt,
+            normalize_embeddings=normalize_embeddings,
+        )
 
 
 class ChromaSemanticIndex:
@@ -50,9 +60,11 @@ class ChromaSemanticIndex:
         *,
         encoder: TextEncoder | None = None,
         model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
+        query_prompt: str | None = None,
     ) -> None:
-        self.encoder = encoder or SentenceTransformerEncoder(model_name)
+        self.encoder = encoder or SentenceTransformerEncoder(model_name, query_prompt=query_prompt)
         self.model_name = model_name
+        self.query_prompt = query_prompt
         fingerprint = hashlib.sha256(model_name.encode()).hexdigest()[:12]
         self.client = chromadb.PersistentClient(path=str(path))
         self.collection = self.client.get_or_create_collection(

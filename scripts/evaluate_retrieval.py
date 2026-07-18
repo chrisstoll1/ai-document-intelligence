@@ -8,6 +8,7 @@ import re
 import sys
 import time
 from datetime import UTC, datetime
+from importlib.metadata import version
 from pathlib import Path
 
 from docintel.api import build_services
@@ -31,6 +32,7 @@ def evaluate(
     output_path: Path,
     *,
     embedding_model: str = DEFAULT_EMBEDDING_MODEL,
+    query_prompt: str | None = None,
     keyword_weight: float = KEYWORD_WEIGHT,
     semantic_weight: float = SEMANTIC_WEIGHT,
 ) -> dict:
@@ -38,7 +40,7 @@ def evaluate(
     manifest_bytes = source_manifest_path.read_bytes()
     manifest = json.loads(manifest_bytes)
     documents = {document["uid"]: document for document in manifest["documents"]}
-    settings = Settings(data_dir, embedding_model)
+    settings = Settings(data_dir, embedding_model, query_prompt)
     services = build_services(settings)
     if services.semantic_index is None:
         raise RuntimeError("Semantic index is required for retrieval evaluation")
@@ -61,6 +63,10 @@ def evaluate(
                 raise RuntimeError(f"Document hash mismatch for {document['uid']}")
             ingestion.append({"document_uid": document["uid"], "document_id": record.id, "status": record.status})
         ingestion_seconds = time.perf_counter() - ingestion_started
+
+        warmup_started = time.perf_counter()
+        services.semantic_index.query(manifest["queries"][0]["question"], limit=1)
+        warmup_seconds = time.perf_counter() - warmup_started
 
         evaluator = RetrievalEvaluator(
             settings.database_path,
@@ -91,6 +97,7 @@ def evaluate(
             },
             "configuration": {
                 "embedding_model": services.semantic_index.model_name,
+                "query_prompt": services.semantic_index.query_prompt,
                 "chunker_version": services.search.chunks.chunker.version,
                 "fusion": {
                     "method": "weighted_reciprocal_rank_fusion",
@@ -108,9 +115,16 @@ def evaluate(
                 "python": sys.version.split()[0],
                 "platform": platform.platform(),
                 "processor": platform.processor(),
+                "packages": {
+                    "chromadb": version("chromadb"),
+                    "sentence-transformers": version("sentence-transformers"),
+                    "torch": version("torch"),
+                    "transformers": version("transformers"),
+                },
             },
             "ingestion": {
                 "elapsed_seconds": ingestion_seconds,
+                "query_warmup_seconds": warmup_seconds,
                 "documents": ingestion,
             },
             "metrics": aggregate_metrics(query_results, RetrievalEvaluator.MODES),
@@ -134,6 +148,7 @@ def main() -> int:
     parser.add_argument("--data-dir", type=Path)
     parser.add_argument("--output", type=Path)
     parser.add_argument("--embedding-model", default=DEFAULT_EMBEDDING_MODEL)
+    parser.add_argument("--query-prompt")
     parser.add_argument("--keyword-weight", type=float, default=KEYWORD_WEIGHT)
     parser.add_argument("--semantic-weight", type=float, default=SEMANTIC_WEIGHT)
     args = parser.parse_args()
@@ -152,13 +167,15 @@ def main() -> int:
     else:
         keyword = round(args.keyword_weight * 100)
         semantic = round(args.semantic_weight * 100)
-        result_name = f"tat_dqa_{args.split}_{model_name}_kw{keyword}_sem{semantic}.json"
+        prompt_suffix = "_prompted" if args.query_prompt else ""
+        result_name = f"tat_dqa_{args.split}_{model_name}{prompt_suffix}_kw{keyword}_sem{semantic}.json"
     output = args.output or DEFAULT_RESULT_DIR / result_name
     result = evaluate(
         args.split,
         data_dir,
         output,
         embedding_model=args.embedding_model,
+        query_prompt=args.query_prompt,
         keyword_weight=args.keyword_weight,
         semantic_weight=args.semantic_weight,
     )

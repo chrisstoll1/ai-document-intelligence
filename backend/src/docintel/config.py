@@ -11,6 +11,7 @@ DEFAULT_EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 class Settings:
     data_dir: Path
     embedding_model: str = DEFAULT_EMBEDDING_MODEL
+    embedding_query_prompt: str | None = None
 
     @property
     def database_path(self) -> Path:
@@ -21,4 +22,5 @@ class Settings:
         return cls(
             data_dir=Path(os.environ.get("DOCINTEL_DATA_DIR", "data")),
             embedding_model=os.environ.get("DOCINTEL_EMBEDDING_MODEL", DEFAULT_EMBEDDING_MODEL),
+            embedding_query_prompt=os.environ.get("DOCINTEL_EMBEDDING_QUERY_PROMPT"),
         )

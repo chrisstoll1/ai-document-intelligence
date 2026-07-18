@@ -43,11 +43,11 @@ def test_sentence_transformer_encoder_uses_document_and_query_tasks() -> None:
     model = Mock()
     model.encode_document.return_value = [[1.0, 0.0]]
     model.encode_query.return_value = [0.0, 1.0]
-    encoder = SentenceTransformerEncoder("candidate-model")
+    encoder = SentenceTransformerEncoder("candidate-model", query_prompt="retrieval: ")
     encoder._model = model
 
     assert encoder.encode_documents(["document"], normalize_embeddings=True) == [[1.0, 0.0]]
     assert encoder.encode_query("query", normalize_embeddings=True) == [0.0, 1.0]
 
     model.encode_document.assert_called_once_with(["document"], normalize_embeddings=True)
-    model.encode_query.assert_called_once_with("query", normalize_embeddings=True)
+    model.encode_query.assert_called_once_with("query", prompt="retrieval: ", normalize_embeddings=True)
