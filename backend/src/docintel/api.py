@@ -60,7 +60,7 @@ def build_services(settings: Settings) -> AppServices:
     documents = DocumentRepository(settings.database_path)
     pdf_store = PdfStore(settings.data_dir)
     chunks = ChunkRepository(settings.database_path)
-    semantic_index = ChromaSemanticIndex(settings.data_dir / "chroma")
+    semantic_index = ChromaSemanticIndex(settings.data_dir / "chroma", model_name=settings.embedding_model)
     return AppServices(
         ingestion=IngestionService(
             DocumentCatalog(pdf_store, documents),

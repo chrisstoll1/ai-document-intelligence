@@ -51,3 +51,12 @@ def test_persistent_hybrid_search_fuses_and_hydrates_candidates(tmp_path) -> Non
     assert results[0].page_start == 1
     assert results[0].keyword_rank == 1
     assert results[0].semantic_rank == 2
+
+    semantic_only = HybridSearchService(
+        database_path,
+        chunks,
+        semantic,
+        keyword_weight=0,
+        semantic_weight=1,
+    ).search("zebra")
+    assert semantic_only[0].chunk_id == indexed[1].id

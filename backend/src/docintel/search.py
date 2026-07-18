@@ -225,10 +225,21 @@ class HybridSearchService:
         database_path: Path,
         chunks: ChunkRepository,
         semantic_index: SemanticSearchIndex,
+        *,
+        keyword_weight: float = KEYWORD_WEIGHT,
+        semantic_weight: float = SEMANTIC_WEIGHT,
+        rrf_k: int = RRF_K,
     ) -> None:
+        if keyword_weight < 0 or semantic_weight < 0 or keyword_weight + semantic_weight <= 0:
+            raise ValueError("Fusion weights must be non-negative with at least one positive weight")
+        if rrf_k < 0:
+            raise ValueError("rrf_k must be non-negative")
         self.database_path = database_path
         self.chunks = chunks
         self.semantic_index = semantic_index
+        self.keyword_weight = keyword_weight
+        self.semantic_weight = semantic_weight
+        self.rrf_k = rrf_k
 
     def search(self, query: str, *, limit: int = 5) -> list[PersistentSearchResult]:
         query = query.strip()
@@ -267,9 +278,9 @@ class HybridSearchService:
             semantic_rank = semantic_ranks.get(row["id"])
             score = 0.0
             if keyword_rank is not None:
-                score += KEYWORD_WEIGHT / (RRF_K + keyword_rank)
+                score += self.keyword_weight / (self.rrf_k + keyword_rank)
             if semantic_rank is not None:
-                score += SEMANTIC_WEIGHT / (RRF_K + semantic_rank)
+                score += self.semantic_weight / (self.rrf_k + semantic_rank)
             results.append(
                 PersistentSearchResult(
                     chunk_id=row["id"],

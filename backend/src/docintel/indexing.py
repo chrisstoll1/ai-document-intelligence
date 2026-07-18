@@ -12,7 +12,9 @@ from docintel.chunking import ProvenanceChunk
 
 
 class TextEncoder(Protocol):
-    def encode(self, sentences: list[str], *, normalize_embeddings: bool) -> Sequence[Sequence[float]]: ...
+    def encode_documents(self, documents: list[str], *, normalize_embeddings: bool) -> Sequence[Sequence[float]]: ...
+
+    def encode_query(self, query: str, *, normalize_embeddings: bool) -> Sequence[float]: ...
 
 
 @dataclass(frozen=True)
@@ -26,12 +28,19 @@ class SentenceTransformerEncoder:
         self.model_name = model_name
         self._model = None
 
-    def encode(self, sentences: list[str], *, normalize_embeddings: bool) -> Sequence[Sequence[float]]:
+    def encode_documents(self, documents: list[str], *, normalize_embeddings: bool) -> Sequence[Sequence[float]]:
         if self._model is None:
             from sentence_transformers import SentenceTransformer
 
             self._model = SentenceTransformer(self.model_name)
-        return self._model.encode(sentences, normalize_embeddings=normalize_embeddings)
+        return self._model.encode_document(documents, normalize_embeddings=normalize_embeddings)
+
+    def encode_query(self, query: str, *, normalize_embeddings: bool) -> Sequence[float]:
+        if self._model is None:
+            from sentence_transformers import SentenceTransformer
+
+            self._model = SentenceTransformer(self.model_name)
+        return self._model.encode_query(query, normalize_embeddings=normalize_embeddings)
 
 
 class ChromaSemanticIndex:
@@ -55,7 +64,7 @@ class ChromaSemanticIndex:
         self.collection.delete(where={"document_id": document_id})
         if not chunks:
             return
-        vectors = self.encoder.encode([chunk.text for chunk in chunks], normalize_embeddings=True)
+        vectors = self.encoder.encode_documents([chunk.text for chunk in chunks], normalize_embeddings=True)
         self.collection.upsert(
             ids=[chunk.id for chunk in chunks],
             embeddings=[[float(value) for value in vector] for vector in vectors],
@@ -73,7 +82,7 @@ class ChromaSemanticIndex:
         query = query.strip()
         if not query or limit <= 0 or self.collection.count() == 0:
             return []
-        vector = self.encoder.encode([query], normalize_embeddings=True)[0]
+        vector = self.encoder.encode_query(query, normalize_embeddings=True)
         result = self.collection.query(
             query_embeddings=[[float(value) for value in vector]],
             n_results=min(limit, self.collection.count()),

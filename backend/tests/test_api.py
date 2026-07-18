@@ -56,11 +56,14 @@ class FakePageExtractor:
 
 
 class FakeEncoder:
-    def encode(self, sentences: list[str], *, normalize_embeddings: bool) -> list[list[float]]:
+    def encode_documents(self, documents: list[str], *, normalize_embeddings: bool) -> list[list[float]]:
         return [
             [1.0, 0.0] if any(term in sentence.lower() for term in ("privacy", "confidential")) else [0.0, 1.0]
-            for sentence in sentences
+            for sentence in documents
         ]
+
+    def encode_query(self, query: str, *, normalize_embeddings: bool) -> list[float]:
+        return self.encode_documents([query], normalize_embeddings=normalize_embeddings)[0]
 
 
 def _services(settings: Settings) -> AppServices:

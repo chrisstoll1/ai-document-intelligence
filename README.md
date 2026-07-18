@@ -15,6 +15,7 @@ npm install --prefix frontend
 ```
 
 Runtime data defaults to `data/`, which is ignored by Git. Set `DOCINTEL_DATA_DIR` before launch to use a different location.
+The embedding model defaults to `sentence-transformers/all-MiniLM-L6-v2`; set `DOCINTEL_EMBEDDING_MODEL` to use a separately evaluated compatible Sentence Transformers model.
 
 ## Run
 

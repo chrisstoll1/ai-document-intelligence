@@ -4,15 +4,16 @@ import argparse
 import hashlib
 import json
 import platform
+import re
 import sys
 import time
 from datetime import UTC, datetime
 from pathlib import Path
 
 from docintel.api import build_services
-from docintel.config import Settings
+from docintel.config import DEFAULT_EMBEDDING_MODEL, Settings
 from docintel.retrieval_evaluation import QueryJudgment, RetrievalEvaluator, aggregate_metrics
-from docintel.search import KEYWORD_WEIGHT, RRF_K, SEMANTIC_WEIGHT
+from docintel.search import KEYWORD_WEIGHT, SEMANTIC_WEIGHT, HybridSearchService
 
 ROOT = Path(__file__).resolve().parents[1]
 MANIFEST_DIR = ROOT / "evaluation" / "tat_dqa"
@@ -24,14 +25,30 @@ def manifest_path(split: str) -> Path:
     return MANIFEST_DIR / f"{split}_manifest.json"
 
 
-def evaluate(split: str, data_dir: Path, output_path: Path) -> dict:
+def evaluate(
+    split: str,
+    data_dir: Path,
+    output_path: Path,
+    *,
+    embedding_model: str = DEFAULT_EMBEDDING_MODEL,
+    keyword_weight: float = KEYWORD_WEIGHT,
+    semantic_weight: float = SEMANTIC_WEIGHT,
+) -> dict:
     source_manifest_path = manifest_path(split)
     manifest_bytes = source_manifest_path.read_bytes()
     manifest = json.loads(manifest_bytes)
     documents = {document["uid"]: document for document in manifest["documents"]}
-    services = build_services(Settings(data_dir))
+    settings = Settings(data_dir, embedding_model)
+    services = build_services(settings)
     if services.semantic_index is None:
         raise RuntimeError("Semantic index is required for retrieval evaluation")
+    hybrid_search = HybridSearchService(
+        settings.database_path,
+        services.search.chunks,
+        services.semantic_index,
+        keyword_weight=keyword_weight,
+        semantic_weight=semantic_weight,
+    )
 
     ingestion_started = time.perf_counter()
     try:
@@ -46,10 +63,10 @@ def evaluate(split: str, data_dir: Path, output_path: Path) -> dict:
         ingestion_seconds = time.perf_counter() - ingestion_started
 
         evaluator = RetrievalEvaluator(
-            Settings(data_dir).database_path,
+            settings.database_path,
             services.search.chunks,
             services.semantic_index,
-            services.search,
+            hybrid_search,
         )
         query_results = []
         for index, query in enumerate(manifest["queries"], start=1):
@@ -77,9 +94,9 @@ def evaluate(split: str, data_dir: Path, output_path: Path) -> dict:
                 "chunker_version": services.search.chunks.chunker.version,
                 "fusion": {
                     "method": "weighted_reciprocal_rank_fusion",
-                    "rrf_k": RRF_K,
-                    "keyword_weight": KEYWORD_WEIGHT,
-                    "semantic_weight": SEMANTIC_WEIGHT,
+                    "rrf_k": hybrid_search.rrf_k,
+                    "keyword_weight": hybrid_search.keyword_weight,
+                    "semantic_weight": hybrid_search.semantic_weight,
                 },
                 "cutoffs": [1, 3, 5, 10],
                 "relevance": {
@@ -116,16 +133,43 @@ def main() -> int:
     )
     parser.add_argument("--data-dir", type=Path)
     parser.add_argument("--output", type=Path)
+    parser.add_argument("--embedding-model", default=DEFAULT_EMBEDDING_MODEL)
+    parser.add_argument("--keyword-weight", type=float, default=KEYWORD_WEIGHT)
+    parser.add_argument("--semantic-weight", type=float, default=SEMANTIC_WEIGHT)
     args = parser.parse_args()
 
     if args.split == "locked_test" and not args.confirm_locked_test:
         parser.error("Locked-test evaluation requires --confirm-locked-test after configuration freeze.")
-    data_dir = args.data_dir or DEFAULT_DATA_ROOT / f"tat-dqa-{args.split}"
-    output = args.output or DEFAULT_RESULT_DIR / f"tat_dqa_{args.split}_baseline.json"
-    result = evaluate(args.split, data_dir, output)
+    model_name = _model_name(args.embedding_model)
+    default_model = args.embedding_model == DEFAULT_EMBEDDING_MODEL
+    data_suffix = "" if default_model else f"-{model_name}"
+    data_dir = args.data_dir or DEFAULT_DATA_ROOT / f"tat-dqa-{args.split}{data_suffix}"
+    default_configuration = (
+        default_model and args.keyword_weight == KEYWORD_WEIGHT and args.semantic_weight == SEMANTIC_WEIGHT
+    )
+    if default_configuration:
+        result_name = f"tat_dqa_{args.split}_baseline.json"
+    else:
+        keyword = round(args.keyword_weight * 100)
+        semantic = round(args.semantic_weight * 100)
+        result_name = f"tat_dqa_{args.split}_{model_name}_kw{keyword}_sem{semantic}.json"
+    output = args.output or DEFAULT_RESULT_DIR / result_name
+    result = evaluate(
+        args.split,
+        data_dir,
+        output,
+        embedding_model=args.embedding_model,
+        keyword_weight=args.keyword_weight,
+        semantic_weight=args.semantic_weight,
+    )
     print(json.dumps(result["metrics"], indent=2))
     print(f"Saved results to {output}")
     return 0
+
+
+def _model_name(model: str) -> str:
+    name = model.rsplit("/", 1)[-1].casefold()
+    return re.sub(r"[^a-z0-9]+", "-", name).strip("-")
 
 
 if __name__ == "__main__":
