@@ -1,4 +1,13 @@
-from docintel.extraction import PdfExtractor
+from docintel.extraction import OcrWord, PdfExtractor
+
+
+class FakeOcrEngine:
+    def recognize(self, image) -> list[OcrWord]:
+        assert image.width > 0
+        return [
+            OcrWord("Scanned", 100, 200, 120, 30, 91.0, (1, 1, 1)),
+            OcrWord("evidence", 230, 200, 140, 30, 89.0, (1, 1, 1)),
+        ]
 
 
 def _write_text_pdf(path, text: str) -> None:
@@ -40,3 +49,16 @@ def test_pdf_extractor_preserves_page_text_and_geometry(tmp_path) -> None:
     assert pages[0].text == "Direct extraction works"
     assert pages[0].blocks[0].method == "direct"
     assert pages[0].blocks[0].bbox[0] == 72
+
+
+def test_pdf_extractor_routes_empty_page_through_ocr(tmp_path) -> None:
+    pdf_path = tmp_path / "scan.pdf"
+    _write_text_pdf(pdf_path, "")
+
+    pages = PdfExtractor(ocr_engine=FakeOcrEngine()).extract(pdf_path)
+
+    assert pages[0].method == "ocr"
+    assert pages[0].text == "Scanned evidence"
+    assert pages[0].blocks[0].method == "ocr"
+    assert pages[0].blocks[0].confidence == 90.0
+    assert pages[0].blocks[0].bbox[0] > 0
