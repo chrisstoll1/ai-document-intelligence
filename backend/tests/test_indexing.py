@@ -43,7 +43,11 @@ def test_sentence_transformer_encoder_uses_document_and_query_tasks() -> None:
     model = Mock()
     model.encode_document.return_value = [[1.0, 0.0]]
     model.encode_query.return_value = [0.0, 1.0]
-    encoder = SentenceTransformerEncoder("candidate-model", query_prompt="retrieval: ")
+    encoder = SentenceTransformerEncoder(
+        "candidate-model",
+        model_revision="candidate-revision",
+        query_prompt="retrieval: ",
+    )
     encoder._model = model
 
     assert encoder.encode_documents(["document"], normalize_embeddings=True) == [[1.0, 0.0]]
@@ -51,3 +55,17 @@ def test_sentence_transformer_encoder_uses_document_and_query_tasks() -> None:
 
     model.encode_document.assert_called_once_with(["document"], normalize_embeddings=True)
     model.encode_query.assert_called_once_with("query", prompt="retrieval: ", normalize_embeddings=True)
+
+
+def test_chroma_index_identity_includes_model_revision(tmp_path) -> None:
+    index = ChromaSemanticIndex(
+        tmp_path / "chroma",
+        encoder=FakeEncoder(),
+        model_name="candidate-model",
+        model_revision="candidate-revision",
+    )
+
+    assert index.model_name == "candidate-model@candidate-revision"
+    assert index.collection.metadata["embedding_model"] == index.model_name
+
+    index.close()

@@ -16,6 +16,7 @@ from docintel.config import (
     DEFAULT_CHUNK_MAX_WORDS,
     DEFAULT_CHUNK_OVERLAP,
     DEFAULT_EMBEDDING_MODEL,
+    DEFAULT_EMBEDDING_REVISION,
     Settings,
 )
 from docintel.retrieval_evaluation import QueryJudgment, RetrievalEvaluator, aggregate_metrics
@@ -37,6 +38,7 @@ def evaluate(
     output_path: Path,
     *,
     embedding_model: str = DEFAULT_EMBEDDING_MODEL,
+    embedding_revision: str | None = DEFAULT_EMBEDDING_REVISION,
     query_prompt: str | None = None,
     chunk_max_words: int = DEFAULT_CHUNK_MAX_WORDS,
     chunk_overlap: int = DEFAULT_CHUNK_OVERLAP,
@@ -50,6 +52,7 @@ def evaluate(
     settings = Settings(
         data_dir=data_dir,
         embedding_model=embedding_model,
+        embedding_revision=embedding_revision,
         embedding_query_prompt=query_prompt,
         chunk_max_words=chunk_max_words,
         chunk_overlap=chunk_overlap,
@@ -109,7 +112,8 @@ def evaluate(
                 "source_split": manifest["source_split"],
             },
             "configuration": {
-                "embedding_model": services.semantic_index.model_name,
+                "embedding_model": services.semantic_index.base_model_name,
+                "embedding_revision": services.semantic_index.model_revision,
                 "query_prompt": services.semantic_index.query_prompt,
                 "chunker_version": services.search.chunks.chunker.version,
                 "chunk_max_words": services.search.chunks.chunker.max_words,
@@ -163,6 +167,7 @@ def main() -> int:
     parser.add_argument("--data-dir", type=Path)
     parser.add_argument("--output", type=Path)
     parser.add_argument("--embedding-model", default=DEFAULT_EMBEDDING_MODEL)
+    parser.add_argument("--embedding-revision")
     parser.add_argument("--query-prompt")
     parser.add_argument("--chunk-max-words", type=int, default=DEFAULT_CHUNK_MAX_WORDS)
     parser.add_argument("--chunk-overlap", type=int, default=DEFAULT_CHUNK_OVERLAP)
@@ -174,6 +179,7 @@ def main() -> int:
         parser.error("Locked-test evaluation requires --confirm-locked-test after configuration freeze.")
     model_name = _model_name(args.embedding_model)
     default_model = args.embedding_model == DEFAULT_EMBEDDING_MODEL
+    embedding_revision = args.embedding_revision or (DEFAULT_EMBEDDING_REVISION if default_model else None)
     default_chunking = (
         args.chunk_max_words == DEFAULT_CHUNK_MAX_WORDS and args.chunk_overlap == DEFAULT_CHUNK_OVERLAP
     )
@@ -203,6 +209,7 @@ def main() -> int:
         data_dir,
         output,
         embedding_model=args.embedding_model,
+        embedding_revision=embedding_revision,
         query_prompt=args.query_prompt,
         chunk_max_words=args.chunk_max_words,
         chunk_overlap=args.chunk_overlap,

@@ -28,9 +28,11 @@ class SentenceTransformerEncoder:
         self,
         model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
         *,
+        model_revision: str | None = None,
         query_prompt: str | None = None,
     ) -> None:
         self.model_name = model_name
+        self.model_revision = model_revision
         self.query_prompt = query_prompt
         self._model = None
 
@@ -38,14 +40,14 @@ class SentenceTransformerEncoder:
         if self._model is None:
             from sentence_transformers import SentenceTransformer
 
-            self._model = SentenceTransformer(self.model_name)
+            self._model = SentenceTransformer(self.model_name, revision=self.model_revision)
         return self._model.encode_document(documents, normalize_embeddings=normalize_embeddings)
 
     def encode_query(self, query: str, *, normalize_embeddings: bool) -> Sequence[float]:
         if self._model is None:
             from sentence_transformers import SentenceTransformer
 
-            self._model = SentenceTransformer(self.model_name)
+            self._model = SentenceTransformer(self.model_name, revision=self.model_revision)
         return self._model.encode_query(
             query,
             prompt=self.query_prompt,
@@ -60,16 +62,23 @@ class ChromaSemanticIndex:
         *,
         encoder: TextEncoder | None = None,
         model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
+        model_revision: str | None = None,
         query_prompt: str | None = None,
     ) -> None:
-        self.encoder = encoder or SentenceTransformerEncoder(model_name, query_prompt=query_prompt)
-        self.model_name = model_name
+        self.encoder = encoder or SentenceTransformerEncoder(
+            model_name,
+            model_revision=model_revision,
+            query_prompt=query_prompt,
+        )
+        self.base_model_name = model_name
+        self.model_revision = model_revision
+        self.model_name = f"{model_name}@{model_revision}" if model_revision else model_name
         self.query_prompt = query_prompt
-        fingerprint = hashlib.sha256(model_name.encode()).hexdigest()[:12]
+        fingerprint = hashlib.sha256(self.model_name.encode()).hexdigest()[:12]
         self.client = chromadb.PersistentClient(path=str(path))
         self.collection = self.client.get_or_create_collection(
             name=f"chunks-{fingerprint}",
-            metadata={"embedding_model": model_name, "hnsw:space": "cosine"},
+            metadata={"embedding_model": self.model_name, "hnsw:space": "cosine"},
         )
 
     def replace_document(self, document_id: str, chunks: Sequence[ProvenanceChunk]) -> None:

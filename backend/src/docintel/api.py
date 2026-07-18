@@ -66,6 +66,7 @@ def build_services(settings: Settings) -> AppServices:
     semantic_index = ChromaSemanticIndex(
         settings.data_dir / "chroma",
         model_name=settings.embedding_model,
+        model_revision=settings.embedding_revision,
         query_prompt=settings.embedding_query_prompt,
     )
     return AppServices(
