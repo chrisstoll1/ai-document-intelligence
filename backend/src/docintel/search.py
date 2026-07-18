@@ -14,8 +14,8 @@ from docintel.indexing import SemanticHit
 
 TOKEN_RE = re.compile(r"[a-zA-Z0-9]+")
 TEXT_EXTENSIONS = {".md", ".txt"}
-SEMANTIC_WEIGHT = 0.67
-KEYWORD_WEIGHT = 0.33
+SEMANTIC_WEIGHT = 0.5
+KEYWORD_WEIGHT = 0.5
 RRF_K = 60
 
 

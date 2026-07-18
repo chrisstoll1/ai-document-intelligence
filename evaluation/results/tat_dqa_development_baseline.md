@@ -30,4 +30,6 @@ Keyword retrieval returned a relevant chunk within the first ten results for 26 
 
 The provisional 0.67 semantic weight is not supported as a final choice by this run. It does not produce a broad hybrid advantage and loses one query that keyword retrieval resolves. The next development experiment should compare alternative fusion weights and equal-weight RRF using the same saved queries and judgments. The final configuration must then be frozen before any locked-test run.
 
+That follow-up experiment is complete. See `tat_dqa_development_candidate_comparison.md`; MiniLM with equal lexical and semantic weights was selected for the current implementation.
+
 One query had a valid page-level judgment but no exact mapped evidence token sequence in the extracted chunks, showing a difference between TAT-DQA's converted text and the application's PDF extraction. Its chunks remain binary-relevant for Recall, Hit, and MRR but cannot receive grade 2 for nDCG. The corpus is small and financial-domain specific, so these results do not establish statistical significance or general performance.

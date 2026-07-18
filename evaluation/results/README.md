@@ -14,3 +14,5 @@ The first development baseline is recorded in:
 
 - `tat_dqa_development_baseline.md`: readable method, results, and interpretation.
 - `tat_dqa_development_baseline.json`: complete configuration, environment, aggregate metrics, per-query rankings, judgments, and timings.
+- `tat_dqa_development_candidate_comparison.md`: MiniLM/BGE-small and RRF-weight comparison with the selection decision.
+- `tat_dqa_development_*_kw*_sem*.json`: complete candidate runs used by the comparison.
