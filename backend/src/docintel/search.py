@@ -8,10 +8,15 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Protocol
 
+from docintel.chunking import ChunkRepository
+from docintel.db import database_connection
+from docintel.indexing import SemanticHit
+
 TOKEN_RE = re.compile(r"[a-zA-Z0-9]+")
 TEXT_EXTENSIONS = {".md", ".txt"}
 SEMANTIC_WEIGHT = 0.67
 KEYWORD_WEIGHT = 0.33
+RRF_K = 60
 
 
 class TextEncoder(Protocol):
@@ -195,3 +200,87 @@ def _normalise(scores: dict[Chunk, float]) -> dict[Chunk, float]:
     if maximum <= 0:
         return dict.fromkeys(scores, 0.0)
     return {chunk: max(0.0, score) / maximum for chunk, score in scores.items()}
+
+
+class SemanticSearchIndex(Protocol):
+    def query(self, query: str, *, limit: int = 20) -> list[SemanticHit]: ...
+
+
+@dataclass(frozen=True)
+class PersistentSearchResult:
+    chunk_id: str
+    document_id: str
+    document_name: str
+    text: str
+    page_start: int
+    page_end: int
+    score: float
+    keyword_rank: int | None
+    semantic_rank: int | None
+
+
+class HybridSearchService:
+    def __init__(
+        self,
+        database_path: Path,
+        chunks: ChunkRepository,
+        semantic_index: SemanticSearchIndex,
+    ) -> None:
+        self.database_path = database_path
+        self.chunks = chunks
+        self.semantic_index = semantic_index
+
+    def search(self, query: str, *, limit: int = 5) -> list[PersistentSearchResult]:
+        query = query.strip()
+        if not query or limit <= 0:
+            return []
+        candidate_limit = max(20, limit * 4)
+        keyword_hits = self.chunks.search(query, limit=candidate_limit)
+        semantic_hits = self.semantic_index.query(query, limit=candidate_limit)
+        keyword_ranks = {hit.chunk_id: rank for rank, hit in enumerate(keyword_hits, start=1)}
+        semantic_ranks = {hit.chunk_id: rank for rank, hit in enumerate(semantic_hits, start=1)}
+        candidate_ids = list(dict.fromkeys([*keyword_ranks, *semantic_ranks]))
+        if not candidate_ids:
+            return []
+
+        placeholders = ", ".join("?" for _ in candidate_ids)
+        with database_connection(self.database_path) as connection:
+            rows = connection.execute(
+                f"""
+                SELECT chunks.id, chunks.document_id, chunks.text, chunks.page_start, chunks.page_end,
+                       COALESCE(
+                           (SELECT original_filename FROM document_names
+                            WHERE document_id = chunks.document_id ORDER BY id DESC LIMIT 1),
+                           chunks.document_id
+                       ) AS document_name
+                FROM chunks
+                JOIN documents ON documents.id = chunks.document_id
+                WHERE chunks.id IN ({placeholders})
+                  AND documents.status IN ('indexed_lexical', 'ready')
+                """,
+                candidate_ids,
+            ).fetchall()
+
+        results = []
+        for row in rows:
+            keyword_rank = keyword_ranks.get(row["id"])
+            semantic_rank = semantic_ranks.get(row["id"])
+            score = 0.0
+            if keyword_rank is not None:
+                score += KEYWORD_WEIGHT / (RRF_K + keyword_rank)
+            if semantic_rank is not None:
+                score += SEMANTIC_WEIGHT / (RRF_K + semantic_rank)
+            results.append(
+                PersistentSearchResult(
+                    chunk_id=row["id"],
+                    document_id=row["document_id"],
+                    document_name=row["document_name"],
+                    text=row["text"],
+                    page_start=row["page_start"],
+                    page_end=row["page_end"],
+                    score=score,
+                    keyword_rank=keyword_rank,
+                    semantic_rank=semantic_rank,
+                )
+            )
+        return sorted(results, key=lambda result: result.score, reverse=True)[:limit]
