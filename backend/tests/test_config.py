@@ -49,6 +49,8 @@ def test_frozen_retrieval_configuration_matches_application_defaults() -> None:
     assert frozen["fusion"]["rrf_k"] == RRF_K
     assert frozen["fusion"]["keyword_weight"] == KEYWORD_WEIGHT
     assert frozen["fusion"]["semantic_weight"] == SEMANTIC_WEIGHT
+    locked_bytes = (root / frozen["locked_test_evidence"]["result"]).read_bytes()
+    assert frozen["locked_test_evidence"]["result_sha256"] == hashlib.sha256(locked_bytes).hexdigest()
 
 
 def test_frozen_ocr_configuration_matches_application_defaults() -> None:
@@ -103,3 +105,17 @@ def test_frozen_generation_configuration_matches_application_defaults() -> None:
         frozen["selection_evidence"]["metrics"]["mistral"]["answerable_reference_coverage"]
         == mistral["metrics"]["answerable_reference_coverage"]
     )
+    locked_bytes = (root / frozen["locked_test_evidence"]["result"]).read_bytes()
+    assert frozen["locked_test_evidence"]["result_sha256"] == hashlib.sha256(locked_bytes).hexdigest()
+
+
+def test_frozen_metadata_and_ocr_retrieval_results_match_hashes() -> None:
+    root = Path(__file__).resolve().parents[2]
+    metadata = json.loads((root / "evaluation" / "config" / "metadata_rerank_v1.json").read_text())
+    ocr = json.loads((root / "evaluation" / "config" / "ocr_retrieval_v1.json").read_text())
+
+    for config, evidence_names in ((metadata, ("evidence",)), (ocr, ("development_evidence", "locked_test_evidence"))):
+        for evidence_name in evidence_names:
+            evidence = config[evidence_name]
+            result_bytes = (root / evidence["result"]).read_bytes()
+            assert evidence["result_sha256"] == hashlib.sha256(result_bytes).hexdigest()

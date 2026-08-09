@@ -110,7 +110,7 @@ def evaluate(
     result = {
         "schema_version": 1,
         "generated_at": datetime.now(UTC).isoformat(),
-        "split": "development",
+        "split": inputs.get("split", "development"),
         "inputs_sha256": hashlib.sha256(input_bytes).hexdigest(),
         "model": {**config, "key": model_key},
         "configuration": {

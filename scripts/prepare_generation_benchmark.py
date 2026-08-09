@@ -54,18 +54,25 @@ def prepare(
     *,
     overwrite: bool = False,
 ) -> dict:
+    retrieval_manifest_path = retrieval_manifest_path.resolve()
+    raw_gold_path = raw_gold_path.resolve()
+    output_path = output_path.resolve()
     if output_path.exists() and not overwrite:
         raise RuntimeError(f"Refusing to overwrite existing generation benchmark: {output_path}")
     retrieval_bytes = retrieval_manifest_path.read_bytes()
     retrieval = json.loads(retrieval_bytes)
-    if retrieval.get("split") != "development":
-        raise RuntimeError("Generation benchmark preparation accepts only the development split")
+    split = retrieval.get("split")
+    if split not in {"development", "locked_test"}:
+        raise RuntimeError("Generation benchmark requires a development or locked-test retrieval split")
     raw_bytes = raw_gold_path.read_bytes()
     gold_by_uid = index_gold_questions(json.loads(raw_bytes))
     documents = {document["uid"]: document for document in retrieval["documents"]}
 
     questions = []
-    for query in select_answerable_queries(retrieval["queries"]):
+    selected_queries = (
+        select_answerable_queries(retrieval["queries"]) if split == "development" else retrieval["queries"]
+    )
+    for query in selected_queries:
         gold = gold_by_uid[query["uid"]]
         if gold["question"] != query["question"]:
             raise RuntimeError(f"Generation gold mismatch for {query['uid']}")
@@ -102,23 +109,31 @@ def prepare(
         for uid, question in UNANSWERABLE_QUESTIONS
     )
 
-    manifest = {
-        "schema_version": 1,
-        "name": "TAT-DQA grounded generation development benchmark",
-        "split": "development",
-        "source_dataset": retrieval["dataset"],
-        "source_dataset_url": retrieval["dataset_url"],
-        "license": retrieval["license"],
-        "retrieval_manifest": retrieval_manifest_path.relative_to(ROOT).as_posix(),
-        "retrieval_manifest_sha256": sha256_bytes(retrieval_bytes),
-        "raw_development_gold_sha256": sha256_bytes(raw_bytes),
-        "selection": {
+    if split == "development":
+        selection = {
             "seed": SELECTION_SEED,
             "method": "SHA-256 ordering within official answer types plus fixed candidate-blind unanswerable questions",
             "answerable_quotas": ANSWERABLE_QUOTAS,
             "answerable_count": sum(ANSWERABLE_QUOTAS.values()),
             "unanswerable_count": len(UNANSWERABLE_QUESTIONS),
-        },
+        }
+    else:
+        selection = {
+            "method": "All previously locked retrieval questions plus fixed candidate-blind unanswerable questions",
+            "answerable_count": len(selected_queries),
+            "unanswerable_count": len(UNANSWERABLE_QUESTIONS),
+        }
+    manifest = {
+        "schema_version": 1,
+        "name": f"TAT-DQA grounded generation {split.replace('_', ' ')} benchmark",
+        "split": split,
+        "source_dataset": retrieval["dataset"],
+        "source_dataset_url": retrieval["dataset_url"],
+        "license": retrieval["license"],
+        "retrieval_manifest": retrieval_manifest_path.relative_to(ROOT).as_posix(),
+        "retrieval_manifest_sha256": sha256_bytes(retrieval_bytes),
+        f"raw_{split}_gold_sha256": sha256_bytes(raw_bytes),
+        "selection": selection,
         "questions": questions,
     }
     output_path.parent.mkdir(parents=True, exist_ok=True)

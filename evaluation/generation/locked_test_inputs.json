@@ -1,0 +1,2261 @@
+{
+  "schema_version": 1,
+  "benchmark_sha256": "bbe492c36fcad5a4127e3d26e30cb00a89ad525a6b3f5282507f8b7aa4a1a1c2",
+  "retrieval_configuration": {
+    "version": "retrieval-v1",
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "embedding_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "chunker_version": "blocks-v1-120-20",
+    "limit": 5,
+    "fusion": "weighted_reciprocal_rank_fusion",
+    "keyword_weight": 0.5,
+    "semantic_weight": 0.5,
+    "rrf_k": 60
+  },
+  "questions": [
+    {
+      "uid": "c91185569a4dee8ffc347ca66f16797e",
+      "expected_status": "answered",
+      "question": "What was the gross federal net operating loss in 2019?",
+      "answer_type": "span",
+      "answer": [
+        "$923.4 million"
+      ],
+      "scale": "",
+      "derivation": "",
+      "document_uid": "3e2109c375cbf670d40c77b22b430b20",
+      "document_sha256": "05383a146421b2f030a62de6a76d95f4725d584bf1c48abdfe3ae24a37011e56",
+      "relevant_pages": [
+        2
+      ],
+      "evidence": [
+        {
+          "block_id": "574f0ce7-bcfd-408c-bca7-591893d9e46b",
+          "page": 2,
+          "char_start": 32,
+          "char_end": 48,
+          "text": " $923.4 million ",
+          "block_text": "As of September 27, 2019, we had $923.4 million of gross federal net operating loss (\"NOL\") carryforwards consisting of $479.2 million relating to the"
+        }
+      ],
+      "retrieval_evidence_available": true,
+      "context_expected_status": "answered",
+      "contexts": [
+        {
+          "chunk_id": "d5b777dd7c93ea3c6e76c1bb092d158ec376924b90cdf4c8839ee9d08e49dacf",
+          "document_id": "05383a146421b2f030a62de6a76d95f4725d584bf1c48abdfe3ae24a37011e56",
+          "document_name": "3e2109c375cbf670d40c77b22b430b20.pdf",
+          "text": "and amounts used for income tax purposes. The components of our deferred tax assets and liabilities are as follows (in thousands):\nSeptember 27, September 28,\n2019 2018\nDeferred tax assets (liabilities):\nFederal and foreign net operating losses and credits $ 263,199 $ 321,982\nIntangible assets 9,887 (94,929)\nProperty and equipment (1,473) (6,293)\nOther non-current deferred tax assets 16,933 13,850\nDeferred compensation \u2014 3,810\nDeferred gain \u2014 6,575\nInterest 7,170 \u2014\nValuation allowance (252,536) (243,112)\n$ 43,180 $ 1,883 Total deferred tax asset\n74\nAs of September 27, 2019, we had $923.4 million of gross federal net operating loss (\"NOL\") carryforwards consisting of $479.2 million relating to the",
+          "page_start": 1,
+          "page_end": 2,
+          "score": 0.01626123744050767,
+          "keyword_rank": 1,
+          "semantic_rank": 2
+        },
+        {
+          "chunk_id": "f6f25289021b88d3b6a381703655db2929a22e1e92d142c63c2a3a4b8912b877",
+          "document_id": "15574e464087410835619fcf9a9895fa825d6054ba9fc0698e13b36da917114c",
+          "document_name": "b8cf8e9ebf71c892eda0a3ed9ee57852.pdf",
+          "text": "provides a more consistent and meaningful basis for comparing results of operations from period to period. See the section\n\u201cNon-GAAP Financial Measures\u201d below for further discussion of these financial measures.\nFiscal Year\n($ in millions) 2019 2018\nNet sales $ 2,380.2 $ 2,157.7\nLess: surcharge revenue 438.1 365.4\nNet sales excluding surcharge revenue $ 1,942.1 $ 1,792.3\nGross profit $ 444.8 $ 382.3\nGross margin 18.7% 17.7%\nGross margin excluding surcharge revenue 22.9% 21.3%\nSelling, General and Administrative Expenses\nSelling, general and administrative expenses in fiscal year 2019 were $203.4 million, or 8.5 percent of net sales (10.5\npercent of net sales excluding surcharge revenue), compared to $193.0 million, or 8.9 percent of net sales (10.8 percent of net",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015873015873015872,
+          "keyword_rank": 3,
+          "semantic_rank": 3
+        },
+        {
+          "chunk_id": "a6a8930370513fdbfbb56f0b6ec17d2583133e86d6942de8d1ca6ff89ad2f1bd",
+          "document_id": "e7dc6a22612c8b007ab4c988cd62f0852eac23f1cd57e85198fc9e4fd0a42838",
+          "document_name": "a7dd7ece6cae1b2aefaa138af72df8ff.pdf",
+          "text": "scheduled reversals of deferred tax liabilities, tax-planning strategies, and results of recent operations. In evaluating the objective evidence that historical\nresults provide, we consider three years of cumulative operating income (loss). In the year ended December 31, 2018, we released $64.8 million of valuation\nallowance, mostly due to the utilization of capital loss carryforward against capital gain incurred during the year ended December 31, 2018 and the utilization\nof federal credit carryforwards.\nDiscontinued Operations\n2019 % 2018 %\nYear Ended December 31, Change Change\n(In thousands) 2019 2018 2017 from 2018 from 2017\nLoss from discontinued operations $ 0 $ (72,836) $ (11,915) (100.0%) NM\nGain on sale of Netsmart 0 500,471 0 (100.0%) NM",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015772478887232988,
+          "keyword_rank": 6,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "fe92b70cc55cc09adb5016eddbe56fd92193a0cb52543f5229b410663c23bb36",
+          "document_id": "05383a146421b2f030a62de6a76d95f4725d584bf1c48abdfe3ae24a37011e56",
+          "document_name": "3e2109c375cbf670d40c77b22b430b20.pdf",
+          "text": "The domestic and foreign income (loss) from continuing operations before taxes were as follows (in thousands):\nFiscal Years\n2019 2018 2017\nUnited States $ (458,617) $ (145,851) $ (111,432)\nForeign 35,464 (9,384) 61,927\n$ (423,153) $ (155,235) $ (49,505) (Loss) income from operations before income taxes\nThe components of the (benefit) provision for income taxes are as follows (in thousands):\nFiscal Years\n2019 2018 2017\nCurrent:\nFederal $ 70 $ (6,876) $ 100\nState 36 (160) 225\nForeign 876 1,642 7,307\nCurrent provision (benefit) 982 (5,394) 7,632\nDeferred:\nFederal (21,560) 75,428 (42,637)\nState 12,907 (15,526) (4,037)\nForeign (41,108) (24,652) (466)\nChange in valuation allowance 9,424 (51,329) 140,419\nDeferred (benefit) provision (40,337) (16,079) 93,279",
+          "page_start": 2,
+          "page_end": 2,
+          "score": 0.015154994259471873,
+          "keyword_rank": 5,
+          "semantic_rank": 7
+        },
+        {
+          "chunk_id": "91c704f36c0ba8dd3a678ea856d9446ce47ad7a484e133db021c27815b56c2d1",
+          "document_id": "15574e464087410835619fcf9a9895fa825d6054ba9fc0698e13b36da917114c",
+          "document_name": "b8cf8e9ebf71c892eda0a3ed9ee57852.pdf",
+          "text": "sales excluding surcharge revenue), in fiscal year 2018. Selling, general and administrative expenses increased in fiscal year\n2019 primarily due to higher depreciation, insurance and acquisition related costs partially offset by lower variable\ncompensation expense compared to fiscal year 2018.\nOperating Income\nOur operating income in fiscal year 2019 increased to $241.4 million, or 10.1 percent of net sales as compared with\n$189.3 million, or 8.8 percent of net sales in fiscal year 2018. Excluding surcharge revenue and special items, adjusted\noperating margin was 12.5 percent for the fiscal year 2019 and 10.6 percent for the same period a year ago. The increase in the",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014955357142857142,
+          "keyword_rank": 10,
+          "semantic_rank": 4
+        }
+      ]
+    },
+    {
+      "uid": "0a5bf43b11e96289f11f5f5105b1da4a",
+      "expected_status": "answered",
+      "question": "In which year was intangible assets negative?",
+      "answer_type": "span",
+      "answer": [
+        "2018"
+      ],
+      "scale": "",
+      "derivation": "locate and analyze Federal and foreign net operating losses and credits in row 4",
+      "document_uid": "3e2109c375cbf670d40c77b22b430b20",
+      "document_sha256": "05383a146421b2f030a62de6a76d95f4725d584bf1c48abdfe3ae24a37011e56",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "5c58c2c5-db35-4333-9f5d-5f08ef6bf19c",
+          "page": 1,
+          "char_start": 0,
+          "char_end": 4,
+          "text": "2018",
+          "block_text": "2018"
+        }
+      ],
+      "retrieval_evidence_available": true,
+      "context_expected_status": "answered",
+      "contexts": [
+        {
+          "chunk_id": "81410ca55e1dea30fb58601bd3663e9b4649de1137cbc6df208f2448ea889f83",
+          "document_id": "05383a146421b2f030a62de6a76d95f4725d584bf1c48abdfe3ae24a37011e56",
+          "document_name": "3e2109c375cbf670d40c77b22b430b20.pdf",
+          "text": "Certain transaction- and integration-related expenses incurred in the U.S., associated primarily with the AppliedMicro Acquisition during the three months\nended March 31, 2017, resulted for the first time in significant negative objective evidence in the form of adjusted cumulative losses in the U.S. over the past three-\nyear period. This resulted in our determination that there was not sufficient objectively verifiable positive evidence to offset this negative objective evidence and we\nconcluded that a full valuation allowance totaling $93.5 million was required for our U.S. deferred tax assets as of September 29, 2017. In addition, a full\nvaluation allowance was established against the U.S. deferred tax assets acquired in connection with the AppliedMicro Acquisition.",
+          "page_start": 2,
+          "page_end": 2,
+          "score": 0.015877016129032258,
+          "keyword_rank": 2,
+          "semantic_rank": 4
+        },
+        {
+          "chunk_id": "052b9ebc9bd3553c9724ca9a22a1ab043309ddca6ea335f12e23b3d57c050c20",
+          "document_id": "a53aba5eea3f9159c2a170159bb070215533ac7b629189c8227090d8fe12da19",
+          "document_name": "48adf518eb23b8900b86a6c63066d799.pdf",
+          "text": "ANNUAL REPORT 2019 ASMI\n150\nABOUT VALUE CREATION GOVERNANCE FINANCIAL STATEMENTS GENERAL INFORMATION\nNOTE 3. GOODWILL Other intangible assets are amortized over their useful lives of three to seven years. Estimated\namortization expenses relating to other intangible assets are as follows: The carrying amount of the goodwill is related to acquisitions in the following cash generating units:\nPurchased technology December 31,\nand other intangible\nSoftware assets Total 2018 2019\n2020 3,494 3,219 275 ALD 2,611 2,611\n2021 168 168 \u2013 PEALD 8,659 8,659\n2022 29 29 \u2013 Total 11,270 11,270\n2023 \u2013 \u2013 \u2013\nYears thereafter \u2013 \u2013 \u2013 NOTE 4. OTHER INTANGIBLE ASSETS\nTotal 3,691 3,416 275",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015772478887232988,
+          "keyword_rank": 6,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "77056135d3f9cc73570faa72d9e9050d7e6911f4d6ec9a2823104285c1c207ae",
+          "document_id": "05383a146421b2f030a62de6a76d95f4725d584bf1c48abdfe3ae24a37011e56",
+          "document_name": "3e2109c375cbf670d40c77b22b430b20.pdf",
+          "text": "$ (39,355) $ (21,473) $ 100,911 Total (benefit) provision\nWe recognize deferred tax assets to the extent that we believe that these assets are more likely than not to be realized. In making this determination, we\nconsider available positive and negative evidence and factors that may impact the valuation of our deferred tax asset including results of recent operations, future\nreversals of existing taxable temporary differences, projected future taxable income, and tax-planning strategies. A significant piece of objective negative evidence\nevaluated was the cumulative U.S. loss incurred over the three-year period ended September 27, 2019 which we believe limited our ability to consider other\nsubjective evidence, such as our projections for future growth.",
+          "page_start": 2,
+          "page_end": 2,
+          "score": 0.01565940787863959,
+          "keyword_rank": 1,
+          "semantic_rank": 7
+        },
+        {
+          "chunk_id": "02c22663d8eee8c85bcb7036d17224f23c08343688eb94bab880511f87c56e38",
+          "document_id": "05383a146421b2f030a62de6a76d95f4725d584bf1c48abdfe3ae24a37011e56",
+          "document_name": "3e2109c375cbf670d40c77b22b430b20.pdf",
+          "text": "Intangible assets consist of the following (in thousands):\nSeptember 27, September 28,\n2019 2018\nAcquired technology $ 179,682 $ 251,673\nCustomer relationships 245,870 518,234\nTrade name, indefinite lived 3,400 3,400\nTotal 428,952 773,307\nLess accumulated amortization (247,724) (260,522)\nIntangible assets \u2014 net $ 181,228 $ 512,785\nAs of September 27, 2019, our estimated amortization of our intangible assets in future fiscal years, was as follows (in thousands):\n2020 2021 2022 2023 2024 Thereafter\nAmortization expense$ 50,330 46,213 33,433 26,048 15,410 6,394\nAccumulated amortization for the acquired technology and customer relationships was $134.8 million and $112.9 million, respectively, as of September 27,\n2019, and $140.0 million and $120.5 million, respectively, as of September 28, 2018.",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01562881562881563,
+          "keyword_rank": 3,
+          "semantic_rank": 5
+        },
+        {
+          "chunk_id": "aae551479491d469c525dd2144d4ef991d71d207b7f6089b074328281ffc5bb1",
+          "document_id": "05383a146421b2f030a62de6a76d95f4725d584bf1c48abdfe3ae24a37011e56",
+          "document_name": "3e2109c375cbf670d40c77b22b430b20.pdf",
+          "text": "A summary of the activity in intangible assets and goodwill follows (in thousands):\nGross Intangible Assets\nTotal Acquired Customer Trade Total\nIntangibles Technology Relationships Name Goodwill\nBalance at September 29, 2017 $ 811,703 $ 251,655 $ 556,648 $ 3,400 $ 313,765\nAllocation to divested business (39,285) \u2014 (39,285) \u2014 (2,560)\nFair value adjustment \u2014 \u2014 \u2014 \u2014 2,790\nCurrency translation adjustments 889 18 871 \u2014 81\nBalance at September 28, 2018 773,307 251,673 518,234 3,400 314,076\nCurrency translation adjustments 270 270 \u2014 \u2014 651\nImpairments of intangible assets (344,625) (72,261) (272,364) \u2014 \u2014\n$ 428,952 $ 179,682 $ 245,870 $ 3,400 $ 314,727 Balance at September 27, 2019",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015527202696196438,
+          "keyword_rank": 7,
+          "semantic_rank": 2
+        }
+      ]
+    },
+    {
+      "uid": "09a9c49a44e30749284f930b2affe2bf",
+      "expected_status": "answered",
+      "question": "What is the percentage change in Loans due from subsidiaries - current portion from 2018 to 2019?",
+      "answer_type": "arithmetic",
+      "answer": 2.86,
+      "scale": "percent",
+      "derivation": "(2,123-2,064)/2,064",
+      "document_uid": "48adf518eb23b8900b86a6c63066d799",
+      "document_sha256": "a53aba5eea3f9159c2a170159bb070215533ac7b629189c8227090d8fe12da19",
+      "relevant_pages": [
+        2
+      ],
+      "evidence": [
+        {
+          "block_id": "68522b40-e919-47cb-a2bb-29b66c0ffb51",
+          "page": 2,
+          "char_start": 46,
+          "char_end": 51,
+          "text": "2,064",
+          "block_text": "Loans due from subsidiaries - current portion 2,064 2,123"
+        },
+        {
+          "block_id": "68522b40-e919-47cb-a2bb-29b66c0ffb51",
+          "page": 2,
+          "char_start": 52,
+          "char_end": 57,
+          "text": "2,123",
+          "block_text": "Loans due from subsidiaries - current portion 2,064 2,123"
+        }
+      ],
+      "retrieval_evidence_available": true,
+      "context_expected_status": "answered",
+      "contexts": [
+        {
+          "chunk_id": "191bcafbb9b9a23dd6e9424dd5d6f2e2705dd9ea37136dd5d0bedbd7168699c9",
+          "document_id": "a53aba5eea3f9159c2a170159bb070215533ac7b629189c8227090d8fe12da19",
+          "document_name": "48adf518eb23b8900b86a6c63066d799.pdf",
+          "text": "December 31,\n2018 2019\nLoans due from subsidiaries - non-current portion 45,377 46,698\nLoans due from subsidiaries - current portion 2,123 2,064\nTotal 47,500 48,762\nInterest relates mainly to a subsidiary and is based on the Bank of America\u2019s prime rate with a rise\nof two percent points. The repayment schedule of the loan is as follows: 24 annual installments\nof US$2 million, starting December 31, 2018, followed by a final installment of US$5.3 million\non December 31, 2043.\nNOTE 6. DEFERRED TAX ASSETS\nASMI has no operating losses available anymore at December 31, 2019 to reduce future income taxes.\nThe Company believes that realization of its net deferred tax assets is dependent on the ability of the",
+          "page_start": 2,
+          "page_end": 2,
+          "score": 0.01639344262295082,
+          "keyword_rank": 1,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "cc48d5e01748137a520246aeabaa9085e49b78fdd9dc9744e706440c100c3fed",
+          "document_id": "a53aba5eea3f9159c2a170159bb070215533ac7b629189c8227090d8fe12da19",
+          "document_name": "48adf518eb23b8900b86a6c63066d799.pdf",
+          "text": "The changes in the carrying amount of other intangible assets are as follows:\nPurchased technology NOTE 5. INVESTMENTS AND LOANS TO SUBSIDIARIES\nand other intangible\nSoftware assets Total\nInvestments in Loans to At cost:\nsubsidiaries subsidiaries Total\nBalance January 1, 2018 33,145 26,748 6,397\nBalance January 1, 2018 1,421,825 1,373,070 48,755\nAdditions 242 242 \u2013\nNet result of subsidiaries and associates 199,178 199,178 \u2013\nBalance December 31, 2018 33,387 26,990 6,397\nOther comprehensive income investments 499 499 \u2013\nAdditions 46 46 \u2013\nDividend received (29,649) (29,649) \u2013\nBalance December 31, 2019 33,433 27,036 6,397\nReclassification 14,587 14,587 \u2013\nAccumulated amortization:\nRepayment of loans (2,114) \u2013 (2,114)\nBalance January 1, 2018 19,304 14,502 4,802\nDilution 489 489 \u2013",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.016129032258064516,
+          "keyword_rank": 2,
+          "semantic_rank": 2
+        },
+        {
+          "chunk_id": "dce342e1c8655e1bd37236d0ec3cedafd16143e10186c103f80d0aa28951fed6",
+          "document_id": "e7dc6a22612c8b007ab4c988cd62f0852eac23f1cd57e85198fc9e4fd0a42838",
+          "document_name": "a7dd7ece6cae1b2aefaa138af72df8ff.pdf",
+          "text": "federal rate and expense of $5.2 million for the one-time transition tax on accumulated foreign subsidiary earnings not previously subject to income tax in the\nUnited States. Adjustments to these provisional amounts that we recorded in 2018 did not have a significant impact on our consolidated financial statements.\nOur accounting for the effects of the enactment of United States Tax Reform is now complete. Due to our divestiture of our investment in Netsmart, the\namounts noted above do not include the provisional amounts recorded by Netsmart in 2017.\nOur provision for income taxes differs from the tax computed at the U.S. federal statutory income tax rate due primarily to valuation allowance,",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01488095238095238,
+          "keyword_rank": 3,
+          "semantic_rank": 12
+        },
+        {
+          "chunk_id": "76aa75862925eb688afbfd6ec19b902424bb2c0bfea84456a35b09fe7d8a57ae",
+          "document_id": "1415def72b1696e90af12df00cf6cc027d6768c279cc1c694955c1c831a47110",
+          "document_name": "eacd9d2c0223e2acd395af609bbe05d1.pdf",
+          "text": "Total financial income . . . . . . . . . . . . . . . . . . . . . . . . 2,650 4,784 5,318\nFinancial Costs\nAmortization and write-off of deferred loan/bond\nissuance costs/premium. . . . . . . . . . . . . . . . . . . . . . 12,398 12,593 14,154\nInterest expense on loans and realized loss on cash\nflow hedges . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 85,813 111,600 122,819",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014636752136752137,
+          "keyword_rank": 12,
+          "semantic_rank": 5
+        },
+        {
+          "chunk_id": "1d81b6b7b5738e7c075b80fac6675c572effb4890dfdc189316c1c39f5f175e4",
+          "document_id": "a53aba5eea3f9159c2a170159bb070215533ac7b629189c8227090d8fe12da19",
+          "document_name": "48adf518eb23b8900b86a6c63066d799.pdf",
+          "text": "Amortization for the year 5,672 5,012 660\nForeign currency translation effect 46,818 44,697 2,121\nBalance December 31, 2018 24,976 19,514 5,462\nBalance December 31, 2018 1,651,633 1,602,871 48,762\nAmortization for the year 4,766 4,106 660\nNet result of subsidiaries and associates 359,463 359,463 \u2013\nBalance December 31, 2019 29,742 23,620 6,122\nOther comprehensive income investments (3,954) (3,954) \u2013\nOther intangible assets net:\nDividend received (330,399) (330,399) \u2013\nDecember 31, 2018 8,411 7,476 935\nReclassification \u2013 \u2013 \u2013\nRepayment of loans (2,164) \u2013 (2,164) December 31, 2019 3,691 3,416 275\nDilution 3,882 3,882 \u2013\nForeign currency translation effect 31,481 30,579 902\nBalance December 31, 2019 1,709,942 1,662,442 47,500\nANNUAL REPORT 2019 ASMI\n151\nABOUT VALUE CREATION GOVERNANCE FINANCIAL STATEMENTS GENERAL INFORMATION",
+          "page_start": 1,
+          "page_end": 2,
+          "score": 0.014569256756756757,
+          "keyword_rank": 14,
+          "semantic_rank": 4
+        }
+      ]
+    },
+    {
+      "uid": "68f438d7411a9b2a3bed90fd19bace3d",
+      "expected_status": "answered",
+      "question": "What is the change in Loans due from subsidiaries - current portion from 2018 to 2019?",
+      "answer_type": "arithmetic",
+      "answer": 59,
+      "scale": "",
+      "derivation": "2,123-2,064",
+      "document_uid": "48adf518eb23b8900b86a6c63066d799",
+      "document_sha256": "a53aba5eea3f9159c2a170159bb070215533ac7b629189c8227090d8fe12da19",
+      "relevant_pages": [
+        2
+      ],
+      "evidence": [
+        {
+          "block_id": "68522b40-e919-47cb-a2bb-29b66c0ffb51",
+          "page": 2,
+          "char_start": 46,
+          "char_end": 51,
+          "text": "2,064",
+          "block_text": "Loans due from subsidiaries - current portion 2,064 2,123"
+        },
+        {
+          "block_id": "68522b40-e919-47cb-a2bb-29b66c0ffb51",
+          "page": 2,
+          "char_start": 52,
+          "char_end": 57,
+          "text": "2,123",
+          "block_text": "Loans due from subsidiaries - current portion 2,064 2,123"
+        }
+      ],
+      "retrieval_evidence_available": true,
+      "context_expected_status": "answered",
+      "contexts": [
+        {
+          "chunk_id": "191bcafbb9b9a23dd6e9424dd5d6f2e2705dd9ea37136dd5d0bedbd7168699c9",
+          "document_id": "a53aba5eea3f9159c2a170159bb070215533ac7b629189c8227090d8fe12da19",
+          "document_name": "48adf518eb23b8900b86a6c63066d799.pdf",
+          "text": "December 31,\n2018 2019\nLoans due from subsidiaries - non-current portion 45,377 46,698\nLoans due from subsidiaries - current portion 2,123 2,064\nTotal 47,500 48,762\nInterest relates mainly to a subsidiary and is based on the Bank of America\u2019s prime rate with a rise\nof two percent points. The repayment schedule of the loan is as follows: 24 annual installments\nof US$2 million, starting December 31, 2018, followed by a final installment of US$5.3 million\non December 31, 2043.\nNOTE 6. DEFERRED TAX ASSETS\nASMI has no operating losses available anymore at December 31, 2019 to reduce future income taxes.\nThe Company believes that realization of its net deferred tax assets is dependent on the ability of the",
+          "page_start": 2,
+          "page_end": 2,
+          "score": 0.01626123744050767,
+          "keyword_rank": 1,
+          "semantic_rank": 2
+        },
+        {
+          "chunk_id": "cc48d5e01748137a520246aeabaa9085e49b78fdd9dc9744e706440c100c3fed",
+          "document_id": "a53aba5eea3f9159c2a170159bb070215533ac7b629189c8227090d8fe12da19",
+          "document_name": "48adf518eb23b8900b86a6c63066d799.pdf",
+          "text": "The changes in the carrying amount of other intangible assets are as follows:\nPurchased technology NOTE 5. INVESTMENTS AND LOANS TO SUBSIDIARIES\nand other intangible\nSoftware assets Total\nInvestments in Loans to At cost:\nsubsidiaries subsidiaries Total\nBalance January 1, 2018 33,145 26,748 6,397\nBalance January 1, 2018 1,421,825 1,373,070 48,755\nAdditions 242 242 \u2013\nNet result of subsidiaries and associates 199,178 199,178 \u2013\nBalance December 31, 2018 33,387 26,990 6,397\nOther comprehensive income investments 499 499 \u2013\nAdditions 46 46 \u2013\nDividend received (29,649) (29,649) \u2013\nBalance December 31, 2019 33,433 27,036 6,397\nReclassification 14,587 14,587 \u2013\nAccumulated amortization:\nRepayment of loans (2,114) \u2013 (2,114)\nBalance January 1, 2018 19,304 14,502 4,802\nDilution 489 489 \u2013",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01626123744050767,
+          "keyword_rank": 2,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "629e28e53f297b2cec1f7933416243d576c965135be93dd84b91c21e3d51eb72",
+          "document_id": "e7dc6a22612c8b007ab4c988cd62f0852eac23f1cd57e85198fc9e4fd0a42838",
+          "document_name": "a7dd7ece6cae1b2aefaa138af72df8ff.pdf",
+          "text": "Year Ended December 31, 2018 Compared with the Year Ended December 31, 2017\nThe United States Tax Cuts and Jobs Act (the \u201cTax Act\u201d) was enacted on December 22, 2017 and introduced significant changes to the income tax\nlaw in the United States. Effective in 2018, the Tax Act reduced the United States statutory tax rate from 35% to 21% and created new taxes on certain\nforeign-sourced earnings and certain related-party payments, which are referred to as the Global Intangible Low-taxed Income (\"GILTI\") tax and Base\nErosion and Anti-Abuse Tax (\u201cBEAT\u201d) rules, respectively. In addition, in 2017 we were subject to a one-time transition tax on accumulated foreign subsidiary\nearnings not previously subject to income tax in the United States.",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014925373134328358,
+          "keyword_rank": 7,
+          "semantic_rank": 7
+        },
+        {
+          "chunk_id": "1d81b6b7b5738e7c075b80fac6675c572effb4890dfdc189316c1c39f5f175e4",
+          "document_id": "a53aba5eea3f9159c2a170159bb070215533ac7b629189c8227090d8fe12da19",
+          "document_name": "48adf518eb23b8900b86a6c63066d799.pdf",
+          "text": "Amortization for the year 5,672 5,012 660\nForeign currency translation effect 46,818 44,697 2,121\nBalance December 31, 2018 24,976 19,514 5,462\nBalance December 31, 2018 1,651,633 1,602,871 48,762\nAmortization for the year 4,766 4,106 660\nNet result of subsidiaries and associates 359,463 359,463 \u2013\nBalance December 31, 2019 29,742 23,620 6,122\nOther comprehensive income investments (3,954) (3,954) \u2013\nOther intangible assets net:\nDividend received (330,399) (330,399) \u2013\nDecember 31, 2018 8,411 7,476 935\nReclassification \u2013 \u2013 \u2013\nRepayment of loans (2,164) \u2013 (2,164) December 31, 2019 3,691 3,416 275\nDilution 3,882 3,882 \u2013\nForeign currency translation effect 31,481 30,579 902\nBalance December 31, 2019 1,709,942 1,662,442 47,500\nANNUAL REPORT 2019 ASMI\n151\nABOUT VALUE CREATION GOVERNANCE FINANCIAL STATEMENTS GENERAL INFORMATION",
+          "page_start": 1,
+          "page_end": 2,
+          "score": 0.014693264693264693,
+          "keyword_rank": 14,
+          "semantic_rank": 3
+        },
+        {
+          "chunk_id": "a6a8930370513fdbfbb56f0b6ec17d2583133e86d6942de8d1ca6ff89ad2f1bd",
+          "document_id": "e7dc6a22612c8b007ab4c988cd62f0852eac23f1cd57e85198fc9e4fd0a42838",
+          "document_name": "a7dd7ece6cae1b2aefaa138af72df8ff.pdf",
+          "text": "scheduled reversals of deferred tax liabilities, tax-planning strategies, and results of recent operations. In evaluating the objective evidence that historical\nresults provide, we consider three years of cumulative operating income (loss). In the year ended December 31, 2018, we released $64.8 million of valuation\nallowance, mostly due to the utilization of capital loss carryforward against capital gain incurred during the year ended December 31, 2018 and the utilization\nof federal credit carryforwards.\nDiscontinued Operations\n2019 % 2018 %\nYear Ended December 31, Change Change\n(In thousands) 2019 2018 2017 from 2018 from 2017\nLoss from discontinued operations $ 0 $ (72,836) $ (11,915) (100.0%) NM\nGain on sale of Netsmart 0 500,471 0 (100.0%) NM",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014479166666666668,
+          "keyword_rank": 4,
+          "semantic_rank": 15
+        }
+      ]
+    },
+    {
+      "uid": "15e4d550e10a33bb0402bebb5b791458",
+      "expected_status": "answered",
+      "question": "What was the total assets from AMER in 2018?",
+      "answer_type": "span",
+      "answer": [
+        "645,791"
+      ],
+      "scale": "thousand",
+      "derivation": "",
+      "document_uid": "637fab7088ea6c78a5dba55f17e833bd",
+      "document_sha256": "885c336e12fafc683231566bd1086c23d52712124d3cc260e1a1565c8c8d2e15",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "4e13ff19-60b5-44f5-9840-176eec106777",
+          "page": 1,
+          "char_start": 17,
+          "char_end": 24,
+          "text": "645,791",
+          "block_text": "AMER $ 751,990 $ 645,791"
+        }
+      ],
+      "retrieval_evidence_available": true,
+      "context_expected_status": "answered",
+      "contexts": [
+        {
+          "chunk_id": "a0b5e5ec79d5866a6702443526d1f420d2b9215494a40ecdd0fd3cc483f201c6",
+          "document_id": "885c336e12fafc683231566bd1086c23d52712124d3cc260e1a1565c8c8d2e15",
+          "document_name": "637fab7088ea6c78a5dba55f17e833bd.pdf",
+          "text": "Table of Contents\nPlexus Corp.\nNotes to Consolidated Financial Statements\n2019 2018 2017\nDepreciation:\nAMER $ 22,531 $ 21,224 $ 19,694\nAPAC 16,905 15,954 15,588\nEMEA 6,105 6,054 5,467\nCorporate 5,344 4,863 4,581\n$ 50,885 $ 48,095 $ 45,330\nCapital expenditures:\nAMER $ 42,459 $ 17,690 $ 18,111\nAPAC 33,454 33,018 13,816\nEMEA 5,186 7,923 5,748\nCorporate 9,501 4,149 863\n$ 90,600 $ 62,780 $ 38,538\nSeptember 28, September 29,\n2019 2018\nTotal assets:\nAMER $ 751,990 $ 645,791\nAPAC 958,744 937,510\nEMEA 209,541 193,797\nCorporate and eliminations 80,608 155,544\n$ 2,000,883 $ 1,932,642\nThe following information is provided in accordance with the required segment disclosures for fiscal2 019, 2018 and 2017. Net sales were based on the Company\u2019s",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01626123744050767,
+          "keyword_rank": 1,
+          "semantic_rank": 2
+        },
+        {
+          "chunk_id": "bd673b452f5ca4cfdfc18bdceb3754af0332bcf70b38660510a06f4b0a353a98",
+          "document_id": "1b112cafc4b70310adb40a7a32c966c442ab3314d6fcfadef0b366da5ec9d4e9",
+          "document_name": "7c1a0fac586f2de1336256cc0bf74e68.pdf",
+          "text": "% of Total 83% 14% 3% 100%\nSubstantially all Americas amounts are United States.\nLong-lived assets by geographic location at years ended September 30, 2019 and 2018 were as follows:\nSe ptember 30, Sep tember 30,\n2019 2018\n(Amounts in thousands)\nNorth America $ 1,270 $ 844\nEurope 3 3\nTotals $ 1,273 $ 847\nDeferred tax assets by geographic location at years ended September 30, 2019 and 2018 were as follows:\nSe ptember 30, Se ptember 30,\n2019 2018\n(Amounts in thousands)\nNorth America $ 1,946 $ 1,895\nEurope \u2014 \u2014\nTotals $ 1,946 $ 1,895\nThe following table lists customers from which the Company derived revenues in excess of 10% of total revenues for",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015772478887232988,
+          "keyword_rank": 6,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "02c22663d8eee8c85bcb7036d17224f23c08343688eb94bab880511f87c56e38",
+          "document_id": "05383a146421b2f030a62de6a76d95f4725d584bf1c48abdfe3ae24a37011e56",
+          "document_name": "3e2109c375cbf670d40c77b22b430b20.pdf",
+          "text": "Intangible assets consist of the following (in thousands):\nSeptember 27, September 28,\n2019 2018\nAcquired technology $ 179,682 $ 251,673\nCustomer relationships 245,870 518,234\nTrade name, indefinite lived 3,400 3,400\nTotal 428,952 773,307\nLess accumulated amortization (247,724) (260,522)\nIntangible assets \u2014 net $ 181,228 $ 512,785\nAs of September 27, 2019, our estimated amortization of our intangible assets in future fiscal years, was as follows (in thousands):\n2020 2021 2022 2023 2024 Thereafter\nAmortization expense$ 50,330 46,213 33,433 26,048 15,410 6,394\nAccumulated amortization for the acquired technology and customer relationships was $134.8 million and $112.9 million, respectively, as of September 27,\n2019, and $140.0 million and $120.5 million, respectively, as of September 28, 2018.",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015079365079365078,
+          "keyword_rank": 3,
+          "semantic_rank": 10
+        },
+        {
+          "chunk_id": "052b9ebc9bd3553c9724ca9a22a1ab043309ddca6ea335f12e23b3d57c050c20",
+          "document_id": "a53aba5eea3f9159c2a170159bb070215533ac7b629189c8227090d8fe12da19",
+          "document_name": "48adf518eb23b8900b86a6c63066d799.pdf",
+          "text": "ANNUAL REPORT 2019 ASMI\n150\nABOUT VALUE CREATION GOVERNANCE FINANCIAL STATEMENTS GENERAL INFORMATION\nNOTE 3. GOODWILL Other intangible assets are amortized over their useful lives of three to seven years. Estimated\namortization expenses relating to other intangible assets are as follows: The carrying amount of the goodwill is related to acquisitions in the following cash generating units:\nPurchased technology December 31,\nand other intangible\nSoftware assets Total 2018 2019\n2020 3,494 3,219 275 ALD 2,611 2,611\n2021 168 168 \u2013 PEALD 8,659 8,659\n2022 29 29 \u2013 Total 11,270 11,270\n2023 \u2013 \u2013 \u2013\nYears thereafter \u2013 \u2013 \u2013 NOTE 4. OTHER INTANGIBLE ASSETS\nTotal 3,691 3,416 275",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015079365079365078,
+          "keyword_rank": 10,
+          "semantic_rank": 3
+        },
+        {
+          "chunk_id": "191bcafbb9b9a23dd6e9424dd5d6f2e2705dd9ea37136dd5d0bedbd7168699c9",
+          "document_id": "a53aba5eea3f9159c2a170159bb070215533ac7b629189c8227090d8fe12da19",
+          "document_name": "48adf518eb23b8900b86a6c63066d799.pdf",
+          "text": "December 31,\n2018 2019\nLoans due from subsidiaries - non-current portion 45,377 46,698\nLoans due from subsidiaries - current portion 2,123 2,064\nTotal 47,500 48,762\nInterest relates mainly to a subsidiary and is based on the Bank of America\u2019s prime rate with a rise\nof two percent points. The repayment schedule of the loan is as follows: 24 annual installments\nof US$2 million, starting December 31, 2018, followed by a final installment of US$5.3 million\non December 31, 2043.\nNOTE 6. DEFERRED TAX ASSETS\nASMI has no operating losses available anymore at December 31, 2019 to reduce future income taxes.\nThe Company believes that realization of its net deferred tax assets is dependent on the ability of the",
+          "page_start": 2,
+          "page_end": 2,
+          "score": 0.014109697933227345,
+          "keyword_rank": 8,
+          "semantic_rank": 14
+        }
+      ]
+    },
+    {
+      "uid": "467031848d7d448173b9b7e412941197",
+      "expected_status": "answered",
+      "question": "What was the percentage change in the total assets from Corporate and eliminations between 2018 and 2019?",
+      "answer_type": "arithmetic",
+      "answer": -48.18,
+      "scale": "percent",
+      "derivation": "(80,608-155,544)/155,544",
+      "document_uid": "637fab7088ea6c78a5dba55f17e833bd",
+      "document_sha256": "885c336e12fafc683231566bd1086c23d52712124d3cc260e1a1565c8c8d2e15",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "e1c4d6d5-0fa8-4a3c-9361-1866b7627ac4",
+          "page": 1,
+          "char_start": 34,
+          "char_end": 41,
+          "text": "155,544",
+          "block_text": "Corporate and eliminations 80,608 155,544"
+        },
+        {
+          "block_id": "e1c4d6d5-0fa8-4a3c-9361-1866b7627ac4",
+          "page": 1,
+          "char_start": 27,
+          "char_end": 33,
+          "text": "80,608",
+          "block_text": "Corporate and eliminations 80,608 155,544"
+        }
+      ],
+      "retrieval_evidence_available": true,
+      "context_expected_status": "answered",
+      "contexts": [
+        {
+          "chunk_id": "a0b5e5ec79d5866a6702443526d1f420d2b9215494a40ecdd0fd3cc483f201c6",
+          "document_id": "885c336e12fafc683231566bd1086c23d52712124d3cc260e1a1565c8c8d2e15",
+          "document_name": "637fab7088ea6c78a5dba55f17e833bd.pdf",
+          "text": "Table of Contents\nPlexus Corp.\nNotes to Consolidated Financial Statements\n2019 2018 2017\nDepreciation:\nAMER $ 22,531 $ 21,224 $ 19,694\nAPAC 16,905 15,954 15,588\nEMEA 6,105 6,054 5,467\nCorporate 5,344 4,863 4,581\n$ 50,885 $ 48,095 $ 45,330\nCapital expenditures:\nAMER $ 42,459 $ 17,690 $ 18,111\nAPAC 33,454 33,018 13,816\nEMEA 5,186 7,923 5,748\nCorporate 9,501 4,149 863\n$ 90,600 $ 62,780 $ 38,538\nSeptember 28, September 29,\n2019 2018\nTotal assets:\nAMER $ 751,990 $ 645,791\nAPAC 958,744 937,510\nEMEA 209,541 193,797\nCorporate and eliminations 80,608 155,544\n$ 2,000,883 $ 1,932,642\nThe following information is provided in accordance with the required segment disclosures for fiscal2 019, 2018 and 2017. Net sales were based on the Company\u2019s",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015772478887232988,
+          "keyword_rank": 1,
+          "semantic_rank": 6
+        },
+        {
+          "chunk_id": "bd673b452f5ca4cfdfc18bdceb3754af0332bcf70b38660510a06f4b0a353a98",
+          "document_id": "1b112cafc4b70310adb40a7a32c966c442ab3314d6fcfadef0b366da5ec9d4e9",
+          "document_name": "7c1a0fac586f2de1336256cc0bf74e68.pdf",
+          "text": "% of Total 83% 14% 3% 100%\nSubstantially all Americas amounts are United States.\nLong-lived assets by geographic location at years ended September 30, 2019 and 2018 were as follows:\nSe ptember 30, Sep tember 30,\n2019 2018\n(Amounts in thousands)\nNorth America $ 1,270 $ 844\nEurope 3 3\nTotals $ 1,273 $ 847\nDeferred tax assets by geographic location at years ended September 30, 2019 and 2018 were as follows:\nSe ptember 30, Se ptember 30,\n2019 2018\n(Amounts in thousands)\nNorth America $ 1,946 $ 1,895\nEurope \u2014 \u2014\nTotals $ 1,946 $ 1,895\nThe following table lists customers from which the Company derived revenues in excess of 10% of total revenues for",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014821272885789015,
+          "keyword_rank": 14,
+          "semantic_rank": 2
+        },
+        {
+          "chunk_id": "cc48d5e01748137a520246aeabaa9085e49b78fdd9dc9744e706440c100c3fed",
+          "document_id": "a53aba5eea3f9159c2a170159bb070215533ac7b629189c8227090d8fe12da19",
+          "document_name": "48adf518eb23b8900b86a6c63066d799.pdf",
+          "text": "The changes in the carrying amount of other intangible assets are as follows:\nPurchased technology NOTE 5. INVESTMENTS AND LOANS TO SUBSIDIARIES\nand other intangible\nSoftware assets Total\nInvestments in Loans to At cost:\nsubsidiaries subsidiaries Total\nBalance January 1, 2018 33,145 26,748 6,397\nBalance January 1, 2018 1,421,825 1,373,070 48,755\nAdditions 242 242 \u2013\nNet result of subsidiaries and associates 199,178 199,178 \u2013\nBalance December 31, 2018 33,387 26,990 6,397\nOther comprehensive income investments 499 499 \u2013\nAdditions 46 46 \u2013\nDividend received (29,649) (29,649) \u2013\nBalance December 31, 2019 33,433 27,036 6,397\nReclassification 14,587 14,587 \u2013\nAccumulated amortization:\nRepayment of loans (2,114) \u2013 (2,114)\nBalance January 1, 2018 19,304 14,502 4,802\nDilution 489 489 \u2013",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014541622760800843,
+          "keyword_rank": 13,
+          "semantic_rank": 5
+        },
+        {
+          "chunk_id": "02c22663d8eee8c85bcb7036d17224f23c08343688eb94bab880511f87c56e38",
+          "document_id": "05383a146421b2f030a62de6a76d95f4725d584bf1c48abdfe3ae24a37011e56",
+          "document_name": "3e2109c375cbf670d40c77b22b430b20.pdf",
+          "text": "Intangible assets consist of the following (in thousands):\nSeptember 27, September 28,\n2019 2018\nAcquired technology $ 179,682 $ 251,673\nCustomer relationships 245,870 518,234\nTrade name, indefinite lived 3,400 3,400\nTotal 428,952 773,307\nLess accumulated amortization (247,724) (260,522)\nIntangible assets \u2014 net $ 181,228 $ 512,785\nAs of September 27, 2019, our estimated amortization of our intangible assets in future fiscal years, was as follows (in thousands):\n2020 2021 2022 2023 2024 Thereafter\nAmortization expense$ 50,330 46,213 33,433 26,048 15,410 6,394\nAccumulated amortization for the acquired technology and customer relationships was $134.8 million and $112.9 million, respectively, as of September 27,\n2019, and $140.0 million and $120.5 million, respectively, as of September 28, 2018.",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014242424242424244,
+          "keyword_rank": 6,
+          "semantic_rank": 15
+        },
+        {
+          "chunk_id": "a6a8930370513fdbfbb56f0b6ec17d2583133e86d6942de8d1ca6ff89ad2f1bd",
+          "document_id": "e7dc6a22612c8b007ab4c988cd62f0852eac23f1cd57e85198fc9e4fd0a42838",
+          "document_name": "a7dd7ece6cae1b2aefaa138af72df8ff.pdf",
+          "text": "scheduled reversals of deferred tax liabilities, tax-planning strategies, and results of recent operations. In evaluating the objective evidence that historical\nresults provide, we consider three years of cumulative operating income (loss). In the year ended December 31, 2018, we released $64.8 million of valuation\nallowance, mostly due to the utilization of capital loss carryforward against capital gain incurred during the year ended December 31, 2018 and the utilization\nof federal credit carryforwards.\nDiscontinued Operations\n2019 % 2018 %\nYear Ended December 31, Change Change\n(In thousands) 2019 2018 2017 from 2018 from 2017\nLoss from discontinued operations $ 0 $ (72,836) $ (11,915) (100.0%) NM\nGain on sale of Netsmart 0 500,471 0 (100.0%) NM",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014185110663983903,
+          "keyword_rank": 11,
+          "semantic_rank": 10
+        }
+      ]
+    },
+    {
+      "uid": "f06234ff58098fd4fd1683a1fa9778e7",
+      "expected_status": "answered",
+      "question": "What are the respective accrued interest in 2018 and 2019?",
+      "answer_type": "multi-span",
+      "answer": [
+        "1,598",
+        "163"
+      ],
+      "scale": "thousand",
+      "derivation": "",
+      "document_uid": "7618a93f40fbba431a7543cb1587330e",
+      "document_sha256": "a393f5f4edc523c04b858e014ce43c7c758d89fe318e60f66f5b78c219e171f6",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "0f6543b6-663c-4921-aa95-807d40aaac29",
+          "page": 1,
+          "char_start": 17,
+          "char_end": 20,
+          "text": "163",
+          "block_text": "Accrued Interest 163 1,598"
+        },
+        {
+          "block_id": "0f6543b6-663c-4921-aa95-807d40aaac29",
+          "page": 1,
+          "char_start": 21,
+          "char_end": 26,
+          "text": "1,598",
+          "block_text": "Accrued Interest 163 1,598"
+        }
+      ],
+      "retrieval_evidence_available": true,
+      "context_expected_status": "answered",
+      "contexts": [
+        {
+          "chunk_id": "925ba61e369389cd01ea33d74ffa8fabb62dc13c09f32283f53155afe543cb76",
+          "document_id": "a393f5f4edc523c04b858e014ce43c7c758d89fe318e60f66f5b78c219e171f6",
+          "document_name": "7618a93f40fbba431a7543cb1587330e.pdf",
+          "text": "12. ACCRUED LIABILITIES\nAll figures in USD \u2018000 2019 2018\nAccrued Interest 163 1,598\nAccrued Expenses 11,569 7,362\nSettlement Deferred Compensation Liabilities 3,830 -\nTotal as of December 31, 15,562 8,960\nThe settlement of the deferred compensation liabilities includes the settlement with our former CFO and Executive Vice President that is payable within March 31, 2020 and payroll taxes\nrelated to this settlement and the settlement of the Executive Pension Plan with our Chairman, President & CEO. We refer to note 7 for further information.\n13. EARNINGS (LOSS) PER SHARE\nBasic earnings per share (\u201cEPS\u201d) are computed by dividing net income (loss) by the weighted-average number of common shares outstanding for the period. Diluted EPS is computed by",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01639344262295082,
+          "keyword_rank": 1,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "9962d278d0b6df2faee4638ce4e68d867c542c73ebd868cf412da030d85c69bf",
+          "document_id": "e7dc6a22612c8b007ab4c988cd62f0852eac23f1cd57e85198fc9e4fd0a42838",
+          "document_name": "a7dd7ece6cae1b2aefaa138af72df8ff.pdf",
+          "text": "for the years ended December 31, 2018 and 2017 partly offset by earnings attributable to two solutions acquired during the fourth quarter of 2017 as part of\nthe EIS Business that we no longer support effective as of March 31, 2018. Refer to Note 17, \u201cDiscontinued Operations\u201d to our consolidated financial\nstatements included in Part II, Item 8, \u201cFinancial Statements and Supplementary Data\u201d of this Form 10-K for additional information regarding discontinued\noperations.\nNon-Controlling Interests\n2019 % 2018 %\nYear Ended December 31, Change Change\n(In thousands) 2019 2018 2017 from 2018 from 2017\nNet loss attributable to non-controlling interests $ 424 $ 4,527 $ 1,566 (90.6%) 189.1%\nAccretion of redemption preference on\nredeemable convertible non-controlling interest",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015165441176470588,
+          "keyword_rank": 8,
+          "semantic_rank": 4
+        },
+        {
+          "chunk_id": "254f3bee48f199c763bfd0cdae0b96b3fcac42ee459c734a316fa870167c888e",
+          "document_id": "1b112cafc4b70310adb40a7a32c966c442ab3314d6fcfadef0b366da5ec9d4e9",
+          "document_name": "7c1a0fac586f2de1336256cc0bf74e68.pdf",
+          "text": "the years ended years ended September 30, 2019 and 2018.\nFor the y ear s e nded\nSeptember 30, 2019 September 30, 2018\n% of % of\nAmount Revenues Amount Revenues\n(Amounts in millions)\nCustomer A $ 3.8 5% $ 7.5 10%\nCustomer B $ 10.2 13% $ 1.1 3%\nIn addition, accounts receivable from Customer A totaled approximately $0.3 million, or 1%, and approximately $1.1\nmillion, or 9%, of total consolidated accounts receivable as of September 30, 2019 and September 30, 2018, respectively.\nAccounts receivable and long term receivable from Customer B totaled approximately $7.4 million, or 36%, and approximately\n$0.2 million, or 2%, of total consolidated accounts receivable as of September 30, 2019 and September 30, 2018, respectively.",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014938684503901897,
+          "keyword_rank": 5,
+          "semantic_rank": 9
+        },
+        {
+          "chunk_id": "02c22663d8eee8c85bcb7036d17224f23c08343688eb94bab880511f87c56e38",
+          "document_id": "05383a146421b2f030a62de6a76d95f4725d584bf1c48abdfe3ae24a37011e56",
+          "document_name": "3e2109c375cbf670d40c77b22b430b20.pdf",
+          "text": "Intangible assets consist of the following (in thousands):\nSeptember 27, September 28,\n2019 2018\nAcquired technology $ 179,682 $ 251,673\nCustomer relationships 245,870 518,234\nTrade name, indefinite lived 3,400 3,400\nTotal 428,952 773,307\nLess accumulated amortization (247,724) (260,522)\nIntangible assets \u2014 net $ 181,228 $ 512,785\nAs of September 27, 2019, our estimated amortization of our intangible assets in future fiscal years, was as follows (in thousands):\n2020 2021 2022 2023 2024 Thereafter\nAmortization expense$ 50,330 46,213 33,433 26,048 15,410 6,394\nAccumulated amortization for the acquired technology and customer relationships was $134.8 million and $112.9 million, respectively, as of September 27,\n2019, and $140.0 million and $120.5 million, respectively, as of September 28, 2018.",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014815627743634766,
+          "keyword_rank": 7,
+          "semantic_rank": 8
+        },
+        {
+          "chunk_id": "191bcafbb9b9a23dd6e9424dd5d6f2e2705dd9ea37136dd5d0bedbd7168699c9",
+          "document_id": "a53aba5eea3f9159c2a170159bb070215533ac7b629189c8227090d8fe12da19",
+          "document_name": "48adf518eb23b8900b86a6c63066d799.pdf",
+          "text": "December 31,\n2018 2019\nLoans due from subsidiaries - non-current portion 45,377 46,698\nLoans due from subsidiaries - current portion 2,123 2,064\nTotal 47,500 48,762\nInterest relates mainly to a subsidiary and is based on the Bank of America\u2019s prime rate with a rise\nof two percent points. The repayment schedule of the loan is as follows: 24 annual installments\nof US$2 million, starting December 31, 2018, followed by a final installment of US$5.3 million\non December 31, 2043.\nNOTE 6. DEFERRED TAX ASSETS\nASMI has no operating losses available anymore at December 31, 2019 to reduce future income taxes.\nThe Company believes that realization of its net deferred tax assets is dependent on the ability of the",
+          "page_start": 2,
+          "page_end": 2,
+          "score": 0.014731182795698926,
+          "keyword_rank": 15,
+          "semantic_rank": 2
+        }
+      ]
+    },
+    {
+      "uid": "5c370f07c571d9d9d2240a6adb9cdb5a",
+      "expected_status": "answered",
+      "question": "What are the respective accrued expense in 2018 and 2019?",
+      "answer_type": "multi-span",
+      "answer": [
+        "7,362",
+        "11,569"
+      ],
+      "scale": "thousand",
+      "derivation": "",
+      "document_uid": "7618a93f40fbba431a7543cb1587330e",
+      "document_sha256": "a393f5f4edc523c04b858e014ce43c7c758d89fe318e60f66f5b78c219e171f6",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "b7ca12b5-4e5f-440e-8fe6-36d1ec4352c5",
+          "page": 1,
+          "char_start": 24,
+          "char_end": 29,
+          "text": "7,362",
+          "block_text": "Accrued Expenses 11,569 7,362"
+        },
+        {
+          "block_id": "b7ca12b5-4e5f-440e-8fe6-36d1ec4352c5",
+          "page": 1,
+          "char_start": 17,
+          "char_end": 23,
+          "text": "11,569",
+          "block_text": "Accrued Expenses 11,569 7,362"
+        }
+      ],
+      "retrieval_evidence_available": true,
+      "context_expected_status": "answered",
+      "contexts": [
+        {
+          "chunk_id": "925ba61e369389cd01ea33d74ffa8fabb62dc13c09f32283f53155afe543cb76",
+          "document_id": "a393f5f4edc523c04b858e014ce43c7c758d89fe318e60f66f5b78c219e171f6",
+          "document_name": "7618a93f40fbba431a7543cb1587330e.pdf",
+          "text": "12. ACCRUED LIABILITIES\nAll figures in USD \u2018000 2019 2018\nAccrued Interest 163 1,598\nAccrued Expenses 11,569 7,362\nSettlement Deferred Compensation Liabilities 3,830 -\nTotal as of December 31, 15,562 8,960\nThe settlement of the deferred compensation liabilities includes the settlement with our former CFO and Executive Vice President that is payable within March 31, 2020 and payroll taxes\nrelated to this settlement and the settlement of the Executive Pension Plan with our Chairman, President & CEO. We refer to note 7 for further information.\n13. EARNINGS (LOSS) PER SHARE\nBasic earnings per share (\u201cEPS\u201d) are computed by dividing net income (loss) by the weighted-average number of common shares outstanding for the period. Diluted EPS is computed by",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01639344262295082,
+          "keyword_rank": 1,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "4e15b1915cc67f33c7b36e9aa542b3a70a7bae8690d3ef2d1caf7f19531322f5",
+          "document_id": "3d846c0a86eaa33b501f0476f58c41171cbd69d8d8f3322dfa50cd7390c38f79",
+          "document_name": "de0319bc30e6dff7c4736f1fa9de8361.pdf",
+          "text": "Table of Contents\nShare-based Compensation Expense\nThe following table summarizes total compensation costs recognized for share-based payments during the years ended\nDecember 31, 2019, 2018 and 2017:\nYear Ended December 31,\n(In thousands) 2019 2018 2017\nRestricted stock $ 4,013 $ 3,249 $ 1,986\nPerformance shares 2,823 1,870 780\n$ 6,836 $ 5,119 $ 2,766 Total\nIncome tax benefits related to share-based compensation of approximately $1.8 million, $1.3 million and $1.1 million were\nrecorded for the years ended December 31, 2019, 2018 and 2017, respectively. Share-based compensation expense is\nincluded in \u201cselling, general and administrative expenses\u201d in the accompanying consolidated statements of operations.",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.016001024065540194,
+          "keyword_rank": 2,
+          "semantic_rank": 3
+        },
+        {
+          "chunk_id": "052b9ebc9bd3553c9724ca9a22a1ab043309ddca6ea335f12e23b3d57c050c20",
+          "document_id": "a53aba5eea3f9159c2a170159bb070215533ac7b629189c8227090d8fe12da19",
+          "document_name": "48adf518eb23b8900b86a6c63066d799.pdf",
+          "text": "ANNUAL REPORT 2019 ASMI\n150\nABOUT VALUE CREATION GOVERNANCE FINANCIAL STATEMENTS GENERAL INFORMATION\nNOTE 3. GOODWILL Other intangible assets are amortized over their useful lives of three to seven years. Estimated\namortization expenses relating to other intangible assets are as follows: The carrying amount of the goodwill is related to acquisitions in the following cash generating units:\nPurchased technology December 31,\nand other intangible\nSoftware assets Total 2018 2019\n2020 3,494 3,219 275 ALD 2,611 2,611\n2021 168 168 \u2013 PEALD 8,659 8,659\n2022 29 29 \u2013 Total 11,270 11,270\n2023 \u2013 \u2013 \u2013\nYears thereafter \u2013 \u2013 \u2013 NOTE 4. OTHER INTANGIBLE ASSETS\nTotal 3,691 3,416 275",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015640273704789834,
+          "keyword_rank": 6,
+          "semantic_rank": 2
+        },
+        {
+          "chunk_id": "ca606e448949a52a45ada1e8d76d740d7467c00a9209dab55b11925360fcfd28",
+          "document_id": "e7dc6a22612c8b007ab4c988cd62f0852eac23f1cd57e85198fc9e4fd0a42838",
+          "document_name": "a7dd7ece6cae1b2aefaa138af72df8ff.pdf",
+          "text": "Due to the timing of the enactment and the complexity involved in applying the provisions of the Tax Act, we made reasonable estimates of the\neffects and recorded provisional expense of $15.3 million in our financial statements for the year ended December 31, 2017 in accordance with guidance in\nStaff Accounting Bulletin No. 118 (\u201cSAB 118\u201d), which allowed a measurement period of up to one year after the enactment date of the Tax Act to finalize the\nrecording of the related tax impacts. This provisional benefit included $10.1 million expense for remeasurement of deferred tax balances to reflect the lower",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014955357142857142,
+          "keyword_rank": 10,
+          "semantic_rank": 4
+        },
+        {
+          "chunk_id": "02c22663d8eee8c85bcb7036d17224f23c08343688eb94bab880511f87c56e38",
+          "document_id": "05383a146421b2f030a62de6a76d95f4725d584bf1c48abdfe3ae24a37011e56",
+          "document_name": "3e2109c375cbf670d40c77b22b430b20.pdf",
+          "text": "Intangible assets consist of the following (in thousands):\nSeptember 27, September 28,\n2019 2018\nAcquired technology $ 179,682 $ 251,673\nCustomer relationships 245,870 518,234\nTrade name, indefinite lived 3,400 3,400\nTotal 428,952 773,307\nLess accumulated amortization (247,724) (260,522)\nIntangible assets \u2014 net $ 181,228 $ 512,785\nAs of September 27, 2019, our estimated amortization of our intangible assets in future fiscal years, was as follows (in thousands):\n2020 2021 2022 2023 2024 Thereafter\nAmortization expense$ 50,330 46,213 33,433 26,048 15,410 6,394\nAccumulated amortization for the acquired technology and customer relationships was $134.8 million and $112.9 million, respectively, as of September 27,\n2019, and $140.0 million and $120.5 million, respectively, as of September 28, 2018.",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01488095238095238,
+          "keyword_rank": 3,
+          "semantic_rank": 12
+        }
+      ]
+    },
+    {
+      "uid": "7a53859343e19e5d89dd4e749a896e89",
+      "expected_status": "answered",
+      "question": "What is the difference in revenue earned from customer A and customer B in 2019?",
+      "answer_type": "arithmetic",
+      "answer": 6.4,
+      "scale": "million",
+      "derivation": "10.2 - 3.8 ",
+      "document_uid": "7c1a0fac586f2de1336256cc0bf74e68",
+      "document_sha256": "1b112cafc4b70310adb40a7a32c966c442ab3314d6fcfadef0b366da5ec9d4e9",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "f07aa5d7-dc76-4bf2-8e59-3773c43f2403",
+          "page": 1,
+          "char_start": 13,
+          "char_end": 17,
+          "text": "10.2",
+          "block_text": "Customer B $ 10.2 13 % $ 1.1 3 %"
+        },
+        {
+          "block_id": "0eb4cbb3-7a5a-472c-8d7f-3c56929df67b",
+          "page": 1,
+          "char_start": 13,
+          "char_end": 16,
+          "text": "3.8",
+          "block_text": "Customer A $ 3.8 5 % $ 7.5 10 %"
+        }
+      ],
+      "retrieval_evidence_available": true,
+      "context_expected_status": "answered",
+      "contexts": [
+        {
+          "chunk_id": "254f3bee48f199c763bfd0cdae0b96b3fcac42ee459c734a316fa870167c888e",
+          "document_id": "1b112cafc4b70310adb40a7a32c966c442ab3314d6fcfadef0b366da5ec9d4e9",
+          "document_name": "7c1a0fac586f2de1336256cc0bf74e68.pdf",
+          "text": "the years ended years ended September 30, 2019 and 2018.\nFor the y ear s e nded\nSeptember 30, 2019 September 30, 2018\n% of % of\nAmount Revenues Amount Revenues\n(Amounts in millions)\nCustomer A $ 3.8 5% $ 7.5 10%\nCustomer B $ 10.2 13% $ 1.1 3%\nIn addition, accounts receivable from Customer A totaled approximately $0.3 million, or 1%, and approximately $1.1\nmillion, or 9%, of total consolidated accounts receivable as of September 30, 2019 and September 30, 2018, respectively.\nAccounts receivable and long term receivable from Customer B totaled approximately $7.4 million, or 36%, and approximately\n$0.2 million, or 2%, of total consolidated accounts receivable as of September 30, 2019 and September 30, 2018, respectively.",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01639344262295082,
+          "keyword_rank": 1,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "d22084fdf8f9066c4fe6caf6b3020bd5e4d8a2875bbff43090beba87b515ed5f",
+          "document_id": "05383a146421b2f030a62de6a76d95f4725d584bf1c48abdfe3ae24a37011e56",
+          "document_name": "3e2109c375cbf670d40c77b22b430b20.pdf",
+          "text": "In connection with the impairment of certain customer relationships and acquired technology intangible assets in2 019, we revised the useful lives of these\nintangible assets to reflect the estimated period over which these assets are expected to contribute to future cash flows, resulting in weighted-average amortization\nperiods for our customer relationships and acquired technology of nine years and seven years, respectively. See Note 17 - Impairments, for additional information\nrelated to the impairment of our intangible assets.\n19. INCOME TAXES\nDeferred income taxes reflect the net effect of temporary differences between the carrying amounts of assets and liabilities for financial reporting purposes",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015527202696196438,
+          "keyword_rank": 2,
+          "semantic_rank": 7
+        },
+        {
+          "chunk_id": "bd673b452f5ca4cfdfc18bdceb3754af0332bcf70b38660510a06f4b0a353a98",
+          "document_id": "1b112cafc4b70310adb40a7a32c966c442ab3314d6fcfadef0b366da5ec9d4e9",
+          "document_name": "7c1a0fac586f2de1336256cc0bf74e68.pdf",
+          "text": "% of Total 83% 14% 3% 100%\nSubstantially all Americas amounts are United States.\nLong-lived assets by geographic location at years ended September 30, 2019 and 2018 were as follows:\nSe ptember 30, Sep tember 30,\n2019 2018\n(Amounts in thousands)\nNorth America $ 1,270 $ 844\nEurope 3 3\nTotals $ 1,273 $ 847\nDeferred tax assets by geographic location at years ended September 30, 2019 and 2018 were as follows:\nSe ptember 30, Se ptember 30,\n2019 2018\n(Amounts in thousands)\nNorth America $ 1,946 $ 1,895\nEurope \u2014 \u2014\nTotals $ 1,946 $ 1,895\nThe following table lists customers from which the Company derived revenues in excess of 10% of total revenues for",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015388257575757576,
+          "keyword_rank": 4,
+          "semantic_rank": 6
+        },
+        {
+          "chunk_id": "f6f25289021b88d3b6a381703655db2929a22e1e92d142c63c2a3a4b8912b877",
+          "document_id": "15574e464087410835619fcf9a9895fa825d6054ba9fc0698e13b36da917114c",
+          "document_name": "b8cf8e9ebf71c892eda0a3ed9ee57852.pdf",
+          "text": "provides a more consistent and meaningful basis for comparing results of operations from period to period. See the section\n\u201cNon-GAAP Financial Measures\u201d below for further discussion of these financial measures.\nFiscal Year\n($ in millions) 2019 2018\nNet sales $ 2,380.2 $ 2,157.7\nLess: surcharge revenue 438.1 365.4\nNet sales excluding surcharge revenue $ 1,942.1 $ 1,792.3\nGross profit $ 444.8 $ 382.3\nGross margin 18.7% 17.7%\nGross margin excluding surcharge revenue 22.9% 21.3%\nSelling, General and Administrative Expenses\nSelling, general and administrative expenses in fiscal year 2019 were $203.4 million, or 8.5 percent of net sales (10.5\npercent of net sales excluding surcharge revenue), compared to $193.0 million, or 8.9 percent of net sales (10.8 percent of net",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01518288474810214,
+          "keyword_rank": 9,
+          "semantic_rank": 3
+        },
+        {
+          "chunk_id": "02c22663d8eee8c85bcb7036d17224f23c08343688eb94bab880511f87c56e38",
+          "document_id": "05383a146421b2f030a62de6a76d95f4725d584bf1c48abdfe3ae24a37011e56",
+          "document_name": "3e2109c375cbf670d40c77b22b430b20.pdf",
+          "text": "Intangible assets consist of the following (in thousands):\nSeptember 27, September 28,\n2019 2018\nAcquired technology $ 179,682 $ 251,673\nCustomer relationships 245,870 518,234\nTrade name, indefinite lived 3,400 3,400\nTotal 428,952 773,307\nLess accumulated amortization (247,724) (260,522)\nIntangible assets \u2014 net $ 181,228 $ 512,785\nAs of September 27, 2019, our estimated amortization of our intangible assets in future fiscal years, was as follows (in thousands):\n2020 2021 2022 2023 2024 Thereafter\nAmortization expense$ 50,330 46,213 33,433 26,048 15,410 6,394\nAccumulated amortization for the acquired technology and customer relationships was $134.8 million and $112.9 million, respectively, as of September 27,\n2019, and $140.0 million and $120.5 million, respectively, as of September 28, 2018.",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014928698752228164,
+          "keyword_rank": 6,
+          "semantic_rank": 8
+        }
+      ]
+    },
+    {
+      "uid": "a7d1cbfe9fd8b97d8fdacad4dbe214e6",
+      "expected_status": "answered",
+      "question": "What is the value of the accounts receivable due from Customer A in 2019?",
+      "answer_type": "span",
+      "answer": [
+        "$0.3 million"
+      ],
+      "scale": "",
+      "derivation": "",
+      "document_uid": "7c1a0fac586f2de1336256cc0bf74e68",
+      "document_sha256": "1b112cafc4b70310adb40a7a32c966c442ab3314d6fcfadef0b366da5ec9d4e9",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "830b902b-061e-48e3-8b01-6e32065e67f1",
+          "page": 1,
+          "char_start": 70,
+          "char_end": 83,
+          "text": " $0.3 million",
+          "block_text": "In addition, accounts receivable from Customer A totaled approximately $0.3 million, or 1%, and approximately $1.1"
+        }
+      ],
+      "retrieval_evidence_available": true,
+      "context_expected_status": "answered",
+      "contexts": [
+        {
+          "chunk_id": "254f3bee48f199c763bfd0cdae0b96b3fcac42ee459c734a316fa870167c888e",
+          "document_id": "1b112cafc4b70310adb40a7a32c966c442ab3314d6fcfadef0b366da5ec9d4e9",
+          "document_name": "7c1a0fac586f2de1336256cc0bf74e68.pdf",
+          "text": "the years ended years ended September 30, 2019 and 2018.\nFor the y ear s e nded\nSeptember 30, 2019 September 30, 2018\n% of % of\nAmount Revenues Amount Revenues\n(Amounts in millions)\nCustomer A $ 3.8 5% $ 7.5 10%\nCustomer B $ 10.2 13% $ 1.1 3%\nIn addition, accounts receivable from Customer A totaled approximately $0.3 million, or 1%, and approximately $1.1\nmillion, or 9%, of total consolidated accounts receivable as of September 30, 2019 and September 30, 2018, respectively.\nAccounts receivable and long term receivable from Customer B totaled approximately $7.4 million, or 36%, and approximately\n$0.2 million, or 2%, of total consolidated accounts receivable as of September 30, 2019 and September 30, 2018, respectively.",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01639344262295082,
+          "keyword_rank": 1,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "8e116166cb69f4152b693b5da12fbed7b9adb8f27507b9401bff3974c3001a19",
+          "document_id": "1b112cafc4b70310adb40a7a32c966c442ab3314d6fcfadef0b366da5ec9d4e9",
+          "document_name": "7c1a0fac586f2de1336256cc0bf74e68.pdf",
+          "text": "We believe that the Company is not exposed to any significant credit risk with respect to the accounts receivable with these\ncustomers as of September 30, 2019. No other customers accounted for 10% or more of total consolidated accounts receivable as\nof September 30, 2019.\n74",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.016129032258064516,
+          "keyword_rank": 2,
+          "semantic_rank": 2
+        },
+        {
+          "chunk_id": "ca606e448949a52a45ada1e8d76d740d7467c00a9209dab55b11925360fcfd28",
+          "document_id": "e7dc6a22612c8b007ab4c988cd62f0852eac23f1cd57e85198fc9e4fd0a42838",
+          "document_name": "a7dd7ece6cae1b2aefaa138af72df8ff.pdf",
+          "text": "Due to the timing of the enactment and the complexity involved in applying the provisions of the Tax Act, we made reasonable estimates of the\neffects and recorded provisional expense of $15.3 million in our financial statements for the year ended December 31, 2017 in accordance with guidance in\nStaff Accounting Bulletin No. 118 (\u201cSAB 118\u201d), which allowed a measurement period of up to one year after the enactment date of the Tax Act to finalize the\nrecording of the related tax impacts. This provisional benefit included $10.1 million expense for remeasurement of deferred tax balances to reflect the lower",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015151515151515152,
+          "keyword_rank": 6,
+          "semantic_rank": 6
+        },
+        {
+          "chunk_id": "aae551479491d469c525dd2144d4ef991d71d207b7f6089b074328281ffc5bb1",
+          "document_id": "05383a146421b2f030a62de6a76d95f4725d584bf1c48abdfe3ae24a37011e56",
+          "document_name": "3e2109c375cbf670d40c77b22b430b20.pdf",
+          "text": "A summary of the activity in intangible assets and goodwill follows (in thousands):\nGross Intangible Assets\nTotal Acquired Customer Trade Total\nIntangibles Technology Relationships Name Goodwill\nBalance at September 29, 2017 $ 811,703 $ 251,655 $ 556,648 $ 3,400 $ 313,765\nAllocation to divested business (39,285) \u2014 (39,285) \u2014 (2,560)\nFair value adjustment \u2014 \u2014 \u2014 \u2014 2,790\nCurrency translation adjustments 889 18 871 \u2014 81\nBalance at September 28, 2018 773,307 251,673 518,234 3,400 314,076\nCurrency translation adjustments 270 270 \u2014 \u2014 651\nImpairments of intangible assets (344,625) (72,261) (272,364) \u2014 \u2014\n$ 428,952 $ 179,682 $ 245,870 $ 3,400 $ 314,727 Balance at September 27, 2019",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014756944444444444,
+          "keyword_rank": 4,
+          "semantic_rank": 12
+        },
+        {
+          "chunk_id": "052b9ebc9bd3553c9724ca9a22a1ab043309ddca6ea335f12e23b3d57c050c20",
+          "document_id": "a53aba5eea3f9159c2a170159bb070215533ac7b629189c8227090d8fe12da19",
+          "document_name": "48adf518eb23b8900b86a6c63066d799.pdf",
+          "text": "ANNUAL REPORT 2019 ASMI\n150\nABOUT VALUE CREATION GOVERNANCE FINANCIAL STATEMENTS GENERAL INFORMATION\nNOTE 3. GOODWILL Other intangible assets are amortized over their useful lives of three to seven years. Estimated\namortization expenses relating to other intangible assets are as follows: The carrying amount of the goodwill is related to acquisitions in the following cash generating units:\nPurchased technology December 31,\nand other intangible\nSoftware assets Total 2018 2019\n2020 3,494 3,219 275 ALD 2,611 2,611\n2021 168 168 \u2013 PEALD 8,659 8,659\n2022 29 29 \u2013 Total 11,270 11,270\n2023 \u2013 \u2013 \u2013\nYears thereafter \u2013 \u2013 \u2013 NOTE 4. OTHER INTANGIBLE ASSETS\nTotal 3,691 3,416 275",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014605543710021322,
+          "keyword_rank": 10,
+          "semantic_rank": 7
+        }
+      ]
+    },
+    {
+      "uid": "50d6a01be8a0986d1b43bdb3a32e3446",
+      "expected_status": "answered",
+      "question": "What was the change in the Loss from discontinued operations from 2017 to 2018?",
+      "answer_type": "arithmetic",
+      "answer": -60921,
+      "scale": "thousand",
+      "derivation": "-72,836 - (-11,915)",
+      "document_uid": "a7dd7ece6cae1b2aefaa138af72df8ff",
+      "document_sha256": "e7dc6a22612c8b007ab4c988cd62f0852eac23f1cd57e85198fc9e4fd0a42838",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "87d0ab2c-f959-4f9e-9b34-f125f91c0bbb",
+          "page": 1,
+          "char_start": 41,
+          "char_end": 47,
+          "text": "72,836",
+          "block_text": "Loss from discontinued operations $ 0 $ (72,836) $ (11,915) (100.0%) NM"
+        },
+        {
+          "block_id": "87d0ab2c-f959-4f9e-9b34-f125f91c0bbb",
+          "page": 1,
+          "char_start": 52,
+          "char_end": 58,
+          "text": "11,915",
+          "block_text": "Loss from discontinued operations $ 0 $ (72,836) $ (11,915) (100.0%) NM"
+        }
+      ],
+      "retrieval_evidence_available": true,
+      "context_expected_status": "answered",
+      "contexts": [
+        {
+          "chunk_id": "9962d278d0b6df2faee4638ce4e68d867c542c73ebd868cf412da030d85c69bf",
+          "document_id": "e7dc6a22612c8b007ab4c988cd62f0852eac23f1cd57e85198fc9e4fd0a42838",
+          "document_name": "a7dd7ece6cae1b2aefaa138af72df8ff.pdf",
+          "text": "for the years ended December 31, 2018 and 2017 partly offset by earnings attributable to two solutions acquired during the fourth quarter of 2017 as part of\nthe EIS Business that we no longer support effective as of March 31, 2018. Refer to Note 17, \u201cDiscontinued Operations\u201d to our consolidated financial\nstatements included in Part II, Item 8, \u201cFinancial Statements and Supplementary Data\u201d of this Form 10-K for additional information regarding discontinued\noperations.\nNon-Controlling Interests\n2019 % 2018 %\nYear Ended December 31, Change Change\n(In thousands) 2019 2018 2017 from 2018 from 2017\nNet loss attributable to non-controlling interests $ 424 $ 4,527 $ 1,566 (90.6%) 189.1%\nAccretion of redemption preference on\nredeemable convertible non-controlling interest",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01626123744050767,
+          "keyword_rank": 2,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "a6a8930370513fdbfbb56f0b6ec17d2583133e86d6942de8d1ca6ff89ad2f1bd",
+          "document_id": "e7dc6a22612c8b007ab4c988cd62f0852eac23f1cd57e85198fc9e4fd0a42838",
+          "document_name": "a7dd7ece6cae1b2aefaa138af72df8ff.pdf",
+          "text": "scheduled reversals of deferred tax liabilities, tax-planning strategies, and results of recent operations. In evaluating the objective evidence that historical\nresults provide, we consider three years of cumulative operating income (loss). In the year ended December 31, 2018, we released $64.8 million of valuation\nallowance, mostly due to the utilization of capital loss carryforward against capital gain incurred during the year ended December 31, 2018 and the utilization\nof federal credit carryforwards.\nDiscontinued Operations\n2019 % 2018 %\nYear Ended December 31, Change Change\n(In thousands) 2019 2018 2017 from 2018 from 2017\nLoss from discontinued operations $ 0 $ (72,836) $ (11,915) (100.0%) NM\nGain on sale of Netsmart 0 500,471 0 (100.0%) NM",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01626123744050767,
+          "keyword_rank": 1,
+          "semantic_rank": 2
+        },
+        {
+          "chunk_id": "fdf604fee95618671b940548eaa95fc8397b9063f3ce2710ff1fa5cc825ceb23",
+          "document_id": "e7dc6a22612c8b007ab4c988cd62f0852eac23f1cd57e85198fc9e4fd0a42838",
+          "document_name": "a7dd7ece6cae1b2aefaa138af72df8ff.pdf",
+          "text": "Income tax effect on discontinued operations 0 (32,497) 42,263 (100.0%) (176.9%)\nIncome (loss) from discontinued operations, net of tax $ 0 $ 395,138 $ 30,348 (100.0%) NM\nYear Ended December 31, 2019 Compared with the Years Ended December 31, 2018 and 2017\nOn December 31, 2018, we sold all of the Class A Common Units of Netsmart owned by the Company. Prior to the sale, Netsmart comprised a\nseparate reportable segment, which due to its significance to our historical consolidated financial statements and results of operations, is now reported as a\ndiscontinued operation as a result of the sale for all periods presented. The loss from discontinued operations represents the net of losses incurred by Netsmart",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015749007936507936,
+          "keyword_rank": 3,
+          "semantic_rank": 4
+        },
+        {
+          "chunk_id": "4711b3a29d788dc1f803f6c1c3e4172ea09fe04308639927e3a154360a7c5be0",
+          "document_id": "e7dc6a22612c8b007ab4c988cd62f0852eac23f1cd57e85198fc9e4fd0a42838",
+          "document_name": "a7dd7ece6cae1b2aefaa138af72df8ff.pdf",
+          "text": "- discontinued operations $ 0 $ (48,594) $ (43,850) (100.0%) 10.8%\n47",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015399194503672116,
+          "keyword_rank": 7,
+          "semantic_rank": 3
+        },
+        {
+          "chunk_id": "52861ce7108f6dc7d109ae1ae6b7d386035b8fb289e3e304ce60a986ce505b37",
+          "document_id": "3d846c0a86eaa33b501f0476f58c41171cbd69d8d8f3322dfa50cd7390c38f79",
+          "document_name": "de0319bc30e6dff7c4736f1fa9de8361.pdf",
+          "text": "Other comprehensive loss before reclassifications (16,738) (19,237) (35,975)\nCumulative adjustment upon adoption of ASU 2017-12 \u2014 (576) (576)\nAmounts reclassified from accumulated other comprehensive loss 7,936 959 8,895\nNet current period other comprehensive loss (8,802) (18,854) (27,656)\n$ (64,316) $ (16,552) $ (80,868) Balance at December 31, 2019\nF-28",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014938684503901897,
+          "keyword_rank": 9,
+          "semantic_rank": 5
+        }
+      ]
+    },
+    {
+      "uid": "0cc2a888dd2540ce9991a759eb85bbaf",
+      "expected_status": "answered",
+      "question": "What was the average Income tax effect on discontinued operations between 2017-2019?",
+      "answer_type": "arithmetic",
+      "answer": 3255.33,
+      "scale": "thousand",
+      "derivation": "(0 - 32,497 + 42,263) / 3",
+      "document_uid": "a7dd7ece6cae1b2aefaa138af72df8ff",
+      "document_sha256": "e7dc6a22612c8b007ab4c988cd62f0852eac23f1cd57e85198fc9e4fd0a42838",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "70ffa1a8-699a-4922-a25a-48c7e6351105",
+          "page": 1,
+          "char_start": 48,
+          "char_end": 54,
+          "text": "32,497",
+          "block_text": "Income tax effect on discontinued operations 0 (32,497) 42,263 (100.0%) (176.9%)"
+        },
+        {
+          "block_id": "70ffa1a8-699a-4922-a25a-48c7e6351105",
+          "page": 1,
+          "char_start": 45,
+          "char_end": 46,
+          "text": "0",
+          "block_text": "Income tax effect on discontinued operations 0 (32,497) 42,263 (100.0%) (176.9%)"
+        },
+        {
+          "block_id": "70ffa1a8-699a-4922-a25a-48c7e6351105",
+          "page": 1,
+          "char_start": 56,
+          "char_end": 62,
+          "text": "42,263",
+          "block_text": "Income tax effect on discontinued operations 0 (32,497) 42,263 (100.0%) (176.9%)"
+        }
+      ],
+      "retrieval_evidence_available": true,
+      "context_expected_status": "answered",
+      "contexts": [
+        {
+          "chunk_id": "fdf604fee95618671b940548eaa95fc8397b9063f3ce2710ff1fa5cc825ceb23",
+          "document_id": "e7dc6a22612c8b007ab4c988cd62f0852eac23f1cd57e85198fc9e4fd0a42838",
+          "document_name": "a7dd7ece6cae1b2aefaa138af72df8ff.pdf",
+          "text": "Income tax effect on discontinued operations 0 (32,497) 42,263 (100.0%) (176.9%)\nIncome (loss) from discontinued operations, net of tax $ 0 $ 395,138 $ 30,348 (100.0%) NM\nYear Ended December 31, 2019 Compared with the Years Ended December 31, 2018 and 2017\nOn December 31, 2018, we sold all of the Class A Common Units of Netsmart owned by the Company. Prior to the sale, Netsmart comprised a\nseparate reportable segment, which due to its significance to our historical consolidated financial statements and results of operations, is now reported as a\ndiscontinued operation as a result of the sale for all periods presented. The loss from discontinued operations represents the net of losses incurred by Netsmart",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01626123744050767,
+          "keyword_rank": 1,
+          "semantic_rank": 2
+        },
+        {
+          "chunk_id": "a6a8930370513fdbfbb56f0b6ec17d2583133e86d6942de8d1ca6ff89ad2f1bd",
+          "document_id": "e7dc6a22612c8b007ab4c988cd62f0852eac23f1cd57e85198fc9e4fd0a42838",
+          "document_name": "a7dd7ece6cae1b2aefaa138af72df8ff.pdf",
+          "text": "scheduled reversals of deferred tax liabilities, tax-planning strategies, and results of recent operations. In evaluating the objective evidence that historical\nresults provide, we consider three years of cumulative operating income (loss). In the year ended December 31, 2018, we released $64.8 million of valuation\nallowance, mostly due to the utilization of capital loss carryforward against capital gain incurred during the year ended December 31, 2018 and the utilization\nof federal credit carryforwards.\nDiscontinued Operations\n2019 % 2018 %\nYear Ended December 31, Change Change\n(In thousands) 2019 2018 2017 from 2018 from 2017\nLoss from discontinued operations $ 0 $ (72,836) $ (11,915) (100.0%) NM\nGain on sale of Netsmart 0 500,471 0 (100.0%) NM",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.016009221311475412,
+          "keyword_rank": 4,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "629e28e53f297b2cec1f7933416243d576c965135be93dd84b91c21e3d51eb72",
+          "document_id": "e7dc6a22612c8b007ab4c988cd62f0852eac23f1cd57e85198fc9e4fd0a42838",
+          "document_name": "a7dd7ece6cae1b2aefaa138af72df8ff.pdf",
+          "text": "Year Ended December 31, 2018 Compared with the Year Ended December 31, 2017\nThe United States Tax Cuts and Jobs Act (the \u201cTax Act\u201d) was enacted on December 22, 2017 and introduced significant changes to the income tax\nlaw in the United States. Effective in 2018, the Tax Act reduced the United States statutory tax rate from 35% to 21% and created new taxes on certain\nforeign-sourced earnings and certain related-party payments, which are referred to as the Global Intangible Low-taxed Income (\"GILTI\") tax and Base\nErosion and Anti-Abuse Tax (\u201cBEAT\u201d) rules, respectively. In addition, in 2017 we were subject to a one-time transition tax on accumulated foreign subsidiary\nearnings not previously subject to income tax in the United States.",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01562881562881563,
+          "keyword_rank": 5,
+          "semantic_rank": 3
+        },
+        {
+          "chunk_id": "9962d278d0b6df2faee4638ce4e68d867c542c73ebd868cf412da030d85c69bf",
+          "document_id": "e7dc6a22612c8b007ab4c988cd62f0852eac23f1cd57e85198fc9e4fd0a42838",
+          "document_name": "a7dd7ece6cae1b2aefaa138af72df8ff.pdf",
+          "text": "for the years ended December 31, 2018 and 2017 partly offset by earnings attributable to two solutions acquired during the fourth quarter of 2017 as part of\nthe EIS Business that we no longer support effective as of March 31, 2018. Refer to Note 17, \u201cDiscontinued Operations\u201d to our consolidated financial\nstatements included in Part II, Item 8, \u201cFinancial Statements and Supplementary Data\u201d of this Form 10-K for additional information regarding discontinued\noperations.\nNon-Controlling Interests\n2019 % 2018 %\nYear Ended December 31, Change Change\n(In thousands) 2019 2018 2017 from 2018 from 2017\nNet loss attributable to non-controlling interests $ 424 $ 4,527 $ 1,566 (90.6%) 189.1%\nAccretion of redemption preference on\nredeemable convertible non-controlling interest",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015399194503672116,
+          "keyword_rank": 3,
+          "semantic_rank": 7
+        },
+        {
+          "chunk_id": "4711b3a29d788dc1f803f6c1c3e4172ea09fe04308639927e3a154360a7c5be0",
+          "document_id": "e7dc6a22612c8b007ab4c988cd62f0852eac23f1cd57e85198fc9e4fd0a42838",
+          "document_name": "a7dd7ece6cae1b2aefaa138af72df8ff.pdf",
+          "text": "- discontinued operations $ 0 $ (48,594) $ (43,850) (100.0%) 10.8%\n47",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01527518656716418,
+          "keyword_rank": 7,
+          "semantic_rank": 4
+        }
+      ]
+    },
+    {
+      "uid": "0758ba46bed17f09d48c3c5d9cd907fd",
+      "expected_status": "answered",
+      "question": "In which years was the gross margin calculated?",
+      "answer_type": "multi-span",
+      "answer": [
+        "2019",
+        "2018"
+      ],
+      "scale": "",
+      "derivation": "",
+      "document_uid": "b8cf8e9ebf71c892eda0a3ed9ee57852",
+      "document_sha256": "15574e464087410835619fcf9a9895fa825d6054ba9fc0698e13b36da917114c",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "3d6c875e-d7d1-45ce-9154-1d751a1e9c31",
+          "page": 1,
+          "char_start": 28,
+          "char_end": 32,
+          "text": "2019",
+          "block_text": "Fiscal Year ($ in millions) 2019 2018 Net sales $ 2,380.2 $ 2,157.7 Less: surcharge revenue 438.1 365.4 Net sales excluding surcharge revenue $ 1,942.1 $ 1,792.3"
+        },
+        {
+          "block_id": "3d6c875e-d7d1-45ce-9154-1d751a1e9c31",
+          "page": 1,
+          "char_start": 33,
+          "char_end": 37,
+          "text": "2018",
+          "block_text": "Fiscal Year ($ in millions) 2019 2018 Net sales $ 2,380.2 $ 2,157.7 Less: surcharge revenue 438.1 365.4 Net sales excluding surcharge revenue $ 1,942.1 $ 1,792.3"
+        }
+      ],
+      "retrieval_evidence_available": true,
+      "context_expected_status": "answered",
+      "contexts": [
+        {
+          "chunk_id": "27ccddc7cab823da78a7f7d6f749af4ca8f3dcaf086a434ff3dd7c07828452b6",
+          "document_id": "15574e464087410835619fcf9a9895fa825d6054ba9fc0698e13b36da917114c",
+          "document_name": "b8cf8e9ebf71c892eda0a3ed9ee57852.pdf",
+          "text": "Industrial and Consumer market sales increased 2 percent to $371.5 million for fiscal year 2019. Excluding surcharge\nrevenue, sales increased 1 percent on 4 percent lower shipment volume. The results reflect the impact of stronger demand for\nmaterials used in consumer goods including the sporting sub-market.\nGross Profit\nGross profit in fiscal year 2019 increased to $444.8 million, or 18.7 percent of net sales from $382.3 million, or 17.7\npercent of net sales for fiscal year 2018. Excluding the impact of the surcharge revenue, our gross margin in fiscal year 2019\nwas 22.9 percent compared to 21.3 percent in fiscal year 2018. The results reflect the impact of improved product mix coupled",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.016133229247983348,
+          "keyword_rank": 1,
+          "semantic_rank": 3
+        },
+        {
+          "chunk_id": "f6f25289021b88d3b6a381703655db2929a22e1e92d142c63c2a3a4b8912b877",
+          "document_id": "15574e464087410835619fcf9a9895fa825d6054ba9fc0698e13b36da917114c",
+          "document_name": "b8cf8e9ebf71c892eda0a3ed9ee57852.pdf",
+          "text": "provides a more consistent and meaningful basis for comparing results of operations from period to period. See the section\n\u201cNon-GAAP Financial Measures\u201d below for further discussion of these financial measures.\nFiscal Year\n($ in millions) 2019 2018\nNet sales $ 2,380.2 $ 2,157.7\nLess: surcharge revenue 438.1 365.4\nNet sales excluding surcharge revenue $ 1,942.1 $ 1,792.3\nGross profit $ 444.8 $ 382.3\nGross margin 18.7% 17.7%\nGross margin excluding surcharge revenue 22.9% 21.3%\nSelling, General and Administrative Expenses\nSelling, general and administrative expenses in fiscal year 2019 were $203.4 million, or 8.5 percent of net sales (10.5\npercent of net sales excluding surcharge revenue), compared to $193.0 million, or 8.9 percent of net sales (10.8 percent of net",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.016001024065540194,
+          "keyword_rank": 3,
+          "semantic_rank": 2
+        },
+        {
+          "chunk_id": "d2cdbe34663a52d5786d49baef4042e17ce100b73b3b41cdd11f09a29cedcc48",
+          "document_id": "15574e464087410835619fcf9a9895fa825d6054ba9fc0698e13b36da917114c",
+          "document_name": "b8cf8e9ebf71c892eda0a3ed9ee57852.pdf",
+          "text": "operating margin reflects steady demand and improved product mix coupled with operating cost improvements offset by higher\nselling, general and administrative expenses compared to the same period a year ago.\n22",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01565940787863959,
+          "keyword_rank": 7,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "91c704f36c0ba8dd3a678ea856d9446ce47ad7a484e133db021c27815b56c2d1",
+          "document_id": "15574e464087410835619fcf9a9895fa825d6054ba9fc0698e13b36da917114c",
+          "document_name": "b8cf8e9ebf71c892eda0a3ed9ee57852.pdf",
+          "text": "sales excluding surcharge revenue), in fiscal year 2018. Selling, general and administrative expenses increased in fiscal year\n2019 primarily due to higher depreciation, insurance and acquisition related costs partially offset by lower variable\ncompensation expense compared to fiscal year 2018.\nOperating Income\nOur operating income in fiscal year 2019 increased to $241.4 million, or 10.1 percent of net sales as compared with\n$189.3 million, or 8.8 percent of net sales in fiscal year 2018. Excluding surcharge revenue and special items, adjusted\noperating margin was 12.5 percent for the fiscal year 2019 and 10.6 percent for the same period a year ago. The increase in the",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015625,
+          "keyword_rank": 4,
+          "semantic_rank": 4
+        },
+        {
+          "chunk_id": "d5b777dd7c93ea3c6e76c1bb092d158ec376924b90cdf4c8839ee9d08e49dacf",
+          "document_id": "05383a146421b2f030a62de6a76d95f4725d584bf1c48abdfe3ae24a37011e56",
+          "document_name": "3e2109c375cbf670d40c77b22b430b20.pdf",
+          "text": "and amounts used for income tax purposes. The components of our deferred tax assets and liabilities are as follows (in thousands):\nSeptember 27, September 28,\n2019 2018\nDeferred tax assets (liabilities):\nFederal and foreign net operating losses and credits $ 263,199 $ 321,982\nIntangible assets 9,887 (94,929)\nProperty and equipment (1,473) (6,293)\nOther non-current deferred tax assets 16,933 13,850\nDeferred compensation \u2014 3,810\nDeferred gain \u2014 6,575\nInterest 7,170 \u2014\nValuation allowance (252,536) (243,112)\n$ 43,180 $ 1,883 Total deferred tax asset\n74\nAs of September 27, 2019, we had $923.4 million of gross federal net operating loss (\"NOL\") carryforwards consisting of $479.2 million relating to the",
+          "page_start": 1,
+          "page_end": 2,
+          "score": 0.013708920187793428,
+          "keyword_rank": 11,
+          "semantic_rank": 15
+        }
+      ]
+    },
+    {
+      "uid": "16b876d750f60ee9bbe05551a883be87",
+      "expected_status": "answered",
+      "question": "In which year was the gross margin larger?",
+      "answer_type": "span",
+      "answer": [
+        "2019"
+      ],
+      "scale": "",
+      "derivation": "18.7%>17.7%",
+      "document_uid": "b8cf8e9ebf71c892eda0a3ed9ee57852",
+      "document_sha256": "15574e464087410835619fcf9a9895fa825d6054ba9fc0698e13b36da917114c",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "3d6c875e-d7d1-45ce-9154-1d751a1e9c31",
+          "page": 1,
+          "char_start": 28,
+          "char_end": 32,
+          "text": "2019",
+          "block_text": "Fiscal Year ($ in millions) 2019 2018 Net sales $ 2,380.2 $ 2,157.7 Less: surcharge revenue 438.1 365.4 Net sales excluding surcharge revenue $ 1,942.1 $ 1,792.3"
+        }
+      ],
+      "retrieval_evidence_available": true,
+      "context_expected_status": "answered",
+      "contexts": [
+        {
+          "chunk_id": "27ccddc7cab823da78a7f7d6f749af4ca8f3dcaf086a434ff3dd7c07828452b6",
+          "document_id": "15574e464087410835619fcf9a9895fa825d6054ba9fc0698e13b36da917114c",
+          "document_name": "b8cf8e9ebf71c892eda0a3ed9ee57852.pdf",
+          "text": "Industrial and Consumer market sales increased 2 percent to $371.5 million for fiscal year 2019. Excluding surcharge\nrevenue, sales increased 1 percent on 4 percent lower shipment volume. The results reflect the impact of stronger demand for\nmaterials used in consumer goods including the sporting sub-market.\nGross Profit\nGross profit in fiscal year 2019 increased to $444.8 million, or 18.7 percent of net sales from $382.3 million, or 17.7\npercent of net sales for fiscal year 2018. Excluding the impact of the surcharge revenue, our gross margin in fiscal year 2019\nwas 22.9 percent compared to 21.3 percent in fiscal year 2018. The results reflect the impact of improved product mix coupled",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.016133229247983348,
+          "keyword_rank": 1,
+          "semantic_rank": 3
+        },
+        {
+          "chunk_id": "f6f25289021b88d3b6a381703655db2929a22e1e92d142c63c2a3a4b8912b877",
+          "document_id": "15574e464087410835619fcf9a9895fa825d6054ba9fc0698e13b36da917114c",
+          "document_name": "b8cf8e9ebf71c892eda0a3ed9ee57852.pdf",
+          "text": "provides a more consistent and meaningful basis for comparing results of operations from period to period. See the section\n\u201cNon-GAAP Financial Measures\u201d below for further discussion of these financial measures.\nFiscal Year\n($ in millions) 2019 2018\nNet sales $ 2,380.2 $ 2,157.7\nLess: surcharge revenue 438.1 365.4\nNet sales excluding surcharge revenue $ 1,942.1 $ 1,792.3\nGross profit $ 444.8 $ 382.3\nGross margin 18.7% 17.7%\nGross margin excluding surcharge revenue 22.9% 21.3%\nSelling, General and Administrative Expenses\nSelling, general and administrative expenses in fiscal year 2019 were $203.4 million, or 8.5 percent of net sales (10.5\npercent of net sales excluding surcharge revenue), compared to $193.0 million, or 8.9 percent of net sales (10.8 percent of net",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.016001024065540194,
+          "keyword_rank": 3,
+          "semantic_rank": 2
+        },
+        {
+          "chunk_id": "d2cdbe34663a52d5786d49baef4042e17ce100b73b3b41cdd11f09a29cedcc48",
+          "document_id": "15574e464087410835619fcf9a9895fa825d6054ba9fc0698e13b36da917114c",
+          "document_name": "b8cf8e9ebf71c892eda0a3ed9ee57852.pdf",
+          "text": "operating margin reflects steady demand and improved product mix coupled with operating cost improvements offset by higher\nselling, general and administrative expenses compared to the same period a year ago.\n22",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01565940787863959,
+          "keyword_rank": 7,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "91c704f36c0ba8dd3a678ea856d9446ce47ad7a484e133db021c27815b56c2d1",
+          "document_id": "15574e464087410835619fcf9a9895fa825d6054ba9fc0698e13b36da917114c",
+          "document_name": "b8cf8e9ebf71c892eda0a3ed9ee57852.pdf",
+          "text": "sales excluding surcharge revenue), in fiscal year 2018. Selling, general and administrative expenses increased in fiscal year\n2019 primarily due to higher depreciation, insurance and acquisition related costs partially offset by lower variable\ncompensation expense compared to fiscal year 2018.\nOperating Income\nOur operating income in fiscal year 2019 increased to $241.4 million, or 10.1 percent of net sales as compared with\n$189.3 million, or 8.8 percent of net sales in fiscal year 2018. Excluding surcharge revenue and special items, adjusted\noperating margin was 12.5 percent for the fiscal year 2019 and 10.6 percent for the same period a year ago. The increase in the",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015625,
+          "keyword_rank": 4,
+          "semantic_rank": 4
+        },
+        {
+          "chunk_id": "961f2d661db923316089b29f073b2811b187486c7d997979602a2cfa0165628a",
+          "document_id": "15574e464087410835619fcf9a9895fa825d6054ba9fc0698e13b36da917114c",
+          "document_name": "b8cf8e9ebf71c892eda0a3ed9ee57852.pdf",
+          "text": "with capacity gains and operating cost reductions compared to the same period a year ago. Fiscal year 2019 also reflects an\n$11.4 million benefit related to an insurance recovery in our third fiscal quarter.\nOur surcharge mechanism is structured to recover increases in raw material costs, although in certain cases with a lag\neffect as discussed above. While the surcharge generally protects the absolute gross profit dollars, it does have a dilutive effect\non gross margin as a percent of sales. The following represents a summary of the dilutive impact of the surcharge on gross\nmargin. We present and discuss these financial measures because management believes removing the impact of surcharge",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015310892940626462,
+          "keyword_rank": 2,
+          "semantic_rank": 9
+        }
+      ]
+    },
+    {
+      "uid": "96b821be95abc59e079c123bef8a759c",
+      "expected_status": "answered",
+      "question": "What is the weighted average duration of the post-employment benefit obligation?",
+      "answer_type": "span",
+      "answer": [
+        "14 years"
+      ],
+      "scale": "",
+      "derivation": "",
+      "document_uid": "bf597f45d92a8c21e7536c0a00c8f445",
+      "document_sha256": "24c09bb91e0daa9a2ec0337721ac086f74ba55f8107c1ff5742c1c200b9cd519",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "3bf90149-368a-4df0-9aea-240e205079cf",
+          "page": 1,
+          "char_start": 75,
+          "char_end": 83,
+          "text": "14 years",
+          "block_text": "The weighted average duration of the post-employment benefit obligation is 14 years."
+        }
+      ],
+      "retrieval_evidence_available": true,
+      "context_expected_status": "answered",
+      "contexts": [
+        {
+          "chunk_id": "0cb27cd4350774e6f2d3988f4318212ffdb4f8f82e6afebad2722beed8ae976f",
+          "document_id": "24c09bb91e0daa9a2ec0337721ac086f74ba55f8107c1ff5742c1c200b9cd519",
+          "document_name": "bf597f45d92a8c21e7536c0a00c8f445.pdf",
+          "text": "SIGNIFICANT ASSUMPTIONS\nWe used the following key assumptions to measure the post-employment benefit obligations and the net benefit plans cost for the DB pension\nplans and OPEB plans. These assumptions are long-term, which is consistent with the nature of post-employment benefit plans.\nDB PENSION PLANS AND OPEB PLANS\nFOR THE YEAR ENDED DECEMBER 31 2019 2018\nPost-employment benefit obligations\nDiscount rate 3.1% 3.8%\nRate of compensation increase 2.25% 2.25%\nCost of living indexation rate (1) 1.6% 1.6%\nLife expectancy at age 65 (years) 23.2 23.1\n(1) Cost of living indexation rate is only applicable to DB pension plans.\nDB PENSION PLANS AND OPEB PLANS\nFOR THE YEAR ENDED DECEMBER 31 2019 2018\nNet post-employment benefit plans cost",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.016133229247983348,
+          "keyword_rank": 3,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "0293514d03c9dde631e293b8602125777379e05d2b5ce32a4433c6aff301494e",
+          "document_id": "24c09bb91e0daa9a2ec0337721ac086f74ba55f8107c1ff5742c1c200b9cd519",
+          "document_name": "bf597f45d92a8c21e7536c0a00c8f445.pdf",
+          "text": "Discount rate 4.0% 3.7%\nRate of compensation increase 2.25% 2.25%\nCost of living indexation rate (1) 1.6% 1.6%\nLife expectancy at age 65 (years) 23.1 23.2\n(1) Cost of living indexation rate is only applicable to DB pension plans.\nThe weighted average duration of the post-employment benefit Assumed trend rates in healthcare costs have a significant effect on\nobligation is 14 years. the amounts reported for the healthcare plans.\nWe assumed the following trend rates in healthcare costs: The following table shows the effect of a 1% change in the assumed\ntrend rates in healthcare costs. \u2022 an annual increase in the cost of medication of 6.5% for 2019 decreasing\nto 4.0% over 20 years\nEFFECT ON POST-EMPLOYMENT",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.016009221311475412,
+          "keyword_rank": 1,
+          "semantic_rank": 4
+        },
+        {
+          "chunk_id": "1ac3fc1935aa16e924f3e3efab51b0d444a1dc6bbca028679364bd3f6e40ac9c",
+          "document_id": "24c09bb91e0daa9a2ec0337721ac086f74ba55f8107c1ff5742c1c200b9cd519",
+          "document_name": "bf597f45d92a8c21e7536c0a00c8f445.pdf",
+          "text": "BENEFITS \u2013 INCREASE/(DECREASE) 1% INCREASE 1% DECREASE\n\u2022 an annual increase in the cost of covered dental benefits of 4%\nTotal service and interest cost 4 (3)\n\u2022 an annual increase in the cost of covered hospital benefits of 3.7%\nPost-employment benefit obligations 110 (95)\n\u2022 an annual increase in the cost of other covered healthcare\nbenefits of 4%\nSENSITIVITY ANALYSIS\nThe following table shows a sensitivity analysis of key assumptions used to measure the net post-employment benefit obligations and the net\npost-employment benefit plans cost for our DB pension plans and OPEB plans.\nIMPACT ON NET POST-EMPLOYMENT IMPACT ON POST-EMPLOYMENT BENEFIT\nBENEFIT PLANS COST FOR 2019 \u2013 OBLIGATIONS AT DECEMBER 31, 2019 \u2013\nINCREASE/(DECREASE) INCREASE/(DECREASE)",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.016001024065540194,
+          "keyword_rank": 2,
+          "semantic_rank": 3
+        },
+        {
+          "chunk_id": "ab8eead146b5f04ca472fa0df08fcfd4b1dfc305aa54a158893e3f665224a46e",
+          "document_id": "24c09bb91e0daa9a2ec0337721ac086f74ba55f8107c1ff5742c1c200b9cd519",
+          "document_name": "bf597f45d92a8c21e7536c0a00c8f445.pdf",
+          "text": "CHANGE IN INCREASE IN DECREASE IN INCREASE IN DECREASE IN\nASSUMPTION ASSUMPTION ASSUMPTION ASSUMPTION ASSUMPTION\nDiscount rate 0.5% (75) 69 (1,728) 1,944\nLife expectancy at age 65 1 year 38 (39) 945 (972)\ndetadilosnoc\nstnemetats\nPOST-EMPLOYMENT BENEFIT PLAN ASSETS\nThe investment strategy for the post-employment benefit plan assets is to maintain a diversified portfolio of assets invested in a prudent manner\nlaicnanfi ot to maintain the security of benefits.\nsetoN\nThe following table shows the target allocations for 2019 and the allocation of our post-employment benefit plan assets at December 31, 2019\nand 2018.\nWEIGHTED AVERAGE\nTARGET ALLOCATION TOTAL PLAN ASSETS FAIR VALUE\nASSET CATEGORY 2019 DECEMBER 31, 2019 DECEMBER 31, 2018\nEquity securities 0%\u201340% 22% 20%",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015877016129032258,
+          "keyword_rank": 4,
+          "semantic_rank": 2
+        },
+        {
+          "chunk_id": "e06f62c0afc610ebc52856d2996cefc069026ba962616c3256ec5dece92b5f3c",
+          "document_id": "3d846c0a86eaa33b501f0476f58c41171cbd69d8d8f3322dfa50cd7390c38f79",
+          "document_name": "de0319bc30e6dff7c4736f1fa9de8361.pdf",
+          "text": "As of December 31, 2019, total unrecognized compensation cost related to non-vested RSAs and PSAs was $10.6 million\nand will be recognized over a weighted-average period of approximately 1.7 years.\nAccumulated Other Comprehensive Income (Loss)\nThe following table summarizes the changes in accumulated other comprehensive income (loss), net of tax, by component\nduring 2019 and 2018:\nPension and\nPost-Retirement Derivative\n(In thousands) Obligations Instruments Total\nBalance at December 31, 2017 $ (48,464) $ 381 $ (48,083)\nOther comprehensive loss before reclassifications (10,835) (691) (11,526)\nAmounts reclassified from accumulated other comprehensive loss 3,785 2,612 6,397\nNet current period other comprehensive income (loss) (7,050) 1,921 (5,129)\nBalance at December 31, 2018 $ (55,514) $ 2,302 $ (53,212)",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015045248868778281,
+          "keyword_rank": 5,
+          "semantic_rank": 8
+        }
+      ]
+    },
+    {
+      "uid": "cba448f7114df62a298deb6c4d97bffc",
+      "expected_status": "answered",
+      "question": "What is the cost of living indexation rate applicable to?",
+      "answer_type": "span",
+      "answer": [
+        "only applicable to DB pension plans"
+      ],
+      "scale": "",
+      "derivation": "",
+      "document_uid": "bf597f45d92a8c21e7536c0a00c8f445",
+      "document_sha256": "24c09bb91e0daa9a2ec0337721ac086f74ba55f8107c1ff5742c1c200b9cd519",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "7281cb48-ef0f-4219-bc14-fc6e23956519",
+          "page": 1,
+          "char_start": 38,
+          "char_end": 73,
+          "text": "only applicable to DB pension plans",
+          "block_text": "(1) Cost of living indexation rate is only applicable to DB pension plans."
+        }
+      ],
+      "retrieval_evidence_available": true,
+      "context_expected_status": "answered",
+      "contexts": [
+        {
+          "chunk_id": "0293514d03c9dde631e293b8602125777379e05d2b5ce32a4433c6aff301494e",
+          "document_id": "24c09bb91e0daa9a2ec0337721ac086f74ba55f8107c1ff5742c1c200b9cd519",
+          "document_name": "bf597f45d92a8c21e7536c0a00c8f445.pdf",
+          "text": "Discount rate 4.0% 3.7%\nRate of compensation increase 2.25% 2.25%\nCost of living indexation rate (1) 1.6% 1.6%\nLife expectancy at age 65 (years) 23.1 23.2\n(1) Cost of living indexation rate is only applicable to DB pension plans.\nThe weighted average duration of the post-employment benefit Assumed trend rates in healthcare costs have a significant effect on\nobligation is 14 years. the amounts reported for the healthcare plans.\nWe assumed the following trend rates in healthcare costs: The following table shows the effect of a 1% change in the assumed\ntrend rates in healthcare costs. \u2022 an annual increase in the cost of medication of 6.5% for 2019 decreasing\nto 4.0% over 20 years\nEFFECT ON POST-EMPLOYMENT",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01639344262295082,
+          "keyword_rank": 1,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "0cb27cd4350774e6f2d3988f4318212ffdb4f8f82e6afebad2722beed8ae976f",
+          "document_id": "24c09bb91e0daa9a2ec0337721ac086f74ba55f8107c1ff5742c1c200b9cd519",
+          "document_name": "bf597f45d92a8c21e7536c0a00c8f445.pdf",
+          "text": "SIGNIFICANT ASSUMPTIONS\nWe used the following key assumptions to measure the post-employment benefit obligations and the net benefit plans cost for the DB pension\nplans and OPEB plans. These assumptions are long-term, which is consistent with the nature of post-employment benefit plans.\nDB PENSION PLANS AND OPEB PLANS\nFOR THE YEAR ENDED DECEMBER 31 2019 2018\nPost-employment benefit obligations\nDiscount rate 3.1% 3.8%\nRate of compensation increase 2.25% 2.25%\nCost of living indexation rate (1) 1.6% 1.6%\nLife expectancy at age 65 (years) 23.2 23.1\n(1) Cost of living indexation rate is only applicable to DB pension plans.\nDB PENSION PLANS AND OPEB PLANS\nFOR THE YEAR ENDED DECEMBER 31 2019 2018\nNet post-employment benefit plans cost",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.016129032258064516,
+          "keyword_rank": 2,
+          "semantic_rank": 2
+        },
+        {
+          "chunk_id": "dce342e1c8655e1bd37236d0ec3cedafd16143e10186c103f80d0aa28951fed6",
+          "document_id": "e7dc6a22612c8b007ab4c988cd62f0852eac23f1cd57e85198fc9e4fd0a42838",
+          "document_name": "a7dd7ece6cae1b2aefaa138af72df8ff.pdf",
+          "text": "federal rate and expense of $5.2 million for the one-time transition tax on accumulated foreign subsidiary earnings not previously subject to income tax in the\nUnited States. Adjustments to these provisional amounts that we recorded in 2018 did not have a significant impact on our consolidated financial statements.\nOur accounting for the effects of the enactment of United States Tax Reform is now complete. Due to our divestiture of our investment in Netsmart, the\namounts noted above do not include the provisional amounts recorded by Netsmart in 2017.\nOur provision for income taxes differs from the tax computed at the U.S. federal statutory income tax rate due primarily to valuation allowance,",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015045248868778281,
+          "keyword_rank": 5,
+          "semantic_rank": 8
+        },
+        {
+          "chunk_id": "2f9db394207e9db1586f0cb9b4285cba8acd96187039479203fc95294ff7ef0d",
+          "document_id": "e7dc6a22612c8b007ab4c988cd62f0852eac23f1cd57e85198fc9e4fd0a42838",
+          "document_name": "a7dd7ece6cae1b2aefaa138af72df8ff.pdf",
+          "text": "permanent differences, income attributable to foreign jurisdictions taxed at rates different from the United States federal statutory income tax rate, state taxes,\ntax credits and certain discrete items. Our effective tax rate decreased for the year ended December 31, 2018, compared with the prior year, primarily due to\nthe effects of the stricter executive compensation deduction provisions of the Tax Act recorded in 2018, offset by the United States federal rate reduction of\n21% versus 35% in 2017.\nIn evaluating our ability to recover our deferred tax assets within the jurisdictions from which they arise, we consider all available evidence, including",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014955357142857142,
+          "keyword_rank": 4,
+          "semantic_rank": 10
+        },
+        {
+          "chunk_id": "ab8eead146b5f04ca472fa0df08fcfd4b1dfc305aa54a158893e3f665224a46e",
+          "document_id": "24c09bb91e0daa9a2ec0337721ac086f74ba55f8107c1ff5742c1c200b9cd519",
+          "document_name": "bf597f45d92a8c21e7536c0a00c8f445.pdf",
+          "text": "CHANGE IN INCREASE IN DECREASE IN INCREASE IN DECREASE IN\nASSUMPTION ASSUMPTION ASSUMPTION ASSUMPTION ASSUMPTION\nDiscount rate 0.5% (75) 69 (1,728) 1,944\nLife expectancy at age 65 1 year 38 (39) 945 (972)\ndetadilosnoc\nstnemetats\nPOST-EMPLOYMENT BENEFIT PLAN ASSETS\nThe investment strategy for the post-employment benefit plan assets is to maintain a diversified portfolio of assets invested in a prudent manner\nlaicnanfi ot to maintain the security of benefits.\nsetoN\nThe following table shows the target allocations for 2019 and the allocation of our post-employment benefit plan assets at December 31, 2019\nand 2018.\nWEIGHTED AVERAGE\nTARGET ALLOCATION TOTAL PLAN ASSETS FAIR VALUE\nASSET CATEGORY 2019 DECEMBER 31, 2019 DECEMBER 31, 2018\nEquity securities 0%\u201340% 22% 20%",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014955357142857142,
+          "keyword_rank": 10,
+          "semantic_rank": 4
+        }
+      ]
+    },
+    {
+      "uid": "58261c573ed7041f7e1c1337bba522ec",
+      "expected_status": "answered",
+      "question": "What was the average performance shares for 2017-2019?",
+      "answer_type": "arithmetic",
+      "answer": 1824.33,
+      "scale": "thousand",
+      "derivation": "(2,823 + 1,870 + 780) / 3",
+      "document_uid": "de0319bc30e6dff7c4736f1fa9de8361",
+      "document_sha256": "3d846c0a86eaa33b501f0476f58c41171cbd69d8d8f3322dfa50cd7390c38f79",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "2a7b3844-bcd0-4c3b-92f2-83b6a5cead02",
+          "page": 1,
+          "char_start": 19,
+          "char_end": 24,
+          "text": "2,823",
+          "block_text": "Performance shares 2,823 1,870 780"
+        },
+        {
+          "block_id": "2a7b3844-bcd0-4c3b-92f2-83b6a5cead02",
+          "page": 1,
+          "char_start": 31,
+          "char_end": 34,
+          "text": "780",
+          "block_text": "Performance shares 2,823 1,870 780"
+        },
+        {
+          "block_id": "2a7b3844-bcd0-4c3b-92f2-83b6a5cead02",
+          "page": 1,
+          "char_start": 25,
+          "char_end": 30,
+          "text": "1,870",
+          "block_text": "Performance shares 2,823 1,870 780"
+        }
+      ],
+      "retrieval_evidence_available": true,
+      "context_expected_status": "answered",
+      "contexts": [
+        {
+          "chunk_id": "4e15b1915cc67f33c7b36e9aa542b3a70a7bae8690d3ef2d1caf7f19531322f5",
+          "document_id": "3d846c0a86eaa33b501f0476f58c41171cbd69d8d8f3322dfa50cd7390c38f79",
+          "document_name": "de0319bc30e6dff7c4736f1fa9de8361.pdf",
+          "text": "Table of Contents\nShare-based Compensation Expense\nThe following table summarizes total compensation costs recognized for share-based payments during the years ended\nDecember 31, 2019, 2018 and 2017:\nYear Ended December 31,\n(In thousands) 2019 2018 2017\nRestricted stock $ 4,013 $ 3,249 $ 1,986\nPerformance shares 2,823 1,870 780\n$ 6,836 $ 5,119 $ 2,766 Total\nIncome tax benefits related to share-based compensation of approximately $1.8 million, $1.3 million and $1.1 million were\nrecorded for the years ended December 31, 2019, 2018 and 2017, respectively. Share-based compensation expense is\nincluded in \u201cselling, general and administrative expenses\u201d in the accompanying consolidated statements of operations.",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01626123744050767,
+          "keyword_rank": 1,
+          "semantic_rank": 2
+        },
+        {
+          "chunk_id": "550cb5898c21112e27d438d90cb2adca5de34a06f5c88ac27cf48f3d53fbded2",
+          "document_id": "a393f5f4edc523c04b858e014ce43c7c758d89fe318e60f66f5b78c219e171f6",
+          "document_name": "7618a93f40fbba431a7543cb1587330e.pdf",
+          "text": "dividing net income by the weighted-average number of common shares and dilutive common stock equivalents outstanding during the period.\nAll figures in USD except number of shares and earnings (loss) per common share 2019 2018 2017\nNumerator:\nNet Loss (10,352) (95,306) (204,969)\nDenominator:\nBasic - Weighted Average Common Shares Outstanding 142,571,361 141,969,666 103,832,680\nDilutive \u2013 Weighted Average Common Shares Outstanding 142,571,361 141,969,666 103,832,680\nLoss per Common Share:\nBasic (0.07) (0.67) (1.97)\nDiluted (0.07) (0.67) (1.97)\nOn March 29, 2019, the Company launched an ATM program of our common shares for up to $40.0 million. The Company has issued 5,260,968 shares with net proceeds of $17.9 million",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01626123744050767,
+          "keyword_rank": 2,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "925ba61e369389cd01ea33d74ffa8fabb62dc13c09f32283f53155afe543cb76",
+          "document_id": "a393f5f4edc523c04b858e014ce43c7c758d89fe318e60f66f5b78c219e171f6",
+          "document_name": "7618a93f40fbba431a7543cb1587330e.pdf",
+          "text": "12. ACCRUED LIABILITIES\nAll figures in USD \u2018000 2019 2018\nAccrued Interest 163 1,598\nAccrued Expenses 11,569 7,362\nSettlement Deferred Compensation Liabilities 3,830 -\nTotal as of December 31, 15,562 8,960\nThe settlement of the deferred compensation liabilities includes the settlement with our former CFO and Executive Vice President that is payable within March 31, 2020 and payroll taxes\nrelated to this settlement and the settlement of the Executive Pension Plan with our Chairman, President & CEO. We refer to note 7 for further information.\n13. EARNINGS (LOSS) PER SHARE\nBasic earnings per share (\u201cEPS\u201d) are computed by dividing net income (loss) by the weighted-average number of common shares outstanding for the period. Diluted EPS is computed by",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015512265512265512,
+          "keyword_rank": 3,
+          "semantic_rank": 6
+        },
+        {
+          "chunk_id": "da2c8f737629814a10be06dd545e2530311b49933ed69e111d7aea6e87513447",
+          "document_id": "a393f5f4edc523c04b858e014ce43c7c758d89fe318e60f66f5b78c219e171f6",
+          "document_name": "7618a93f40fbba431a7543cb1587330e.pdf",
+          "text": "under its At-the-Market as of December 31, 2019. The Company has not issued any shares subsequent to the balance sheet date.\nThe remaining available proceeds through the offering is $21.4 million as of the date of this report. Based on the share price of the Company of $3.47 per share as of April 3, 2020 it would\nhave resulted in 6,173,500 new shares being issued, if fully utilizing the remaining balance available through the ATM.\nF-22",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015038444142921756,
+          "keyword_rank": 6,
+          "semantic_rank": 7
+        },
+        {
+          "chunk_id": "831f5435beb16c3e31ddb8bfc8ee2b16133943f40920cc6be1d02a916f71b2e1",
+          "document_id": "1415def72b1696e90af12df00cf6cc027d6768c279cc1c694955c1c831a47110",
+          "document_name": "eacd9d2c0223e2acd395af609bbe05d1.pdf",
+          "text": "GasLog Ltd. and its Subsidiaries\nNotes to the consolidated financial statements (Continued)\nFor the years ended December 31, 2017, 2018 and 2019\n(All amounts expressed in thousands of U.S. Dollars, except share and per share data)\n19. Financial Income and Costs\nAn analysis of financial income and costs is as follows:\nFor the year ended\nDecember 31,\n2017 2018 2019\nFinancial Income\nInterest income . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2,650 4,784 5,318",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014569256756756757,
+          "keyword_rank": 4,
+          "semantic_rank": 14
+        }
+      ]
+    },
+    {
+      "uid": "f9fed3d67c1a38fe5cf5811c272dc8f0",
+      "expected_status": "answered",
+      "question": "What was the average restricted stock for 2017-2019?",
+      "answer_type": "arithmetic",
+      "answer": 3082.67,
+      "scale": "thousand",
+      "derivation": "(4,013 + 3,249 + 1,986) / 3",
+      "document_uid": "de0319bc30e6dff7c4736f1fa9de8361",
+      "document_sha256": "3d846c0a86eaa33b501f0476f58c41171cbd69d8d8f3322dfa50cd7390c38f79",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "a696c1f7-b2ce-4221-8363-d12b30b76374",
+          "page": 1,
+          "char_start": 35,
+          "char_end": 40,
+          "text": "1,986",
+          "block_text": "Restricted stock $ 4,013 $ 3,249 $ 1,986"
+        },
+        {
+          "block_id": "a696c1f7-b2ce-4221-8363-d12b30b76374",
+          "page": 1,
+          "char_start": 19,
+          "char_end": 24,
+          "text": "4,013",
+          "block_text": "Restricted stock $ 4,013 $ 3,249 $ 1,986"
+        },
+        {
+          "block_id": "a696c1f7-b2ce-4221-8363-d12b30b76374",
+          "page": 1,
+          "char_start": 27,
+          "char_end": 32,
+          "text": "3,249",
+          "block_text": "Restricted stock $ 4,013 $ 3,249 $ 1,986"
+        }
+      ],
+      "retrieval_evidence_available": true,
+      "context_expected_status": "answered",
+      "contexts": [
+        {
+          "chunk_id": "550cb5898c21112e27d438d90cb2adca5de34a06f5c88ac27cf48f3d53fbded2",
+          "document_id": "a393f5f4edc523c04b858e014ce43c7c758d89fe318e60f66f5b78c219e171f6",
+          "document_name": "7618a93f40fbba431a7543cb1587330e.pdf",
+          "text": "dividing net income by the weighted-average number of common shares and dilutive common stock equivalents outstanding during the period.\nAll figures in USD except number of shares and earnings (loss) per common share 2019 2018 2017\nNumerator:\nNet Loss (10,352) (95,306) (204,969)\nDenominator:\nBasic - Weighted Average Common Shares Outstanding 142,571,361 141,969,666 103,832,680\nDilutive \u2013 Weighted Average Common Shares Outstanding 142,571,361 141,969,666 103,832,680\nLoss per Common Share:\nBasic (0.07) (0.67) (1.97)\nDiluted (0.07) (0.67) (1.97)\nOn March 29, 2019, the Company launched an ATM program of our common shares for up to $40.0 million. The Company has issued 5,260,968 shares with net proceeds of $17.9 million",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01626123744050767,
+          "keyword_rank": 2,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "4e15b1915cc67f33c7b36e9aa542b3a70a7bae8690d3ef2d1caf7f19531322f5",
+          "document_id": "3d846c0a86eaa33b501f0476f58c41171cbd69d8d8f3322dfa50cd7390c38f79",
+          "document_name": "de0319bc30e6dff7c4736f1fa9de8361.pdf",
+          "text": "Table of Contents\nShare-based Compensation Expense\nThe following table summarizes total compensation costs recognized for share-based payments during the years ended\nDecember 31, 2019, 2018 and 2017:\nYear Ended December 31,\n(In thousands) 2019 2018 2017\nRestricted stock $ 4,013 $ 3,249 $ 1,986\nPerformance shares 2,823 1,870 780\n$ 6,836 $ 5,119 $ 2,766 Total\nIncome tax benefits related to share-based compensation of approximately $1.8 million, $1.3 million and $1.1 million were\nrecorded for the years ended December 31, 2019, 2018 and 2017, respectively. Share-based compensation expense is\nincluded in \u201cselling, general and administrative expenses\u201d in the accompanying consolidated statements of operations.",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.016009221311475412,
+          "keyword_rank": 1,
+          "semantic_rank": 4
+        },
+        {
+          "chunk_id": "9962d278d0b6df2faee4638ce4e68d867c542c73ebd868cf412da030d85c69bf",
+          "document_id": "e7dc6a22612c8b007ab4c988cd62f0852eac23f1cd57e85198fc9e4fd0a42838",
+          "document_name": "a7dd7ece6cae1b2aefaa138af72df8ff.pdf",
+          "text": "for the years ended December 31, 2018 and 2017 partly offset by earnings attributable to two solutions acquired during the fourth quarter of 2017 as part of\nthe EIS Business that we no longer support effective as of March 31, 2018. Refer to Note 17, \u201cDiscontinued Operations\u201d to our consolidated financial\nstatements included in Part II, Item 8, \u201cFinancial Statements and Supplementary Data\u201d of this Form 10-K for additional information regarding discontinued\noperations.\nNon-Controlling Interests\n2019 % 2018 %\nYear Ended December 31, Change Change\n(In thousands) 2019 2018 2017 from 2018 from 2017\nNet loss attributable to non-controlling interests $ 424 $ 4,527 $ 1,566 (90.6%) 189.1%\nAccretion of redemption preference on\nredeemable convertible non-controlling interest",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01444906444906445,
+          "keyword_rank": 14,
+          "semantic_rank": 5
+        },
+        {
+          "chunk_id": "91c704f36c0ba8dd3a678ea856d9446ce47ad7a484e133db021c27815b56c2d1",
+          "document_id": "15574e464087410835619fcf9a9895fa825d6054ba9fc0698e13b36da917114c",
+          "document_name": "b8cf8e9ebf71c892eda0a3ed9ee57852.pdf",
+          "text": "sales excluding surcharge revenue), in fiscal year 2018. Selling, general and administrative expenses increased in fiscal year\n2019 primarily due to higher depreciation, insurance and acquisition related costs partially offset by lower variable\ncompensation expense compared to fiscal year 2018.\nOperating Income\nOur operating income in fiscal year 2019 increased to $241.4 million, or 10.1 percent of net sales as compared with\n$189.3 million, or 8.8 percent of net sales in fiscal year 2018. Excluding surcharge revenue and special items, adjusted\noperating margin was 12.5 percent for the fiscal year 2019 and 10.6 percent for the same period a year ago. The increase in the",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014288630332720964,
+          "keyword_rank": 11,
+          "semantic_rank": 9
+        },
+        {
+          "chunk_id": "925ba61e369389cd01ea33d74ffa8fabb62dc13c09f32283f53155afe543cb76",
+          "document_id": "a393f5f4edc523c04b858e014ce43c7c758d89fe318e60f66f5b78c219e171f6",
+          "document_name": "7618a93f40fbba431a7543cb1587330e.pdf",
+          "text": "12. ACCRUED LIABILITIES\nAll figures in USD \u2018000 2019 2018\nAccrued Interest 163 1,598\nAccrued Expenses 11,569 7,362\nSettlement Deferred Compensation Liabilities 3,830 -\nTotal as of December 31, 15,562 8,960\nThe settlement of the deferred compensation liabilities includes the settlement with our former CFO and Executive Vice President that is payable within March 31, 2020 and payroll taxes\nrelated to this settlement and the settlement of the Executive Pension Plan with our Chairman, President & CEO. We refer to note 7 for further information.\n13. EARNINGS (LOSS) PER SHARE\nBasic earnings per share (\u201cEPS\u201d) are computed by dividing net income (loss) by the weighted-average number of common shares outstanding for the period. Diluted EPS is computed by",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014202256244963738,
+          "keyword_rank": 8,
+          "semantic_rank": 13
+        }
+      ]
+    },
+    {
+      "uid": "aa8e3cd966e80cafcad30cee512dcad6",
+      "expected_status": "answered",
+      "question": "What was the change in lease charge from 2018 to 2019?",
+      "answer_type": "arithmetic",
+      "answer": -14,
+      "scale": "thousand",
+      "derivation": "10,506 - 10,520 ",
+      "document_uid": "eacd9d2c0223e2acd395af609bbe05d1",
+      "document_sha256": "1415def72b1696e90af12df00cf6cc027d6768c279cc1c694955c1c831a47110",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "e21e7fd1-af26-4de1-bc88-64d99e609531",
+          "page": 1,
+          "char_start": 297,
+          "char_end": 303,
+          "text": "10,520",
+          "block_text": "Financial Costs Amortization and write-off of deferred loan/bond issuance costs/premium . 12,398 12,593 14,154 Interest expense on loans and realized loss on cash flow hedges . 85,813 111,600 122,819 Interest expense on bonds and realized loss on CCSs . 27,085 30,029 34,607 Lease charge . 10,875 10,520 10,506 Loss arising on bond repurchases at a premium (Note 13) . 1,459 \u2014 2,119 Other financial costs, including unrealized foreign exchange losses on cash and bonds . 1,551 1,885 6,276 Total financial costs . 139,181 166,627 190,481"
+        },
+        {
+          "block_id": "e21e7fd1-af26-4de1-bc88-64d99e609531",
+          "page": 1,
+          "char_start": 304,
+          "char_end": 310,
+          "text": "10,506",
+          "block_text": "Financial Costs Amortization and write-off of deferred loan/bond issuance costs/premium . 12,398 12,593 14,154 Interest expense on loans and realized loss on cash flow hedges . 85,813 111,600 122,819 Interest expense on bonds and realized loss on CCSs . 27,085 30,029 34,607 Lease charge . 10,875 10,520 10,506 Loss arising on bond repurchases at a premium (Note 13) . 1,459 \u2014 2,119 Other financial costs, including unrealized foreign exchange losses on cash and bonds . 1,551 1,885 6,276 Total financial costs . 139,181 166,627 190,481"
+        }
+      ],
+      "retrieval_evidence_available": true,
+      "context_expected_status": "answered",
+      "contexts": [
+        {
+          "chunk_id": "db94fabc972212f9261cb84bcf507c8bba91570648eb5bee47f94df2db086774",
+          "document_id": "1415def72b1696e90af12df00cf6cc027d6768c279cc1c694955c1c831a47110",
+          "document_name": "eacd9d2c0223e2acd395af609bbe05d1.pdf",
+          "text": "Interest expense on bonds and realized loss on CCSs. . 27,085 30,029 34,607\nLease charge. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 10,875 10,520 10,506\nLoss arising on bond repurchases at a premium\n(Note 13) . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1,459 \u2014 2,119\nOther financial costs, including unrealized foreign\nexchange losses on cash and bonds . . . . . . . . . . . . . 1,551 1,885 6,276",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01639344262295082,
+          "keyword_rank": 1,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "91c704f36c0ba8dd3a678ea856d9446ce47ad7a484e133db021c27815b56c2d1",
+          "document_id": "15574e464087410835619fcf9a9895fa825d6054ba9fc0698e13b36da917114c",
+          "document_name": "b8cf8e9ebf71c892eda0a3ed9ee57852.pdf",
+          "text": "sales excluding surcharge revenue), in fiscal year 2018. Selling, general and administrative expenses increased in fiscal year\n2019 primarily due to higher depreciation, insurance and acquisition related costs partially offset by lower variable\ncompensation expense compared to fiscal year 2018.\nOperating Income\nOur operating income in fiscal year 2019 increased to $241.4 million, or 10.1 percent of net sales as compared with\n$189.3 million, or 8.8 percent of net sales in fiscal year 2018. Excluding surcharge revenue and special items, adjusted\noperating margin was 12.5 percent for the fiscal year 2019 and 10.6 percent for the same period a year ago. The increase in the",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01510676965015902,
+          "keyword_rank": 11,
+          "semantic_rank": 2
+        },
+        {
+          "chunk_id": "9962d278d0b6df2faee4638ce4e68d867c542c73ebd868cf412da030d85c69bf",
+          "document_id": "e7dc6a22612c8b007ab4c988cd62f0852eac23f1cd57e85198fc9e4fd0a42838",
+          "document_name": "a7dd7ece6cae1b2aefaa138af72df8ff.pdf",
+          "text": "for the years ended December 31, 2018 and 2017 partly offset by earnings attributable to two solutions acquired during the fourth quarter of 2017 as part of\nthe EIS Business that we no longer support effective as of March 31, 2018. Refer to Note 17, \u201cDiscontinued Operations\u201d to our consolidated financial\nstatements included in Part II, Item 8, \u201cFinancial Statements and Supplementary Data\u201d of this Form 10-K for additional information regarding discontinued\noperations.\nNon-Controlling Interests\n2019 % 2018 %\nYear Ended December 31, Change Change\n(In thousands) 2019 2018 2017 from 2018 from 2017\nNet loss attributable to non-controlling interests $ 424 $ 4,527 $ 1,566 (90.6%) 189.1%\nAccretion of redemption preference on\nredeemable convertible non-controlling interest",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014618011096884338,
+          "keyword_rank": 6,
+          "semantic_rank": 11
+        },
+        {
+          "chunk_id": "a6a8930370513fdbfbb56f0b6ec17d2583133e86d6942de8d1ca6ff89ad2f1bd",
+          "document_id": "e7dc6a22612c8b007ab4c988cd62f0852eac23f1cd57e85198fc9e4fd0a42838",
+          "document_name": "a7dd7ece6cae1b2aefaa138af72df8ff.pdf",
+          "text": "scheduled reversals of deferred tax liabilities, tax-planning strategies, and results of recent operations. In evaluating the objective evidence that historical\nresults provide, we consider three years of cumulative operating income (loss). In the year ended December 31, 2018, we released $64.8 million of valuation\nallowance, mostly due to the utilization of capital loss carryforward against capital gain incurred during the year ended December 31, 2018 and the utilization\nof federal credit carryforwards.\nDiscontinued Operations\n2019 % 2018 %\nYear Ended December 31, Change Change\n(In thousands) 2019 2018 2017 from 2018 from 2017\nLoss from discontinued operations $ 0 $ (72,836) $ (11,915) (100.0%) NM\nGain on sale of Netsmart 0 500,471 0 (100.0%) NM",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014479166666666668,
+          "keyword_rank": 4,
+          "semantic_rank": 15
+        },
+        {
+          "chunk_id": "0329e63a55917f839b01dea8fb17b1de07d1f1f0e0782876f263023983bdc34b",
+          "document_id": "05383a146421b2f030a62de6a76d95f4725d584bf1c48abdfe3ae24a37011e56",
+          "document_name": "3e2109c375cbf670d40c77b22b430b20.pdf",
+          "text": "The $252.5 million of valuation allowance as of September 27, 2019 relates primarily to federal and state NOLs, tax credit carryforwards and a partial\nvaluation allowance on tax credits in Canada of $19.0 million whose recovery is not considered more likely than not. The $243.1 million of valuation allowance as\nof September 28, 2018 related primarily to federal and state NOLs, tax credit carryforwards and a partial valuation allowance on tax credits in Canada of$ 13.6\nmillion whose recovery is not considered more likely than not. The change during the fiscal year endedS eptember 27, 2019 of $9.4 million primarily relates to the",
+          "page_start": 2,
+          "page_end": 2,
+          "score": 0.014095691880087354,
+          "keyword_rank": 13,
+          "semantic_rank": 9
+        }
+      ]
+    },
+    {
+      "uid": "c7a09c0292dbc03de3784629cfd11cff",
+      "expected_status": "answered",
+      "question": "What was the percentage change in total financial costs from 2017 to 2019?",
+      "answer_type": "arithmetic",
+      "answer": 36.86,
+      "scale": "percent",
+      "derivation": "(190,481 - 139,181 )/139,181  ",
+      "document_uid": "eacd9d2c0223e2acd395af609bbe05d1",
+      "document_sha256": "1415def72b1696e90af12df00cf6cc027d6768c279cc1c694955c1c831a47110",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "e21e7fd1-af26-4de1-bc88-64d99e609531",
+          "page": 1,
+          "char_start": 529,
+          "char_end": 536,
+          "text": "190,481",
+          "block_text": "Financial Costs Amortization and write-off of deferred loan/bond issuance costs/premium . 12,398 12,593 14,154 Interest expense on loans and realized loss on cash flow hedges . 85,813 111,600 122,819 Interest expense on bonds and realized loss on CCSs . 27,085 30,029 34,607 Lease charge . 10,875 10,520 10,506 Loss arising on bond repurchases at a premium (Note 13) . 1,459 \u2014 2,119 Other financial costs, including unrealized foreign exchange losses on cash and bonds . 1,551 1,885 6,276 Total financial costs . 139,181 166,627 190,481"
+        },
+        {
+          "block_id": "e21e7fd1-af26-4de1-bc88-64d99e609531",
+          "page": 1,
+          "char_start": 513,
+          "char_end": 520,
+          "text": "139,181",
+          "block_text": "Financial Costs Amortization and write-off of deferred loan/bond issuance costs/premium . 12,398 12,593 14,154 Interest expense on loans and realized loss on cash flow hedges . 85,813 111,600 122,819 Interest expense on bonds and realized loss on CCSs . 27,085 30,029 34,607 Lease charge . 10,875 10,520 10,506 Loss arising on bond repurchases at a premium (Note 13) . 1,459 \u2014 2,119 Other financial costs, including unrealized foreign exchange losses on cash and bonds . 1,551 1,885 6,276 Total financial costs . 139,181 166,627 190,481"
+        }
+      ],
+      "retrieval_evidence_available": true,
+      "context_expected_status": "answered",
+      "contexts": [
+        {
+          "chunk_id": "91c704f36c0ba8dd3a678ea856d9446ce47ad7a484e133db021c27815b56c2d1",
+          "document_id": "15574e464087410835619fcf9a9895fa825d6054ba9fc0698e13b36da917114c",
+          "document_name": "b8cf8e9ebf71c892eda0a3ed9ee57852.pdf",
+          "text": "sales excluding surcharge revenue), in fiscal year 2018. Selling, general and administrative expenses increased in fiscal year\n2019 primarily due to higher depreciation, insurance and acquisition related costs partially offset by lower variable\ncompensation expense compared to fiscal year 2018.\nOperating Income\nOur operating income in fiscal year 2019 increased to $241.4 million, or 10.1 percent of net sales as compared with\n$189.3 million, or 8.8 percent of net sales in fiscal year 2018. Excluding surcharge revenue and special items, adjusted\noperating margin was 12.5 percent for the fiscal year 2019 and 10.6 percent for the same period a year ago. The increase in the",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01510676965015902,
+          "keyword_rank": 11,
+          "semantic_rank": 2
+        },
+        {
+          "chunk_id": "76aa75862925eb688afbfd6ec19b902424bb2c0bfea84456a35b09fe7d8a57ae",
+          "document_id": "1415def72b1696e90af12df00cf6cc027d6768c279cc1c694955c1c831a47110",
+          "document_name": "eacd9d2c0223e2acd395af609bbe05d1.pdf",
+          "text": "Total financial income . . . . . . . . . . . . . . . . . . . . . . . . 2,650 4,784 5,318\nFinancial Costs\nAmortization and write-off of deferred loan/bond\nissuance costs/premium. . . . . . . . . . . . . . . . . . . . . . 12,398 12,593 14,154\nInterest expense on loans and realized loss on cash\nflow hedges . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 85,813 111,600 122,819",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015045248868778281,
+          "keyword_rank": 8,
+          "semantic_rank": 5
+        },
+        {
+          "chunk_id": "831f5435beb16c3e31ddb8bfc8ee2b16133943f40920cc6be1d02a916f71b2e1",
+          "document_id": "1415def72b1696e90af12df00cf6cc027d6768c279cc1c694955c1c831a47110",
+          "document_name": "eacd9d2c0223e2acd395af609bbe05d1.pdf",
+          "text": "GasLog Ltd. and its Subsidiaries\nNotes to the consolidated financial statements (Continued)\nFor the years ended December 31, 2017, 2018 and 2019\n(All amounts expressed in thousands of U.S. Dollars, except share and per share data)\n19. Financial Income and Costs\nAn analysis of financial income and costs is as follows:\nFor the year ended\nDecember 31,\n2017 2018 2019\nFinancial Income\nInterest income . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2,650 4,784 5,318",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014479166666666668,
+          "keyword_rank": 4,
+          "semantic_rank": 15
+        },
+        {
+          "chunk_id": "961f2d661db923316089b29f073b2811b187486c7d997979602a2cfa0165628a",
+          "document_id": "15574e464087410835619fcf9a9895fa825d6054ba9fc0698e13b36da917114c",
+          "document_name": "b8cf8e9ebf71c892eda0a3ed9ee57852.pdf",
+          "text": "with capacity gains and operating cost reductions compared to the same period a year ago. Fiscal year 2019 also reflects an\n$11.4 million benefit related to an insurance recovery in our third fiscal quarter.\nOur surcharge mechanism is structured to recover increases in raw material costs, although in certain cases with a lag\neffect as discussed above. While the surcharge generally protects the absolute gross profit dollars, it does have a dilutive effect\non gross margin as a percent of sales. The following represents a summary of the dilutive impact of the surcharge on gross\nmargin. We present and discuss these financial measures because management believes removing the impact of surcharge",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01422275641025641,
+          "keyword_rank": 18,
+          "semantic_rank": 4
+        },
+        {
+          "chunk_id": "4e15b1915cc67f33c7b36e9aa542b3a70a7bae8690d3ef2d1caf7f19531322f5",
+          "document_id": "3d846c0a86eaa33b501f0476f58c41171cbd69d8d8f3322dfa50cd7390c38f79",
+          "document_name": "de0319bc30e6dff7c4736f1fa9de8361.pdf",
+          "text": "Table of Contents\nShare-based Compensation Expense\nThe following table summarizes total compensation costs recognized for share-based payments during the years ended\nDecember 31, 2019, 2018 and 2017:\nYear Ended December 31,\n(In thousands) 2019 2018 2017\nRestricted stock $ 4,013 $ 3,249 $ 1,986\nPerformance shares 2,823 1,870 780\n$ 6,836 $ 5,119 $ 2,766 Total\nIncome tax benefits related to share-based compensation of approximately $1.8 million, $1.3 million and $1.1 million were\nrecorded for the years ended December 31, 2019, 2018 and 2017, respectively. Share-based compensation expense is\nincluded in \u201cselling, general and administrative expenses\u201d in the accompanying consolidated statements of operations.",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014202256244963738,
+          "keyword_rank": 13,
+          "semantic_rank": 8
+        }
+      ]
+    },
+    {
+      "uid": "unanswerable-rainfall",
+      "expected_status": "insufficient_evidence",
+      "question": "What was the average rainfall in Tokyo during 2019?",
+      "answer_type": "unanswerable",
+      "answer": null,
+      "scale": "",
+      "derivation": "",
+      "document_uid": null,
+      "document_sha256": null,
+      "relevant_pages": [],
+      "evidence": [],
+      "retrieval_evidence_available": false,
+      "context_expected_status": "insufficient_evidence",
+      "contexts": [
+        {
+          "chunk_id": "550cb5898c21112e27d438d90cb2adca5de34a06f5c88ac27cf48f3d53fbded2",
+          "document_id": "a393f5f4edc523c04b858e014ce43c7c758d89fe318e60f66f5b78c219e171f6",
+          "document_name": "7618a93f40fbba431a7543cb1587330e.pdf",
+          "text": "dividing net income by the weighted-average number of common shares and dilutive common stock equivalents outstanding during the period.\nAll figures in USD except number of shares and earnings (loss) per common share 2019 2018 2017\nNumerator:\nNet Loss (10,352) (95,306) (204,969)\nDenominator:\nBasic - Weighted Average Common Shares Outstanding 142,571,361 141,969,666 103,832,680\nDilutive \u2013 Weighted Average Common Shares Outstanding 142,571,361 141,969,666 103,832,680\nLoss per Common Share:\nBasic (0.07) (0.67) (1.97)\nDiluted (0.07) (0.67) (1.97)\nOn March 29, 2019, the Company launched an ATM program of our common shares for up to $40.0 million. The Company has issued 5,260,968 shares with net proceeds of $17.9 million",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015417457305502846,
+          "keyword_rank": 2,
+          "semantic_rank": 8
+        },
+        {
+          "chunk_id": "925ba61e369389cd01ea33d74ffa8fabb62dc13c09f32283f53155afe543cb76",
+          "document_id": "a393f5f4edc523c04b858e014ce43c7c758d89fe318e60f66f5b78c219e171f6",
+          "document_name": "7618a93f40fbba431a7543cb1587330e.pdf",
+          "text": "12. ACCRUED LIABILITIES\nAll figures in USD \u2018000 2019 2018\nAccrued Interest 163 1,598\nAccrued Expenses 11,569 7,362\nSettlement Deferred Compensation Liabilities 3,830 -\nTotal as of December 31, 15,562 8,960\nThe settlement of the deferred compensation liabilities includes the settlement with our former CFO and Executive Vice President that is payable within March 31, 2020 and payroll taxes\nrelated to this settlement and the settlement of the Executive Pension Plan with our Chairman, President & CEO. We refer to note 7 for further information.\n13. EARNINGS (LOSS) PER SHARE\nBasic earnings per share (\u201cEPS\u201d) are computed by dividing net income (loss) by the weighted-average number of common shares outstanding for the period. Diluted EPS is computed by",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015388257575757576,
+          "keyword_rank": 6,
+          "semantic_rank": 4
+        },
+        {
+          "chunk_id": "4e15b1915cc67f33c7b36e9aa542b3a70a7bae8690d3ef2d1caf7f19531322f5",
+          "document_id": "3d846c0a86eaa33b501f0476f58c41171cbd69d8d8f3322dfa50cd7390c38f79",
+          "document_name": "de0319bc30e6dff7c4736f1fa9de8361.pdf",
+          "text": "Table of Contents\nShare-based Compensation Expense\nThe following table summarizes total compensation costs recognized for share-based payments during the years ended\nDecember 31, 2019, 2018 and 2017:\nYear Ended December 31,\n(In thousands) 2019 2018 2017\nRestricted stock $ 4,013 $ 3,249 $ 1,986\nPerformance shares 2,823 1,870 780\n$ 6,836 $ 5,119 $ 2,766 Total\nIncome tax benefits related to share-based compensation of approximately $1.8 million, $1.3 million and $1.1 million were\nrecorded for the years ended December 31, 2019, 2018 and 2017, respectively. Share-based compensation expense is\nincluded in \u201cselling, general and administrative expenses\u201d in the accompanying consolidated statements of operations.",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.013899613899613899,
+          "keyword_rank": 14,
+          "semantic_rank": 10
+        },
+        {
+          "chunk_id": "91c704f36c0ba8dd3a678ea856d9446ce47ad7a484e133db021c27815b56c2d1",
+          "document_id": "15574e464087410835619fcf9a9895fa825d6054ba9fc0698e13b36da917114c",
+          "document_name": "b8cf8e9ebf71c892eda0a3ed9ee57852.pdf",
+          "text": "sales excluding surcharge revenue), in fiscal year 2018. Selling, general and administrative expenses increased in fiscal year\n2019 primarily due to higher depreciation, insurance and acquisition related costs partially offset by lower variable\ncompensation expense compared to fiscal year 2018.\nOperating Income\nOur operating income in fiscal year 2019 increased to $241.4 million, or 10.1 percent of net sales as compared with\n$189.3 million, or 8.8 percent of net sales in fiscal year 2018. Excluding surcharge revenue and special items, adjusted\noperating margin was 12.5 percent for the fiscal year 2019 and 10.6 percent for the same period a year ago. The increase in the",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.013825324180015256,
+          "keyword_rank": 9,
+          "semantic_rank": 16
+        },
+        {
+          "chunk_id": "cdee457bf23dfa65d6ff0c5076fc66ef4969a0b0399a293b0bbbb133b0e31e3e",
+          "document_id": "15574e464087410835619fcf9a9895fa825d6054ba9fc0698e13b36da917114c",
+          "document_name": "b8cf8e9ebf71c892eda0a3ed9ee57852.pdf",
+          "text": "Sales to the Energy market of $181.7 million reflected a 24 percent increase from fiscal year 2018. Excluding\nsurcharge revenue, sales increased 18 percent. The results were driven by revenue and volume increases during the first half of\nthe fiscal year in the oil and gas sub-market, particularly rental and replacement activity through our Amega West Services\n(\u201cAmega West\u201d) business, and higher demand for materials used in power generation applications.\nTransportation market sales remained flat from fiscal year 2018 at $157.7 million. Excluding surcharge revenue, sales\ndecreased 1 percent on 6 percent lower shipment volume. The results reflect a strengthening of heavy-duty truck applications,\npartially offset by trade actions and global economic uncertainty.",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.013739883305100696,
+          "keyword_rank": 17,
+          "semantic_rank": 9
+        }
+      ]
+    },
+    {
+      "uid": "unanswerable-spacecraft",
+      "expected_status": "insufficient_evidence",
+      "question": "Which spacecraft first landed on Mars?",
+      "answer_type": "unanswerable",
+      "answer": null,
+      "scale": "",
+      "derivation": "",
+      "document_uid": null,
+      "document_sha256": null,
+      "relevant_pages": [],
+      "evidence": [],
+      "retrieval_evidence_available": false,
+      "context_expected_status": "insufficient_evidence",
+      "contexts": [
+        {
+          "chunk_id": "81410ca55e1dea30fb58601bd3663e9b4649de1137cbc6df208f2448ea889f83",
+          "document_id": "05383a146421b2f030a62de6a76d95f4725d584bf1c48abdfe3ae24a37011e56",
+          "document_name": "3e2109c375cbf670d40c77b22b430b20.pdf",
+          "text": "Certain transaction- and integration-related expenses incurred in the U.S., associated primarily with the AppliedMicro Acquisition during the three months\nended March 31, 2017, resulted for the first time in significant negative objective evidence in the form of adjusted cumulative losses in the U.S. over the past three-\nyear period. This resulted in our determination that there was not sufficient objectively verifiable positive evidence to offset this negative objective evidence and we\nconcluded that a full valuation allowance totaling $93.5 million was required for our U.S. deferred tax assets as of September 29, 2017. In addition, a full\nvaluation allowance was established against the U.S. deferred tax assets acquired in connection with the AppliedMicro Acquisition.",
+          "page_start": 2,
+          "page_end": 2,
+          "score": 0.01626123744050767,
+          "keyword_rank": 2,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "77056135d3f9cc73570faa72d9e9050d7e6911f4d6ec9a2823104285c1c207ae",
+          "document_id": "05383a146421b2f030a62de6a76d95f4725d584bf1c48abdfe3ae24a37011e56",
+          "document_name": "3e2109c375cbf670d40c77b22b430b20.pdf",
+          "text": "$ (39,355) $ (21,473) $ 100,911 Total (benefit) provision\nWe recognize deferred tax assets to the extent that we believe that these assets are more likely than not to be realized. In making this determination, we\nconsider available positive and negative evidence and factors that may impact the valuation of our deferred tax asset including results of recent operations, future\nreversals of existing taxable temporary differences, projected future taxable income, and tax-planning strategies. A significant piece of objective negative evidence\nevaluated was the cumulative U.S. loss incurred over the three-year period ended September 27, 2019 which we believe limited our ability to consider other\nsubjective evidence, such as our projections for future growth.",
+          "page_start": 2,
+          "page_end": 2,
+          "score": 0.014955357142857142,
+          "keyword_rank": 10,
+          "semantic_rank": 4
+        },
+        {
+          "chunk_id": "ca606e448949a52a45ada1e8d76d740d7467c00a9209dab55b11925360fcfd28",
+          "document_id": "e7dc6a22612c8b007ab4c988cd62f0852eac23f1cd57e85198fc9e4fd0a42838",
+          "document_name": "a7dd7ece6cae1b2aefaa138af72df8ff.pdf",
+          "text": "Due to the timing of the enactment and the complexity involved in applying the provisions of the Tax Act, we made reasonable estimates of the\neffects and recorded provisional expense of $15.3 million in our financial statements for the year ended December 31, 2017 in accordance with guidance in\nStaff Accounting Bulletin No. 118 (\u201cSAB 118\u201d), which allowed a measurement period of up to one year after the enactment date of the Tax Act to finalize the\nrecording of the related tax impacts. This provisional benefit included $10.1 million expense for remeasurement of deferred tax balances to reflect the lower",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01444906444906445,
+          "keyword_rank": 5,
+          "semantic_rank": 14
+        },
+        {
+          "chunk_id": "88366696b9951e703cb2328eb92079e346a81148edb30866a1bd70232b2dc74e",
+          "document_id": "05383a146421b2f030a62de6a76d95f4725d584bf1c48abdfe3ae24a37011e56",
+          "document_name": "3e2109c375cbf670d40c77b22b430b20.pdf",
+          "text": "AppliedMicro Acquisition, $158.9 million relating to our acquisition of Mindspeed Technologies, Inc. in 2013, $26.2 million relating to our acquisition of\nBinOptics Corporation in 2014 and $259.1 million relating to losses generated by MACOM. The federal NOL carryforwards will expire at various dates through\n2037 for losses generated prior to the tax period ended September 28, 2018. For losses generated during the tax period ended September 28, 2018 and future years,\nthe NOL carryforward period is infinite. The reported net operating loss carryforward includes any limitation under Sections 382 and 383 of the Internal Revenue\nCode of 1986, as amended, which applies to an ownership change as defined under Section 382.",
+          "page_start": 2,
+          "page_end": 2,
+          "score": 0.014095691880087354,
+          "keyword_rank": 9,
+          "semantic_rank": 13
+        },
+        {
+          "chunk_id": "191bcafbb9b9a23dd6e9424dd5d6f2e2705dd9ea37136dd5d0bedbd7168699c9",
+          "document_id": "a53aba5eea3f9159c2a170159bb070215533ac7b629189c8227090d8fe12da19",
+          "document_name": "48adf518eb23b8900b86a6c63066d799.pdf",
+          "text": "December 31,\n2018 2019\nLoans due from subsidiaries - non-current portion 45,377 46,698\nLoans due from subsidiaries - current portion 2,123 2,064\nTotal 47,500 48,762\nInterest relates mainly to a subsidiary and is based on the Bank of America\u2019s prime rate with a rise\nof two percent points. The repayment schedule of the loan is as follows: 24 annual installments\nof US$2 million, starting December 31, 2018, followed by a final installment of US$5.3 million\non December 31, 2043.\nNOTE 6. DEFERRED TAX ASSETS\nASMI has no operating losses available anymore at December 31, 2019 to reduce future income taxes.\nThe Company believes that realization of its net deferred tax assets is dependent on the ability of the",
+          "page_start": 2,
+          "page_end": 2,
+          "score": 0.013611111111111112,
+          "keyword_rank": 15,
+          "semantic_rank": 12
+        }
+      ]
+    },
+    {
+      "uid": "unanswerable-graduates",
+      "expected_status": "insufficient_evidence",
+      "question": "How many students graduated from Oxford University in 2018?",
+      "answer_type": "unanswerable",
+      "answer": null,
+      "scale": "",
+      "derivation": "",
+      "document_uid": null,
+      "document_sha256": null,
+      "relevant_pages": [],
+      "evidence": [],
+      "retrieval_evidence_available": false,
+      "context_expected_status": "insufficient_evidence",
+      "contexts": [
+        {
+          "chunk_id": "9962d278d0b6df2faee4638ce4e68d867c542c73ebd868cf412da030d85c69bf",
+          "document_id": "e7dc6a22612c8b007ab4c988cd62f0852eac23f1cd57e85198fc9e4fd0a42838",
+          "document_name": "a7dd7ece6cae1b2aefaa138af72df8ff.pdf",
+          "text": "for the years ended December 31, 2018 and 2017 partly offset by earnings attributable to two solutions acquired during the fourth quarter of 2017 as part of\nthe EIS Business that we no longer support effective as of March 31, 2018. Refer to Note 17, \u201cDiscontinued Operations\u201d to our consolidated financial\nstatements included in Part II, Item 8, \u201cFinancial Statements and Supplementary Data\u201d of this Form 10-K for additional information regarding discontinued\noperations.\nNon-Controlling Interests\n2019 % 2018 %\nYear Ended December 31, Change Change\n(In thousands) 2019 2018 2017 from 2018 from 2017\nNet loss attributable to non-controlling interests $ 424 $ 4,527 $ 1,566 (90.6%) 189.1%\nAccretion of redemption preference on\nredeemable convertible non-controlling interest",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01562881562881563,
+          "keyword_rank": 5,
+          "semantic_rank": 3
+        },
+        {
+          "chunk_id": "52861ce7108f6dc7d109ae1ae6b7d386035b8fb289e3e304ce60a986ce505b37",
+          "document_id": "3d846c0a86eaa33b501f0476f58c41171cbd69d8d8f3322dfa50cd7390c38f79",
+          "document_name": "de0319bc30e6dff7c4736f1fa9de8361.pdf",
+          "text": "Other comprehensive loss before reclassifications (16,738) (19,237) (35,975)\nCumulative adjustment upon adoption of ASU 2017-12 \u2014 (576) (576)\nAmounts reclassified from accumulated other comprehensive loss 7,936 959 8,895\nNet current period other comprehensive loss (8,802) (18,854) (27,656)\n$ (64,316) $ (16,552) $ (80,868) Balance at December 31, 2019\nF-28",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015339578454332554,
+          "keyword_rank": 10,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "254f3bee48f199c763bfd0cdae0b96b3fcac42ee459c734a316fa870167c888e",
+          "document_id": "1b112cafc4b70310adb40a7a32c966c442ab3314d6fcfadef0b366da5ec9d4e9",
+          "document_name": "7c1a0fac586f2de1336256cc0bf74e68.pdf",
+          "text": "the years ended years ended September 30, 2019 and 2018.\nFor the y ear s e nded\nSeptember 30, 2019 September 30, 2018\n% of % of\nAmount Revenues Amount Revenues\n(Amounts in millions)\nCustomer A $ 3.8 5% $ 7.5 10%\nCustomer B $ 10.2 13% $ 1.1 3%\nIn addition, accounts receivable from Customer A totaled approximately $0.3 million, or 1%, and approximately $1.1\nmillion, or 9%, of total consolidated accounts receivable as of September 30, 2019 and September 30, 2018, respectively.\nAccounts receivable and long term receivable from Customer B totaled approximately $7.4 million, or 36%, and approximately\n$0.2 million, or 2%, of total consolidated accounts receivable as of September 30, 2019 and September 30, 2018, respectively.",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01527518656716418,
+          "keyword_rank": 7,
+          "semantic_rank": 4
+        },
+        {
+          "chunk_id": "191bcafbb9b9a23dd6e9424dd5d6f2e2705dd9ea37136dd5d0bedbd7168699c9",
+          "document_id": "a53aba5eea3f9159c2a170159bb070215533ac7b629189c8227090d8fe12da19",
+          "document_name": "48adf518eb23b8900b86a6c63066d799.pdf",
+          "text": "December 31,\n2018 2019\nLoans due from subsidiaries - non-current portion 45,377 46,698\nLoans due from subsidiaries - current portion 2,123 2,064\nTotal 47,500 48,762\nInterest relates mainly to a subsidiary and is based on the Bank of America\u2019s prime rate with a rise\nof two percent points. The repayment schedule of the loan is as follows: 24 annual installments\nof US$2 million, starting December 31, 2018, followed by a final installment of US$5.3 million\non December 31, 2043.\nNOTE 6. DEFERRED TAX ASSETS\nASMI has no operating losses available anymore at December 31, 2019 to reduce future income taxes.\nThe Company believes that realization of its net deferred tax assets is dependent on the ability of the",
+          "page_start": 2,
+          "page_end": 2,
+          "score": 0.014395194697597348,
+          "keyword_rank": 8,
+          "semantic_rank": 11
+        },
+        {
+          "chunk_id": "bd673b452f5ca4cfdfc18bdceb3754af0332bcf70b38660510a06f4b0a353a98",
+          "document_id": "1b112cafc4b70310adb40a7a32c966c442ab3314d6fcfadef0b366da5ec9d4e9",
+          "document_name": "7c1a0fac586f2de1336256cc0bf74e68.pdf",
+          "text": "% of Total 83% 14% 3% 100%\nSubstantially all Americas amounts are United States.\nLong-lived assets by geographic location at years ended September 30, 2019 and 2018 were as follows:\nSe ptember 30, Sep tember 30,\n2019 2018\n(Amounts in thousands)\nNorth America $ 1,270 $ 844\nEurope 3 3\nTotals $ 1,273 $ 847\nDeferred tax assets by geographic location at years ended September 30, 2019 and 2018 were as follows:\nSe ptember 30, Se ptember 30,\n2019 2018\n(Amounts in thousands)\nNorth America $ 1,946 $ 1,895\nEurope \u2014 \u2014\nTotals $ 1,946 $ 1,895\nThe following table lists customers from which the Company derived revenues in excess of 10% of total revenues for",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.013371367445177394,
+          "keyword_rank": 11,
+          "semantic_rank": 19
+        }
+      ]
+    },
+    {
+      "uid": "unanswerable-dosage",
+      "expected_status": "insufficient_evidence",
+      "question": "What dosage was administered in the clinical trial?",
+      "answer_type": "unanswerable",
+      "answer": null,
+      "scale": "",
+      "derivation": "",
+      "document_uid": null,
+      "document_sha256": null,
+      "relevant_pages": [],
+      "evidence": [],
+      "retrieval_evidence_available": false,
+      "context_expected_status": "insufficient_evidence",
+      "contexts": [
+        {
+          "chunk_id": "81410ca55e1dea30fb58601bd3663e9b4649de1137cbc6df208f2448ea889f83",
+          "document_id": "05383a146421b2f030a62de6a76d95f4725d584bf1c48abdfe3ae24a37011e56",
+          "document_name": "3e2109c375cbf670d40c77b22b430b20.pdf",
+          "text": "Certain transaction- and integration-related expenses incurred in the U.S., associated primarily with the AppliedMicro Acquisition during the three months\nended March 31, 2017, resulted for the first time in significant negative objective evidence in the form of adjusted cumulative losses in the U.S. over the past three-\nyear period. This resulted in our determination that there was not sufficient objectively verifiable positive evidence to offset this negative objective evidence and we\nconcluded that a full valuation allowance totaling $93.5 million was required for our U.S. deferred tax assets as of September 29, 2017. In addition, a full\nvaluation allowance was established against the U.S. deferred tax assets acquired in connection with the AppliedMicro Acquisition.",
+          "page_start": 2,
+          "page_end": 2,
+          "score": 0.016009221311475412,
+          "keyword_rank": 1,
+          "semantic_rank": 4
+        },
+        {
+          "chunk_id": "ca606e448949a52a45ada1e8d76d740d7467c00a9209dab55b11925360fcfd28",
+          "document_id": "e7dc6a22612c8b007ab4c988cd62f0852eac23f1cd57e85198fc9e4fd0a42838",
+          "document_name": "a7dd7ece6cae1b2aefaa138af72df8ff.pdf",
+          "text": "Due to the timing of the enactment and the complexity involved in applying the provisions of the Tax Act, we made reasonable estimates of the\neffects and recorded provisional expense of $15.3 million in our financial statements for the year ended December 31, 2017 in accordance with guidance in\nStaff Accounting Bulletin No. 118 (\u201cSAB 118\u201d), which allowed a measurement period of up to one year after the enactment date of the Tax Act to finalize the\nrecording of the related tax impacts. This provisional benefit included $10.1 million expense for remeasurement of deferred tax balances to reflect the lower",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015549662487945998,
+          "keyword_rank": 8,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "33e8e33308b9ec1d152da7c13f6768c061efb4fc8c83275576a26578ca86b134",
+          "document_id": "1415def72b1696e90af12df00cf6cc027d6768c279cc1c694955c1c831a47110",
+          "document_name": "eacd9d2c0223e2acd395af609bbe05d1.pdf",
+          "text": "Total financial costs. . . . . . . . . . . . . . . . . . . . . . . . . . 139,181 166,627 190,481\n20. Contingencies\nVarious claims, suits and complaints, including those involving government regulations, arise in the\nordinary course of the shipping business. In addition, losses may arise from disputes with charterers,\nenvironmental claims, agents and insurers and from claims with suppliers relating to the operations of\nthe Group\u2019s vessels. Currently, management is not aware of any such claims or contingent liabilities\nrequiring disclosure in the consolidated financial statements.\nF-55",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014693264693264693,
+          "keyword_rank": 14,
+          "semantic_rank": 3
+        },
+        {
+          "chunk_id": "0293514d03c9dde631e293b8602125777379e05d2b5ce32a4433c6aff301494e",
+          "document_id": "24c09bb91e0daa9a2ec0337721ac086f74ba55f8107c1ff5742c1c200b9cd519",
+          "document_name": "bf597f45d92a8c21e7536c0a00c8f445.pdf",
+          "text": "Discount rate 4.0% 3.7%\nRate of compensation increase 2.25% 2.25%\nCost of living indexation rate (1) 1.6% 1.6%\nLife expectancy at age 65 (years) 23.1 23.2\n(1) Cost of living indexation rate is only applicable to DB pension plans.\nThe weighted average duration of the post-employment benefit Assumed trend rates in healthcare costs have a significant effect on\nobligation is 14 years. the amounts reported for the healthcare plans.\nWe assumed the following trend rates in healthcare costs: The following table shows the effect of a 1% change in the assumed\ntrend rates in healthcare costs. \u2022 an annual increase in the cost of medication of 6.5% for 2019 decreasing\nto 4.0% over 20 years\nEFFECT ON POST-EMPLOYMENT",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014190821256038648,
+          "keyword_rank": 9,
+          "semantic_rank": 12
+        },
+        {
+          "chunk_id": "4e15b1915cc67f33c7b36e9aa542b3a70a7bae8690d3ef2d1caf7f19531322f5",
+          "document_id": "3d846c0a86eaa33b501f0476f58c41171cbd69d8d8f3322dfa50cd7390c38f79",
+          "document_name": "de0319bc30e6dff7c4736f1fa9de8361.pdf",
+          "text": "Table of Contents\nShare-based Compensation Expense\nThe following table summarizes total compensation costs recognized for share-based payments during the years ended\nDecember 31, 2019, 2018 and 2017:\nYear Ended December 31,\n(In thousands) 2019 2018 2017\nRestricted stock $ 4,013 $ 3,249 $ 1,986\nPerformance shares 2,823 1,870 780\n$ 6,836 $ 5,119 $ 2,766 Total\nIncome tax benefits related to share-based compensation of approximately $1.8 million, $1.3 million and $1.1 million were\nrecorded for the years ended December 31, 2019, 2018 and 2017, respectively. Share-based compensation expense is\nincluded in \u201cselling, general and administrative expenses\u201d in the accompanying consolidated statements of operations.",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01329225352112676,
+          "keyword_rank": 20,
+          "semantic_rank": 11
+        }
+      ]
+    },
+    {
+      "uid": "unanswerable-election",
+      "expected_status": "insufficient_evidence",
+      "question": "Who won the 2019 federal election in Canada?",
+      "answer_type": "unanswerable",
+      "answer": null,
+      "scale": "",
+      "derivation": "",
+      "document_uid": null,
+      "document_sha256": null,
+      "relevant_pages": [],
+      "evidence": [],
+      "retrieval_evidence_available": false,
+      "context_expected_status": "insufficient_evidence",
+      "contexts": [
+        {
+          "chunk_id": "0329e63a55917f839b01dea8fb17b1de07d1f1f0e0782876f263023983bdc34b",
+          "document_id": "05383a146421b2f030a62de6a76d95f4725d584bf1c48abdfe3ae24a37011e56",
+          "document_name": "3e2109c375cbf670d40c77b22b430b20.pdf",
+          "text": "The $252.5 million of valuation allowance as of September 27, 2019 relates primarily to federal and state NOLs, tax credit carryforwards and a partial\nvaluation allowance on tax credits in Canada of $19.0 million whose recovery is not considered more likely than not. The $243.1 million of valuation allowance as\nof September 28, 2018 related primarily to federal and state NOLs, tax credit carryforwards and a partial valuation allowance on tax credits in Canada of$ 13.6\nmillion whose recovery is not considered more likely than not. The change during the fiscal year endedS eptember 27, 2019 of $9.4 million primarily relates to the",
+          "page_start": 2,
+          "page_end": 2,
+          "score": 0.01639344262295082,
+          "keyword_rank": 1,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "d5b777dd7c93ea3c6e76c1bb092d158ec376924b90cdf4c8839ee9d08e49dacf",
+          "document_id": "05383a146421b2f030a62de6a76d95f4725d584bf1c48abdfe3ae24a37011e56",
+          "document_name": "3e2109c375cbf670d40c77b22b430b20.pdf",
+          "text": "and amounts used for income tax purposes. The components of our deferred tax assets and liabilities are as follows (in thousands):\nSeptember 27, September 28,\n2019 2018\nDeferred tax assets (liabilities):\nFederal and foreign net operating losses and credits $ 263,199 $ 321,982\nIntangible assets 9,887 (94,929)\nProperty and equipment (1,473) (6,293)\nOther non-current deferred tax assets 16,933 13,850\nDeferred compensation \u2014 3,810\nDeferred gain \u2014 6,575\nInterest 7,170 \u2014\nValuation allowance (252,536) (243,112)\n$ 43,180 $ 1,883 Total deferred tax asset\n74\nAs of September 27, 2019, we had $923.4 million of gross federal net operating loss (\"NOL\") carryforwards consisting of $479.2 million relating to the",
+          "page_start": 1,
+          "page_end": 2,
+          "score": 0.01575682382133995,
+          "keyword_rank": 5,
+          "semantic_rank": 2
+        },
+        {
+          "chunk_id": "2f9db394207e9db1586f0cb9b4285cba8acd96187039479203fc95294ff7ef0d",
+          "document_id": "e7dc6a22612c8b007ab4c988cd62f0852eac23f1cd57e85198fc9e4fd0a42838",
+          "document_name": "a7dd7ece6cae1b2aefaa138af72df8ff.pdf",
+          "text": "permanent differences, income attributable to foreign jurisdictions taxed at rates different from the United States federal statutory income tax rate, state taxes,\ntax credits and certain discrete items. Our effective tax rate decreased for the year ended December 31, 2018, compared with the prior year, primarily due to\nthe effects of the stricter executive compensation deduction provisions of the Tax Act recorded in 2018, offset by the United States federal rate reduction of\n21% versus 35% in 2017.\nIn evaluating our ability to recover our deferred tax assets within the jurisdictions from which they arise, we consider all available evidence, including",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01562881562881563,
+          "keyword_rank": 3,
+          "semantic_rank": 5
+        },
+        {
+          "chunk_id": "fe92b70cc55cc09adb5016eddbe56fd92193a0cb52543f5229b410663c23bb36",
+          "document_id": "05383a146421b2f030a62de6a76d95f4725d584bf1c48abdfe3ae24a37011e56",
+          "document_name": "3e2109c375cbf670d40c77b22b430b20.pdf",
+          "text": "The domestic and foreign income (loss) from continuing operations before taxes were as follows (in thousands):\nFiscal Years\n2019 2018 2017\nUnited States $ (458,617) $ (145,851) $ (111,432)\nForeign 35,464 (9,384) 61,927\n$ (423,153) $ (155,235) $ (49,505) (Loss) income from operations before income taxes\nThe components of the (benefit) provision for income taxes are as follows (in thousands):\nFiscal Years\n2019 2018 2017\nCurrent:\nFederal $ 70 $ (6,876) $ 100\nState 36 (160) 225\nForeign 876 1,642 7,307\nCurrent provision (benefit) 982 (5,394) 7,632\nDeferred:\nFederal (21,560) 75,428 (42,637)\nState 12,907 (15,526) (4,037)\nForeign (41,108) (24,652) (466)\nChange in valuation allowance 9,424 (51,329) 140,419\nDeferred (benefit) provision (40,337) (16,079) 93,279",
+          "page_start": 2,
+          "page_end": 2,
+          "score": 0.015388257575757576,
+          "keyword_rank": 6,
+          "semantic_rank": 4
+        },
+        {
+          "chunk_id": "86f6948e5be6463a99322a8d46e9b40a26dbde382b69e3140b45ebd9cbd14087",
+          "document_id": "05383a146421b2f030a62de6a76d95f4725d584bf1c48abdfe3ae24a37011e56",
+          "document_name": "3e2109c375cbf670d40c77b22b430b20.pdf",
+          "text": "reduction of our NOLs due to section 382 limitations, the changes in our temporary differences, and the lower U.S federal tax rate.\n75",
+          "page_start": 2,
+          "page_end": 2,
+          "score": 0.01510676965015902,
+          "keyword_rank": 2,
+          "semantic_rank": 11
+        }
+      ]
+    },
+    {
+      "uid": "unanswerable-electricity",
+      "expected_status": "insufficient_evidence",
+      "question": "What was the building's annual electricity consumption?",
+      "answer_type": "unanswerable",
+      "answer": null,
+      "scale": "",
+      "derivation": "",
+      "document_uid": null,
+      "document_sha256": null,
+      "relevant_pages": [],
+      "evidence": [],
+      "retrieval_evidence_available": false,
+      "context_expected_status": "insufficient_evidence",
+      "contexts": [
+        {
+          "chunk_id": "66e2c2bba34bec41f9ad4391c9fc549510ddd00f06783e59fc186a51efde5a0e",
+          "document_id": "24c09bb91e0daa9a2ec0337721ac086f74ba55f8107c1ff5742c1c200b9cd519",
+          "document_name": "bf597f45d92a8c21e7536c0a00c8f445.pdf",
+          "text": "Debt securities 60%\u2013100% 62% 64%\nAlternative investments 0%\u201350% 16% 16%\nTotal 100% 100%\n144 BCE Inc. 2019 Annual Report",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014734561213434454,
+          "keyword_rank": 5,
+          "semantic_rank": 11
+        },
+        {
+          "chunk_id": "22a8f193181fbeb5ec35d7aa63f52d0daa0ecfdfc04732b18bb5dcb430452aae",
+          "document_id": "1b112cafc4b70310adb40a7a32c966c442ab3314d6fcfadef0b366da5ec9d4e9",
+          "document_name": "7c1a0fac586f2de1336256cc0bf74e68.pdf",
+          "text": "Table of Contents\nThe following table details the Company\u2019s sales by operating segment for fiscal years ended September 30, 2019 and\n2018. The Company\u2019s sales by geographic area based on the location of where the products were shipped or services rendered are\nas follows:\n% of\n2019 Americas Europe Asia Total Total\n(Amounts in thousands)\nTS $ 67,228 $ 3,285 $ 646 $ 71,159 90%\nHPP 5,294 771 1,837 7,902 10%\nTotal $ 72,522 $ 4,056 $ 2,483 $ 79,061 100%\n% of Total 92% 5% 3% 100%\n2018\nTS $ 52,034 $ 9,059 $ 1,344 $ 62,437 86%\nHPP 8,424 1,266 789 10,479 14%\nTotal $ 60,458 $ 10,325 $ 2,133 $ 72,916 100%",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01459931798806479,
+          "keyword_rank": 9,
+          "semantic_rank": 8
+        },
+        {
+          "chunk_id": "831f5435beb16c3e31ddb8bfc8ee2b16133943f40920cc6be1d02a916f71b2e1",
+          "document_id": "1415def72b1696e90af12df00cf6cc027d6768c279cc1c694955c1c831a47110",
+          "document_name": "eacd9d2c0223e2acd395af609bbe05d1.pdf",
+          "text": "GasLog Ltd. and its Subsidiaries\nNotes to the consolidated financial statements (Continued)\nFor the years ended December 31, 2017, 2018 and 2019\n(All amounts expressed in thousands of U.S. Dollars, except share and per share data)\n19. Financial Income and Costs\nAn analysis of financial income and costs is as follows:\nFor the year ended\nDecember 31,\n2017 2018 2019\nFinancial Income\nInterest income . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 2,650 4,784 5,318",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014391447368421052,
+          "keyword_rank": 16,
+          "semantic_rank": 4
+        },
+        {
+          "chunk_id": "1ac3fc1935aa16e924f3e3efab51b0d444a1dc6bbca028679364bd3f6e40ac9c",
+          "document_id": "24c09bb91e0daa9a2ec0337721ac086f74ba55f8107c1ff5742c1c200b9cd519",
+          "document_name": "bf597f45d92a8c21e7536c0a00c8f445.pdf",
+          "text": "BENEFITS \u2013 INCREASE/(DECREASE) 1% INCREASE 1% DECREASE\n\u2022 an annual increase in the cost of covered dental benefits of 4%\nTotal service and interest cost 4 (3)\n\u2022 an annual increase in the cost of covered hospital benefits of 3.7%\nPost-employment benefit obligations 110 (95)\n\u2022 an annual increase in the cost of other covered healthcare\nbenefits of 4%\nSENSITIVITY ANALYSIS\nThe following table shows a sensitivity analysis of key assumptions used to measure the net post-employment benefit obligations and the net\npost-employment benefit plans cost for our DB pension plans and OPEB plans.\nIMPACT ON NET POST-EMPLOYMENT IMPACT ON POST-EMPLOYMENT BENEFIT\nBENEFIT PLANS COST FOR 2019 \u2013 OBLIGATIONS AT DECEMBER 31, 2019 \u2013\nINCREASE/(DECREASE) INCREASE/(DECREASE)",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01422275641025641,
+          "keyword_rank": 4,
+          "semantic_rank": 18
+        },
+        {
+          "chunk_id": "02c22663d8eee8c85bcb7036d17224f23c08343688eb94bab880511f87c56e38",
+          "document_id": "05383a146421b2f030a62de6a76d95f4725d584bf1c48abdfe3ae24a37011e56",
+          "document_name": "3e2109c375cbf670d40c77b22b430b20.pdf",
+          "text": "Intangible assets consist of the following (in thousands):\nSeptember 27, September 28,\n2019 2018\nAcquired technology $ 179,682 $ 251,673\nCustomer relationships 245,870 518,234\nTrade name, indefinite lived 3,400 3,400\nTotal 428,952 773,307\nLess accumulated amortization (247,724) (260,522)\nIntangible assets \u2014 net $ 181,228 $ 512,785\nAs of September 27, 2019, our estimated amortization of our intangible assets in future fiscal years, was as follows (in thousands):\n2020 2021 2022 2023 2024 Thereafter\nAmortization expense$ 50,330 46,213 33,433 26,048 15,410 6,394\nAccumulated amortization for the acquired technology and customer relationships was $134.8 million and $112.9 million, respectively, as of September 27,\n2019, and $140.0 million and $120.5 million, respectively, as of September 28, 2018.",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01406926406926407,
+          "keyword_rank": 6,
+          "semantic_rank": 17
+        }
+      ]
+    }
+  ],
+  "split": "locked_test"
+}

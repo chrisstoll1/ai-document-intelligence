@@ -1,0 +1,577 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-09T17:47:00.503867+00:00",
+  "split": "locked_test",
+  "inputs_sha256": "7839deb9c39693ff6ea8d742df7fda116150697a33a16510faed633345b38717",
+  "model": {
+    "repository": "Qwen/Qwen2.5-7B-Instruct",
+    "revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+    "license": "Apache-2.0",
+    "key": "qwen"
+  },
+  "configuration": {
+    "temperature": 0,
+    "do_sample": false,
+    "max_new_tokens": 384,
+    "dtype": "bfloat16",
+    "structured_decoding": "lm-format-enforcer JSON Schema",
+    "context_limit": 5,
+    "initialization_seconds": 16.96959489999972
+  },
+  "environment": {
+    "python": "3.11.2",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "processor": "AMD64 Family 26 Model 68 Stepping 0, AuthenticAMD",
+    "packages": {
+      "accelerate": "1.14.0",
+      "lm-format-enforcer": "0.11.3",
+      "torch": "2.12.0+cu130",
+      "transformers": "5.12.0"
+    },
+    "gpu": "NVIDIA GeForce RTX 4090"
+  },
+  "metrics": {
+    "questions": 26,
+    "answerable_questions": 20,
+    "unanswerable_questions": 6,
+    "valid_generation_rate": 1.0,
+    "end_to_end_status_accuracy": 0.8076923076923077,
+    "context_status_accuracy": 0.8076923076923077,
+    "answerable_reference_coverage": 0.35,
+    "retrieval_conditioned_reference_coverage": 0.35,
+    "answerable_token_f1": 0.15464349977507874,
+    "refusal_accuracy": 1.0,
+    "unsupported_answer_rate": 0.0,
+    "evidence_page_citation_relevance": 1.0,
+    "retrieval_evidence_available_rate": 1.0,
+    "latency": {
+      "mean_ms": 1335.0575615382836,
+      "p95_ms": 2450.8196000006137
+    }
+  },
+  "questions": [
+    {
+      "uid": "c91185569a4dee8ffc347ca66f16797e",
+      "question": "What was the gross federal net operating loss in 2019?",
+      "expected_status": "answered",
+      "context_expected_status": "answered",
+      "status": "answered",
+      "answer": "The gross federal net operating loss in 2019 was $923.4 million",
+      "claims": [
+        {
+          "text": "The gross federal net operating loss in 2019 was $923.4 million",
+          "citation_ids": [
+            "C1"
+          ]
+        }
+      ],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"answered\",\"claims\":[{\"text\":\"The gross federal net operating loss in 2019 was $923.4 million\",\"citation_ids\":[\"C1\"]}]}",
+      "latency_ms": 2235.866299999543,
+      "reference_coverage": 1.0,
+      "token_f1": 0.4,
+      "evidence_page_citation_relevance": 1.0,
+      "retrieval_evidence_available": true
+    },
+    {
+      "uid": "0a5bf43b11e96289f11f5f5105b1da4a",
+      "question": "In which year was intangible assets negative?",
+      "expected_status": "answered",
+      "context_expected_status": "answered",
+      "status": "answered",
+      "answer": "Intangible assets were negative in 2019",
+      "claims": [
+        {
+          "text": "Intangible assets were negative in 2019",
+          "citation_ids": [
+            "C5"
+          ]
+        }
+      ],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"answered\",\"claims\":[{\"text\":\"Intangible assets were negative in 2019\",\"citation_ids\":[\"C5\"]}]}",
+      "latency_ms": 1444.745900000271,
+      "reference_coverage": 0.0,
+      "token_f1": 0.0,
+      "evidence_page_citation_relevance": 1.0,
+      "retrieval_evidence_available": true
+    },
+    {
+      "uid": "09a9c49a44e30749284f930b2affe2bf",
+      "question": "What is the percentage change in Loans due from subsidiaries - current portion from 2018 to 2019?",
+      "expected_status": "answered",
+      "context_expected_status": "answered",
+      "status": "insufficient_evidence",
+      "answer": "Insufficient evidence in the retrieved passages.",
+      "claims": [],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"insufficient_evidence\",\"claims\":[]}",
+      "latency_ms": 669.2096999995556,
+      "reference_coverage": 0.0,
+      "token_f1": 0.0,
+      "evidence_page_citation_relevance": null,
+      "retrieval_evidence_available": true
+    },
+    {
+      "uid": "68f438d7411a9b2a3bed90fd19bace3d",
+      "question": "What is the change in Loans due from subsidiaries - current portion from 2018 to 2019?",
+      "expected_status": "answered",
+      "context_expected_status": "answered",
+      "status": "answered",
+      "answer": "The change in Loans due from subsidiaries - current portion from 2018 to 2019 is -59",
+      "claims": [
+        {
+          "text": "The change in Loans due from subsidiaries - current portion from 2018 to 2019 is -59",
+          "citation_ids": [
+            "C4"
+          ]
+        }
+      ],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"answered\",\"claims\":[{\"text\":\"The change in Loans due from subsidiaries - current portion from 2018 to 2019 is -59\",\"citation_ids\":[\"C4\"]}]}",
+      "latency_ms": 2102.7672000000166,
+      "reference_coverage": 0.0,
+      "token_f1": 0.125,
+      "evidence_page_citation_relevance": 1.0,
+      "retrieval_evidence_available": true
+    },
+    {
+      "uid": "15e4d550e10a33bb0402bebb5b791458",
+      "question": "What was the total assets from AMER in 2018?",
+      "expected_status": "answered",
+      "context_expected_status": "answered",
+      "status": "answered",
+      "answer": "The total assets from AMER in 2018 was $645,791,000",
+      "claims": [
+        {
+          "text": "The total assets from AMER in 2018 was $645,791,000",
+          "citation_ids": [
+            "C1"
+          ]
+        }
+      ],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"answered\",\"claims\":[{\"text\":\"The total assets from AMER in 2018 was $645,791,000\",\"citation_ids\":[\"C1\"]}]}",
+      "latency_ms": 1971.4619000005769,
+      "reference_coverage": 1.0,
+      "token_f1": 0.3076923076923077,
+      "evidence_page_citation_relevance": 1.0,
+      "retrieval_evidence_available": true
+    },
+    {
+      "uid": "467031848d7d448173b9b7e412941197",
+      "question": "What was the percentage change in the total assets from Corporate and eliminations between 2018 and 2019?",
+      "expected_status": "answered",
+      "context_expected_status": "answered",
+      "status": "answered",
+      "answer": "The percentage change in the total assets from Corporate and eliminations between 2018 and 2019 was -48.4%",
+      "claims": [
+        {
+          "text": "The percentage change in the total assets from Corporate and eliminations between 2018 and 2019 was -48.4%",
+          "citation_ids": [
+            "C1"
+          ]
+        }
+      ],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"answered\",\"claims\":[{\"text\":\"The percentage change in the total assets from Corporate and eliminations between 2018 and 2019 was -48.4%\",\"citation_ids\":[\"C1\"]}]}",
+      "latency_ms": 2450.8196000006137,
+      "reference_coverage": 0.0,
+      "token_f1": 0.09999999999999999,
+      "evidence_page_citation_relevance": 1.0,
+      "retrieval_evidence_available": true
+    },
+    {
+      "uid": "f06234ff58098fd4fd1683a1fa9778e7",
+      "question": "What are the respective accrued interest in 2018 and 2019?",
+      "expected_status": "answered",
+      "context_expected_status": "answered",
+      "status": "answered",
+      "answer": "The accrued interest in 2018 was 1,598 and in 2019 was 163",
+      "claims": [
+        {
+          "text": "The accrued interest in 2018 was 1,598 and in 2019 was 163",
+          "citation_ids": [
+            "C1"
+          ]
+        }
+      ],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"answered\",\"claims\":[{\"text\":\"The accrued interest in 2018 was 1,598 and in 2019 was 163\",\"citation_ids\":[\"C1\"]}]}",
+      "latency_ms": 2004.186899999695,
+      "reference_coverage": 1.0,
+      "token_f1": 0.375,
+      "evidence_page_citation_relevance": 1.0,
+      "retrieval_evidence_available": true
+    },
+    {
+      "uid": "5c370f07c571d9d9d2240a6adb9cdb5a",
+      "question": "What are the respective accrued expense in 2018 and 2019?",
+      "expected_status": "answered",
+      "context_expected_status": "answered",
+      "status": "insufficient_evidence",
+      "answer": "Insufficient evidence in the retrieved passages.",
+      "claims": [],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"insufficient_evidence\",\"claims\":[]}",
+      "latency_ms": 608.2134999996924,
+      "reference_coverage": 0.0,
+      "token_f1": 0.0,
+      "evidence_page_citation_relevance": null,
+      "retrieval_evidence_available": true
+    },
+    {
+      "uid": "7a53859343e19e5d89dd4e749a896e89",
+      "question": "What is the difference in revenue earned from customer A and customer B in 2019?",
+      "expected_status": "answered",
+      "context_expected_status": "answered",
+      "status": "answered",
+      "answer": "The difference in revenue earned from customer A and customer B in 2019 is $6.35 million",
+      "claims": [
+        {
+          "text": "The difference in revenue earned from customer A and customer B in 2019 is $6.35 million",
+          "citation_ids": [
+            "C1"
+          ]
+        }
+      ],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"answered\",\"claims\":[{\"text\":\"The difference in revenue earned from customer A and customer B in 2019 is $6.35 million\",\"citation_ids\":[\"C1\"]}]}",
+      "latency_ms": 2106.835199998386,
+      "reference_coverage": 0.0,
+      "token_f1": 0.10526315789473684,
+      "evidence_page_citation_relevance": 1.0,
+      "retrieval_evidence_available": true
+    },
+    {
+      "uid": "a7d1cbfe9fd8b97d8fdacad4dbe214e6",
+      "question": "What is the value of the accounts receivable due from Customer A in 2019?",
+      "expected_status": "answered",
+      "context_expected_status": "answered",
+      "status": "answered",
+      "answer": "The value of the accounts receivable due from Customer A in 2019 was approximately $0.3 million",
+      "claims": [
+        {
+          "text": "The value of the accounts receivable due from Customer A in 2019 was approximately $0.3 million",
+          "citation_ids": [
+            "C1"
+          ]
+        }
+      ],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"answered\",\"claims\":[{\"text\":\"The value of the accounts receivable due from Customer A in 2019 was approximately $0.3 million\",\"citation_ids\":[\"C1\"]}]}",
+      "latency_ms": 1796.6476000001421,
+      "reference_coverage": 1.0,
+      "token_f1": 0.3,
+      "evidence_page_citation_relevance": 1.0,
+      "retrieval_evidence_available": true
+    },
+    {
+      "uid": "50d6a01be8a0986d1b43bdb3a32e3446",
+      "question": "What was the change in the Loss from discontinued operations from 2017 to 2018?",
+      "expected_status": "answered",
+      "context_expected_status": "answered",
+      "status": "answered",
+      "answer": "The Loss from discontinued operations decreased from -72,836 thousand in 2017 to 0 thousand in 2018, a change of 72,836 thousand",
+      "claims": [
+        {
+          "text": "The Loss from discontinued operations decreased from -72,836 thousand in 2017 to 0 thousand in 2018, a change of 72,836 thousand",
+          "citation_ids": [
+            "C2"
+          ]
+        }
+      ],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"answered\",\"claims\":[{\"text\":\"The Loss from discontinued operations decreased from -72,836 thousand in 2017 to 0 thousand in 2018, a change of 72,836 thousand\",\"citation_ids\":[\"C2\"]}]}",
+      "latency_ms": 2728.937500000029,
+      "reference_coverage": 0.0,
+      "token_f1": 0.0,
+      "evidence_page_citation_relevance": 1.0,
+      "retrieval_evidence_available": true
+    },
+    {
+      "uid": "0cc2a888dd2540ce9991a759eb85bbaf",
+      "question": "What was the average Income tax effect on discontinued operations between 2017-2019?",
+      "expected_status": "answered",
+      "context_expected_status": "answered",
+      "status": "insufficient_evidence",
+      "answer": "Insufficient evidence in the retrieved passages.",
+      "claims": [],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"insufficient_evidence\",\"claims\":[]}",
+      "latency_ms": 531.7981000007421,
+      "reference_coverage": 0.0,
+      "token_f1": 0.0,
+      "evidence_page_citation_relevance": null,
+      "retrieval_evidence_available": true
+    },
+    {
+      "uid": "0758ba46bed17f09d48c3c5d9cd907fd",
+      "question": "In which years was the gross margin calculated?",
+      "expected_status": "answered",
+      "context_expected_status": "answered",
+      "status": "answered",
+      "answer": "The gross margin was calculated for fiscal years 2019 and 2018",
+      "claims": [
+        {
+          "text": "The gross margin was calculated for fiscal years 2019 and 2018",
+          "citation_ids": [
+            "C1",
+            "C2"
+          ]
+        }
+      ],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"answered\",\"claims\":[{\"text\":\"The gross margin was calculated for fiscal years 2019 and 2018\",\"citation_ids\":[\"C1\",\"C2\"]}]}",
+      "latency_ms": 1746.4718999999604,
+      "reference_coverage": 1.0,
+      "token_f1": 0.3076923076923077,
+      "evidence_page_citation_relevance": 1.0,
+      "retrieval_evidence_available": true
+    },
+    {
+      "uid": "16b876d750f60ee9bbe05551a883be87",
+      "question": "In which year was the gross margin larger?",
+      "expected_status": "answered",
+      "context_expected_status": "answered",
+      "status": "answered",
+      "answer": "The gross margin was larger in 2019",
+      "claims": [
+        {
+          "text": "The gross margin was larger in 2019",
+          "citation_ids": [
+            "C2"
+          ]
+        }
+      ],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"answered\",\"claims\":[{\"text\":\"The gross margin was larger in 2019\",\"citation_ids\":[\"C2\"]}]}",
+      "latency_ms": 1266.3101000016468,
+      "reference_coverage": 1.0,
+      "token_f1": 0.25,
+      "evidence_page_citation_relevance": 1.0,
+      "retrieval_evidence_available": true
+    },
+    {
+      "uid": "96b821be95abc59e079c123bef8a759c",
+      "question": "What is the weighted average duration of the post-employment benefit obligation?",
+      "expected_status": "answered",
+      "context_expected_status": "answered",
+      "status": "answered",
+      "answer": "The weighted average duration of the post-employment benefit obligation is 14 years",
+      "claims": [
+        {
+          "text": "The weighted average duration of the post-employment benefit obligation is 14 years",
+          "citation_ids": [
+            "C2"
+          ]
+        }
+      ],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"answered\",\"claims\":[{\"text\":\"The weighted average duration of the post-employment benefit obligation is 14 years\",\"citation_ids\":[\"C2\"]}]}",
+      "latency_ms": 1519.5657999993273,
+      "reference_coverage": 1.0,
+      "token_f1": 0.2666666666666667,
+      "evidence_page_citation_relevance": 1.0,
+      "retrieval_evidence_available": true
+    },
+    {
+      "uid": "cba448f7114df62a298deb6c4d97bffc",
+      "question": "What is the cost of living indexation rate applicable to?",
+      "expected_status": "answered",
+      "context_expected_status": "answered",
+      "status": "answered",
+      "answer": "The cost of living indexation rate is applicable to DB pension plans",
+      "claims": [
+        {
+          "text": "The cost of living indexation rate is applicable to DB pension plans",
+          "citation_ids": [
+            "C1",
+            "C2"
+          ]
+        }
+      ],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"answered\",\"claims\":[{\"text\":\"The cost of living indexation rate is applicable to DB pension plans\",\"citation_ids\":[\"C1\",\"C2\"]}]}",
+      "latency_ms": 1485.6302999996842,
+      "reference_coverage": 0.0,
+      "token_f1": 0.5555555555555556,
+      "evidence_page_citation_relevance": 1.0,
+      "retrieval_evidence_available": true
+    },
+    {
+      "uid": "58261c573ed7041f7e1c1337bba522ec",
+      "question": "What was the average performance shares for 2017-2019?",
+      "expected_status": "answered",
+      "context_expected_status": "answered",
+      "status": "insufficient_evidence",
+      "answer": "Insufficient evidence in the retrieved passages.",
+      "claims": [],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"insufficient_evidence\",\"claims\":[]}",
+      "latency_ms": 581.7903999995906,
+      "reference_coverage": 0.0,
+      "token_f1": 0.0,
+      "evidence_page_citation_relevance": null,
+      "retrieval_evidence_available": true
+    },
+    {
+      "uid": "f9fed3d67c1a38fe5cf5811c272dc8f0",
+      "question": "What was the average restricted stock for 2017-2019?",
+      "expected_status": "answered",
+      "context_expected_status": "answered",
+      "status": "answered",
+      "answer": "The average restricted stock for 2017-2019 was 2,951 thousand dollars",
+      "claims": [
+        {
+          "text": "The average restricted stock for 2017-2019 was 2,951 thousand dollars",
+          "citation_ids": [
+            "C2"
+          ]
+        }
+      ],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"answered\",\"claims\":[{\"text\":\"The average restricted stock for 2017-2019 was 2,951 thousand dollars\",\"citation_ids\":[\"C2\"]}]}",
+      "latency_ms": 1756.7847000009351,
+      "reference_coverage": 0.0,
+      "token_f1": 0.0,
+      "evidence_page_citation_relevance": 1.0,
+      "retrieval_evidence_available": true
+    },
+    {
+      "uid": "aa8e3cd966e80cafcad30cee512dcad6",
+      "question": "What was the change in lease charge from 2018 to 2019?",
+      "expected_status": "answered",
+      "context_expected_status": "answered",
+      "status": "answered",
+      "answer": "The lease charge decreased from 2018 to 2019 by 355 dollars",
+      "claims": [
+        {
+          "text": "The lease charge decreased from 2018 to 2019 by 355 dollars",
+          "citation_ids": [
+            "C1"
+          ]
+        }
+      ],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"answered\",\"claims\":[{\"text\":\"The lease charge decreased from 2018 to 2019 by 355 dollars\",\"citation_ids\":[\"C1\"]}]}",
+      "latency_ms": 1771.878999999899,
+      "reference_coverage": 0.0,
+      "token_f1": 0.0,
+      "evidence_page_citation_relevance": 1.0,
+      "retrieval_evidence_available": true
+    },
+    {
+      "uid": "c7a09c0292dbc03de3784629cfd11cff",
+      "question": "What was the percentage change in total financial costs from 2017 to 2019?",
+      "expected_status": "answered",
+      "context_expected_status": "answered",
+      "status": "insufficient_evidence",
+      "answer": "Insufficient evidence in the retrieved passages.",
+      "claims": [],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"insufficient_evidence\",\"claims\":[]}",
+      "latency_ms": 539.5305999991251,
+      "reference_coverage": 0.0,
+      "token_f1": 0.0,
+      "evidence_page_citation_relevance": null,
+      "retrieval_evidence_available": true
+    },
+    {
+      "uid": "unanswerable-rainfall",
+      "question": "What was the average rainfall in Tokyo during 2019?",
+      "expected_status": "insufficient_evidence",
+      "context_expected_status": "insufficient_evidence",
+      "status": "insufficient_evidence",
+      "answer": "Insufficient evidence in the retrieved passages.",
+      "claims": [],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"insufficient_evidence\",\"claims\":[]}",
+      "latency_ms": 572.6113999990048,
+      "reference_coverage": null,
+      "token_f1": null,
+      "evidence_page_citation_relevance": null,
+      "retrieval_evidence_available": false
+    },
+    {
+      "uid": "unanswerable-spacecraft",
+      "question": "Which spacecraft first landed on Mars?",
+      "expected_status": "insufficient_evidence",
+      "context_expected_status": "insufficient_evidence",
+      "status": "insufficient_evidence",
+      "answer": "Insufficient evidence in the retrieved passages.",
+      "claims": [],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"insufficient_evidence\",\"claims\":[]}",
+      "latency_ms": 543.6179999996966,
+      "reference_coverage": null,
+      "token_f1": null,
+      "evidence_page_citation_relevance": null,
+      "retrieval_evidence_available": false
+    },
+    {
+      "uid": "unanswerable-graduates",
+      "question": "How many students graduated from Oxford University in 2018?",
+      "expected_status": "insufficient_evidence",
+      "context_expected_status": "insufficient_evidence",
+      "status": "insufficient_evidence",
+      "answer": "Insufficient evidence in the retrieved passages.",
+      "claims": [],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"insufficient_evidence\",\"claims\":[]}",
+      "latency_ms": 593.2601999993494,
+      "reference_coverage": null,
+      "token_f1": null,
+      "evidence_page_citation_relevance": null,
+      "retrieval_evidence_available": false
+    },
+    {
+      "uid": "unanswerable-dosage",
+      "question": "What dosage was administered in the clinical trial?",
+      "expected_status": "insufficient_evidence",
+      "context_expected_status": "insufficient_evidence",
+      "status": "insufficient_evidence",
+      "answer": "Insufficient evidence in the retrieved passages.",
+      "claims": [],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"insufficient_evidence\",\"claims\":[]}",
+      "latency_ms": 533.1279999991239,
+      "reference_coverage": null,
+      "token_f1": null,
+      "evidence_page_citation_relevance": null,
+      "retrieval_evidence_available": false
+    },
+    {
+      "uid": "unanswerable-election",
+      "question": "Who won the 2019 federal election in Canada?",
+      "expected_status": "insufficient_evidence",
+      "context_expected_status": "insufficient_evidence",
+      "status": "insufficient_evidence",
+      "answer": "Insufficient evidence in the retrieved passages.",
+      "claims": [],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"insufficient_evidence\",\"claims\":[]}",
+      "latency_ms": 558.0484000001888,
+      "reference_coverage": null,
+      "token_f1": null,
+      "evidence_page_citation_relevance": null,
+      "retrieval_evidence_available": false
+    },
+    {
+      "uid": "unanswerable-electricity",
+      "question": "What was the building's annual electricity consumption?",
+      "expected_status": "insufficient_evidence",
+      "context_expected_status": "insufficient_evidence",
+      "status": "insufficient_evidence",
+      "answer": "Insufficient evidence in the retrieved passages.",
+      "claims": [],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"insufficient_evidence\",\"claims\":[]}",
+      "latency_ms": 591.3783999985753,
+      "reference_coverage": null,
+      "token_f1": null,
+      "evidence_page_citation_relevance": null,
+      "retrieval_evidence_available": false
+    }
+  ]
+}

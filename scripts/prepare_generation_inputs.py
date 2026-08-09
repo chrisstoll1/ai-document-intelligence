@@ -42,8 +42,8 @@ def prepare(benchmark_path: Path, data_dir: Path, output_path: Path, *, overwrit
         raise RuntimeError(f"Refusing to overwrite existing generation inputs: {output_path}")
     benchmark_bytes = benchmark_path.read_bytes()
     benchmark = json.loads(benchmark_bytes)
-    if benchmark.get("split") != "development":
-        raise RuntimeError("Generation inputs may be prepared only from the development benchmark")
+    if benchmark.get("split") not in {"development", "locked_test"}:
+        raise RuntimeError("Generation inputs require a development or locked-test benchmark")
 
     services = build_services(Settings(data_dir=data_dir))
     try:
@@ -87,6 +87,8 @@ def prepare(benchmark_path: Path, data_dir: Path, output_path: Path, *, overwrit
             },
             "questions": questions,
         }
+        if benchmark["split"] == "locked_test":
+            result["split"] = "locked_test"
     finally:
         services.semantic_index.close()
     output_path.parent.mkdir(parents=True, exist_ok=True)

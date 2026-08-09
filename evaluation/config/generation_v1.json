@@ -1,6 +1,7 @@
 {
   "schema_version": 1,
   "configuration_name": "generation-v1",
+  "status": "locked_evaluation_complete",
   "selected_model": {
     "repository": "Qwen/Qwen2.5-7B-Instruct",
     "revision": "a09a35458c702b33eeacc393d103063234e8bc28",
@@ -56,11 +57,27 @@
     }
   },
   "decision": "Qwen was selected for materially higher answer coverage and context-status accuracy. Mistral was faster and more conservative but incorrectly refused four answerable questions with retrieved evidence.",
+  "locked_test_evidence": {
+    "manifest": "evaluation/generation/locked_test_manifest.json",
+    "manifest_sha256": "bbe492c36fcad5a4127e3d26e30cb00a89ad525a6b3f5282507f8b7aa4a1a1c2",
+    "inputs": "evaluation/generation/locked_test_inputs.json",
+    "inputs_sha256": "7839deb9c39693ff6ea8d742df7fda116150697a33a16510faed633345b38717",
+    "result": "evaluation/results/generation_locked_test_qwen.json",
+    "result_sha256": "c395fe8f69d9b9acd2aeb4031386d4e19b57238fbd0077928890f0d260e0896e",
+    "answerable_questions": 20,
+    "unanswerable_questions": 6,
+    "valid_generation_rate": 1.0,
+    "answerable_reference_coverage": 0.35,
+    "refusal_accuracy": 1.0,
+    "evidence_page_citation_relevance": 1.0,
+    "mean_latency_ms": 1335.0575615382836
+  },
   "known_limitations": [
     "The development benchmark contains only 18 questions from financial reports.",
     "Qwen answered the one answerable query whose top-five contexts lacked judged evidence instead of refusing.",
     "Three Qwen arithmetic answers were incorrect despite retrieved evidence.",
+    "All ten locked arithmetic questions failed automatic reference coverage.",
     "Page-relevant citations do not by themselves prove semantic claim support.",
-    "Human claim-support and citation-completeness review remains required before final evaluation."
+    "Human claim-support and citation-completeness review remains required before final reporting."
   ]
 }
