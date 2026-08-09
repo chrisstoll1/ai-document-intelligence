@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "configuration_id": "ocr-retrieval-v1",
+  "status": "locked_evaluation_complete",
+  "locked_test_scored": true,
+  "conditions": {
+    "clean": "Every source page rendered at 300 DPI into an image-only PDF",
+    "degraded": "Clean page with frozen 55% resampling, deterministic +/-0.6 degree rotation, 0.72 contrast, and 0.7 Gaussian blur"
+  },
+  "pipeline": {
+    "ocr": "ocr-v1",
+    "retrieval": "retrieval-v1",
+    "result_depth": 10,
+    "primary_metric": "Paired hybrid MRR@5",
+    "relevance": "Canonical source document and overlapping judged page"
+  },
+  "development_evidence": {
+    "manifest": "evaluation/ocr/retrieval_development_manifest.json",
+    "manifest_sha256": "4bf1a3bccfb7306313c6e6387ae6ca3002cadfdeecb836c2fc3494c664c9f612",
+    "result": "evaluation/results/ocr_retrieval_development.json",
+    "result_sha256": "31db02eb63ca980d64611efaa749a8c04ebd3af0d1c7f4f3cfc0a60546fc6819",
+    "clean_mrr_at_5": 0.84,
+    "degraded_mrr_at_5": 0.8583333333333333,
+    "delta": 0.018333333333333333,
+    "wins": 2,
+    "ties": 28,
+    "losses": 0
+  },
+  "locked_test_evidence": {
+    "manifest": "evaluation/ocr/retrieval_locked_test_manifest.json",
+    "manifest_sha256": "a99b1d997beee229de9ed80ae396d76a1a5ebcad6f0c8bdd3e762e80efbc2b89",
+    "result": "evaluation/results/ocr_retrieval_locked_test.json",
+    "result_sha256": "a66937640431f10a4b63c815f142631740d2a7ecb60bc82e457cd73786daaa39",
+    "clean_mrr_at_5": 0.8916666666666667,
+    "degraded_mrr_at_5": 0.87,
+    "delta": -0.021666666666666667,
+    "wins": 2,
+    "ties": 16,
+    "losses": 2
+  },
+  "interpretation": "Synthetic degradation increased OCR error but did not reduce development retrieval. The small positive rank change is treated as ranking noise, not evidence that degradation helps.",
+  "locked_test_guard": "scripts/evaluate_ocr_retrieval.py --split locked_test requires --confirm-locked-test"
+}

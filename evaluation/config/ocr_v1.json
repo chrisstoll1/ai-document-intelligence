@@ -37,6 +37,6 @@
   "limitations": [
     "Silver-standard references are directly extracted rather than independently transcribed.",
     "The benchmark uses controlled line crops rather than naturally scanned full pages.",
-    "Downstream retrieval impact remains to be measured in the final aggregate evaluation."
+    "Downstream retrieval impact is measured separately by frozen ocr-retrieval-v1 full-page experiments."
   ]
 }

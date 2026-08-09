@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "name": "TAT-DQA paired full-page OCR retrieval benchmark",
+  "split": "locked_test",
+  "source_manifest": "evaluation/tat_dqa/locked_test_manifest.json",
+  "source_manifest_sha256": "3ff5dc1c61408232364857318892df3f3111eaf72f2c63b8e1984c97b1c208a8",
+  "rendering": {
+    "dpi": 300,
+    "clean": "Full source page rendered as an image-only PDF",
+    "degraded": "Frozen 55% resampling, deterministic +/-0.6 degree rotation, 0.72 contrast, 0.7 blur"
+  },
+  "documents": [
+    {
+      "uid": "3e2109c375cbf670d40c77b22b430b20",
+      "canonical_pdf_sha256": "05383a146421b2f030a62de6a76d95f4725d584bf1c48abdfe3ae24a37011e56",
+      "source_pdf": "data/evaluation/tat-dqa/subset/test/3e2109c375cbf670d40c77b22b430b20.pdf",
+      "page_count": 2,
+      "variants": {
+        "clean": {
+          "pdf_file": "data/evaluation/ocr-retrieval/locked_test/clean/3e2109c375cbf670d40c77b22b430b20.pdf",
+          "pdf_sha256": "33534cf5960ec46050e15884eb1169ca922a5b395fbadf67c080f88a882327d2"
+        },
+        "degraded": {
+          "pdf_file": "data/evaluation/ocr-retrieval/locked_test/degraded/3e2109c375cbf670d40c77b22b430b20.pdf",
+          "pdf_sha256": "189798fde07c2a8b6c9c9aad47f77e2af6b8328e4ba0c3249d95daeb1a8bef49"
+        }
+      }
+    },
+    {
+      "uid": "48adf518eb23b8900b86a6c63066d799",
+      "canonical_pdf_sha256": "a53aba5eea3f9159c2a170159bb070215533ac7b629189c8227090d8fe12da19",
+      "source_pdf": "data/evaluation/tat-dqa/subset/test/48adf518eb23b8900b86a6c63066d799.pdf",
+      "page_count": 2,
+      "variants": {
+        "clean": {
+          "pdf_file": "data/evaluation/ocr-retrieval/locked_test/clean/48adf518eb23b8900b86a6c63066d799.pdf",
+          "pdf_sha256": "e06c31677715903dd100775ea7f7d19721946e54272adaf025c000c82bc6bdeb"
+        },
+        "degraded": {
+          "pdf_file": "data/evaluation/ocr-retrieval/locked_test/degraded/48adf518eb23b8900b86a6c63066d799.pdf",
+          "pdf_sha256": "1ae71ccc54957eaf0f5b122cc26ce30cb4ea21e982f4e42a895c5be7ba5102cc"
+        }
+      }
+    },
+    {
+      "uid": "637fab7088ea6c78a5dba55f17e833bd",
+      "canonical_pdf_sha256": "885c336e12fafc683231566bd1086c23d52712124d3cc260e1a1565c8c8d2e15",
+      "source_pdf": "data/evaluation/tat-dqa/subset/test/637fab7088ea6c78a5dba55f17e833bd.pdf",
+      "page_count": 1,
+      "variants": {
+        "clean": {
+          "pdf_file": "data/evaluation/ocr-retrieval/locked_test/clean/637fab7088ea6c78a5dba55f17e833bd.pdf",
+          "pdf_sha256": "aa7fe72cb2047e601dd7fbdc13351ab63f33c37ed08cdb04f0395d8201b68f51"
+        },
+        "degraded": {
+          "pdf_file": "data/evaluation/ocr-retrieval/locked_test/degraded/637fab7088ea6c78a5dba55f17e833bd.pdf",
+          "pdf_sha256": "57ce5622286ab242b2b819887926b0b98eda8868f2fa4aad897ff4e4db0e66c2"
+        }
+      }
+    },
+    {
+      "uid": "7618a93f40fbba431a7543cb1587330e",
+      "canonical_pdf_sha256": "a393f5f4edc523c04b858e014ce43c7c758d89fe318e60f66f5b78c219e171f6",
+      "source_pdf": "data/evaluation/tat-dqa/subset/test/7618a93f40fbba431a7543cb1587330e.pdf",
+      "page_count": 1,
+      "variants": {
+        "clean": {
+          "pdf_file": "data/evaluation/ocr-retrieval/locked_test/clean/7618a93f40fbba431a7543cb1587330e.pdf",
+          "pdf_sha256": "1bd5d0f59f755a251fbbbaa9eb79dbdd34d3fb05004dbfc7cc9dec3b2d164d70"
+        },
+        "degraded": {
+          "pdf_file": "data/evaluation/ocr-retrieval/locked_test/degraded/7618a93f40fbba431a7543cb1587330e.pdf",
+          "pdf_sha256": "522fb2a92dbabd2732a9859772cd18a8d3196e1a14438ed5ef05e68876a728a5"
+        }
+      }
+    },
+    {
+      "uid": "7c1a0fac586f2de1336256cc0bf74e68",
+      "canonical_pdf_sha256": "1b112cafc4b70310adb40a7a32c966c442ab3314d6fcfadef0b366da5ec9d4e9",
+      "source_pdf": "data/evaluation/tat-dqa/subset/test/7c1a0fac586f2de1336256cc0bf74e68.pdf",
+      "page_count": 1,
+      "variants": {
+        "clean": {
+          "pdf_file": "data/evaluation/ocr-retrieval/locked_test/clean/7c1a0fac586f2de1336256cc0bf74e68.pdf",
+          "pdf_sha256": "8efb12d9ec06c9cd5b96902176f6a0f185b4e843e588defdf2d30a209c9dfb7c"
+        },
+        "degraded": {
+          "pdf_file": "data/evaluation/ocr-retrieval/locked_test/degraded/7c1a0fac586f2de1336256cc0bf74e68.pdf",
+          "pdf_sha256": "bf053d7573279914b016886cb2af211c813774819de8e7f9e4a0c7165241e4b2"
+        }
+      }
+    },
+    {
+      "uid": "a7dd7ece6cae1b2aefaa138af72df8ff",
+      "canonical_pdf_sha256": "e7dc6a22612c8b007ab4c988cd62f0852eac23f1cd57e85198fc9e4fd0a42838",
+      "source_pdf": "data/evaluation/tat-dqa/subset/test/a7dd7ece6cae1b2aefaa138af72df8ff.pdf",
+      "page_count": 1,
+      "variants": {
+        "clean": {
+          "pdf_file": "data/evaluation/ocr-retrieval/locked_test/clean/a7dd7ece6cae1b2aefaa138af72df8ff.pdf",
+          "pdf_sha256": "2fea13987037bf815b23d6167aeada11ff0cd0e9d09568b88bd863a60090888f"
+        },
+        "degraded": {
+          "pdf_file": "data/evaluation/ocr-retrieval/locked_test/degraded/a7dd7ece6cae1b2aefaa138af72df8ff.pdf",
+          "pdf_sha256": "7f78eb811a7fafc6831260fe772a3b3c318040bc1382a90c931819d053af567e"
+        }
+      }
+    },
+    {
+      "uid": "b8cf8e9ebf71c892eda0a3ed9ee57852",
+      "canonical_pdf_sha256": "15574e464087410835619fcf9a9895fa825d6054ba9fc0698e13b36da917114c",
+      "source_pdf": "data/evaluation/tat-dqa/subset/test/b8cf8e9ebf71c892eda0a3ed9ee57852.pdf",
+      "page_count": 1,
+      "variants": {
+        "clean": {
+          "pdf_file": "data/evaluation/ocr-retrieval/locked_test/clean/b8cf8e9ebf71c892eda0a3ed9ee57852.pdf",
+          "pdf_sha256": "7de2bcb0f36141dd2e9b24e359f797a71433334bacbb1900bae4af0c2930e5af"
+        },
+        "degraded": {
+          "pdf_file": "data/evaluation/ocr-retrieval/locked_test/degraded/b8cf8e9ebf71c892eda0a3ed9ee57852.pdf",
+          "pdf_sha256": "ae5848fe2515be212804dc806f94bce1e14c032341f9c5e7c1fe6e4fe9a76902"
+        }
+      }
+    },
+    {
+      "uid": "bf597f45d92a8c21e7536c0a00c8f445",
+      "canonical_pdf_sha256": "24c09bb91e0daa9a2ec0337721ac086f74ba55f8107c1ff5742c1c200b9cd519",
+      "source_pdf": "data/evaluation/tat-dqa/subset/test/bf597f45d92a8c21e7536c0a00c8f445.pdf",
+      "page_count": 1,
+      "variants": {
+        "clean": {
+          "pdf_file": "data/evaluation/ocr-retrieval/locked_test/clean/bf597f45d92a8c21e7536c0a00c8f445.pdf",
+          "pdf_sha256": "edde71a0a7a360af66e676f71b124c2cec54f468e2bc0a888bfb7cefc56721ce"
+        },
+        "degraded": {
+          "pdf_file": "data/evaluation/ocr-retrieval/locked_test/degraded/bf597f45d92a8c21e7536c0a00c8f445.pdf",
+          "pdf_sha256": "c5c61e3e5ceaa129f3e9cac8e2b4b3419e1a360b90cc1b366a4f29ae88645e49"
+        }
+      }
+    },
+    {
+      "uid": "de0319bc30e6dff7c4736f1fa9de8361",
+      "canonical_pdf_sha256": "3d846c0a86eaa33b501f0476f58c41171cbd69d8d8f3322dfa50cd7390c38f79",
+      "source_pdf": "data/evaluation/tat-dqa/subset/test/de0319bc30e6dff7c4736f1fa9de8361.pdf",
+      "page_count": 1,
+      "variants": {
+        "clean": {
+          "pdf_file": "data/evaluation/ocr-retrieval/locked_test/clean/de0319bc30e6dff7c4736f1fa9de8361.pdf",
+          "pdf_sha256": "b5b7b007b45505b4069d6411c126111d72dfb68e7be81f30ac397a5964c780ff"
+        },
+        "degraded": {
+          "pdf_file": "data/evaluation/ocr-retrieval/locked_test/degraded/de0319bc30e6dff7c4736f1fa9de8361.pdf",
+          "pdf_sha256": "ac624370e2f365abfca7ebc5ef6026a43138e144e5465ad224fd07c5f9ea2a44"
+        }
+      }
+    },
+    {
+      "uid": "eacd9d2c0223e2acd395af609bbe05d1",
+      "canonical_pdf_sha256": "1415def72b1696e90af12df00cf6cc027d6768c279cc1c694955c1c831a47110",
+      "source_pdf": "data/evaluation/tat-dqa/subset/test/eacd9d2c0223e2acd395af609bbe05d1.pdf",
+      "page_count": 1,
+      "variants": {
+        "clean": {
+          "pdf_file": "data/evaluation/ocr-retrieval/locked_test/clean/eacd9d2c0223e2acd395af609bbe05d1.pdf",
+          "pdf_sha256": "f16715c14de1b6e9eed2b6f55012afe7ebef5e8457b4f0941432f2e7640376cc"
+        },
+        "degraded": {
+          "pdf_file": "data/evaluation/ocr-retrieval/locked_test/degraded/eacd9d2c0223e2acd395af609bbe05d1.pdf",
+          "pdf_sha256": "d4cd5245d59aaa239c0500b185577e7de47eaa9e563a734e62865d539f588493"
+        }
+      }
+    }
+  ]
+}

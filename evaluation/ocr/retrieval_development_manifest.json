@@ -1,0 +1,254 @@
+{
+  "schema_version": 1,
+  "name": "TAT-DQA paired full-page OCR retrieval benchmark",
+  "split": "development",
+  "source_manifest": "evaluation/tat_dqa/development_manifest.json",
+  "source_manifest_sha256": "f87799c0627def3bd74984d19997afa9287bf6e7343590f31c57986036f8df3a",
+  "rendering": {
+    "dpi": 300,
+    "clean": "Full source page rendered as an image-only PDF",
+    "degraded": "Frozen 55% resampling, deterministic +/-0.6 degree rotation, 0.72 contrast, 0.7 blur"
+  },
+  "documents": [
+    {
+      "uid": "018ba3b4adee47eef3555fc300cbde94",
+      "canonical_pdf_sha256": "9d544da2edaa996cc0f5dfe0372358c89822d3af490a00ab2190b2247ee91a38",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/018ba3b4adee47eef3555fc300cbde94.pdf",
+      "page_count": 1,
+      "variants": {
+        "clean": {
+          "pdf_file": "data/evaluation/ocr-retrieval/development/clean/018ba3b4adee47eef3555fc300cbde94.pdf",
+          "pdf_sha256": "c263a20f9a3fafd478c94d68a2ba997fbe9bdfe9f5c02115ecb61ca243b353c9"
+        },
+        "degraded": {
+          "pdf_file": "data/evaluation/ocr-retrieval/development/degraded/018ba3b4adee47eef3555fc300cbde94.pdf",
+          "pdf_sha256": "9dcde6e4965fc8d04aafd44917b4cfa8fe550d3ade82b4b153c686c48e204f12"
+        }
+      }
+    },
+    {
+      "uid": "11ba155b7577c83fe5f3c4f766039e93",
+      "canonical_pdf_sha256": "dc2adc93656717163a18f601c1058a7d68ecc0aa3dd2eb453b83482bd08c8338",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/11ba155b7577c83fe5f3c4f766039e93.pdf",
+      "page_count": 1,
+      "variants": {
+        "clean": {
+          "pdf_file": "data/evaluation/ocr-retrieval/development/clean/11ba155b7577c83fe5f3c4f766039e93.pdf",
+          "pdf_sha256": "e4babc54f6caee18f9d78e7359bf886ac16e76b55f258334218a3cf189c3d627"
+        },
+        "degraded": {
+          "pdf_file": "data/evaluation/ocr-retrieval/development/degraded/11ba155b7577c83fe5f3c4f766039e93.pdf",
+          "pdf_sha256": "50df1f74940d6f15eb7b018f190828a4837a1939abd7d82e84cf38b3c323a63c"
+        }
+      }
+    },
+    {
+      "uid": "1b54b462b06a8786c7b0b63587f93122",
+      "canonical_pdf_sha256": "dc1c6b6db682684e3bc33a457b230c1bfc514e6cd01b297e08d4b60d99eed3e9",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/1b54b462b06a8786c7b0b63587f93122.pdf",
+      "page_count": 1,
+      "variants": {
+        "clean": {
+          "pdf_file": "data/evaluation/ocr-retrieval/development/clean/1b54b462b06a8786c7b0b63587f93122.pdf",
+          "pdf_sha256": "c9ea426251e18edc3e01cf25a72869bbceef4ddb4e790eb21579bf3af39f6c09"
+        },
+        "degraded": {
+          "pdf_file": "data/evaluation/ocr-retrieval/development/degraded/1b54b462b06a8786c7b0b63587f93122.pdf",
+          "pdf_sha256": "fa6d31837e47382f505c2033e93e293d8228196b577ad4fa9965d4eea6960466"
+        }
+      }
+    },
+    {
+      "uid": "1dcc49e0d122ddd39f5df46093f57e4d",
+      "canonical_pdf_sha256": "930ae864353cb163b40fad3ac381fb954f8e455f2d09ce733080352c88472964",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/1dcc49e0d122ddd39f5df46093f57e4d.pdf",
+      "page_count": 1,
+      "variants": {
+        "clean": {
+          "pdf_file": "data/evaluation/ocr-retrieval/development/clean/1dcc49e0d122ddd39f5df46093f57e4d.pdf",
+          "pdf_sha256": "2f48c2eb0b64114de9015f2a40792cd79e106ec39ae487998bde7bc9389013ea"
+        },
+        "degraded": {
+          "pdf_file": "data/evaluation/ocr-retrieval/development/degraded/1dcc49e0d122ddd39f5df46093f57e4d.pdf",
+          "pdf_sha256": "64d37d118392e02ef946c822db2ba090a8f34b2338f2f2de318ae4a3ae30ca98"
+        }
+      }
+    },
+    {
+      "uid": "23c221a22dd69ef8fb163f78614aa1d6",
+      "canonical_pdf_sha256": "799d0e71387e6d9ae8448cec9907ff7d67342a1b81b654ef69c96f5a4b5bc336",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/23c221a22dd69ef8fb163f78614aa1d6.pdf",
+      "page_count": 2,
+      "variants": {
+        "clean": {
+          "pdf_file": "data/evaluation/ocr-retrieval/development/clean/23c221a22dd69ef8fb163f78614aa1d6.pdf",
+          "pdf_sha256": "2e8a6c5ea2181809122df91edf1c104d001ef3ec5a239949dcf3c2174cfaab60"
+        },
+        "degraded": {
+          "pdf_file": "data/evaluation/ocr-retrieval/development/degraded/23c221a22dd69ef8fb163f78614aa1d6.pdf",
+          "pdf_sha256": "40666f1a5dc4262c65feaf78ed8c271150b4bb792876a817758411803c6c0ae8"
+        }
+      }
+    },
+    {
+      "uid": "4bac0b8169e05a0e8d1220fab5e165d5",
+      "canonical_pdf_sha256": "052e257d30eb71b17dcd4ee1e9bb7415804496abac12e104626d18cd2c574d14",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/4bac0b8169e05a0e8d1220fab5e165d5.pdf",
+      "page_count": 1,
+      "variants": {
+        "clean": {
+          "pdf_file": "data/evaluation/ocr-retrieval/development/clean/4bac0b8169e05a0e8d1220fab5e165d5.pdf",
+          "pdf_sha256": "7b8dec36043f5b6d686fe9e00f7c857939d649c11ae08de27061e66d8ae2021e"
+        },
+        "degraded": {
+          "pdf_file": "data/evaluation/ocr-retrieval/development/degraded/4bac0b8169e05a0e8d1220fab5e165d5.pdf",
+          "pdf_sha256": "487680ff39ab6df2606ccfbd3c61914a2047d7e6f45bc06755d89c8ceff579dc"
+        }
+      }
+    },
+    {
+      "uid": "4d41ea7a63b2d9b5cc3cb24ca6c7e9ac",
+      "canonical_pdf_sha256": "62871983ea38b52b09a6a2ad94aad52bd6cae634f9105bd65ad9ce5f4faa3ca9",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/4d41ea7a63b2d9b5cc3cb24ca6c7e9ac.pdf",
+      "page_count": 1,
+      "variants": {
+        "clean": {
+          "pdf_file": "data/evaluation/ocr-retrieval/development/clean/4d41ea7a63b2d9b5cc3cb24ca6c7e9ac.pdf",
+          "pdf_sha256": "92b937696a3d21cceded041942015d08cf84ed1c5e832cd18a6647e6713dc1ef"
+        },
+        "degraded": {
+          "pdf_file": "data/evaluation/ocr-retrieval/development/degraded/4d41ea7a63b2d9b5cc3cb24ca6c7e9ac.pdf",
+          "pdf_sha256": "49f362f18967b85bdf9e6f560f09616a1be37ff69a054806a5d2b1e2ffcad237"
+        }
+      }
+    },
+    {
+      "uid": "6c7eaa692c25edb5cc125d550deb77ca",
+      "canonical_pdf_sha256": "d635fcbdf692e4a668de62401ed43d363ac0e8323996bd70c3d92586924b9569",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/6c7eaa692c25edb5cc125d550deb77ca.pdf",
+      "page_count": 1,
+      "variants": {
+        "clean": {
+          "pdf_file": "data/evaluation/ocr-retrieval/development/clean/6c7eaa692c25edb5cc125d550deb77ca.pdf",
+          "pdf_sha256": "5dcc6f84b89d9b6cd4024b5e166832f6a1a20fd6cbeda554ff1d5f1f5328572d"
+        },
+        "degraded": {
+          "pdf_file": "data/evaluation/ocr-retrieval/development/degraded/6c7eaa692c25edb5cc125d550deb77ca.pdf",
+          "pdf_sha256": "00a9cd26b0046e7b5d9ba469208c4f2b6559ab08377b8aaf8cee73db2368cc73"
+        }
+      }
+    },
+    {
+      "uid": "8151aa1c9aa6f6a7c9cd3b003dec18e3",
+      "canonical_pdf_sha256": "6b6f8ac6fd7c12e259df8ff7a4660a9997a3e7a0f53876e31dda0584590527af",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/8151aa1c9aa6f6a7c9cd3b003dec18e3.pdf",
+      "page_count": 1,
+      "variants": {
+        "clean": {
+          "pdf_file": "data/evaluation/ocr-retrieval/development/clean/8151aa1c9aa6f6a7c9cd3b003dec18e3.pdf",
+          "pdf_sha256": "271043f20ce983df4f384ac35a4ec642251e31eb3f338b1b3e10d5f989e91309"
+        },
+        "degraded": {
+          "pdf_file": "data/evaluation/ocr-retrieval/development/degraded/8151aa1c9aa6f6a7c9cd3b003dec18e3.pdf",
+          "pdf_sha256": "0163f17b270afe07bb7bc536b5bccf6dad5c027bd403c16836e22abe328e3817"
+        }
+      }
+    },
+    {
+      "uid": "adaad2efcb109915eb3a70e2d992555c",
+      "canonical_pdf_sha256": "5d401bb25b0b1ec3f41845f261e97951651381c8ea7559c4ab208b7deaefe99a",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/adaad2efcb109915eb3a70e2d992555c.pdf",
+      "page_count": 1,
+      "variants": {
+        "clean": {
+          "pdf_file": "data/evaluation/ocr-retrieval/development/clean/adaad2efcb109915eb3a70e2d992555c.pdf",
+          "pdf_sha256": "70b537fd56e0dff0f8ef75472a81257bd534f641d48f27ff1428ad9730b2bfc5"
+        },
+        "degraded": {
+          "pdf_file": "data/evaluation/ocr-retrieval/development/degraded/adaad2efcb109915eb3a70e2d992555c.pdf",
+          "pdf_sha256": "05304452d9ca964a2b19adef47448e5274767e55bb920aac2e03c2eecf540f1c"
+        }
+      }
+    },
+    {
+      "uid": "b16e4c159791654187742d7ecc49f3cd",
+      "canonical_pdf_sha256": "500d7aab81babf8a7365c116f8274a169563e9d05d32300d1c21706b8a4a9421",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/b16e4c159791654187742d7ecc49f3cd.pdf",
+      "page_count": 2,
+      "variants": {
+        "clean": {
+          "pdf_file": "data/evaluation/ocr-retrieval/development/clean/b16e4c159791654187742d7ecc49f3cd.pdf",
+          "pdf_sha256": "a926a1a101bbfc944770f2c226dacf51c55b114822a78fc6b1be3a3c9022c9e9"
+        },
+        "degraded": {
+          "pdf_file": "data/evaluation/ocr-retrieval/development/degraded/b16e4c159791654187742d7ecc49f3cd.pdf",
+          "pdf_sha256": "fc35e90a57b42228c1f5db53f6f152482bfa8de0193fb1f231762651b5cfc1d8"
+        }
+      }
+    },
+    {
+      "uid": "c1ea2ff4819e824e68f44b1b60a1cd8a",
+      "canonical_pdf_sha256": "c3c9b323f32db5ba1d02fcf9ed6254d42b894ea8186f7c3c4cf84368275e2bd6",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/c1ea2ff4819e824e68f44b1b60a1cd8a.pdf",
+      "page_count": 1,
+      "variants": {
+        "clean": {
+          "pdf_file": "data/evaluation/ocr-retrieval/development/clean/c1ea2ff4819e824e68f44b1b60a1cd8a.pdf",
+          "pdf_sha256": "eceec001d10564aecea1b0b933880d2c5a9b360c8eb6abba58d96187115b1a4a"
+        },
+        "degraded": {
+          "pdf_file": "data/evaluation/ocr-retrieval/development/degraded/c1ea2ff4819e824e68f44b1b60a1cd8a.pdf",
+          "pdf_sha256": "9523e4ee7fe94168860e74fd5789a538d943b5dff1536171599816c0fc0735d5"
+        }
+      }
+    },
+    {
+      "uid": "e2018edc5002efd48cf4cd9a7f7040d3",
+      "canonical_pdf_sha256": "3660ae51b95604ca907a3527049b2233f3d38402e967bd38bbc9ebf47361c328",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/e2018edc5002efd48cf4cd9a7f7040d3.pdf",
+      "page_count": 1,
+      "variants": {
+        "clean": {
+          "pdf_file": "data/evaluation/ocr-retrieval/development/clean/e2018edc5002efd48cf4cd9a7f7040d3.pdf",
+          "pdf_sha256": "714625a6ff06ab6d01d18dc550ee56f345b4bb32545c067d3fe765ab216c53f9"
+        },
+        "degraded": {
+          "pdf_file": "data/evaluation/ocr-retrieval/development/degraded/e2018edc5002efd48cf4cd9a7f7040d3.pdf",
+          "pdf_sha256": "06d9dd73f0bfd2efc870c41cc18f501c85c9689bd16ada2fcc75293d523da595"
+        }
+      }
+    },
+    {
+      "uid": "eb2a796ed0547c324297fb88898b9d71",
+      "canonical_pdf_sha256": "eef0c83a184fbf1bd76ed91b876c1496b7d9b852f465b06aeafe56eb115bbcaf",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/eb2a796ed0547c324297fb88898b9d71.pdf",
+      "page_count": 2,
+      "variants": {
+        "clean": {
+          "pdf_file": "data/evaluation/ocr-retrieval/development/clean/eb2a796ed0547c324297fb88898b9d71.pdf",
+          "pdf_sha256": "83e59e923cb705586d5cc6b8f265abf95dbe2e1ffbb98215a45439b39c9d0fe2"
+        },
+        "degraded": {
+          "pdf_file": "data/evaluation/ocr-retrieval/development/degraded/eb2a796ed0547c324297fb88898b9d71.pdf",
+          "pdf_sha256": "4e564a0fbfd03b7ceac0c53a26f9afb9dc2afd258a9757c8241aab86a1383aeb"
+        }
+      }
+    },
+    {
+      "uid": "fc6df82265ed5153ed1fe3cdbc4e7b62",
+      "canonical_pdf_sha256": "b7f58d90a42fd1476c1e1a69a5bc7bef4a1fbd43aee972008a4610532636f8b9",
+      "source_pdf": "data/evaluation/tat-dqa/subset/dev/fc6df82265ed5153ed1fe3cdbc4e7b62.pdf",
+      "page_count": 1,
+      "variants": {
+        "clean": {
+          "pdf_file": "data/evaluation/ocr-retrieval/development/clean/fc6df82265ed5153ed1fe3cdbc4e7b62.pdf",
+          "pdf_sha256": "0f2ee5cf352f1778ab130a2bd6ff24b02402ed61697d36163e10be22d64c3958"
+        },
+        "degraded": {
+          "pdf_file": "data/evaluation/ocr-retrieval/development/degraded/fc6df82265ed5153ed1fe3cdbc4e7b62.pdf",
+          "pdf_sha256": "6ed729e7e189314a67884423a9190619fc21fa93f4875a93bf14ce9f8c2ed18f"
+        }
+      }
+    }
+  ]
+}
