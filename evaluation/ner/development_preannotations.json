@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "manifest": "evaluation/ner/development_manifest.json",
+  "manifest_sha256": "6a123b3e34f330aa403426c225f8a8e5d5e887893a5e9e9be2e1c76fe612111e",
+  "annotation": {
+    "status": "awaiting_human_review",
+    "candidate_outputs_viewed": false,
+    "annotator": "AI-assisted preannotation; human review required"
+  },
+  "passages": [
+    {
+      "id": "2b42cc42dc352351",
+      "annotation_status": "preannotated",
+      "entities": [
+        {"label": "PERSON", "start": 69, "end": 87, "text": "Nicholas Wilkinson"},
+        {"label": "ORGANIZATION", "start": 95, "end": 115, "text": "Willis Towers Watson"}
+      ]
+    },
+    {
+      "id": "1e7891ad1b659a3d",
+      "annotation_status": "preannotated",
+      "entities": []
+    },
+    {
+      "id": "5d03a1ad9817466f",
+      "annotation_status": "preannotated",
+      "entities": [
+        {"label": "ORGANIZATION", "start": 59, "end": 75, "text": "Navios Logistics"},
+        {"label": "LOCATION", "start": 147, "end": 155, "text": "Paraguay"},
+        {"label": "ORGANIZATION", "start": 294, "end": 311, "text": "Navios Containers"}
+      ]
+    },
+    {
+      "id": "01038762c8ad6414",
+      "annotation_status": "preannotated",
+      "entities": []
+    },
+    {
+      "id": "53f40c1acea3428d",
+      "annotation_status": "preannotated",
+      "entities": []
+    },
+    {
+      "id": "0260ea6072a88b78",
+      "annotation_status": "preannotated",
+      "entities": []
+    },
+    {
+      "id": "1b1c6bf5c3cc716b",
+      "annotation_status": "preannotated",
+      "entities": [
+        {"label": "ORGANIZATION", "start": 0, "end": 11, "text": "GasLog Ltd."},
+        {"label": "LOCATION", "start": 184, "end": 188, "text": "U.S."}
+      ]
+    },
+    {
+      "id": "5b342e3b6194cdc6",
+      "annotation_status": "preannotated",
+      "entities": []
+    },
+    {
+      "id": "1aab55aed17a2c88",
+      "annotation_status": "preannotated",
+      "entities": [
+        {"label": "ORGANIZATION", "start": 118, "end": 130, "text": "EIS Business"},
+        {"label": "ORGANIZATION", "start": 550, "end": 567, "text": "Horizon Clinicals"},
+        {"label": "ORGANIZATION", "start": 572, "end": 596, "text": "Series2000 Revenue Cycle"}
+      ]
+    },
+    {
+      "id": "0156ed1c49a161b9",
+      "annotation_status": "preannotated",
+      "entities": [
+        {"label": "ORGANIZATION", "start": 33, "end": 41, "text": "Netsmart"},
+        {"label": "ORGANIZATION", "start": 83, "end": 91, "text": "Netsmart"}
+      ]
+    },
+    {
+      "id": "8fd974984d51dae5",
+      "annotation_status": "preannotated",
+      "entities": []
+    },
+    {
+      "id": "107fb20e6be377dd",
+      "annotation_status": "preannotated",
+      "entities": []
+    },
+    {
+      "id": "8ed766cc151e6297",
+      "annotation_status": "preannotated",
+      "entities": []
+    },
+    {
+      "id": "14d6952411db04dd",
+      "annotation_status": "preannotated",
+      "entities": []
+    },
+    {
+      "id": "02069d55ccee5ae1",
+      "annotation_status": "preannotated",
+      "entities": [
+        {"label": "LOCATION", "start": 45, "end": 60, "text": "Cribbs Causeway"},
+        {"label": "LOCATION", "start": 65, "end": 83, "text": "Manchester Arndale"},
+        {"label": "LOCATION", "start": 828, "end": 835, "text": "England"}
+      ]
+    },
+    {
+      "id": "2ecf8b693726f95a",
+      "annotation_status": "preannotated",
+      "entities": [
+        {"label": "ORGANIZATION", "start": 73, "end": 80, "text": "Prozone"},
+        {"label": "ORGANIZATION", "start": 85, "end": 91, "text": "Empire"}
+      ]
+    },
+    {
+      "id": "a482b31148d02a44",
+      "annotation_status": "preannotated",
+      "entities": [
+        {"label": "ORGANIZATION", "start": 0, "end": 21, "text": "Auto Trader Group plc"}
+      ]
+    },
+    {
+      "id": "359c8065b3b40b85",
+      "annotation_status": "preannotated",
+      "entities": []
+    },
+    {
+      "id": "04bd0de3ba70a1c9",
+      "annotation_status": "preannotated",
+      "entities": [
+        {"label": "ORGANIZATION", "start": 22, "end": 56, "text": "Securities and Exchange Commission"},
+        {"label": "ORGANIZATION", "start": 572, "end": 579, "text": "Verizon"},
+        {"label": "ORGANIZATION", "start": 670, "end": 673, "text": "IRS"},
+        {"label": "ORGANIZATION", "start": 678, "end": 691, "text": "U.S. Treasury"}
+      ]
+    },
+    {
+      "id": "4ac9ee44a22bcf02",
+      "annotation_status": "preannotated",
+      "entities": []
+    },
+    {
+      "id": "1b49174a19df00e7",
+      "annotation_status": "preannotated",
+      "entities": []
+    },
+    {
+      "id": "071aa62262b2d951",
+      "annotation_status": "preannotated",
+      "entities": []
+    },
+    {
+      "id": "1579cb98d1250086",
+      "annotation_status": "preannotated",
+      "entities": []
+    },
+    {
+      "id": "7937ee0a2f72d542",
+      "annotation_status": "preannotated",
+      "entities": []
+    },
+    {
+      "id": "8d8163db3fcb3a1a",
+      "annotation_status": "preannotated",
+      "entities": []
+    },
+    {
+      "id": "13c8974bdaed8f5f",
+      "annotation_status": "preannotated",
+      "entities": []
+    },
+    {
+      "id": "01b588765a46a0ea",
+      "annotation_status": "preannotated",
+      "entities": []
+    },
+    {
+      "id": "19683c2be6fac75a",
+      "annotation_status": "preannotated",
+      "entities": [
+        {"label": "ORGANIZATION", "start": 154, "end": 162, "text": "LinkedIn"},
+        {"label": "ORGANIZATION", "start": 168, "end": 174, "text": "GitHub"}
+      ]
+    },
+    {
+      "id": "2e8bdc40f81f764e",
+      "annotation_status": "preannotated",
+      "entities": [
+        {"label": "ORGANIZATION", "start": 60, "end": 70, "text": "Peel Group"},
+        {"label": "ORGANIZATION", "start": 72, "end": 76, "text": "Peel"},
+        {"label": "PERSON", "start": 81, "end": 95, "text": "John Whittaker"},
+        {"label": "ORGANIZATION", "start": 143, "end": 162, "text": "intu properties plc"},
+        {"label": "ORGANIZATION", "start": 187, "end": 197, "text": "Peel Group"},
+        {"label": "ORGANIZATION", "start": 199, "end": 203, "text": "Peel"},
+        {"label": "ORGANIZATION", "start": 217, "end": 221, "text": "Peel"},
+        {"label": "ORGANIZATION", "start": 312, "end": 316, "text": "Peel"}
+      ]
+    },
+    {
+      "id": "16fbf013e802ea30",
+      "annotation_status": "preannotated",
+      "entities": [
+        {"label": "ORGANIZATION", "start": 27, "end": 31, "text": "Peel"}
+      ]
+    }
+  ]
+}

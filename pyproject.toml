@@ -25,6 +25,11 @@ ocr-eval = [
   "easyocr==1.7.2",
   "torchvision==0.27.0",
 ]
+ner-eval = [
+  "en-core-web-trf @ https://github.com/explosion/spacy-models/releases/download/en_core_web_trf-3.8.0/en_core_web_trf-3.8.0-py3-none-any.whl",
+  "spacy>=3.8,<4.0",
+  "transformers>=5.0,<6.0",
+]
 
 [build-system]
 requires = ["setuptools>=80"]
