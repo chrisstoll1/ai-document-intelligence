@@ -7,10 +7,12 @@ requires-python = ">=3.11,<3.14"
 dependencies = [
   "chromadb>=1.5,<2.0",
   "fastapi>=0.116,<1.0",
+  "en-core-web-trf @ https://github.com/explosion/spacy-models/releases/download/en_core_web_trf-3.8.0/en_core_web_trf-3.8.0-py3-none-any.whl",
   "pdfplumber>=0.11,<1.0",
   "python-multipart>=0.0.20,<1.0",
   "pytesseract>=0.3.13,<1.0",
   "sentence-transformers>=5.1,<6.0",
+  "spacy>=3.8,<4.0",
   "uvicorn[standard]>=0.35,<1.0",
 ]
 
@@ -26,8 +28,6 @@ ocr-eval = [
   "torchvision==0.27.0",
 ]
 ner-eval = [
-  "en-core-web-trf @ https://github.com/explosion/spacy-models/releases/download/en_core_web_trf-3.8.0/en_core_web_trf-3.8.0-py3-none-any.whl",
-  "spacy>=3.8,<4.0",
   "transformers>=5.0,<6.0",
 ]
 

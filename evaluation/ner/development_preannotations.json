@@ -3,9 +3,10 @@
   "manifest": "evaluation/ner/development_manifest.json",
   "manifest_sha256": "6a123b3e34f330aa403426c225f8a8e5d5e887893a5e9e9be2e1c76fe612111e",
   "annotation": {
-    "status": "awaiting_human_review",
+    "status": "reviewed",
     "candidate_outputs_viewed": false,
-    "annotator": "AI-assisted preannotation; human review required"
+    "annotator": "AI-assisted preannotation reviewed by project owner",
+    "reviewed_at": "2026-08-09"
   },
   "passages": [
     {

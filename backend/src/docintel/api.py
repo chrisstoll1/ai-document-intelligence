@@ -16,7 +16,7 @@ from docintel.documents import DocumentCatalog, DocumentRecord, DocumentReposito
 from docintel.extraction import ExtractionRepository, OcrUnavailableError, PdfExtractionError, PdfExtractor
 from docintel.indexing import ChromaSemanticIndex
 from docintel.ingestion import IngestionService
-from docintel.metadata import MetadataRepository
+from docintel.metadata import MetadataRepository, SpacyEntityExtractor
 from docintel.search import HybridSearchService
 from docintel.storage import InvalidPdfError, PdfStore, PdfTooLargeError
 
@@ -93,6 +93,7 @@ def build_services(settings: Settings) -> AppServices:
         query_prompt=settings.embedding_query_prompt,
     )
     metadata = MetadataRepository(settings.database_path)
+    metadata_extractor = SpacyEntityExtractor(settings.ner_model, settings.ner_model_version)
     return AppServices(
         ingestion=IngestionService(
             DocumentCatalog(pdf_store, documents),
@@ -101,6 +102,8 @@ def build_services(settings: Settings) -> AppServices:
             ExtractionRepository(settings.database_path),
             chunks,
             semantic_index,
+            metadata,
+            metadata_extractor,
         ),
         documents=documents,
         pdf_store=pdf_store,

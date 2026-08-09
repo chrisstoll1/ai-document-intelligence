@@ -2,7 +2,7 @@ import pytest
 from docintel.db import initialize_database
 from docintel.documents import DocumentRepository
 from docintel.extraction import ExtractedBlock, ExtractedPage, ExtractionRepository
-from docintel.metadata import EntityMention, MetadataRepository, normalize_entity_text
+from docintel.metadata import EntityMention, MetadataRepository, PageText, SpacyEntityExtractor, normalize_entity_text
 from docintel.storage import StoredPdf
 
 
@@ -73,3 +73,36 @@ def test_metadata_failure_does_not_change_core_document_status(tmp_path) -> None
     assert document.status == "ready"
     assert document.metadata_status == "failed"
     assert document.metadata_error == "model unavailable"
+
+
+def test_spacy_extractor_maps_evaluated_labels_and_preserves_offsets() -> None:
+    class Entity:
+        def __init__(self, label, text, start, end) -> None:
+            self.label_ = label
+            self.text = text
+            self.start_char = start
+            self.end_char = end
+
+    class Pipeline:
+        def __call__(self, text):
+            return type(
+                "Document",
+                (),
+                {
+                    "ents": [
+                        Entity("PERSON", "Alice", 0, 5),
+                        Entity("ORG", "Example Ltd", 13, 24),
+                        Entity("DATE", "2020", 28, 32),
+                    ]
+                },
+            )()
+
+    extractor = SpacyEntityExtractor(pipeline=Pipeline())
+
+    mentions = extractor.extract([PageText(1, "Alice joined Example Ltd in 2020.")])
+
+    assert mentions == [
+        EntityMention(1, "PERSON", "Alice", 0, 5),
+        EntityMention(1, "ORGANIZATION", "Example Ltd", 13, 24),
+    ]
+    assert extractor.version == "spacy:en_core_web_trf@3.8.0:labels-v1:normalization-v1"

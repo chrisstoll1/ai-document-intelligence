@@ -21,3 +21,6 @@ The first development baseline is recorded in:
 - `ocr_development_candidate_comparison.md`: Tesseract/EasyOCR clean and degraded development comparison.
 - `ocr_development_candidate_comparison.json`: complete OCR environment, metrics, predictions, and timings.
 - `../config/ocr_v1.json`: selected Tesseract version, trained-data checksum, routing, and benchmark evidence.
+- `ner_development_candidate_comparison.md`: reviewed spaCy/BERT NER comparison and selection decision.
+- `ner_development_candidate_comparison.json`: complete NER environment, metrics, predictions, and timings.
+- `../config/ner_v1.json`: selected spaCy model, evaluated taxonomy, version identity, and evidence.

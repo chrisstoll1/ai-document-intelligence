@@ -56,9 +56,11 @@ def merge_annotations(manifest: dict, annotations: dict) -> dict:
 
     merged = copy.deepcopy(manifest)
     merged["annotation"] = {**merged.get("annotation", {}), **annotations.get("annotation", {})}
+    annotation_set_reviewed = merged["annotation"].get("status") == "reviewed"
     for passage in merged["passages"]:
         annotation = by_id[passage["id"]]
-        passage["annotation_status"] = annotation["annotation_status"]
+        passage_status = annotation["annotation_status"]
+        passage["annotation_status"] = "reviewed" if annotation_set_reviewed else passage_status
         passage["entities"] = copy.deepcopy(annotation.get("entities", []))
     validate_annotations(merged)
     return merged

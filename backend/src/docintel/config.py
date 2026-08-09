@@ -8,6 +8,8 @@ DEFAULT_EMBEDDING_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 DEFAULT_EMBEDDING_REVISION = "1110a243fdf4706b3f48f1d95db1a4f5529b4d41"
 DEFAULT_CHUNK_MAX_WORDS = 120
 DEFAULT_CHUNK_OVERLAP = 20
+DEFAULT_NER_MODEL = "en_core_web_trf"
+DEFAULT_NER_MODEL_VERSION = "3.8.0"
 
 
 @dataclass(frozen=True)
@@ -18,6 +20,8 @@ class Settings:
     embedding_query_prompt: str | None = None
     chunk_max_words: int = DEFAULT_CHUNK_MAX_WORDS
     chunk_overlap: int = DEFAULT_CHUNK_OVERLAP
+    ner_model: str = DEFAULT_NER_MODEL
+    ner_model_version: str = DEFAULT_NER_MODEL_VERSION
 
     @property
     def database_path(self) -> Path:
@@ -32,4 +36,6 @@ class Settings:
             embedding_query_prompt=os.environ.get("DOCINTEL_EMBEDDING_QUERY_PROMPT"),
             chunk_max_words=int(os.environ.get("DOCINTEL_CHUNK_MAX_WORDS", DEFAULT_CHUNK_MAX_WORDS)),
             chunk_overlap=int(os.environ.get("DOCINTEL_CHUNK_OVERLAP", DEFAULT_CHUNK_OVERLAP)),
+            ner_model=os.environ.get("DOCINTEL_NER_MODEL", DEFAULT_NER_MODEL),
+            ner_model_version=os.environ.get("DOCINTEL_NER_MODEL_VERSION", DEFAULT_NER_MODEL_VERSION),
         )

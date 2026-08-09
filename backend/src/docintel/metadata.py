@@ -49,6 +49,55 @@ class EntityExtractor(Protocol):
     def extract(self, pages: Sequence[PageText]) -> Sequence[EntityMention]: ...
 
 
+class SpacyEntityExtractor:
+    LABEL_MAP = {
+        "PERSON": "PERSON",
+        "ORG": "ORGANIZATION",
+        "GPE": "LOCATION",
+        "LOC": "LOCATION",
+        "FAC": "LOCATION",
+    }
+
+    def __init__(
+        self,
+        model_name: str = "en_core_web_trf",
+        model_version: str = "3.8.0",
+        *,
+        pipeline=None,
+    ) -> None:
+        self.model_name = model_name
+        self.model_version = model_version
+        self.version = f"spacy:{model_name}@{model_version}:labels-v1:normalization-v1"
+        self._pipeline = pipeline
+
+    def extract(self, pages: Sequence[PageText]) -> list[EntityMention]:
+        pipeline = self._get_pipeline()
+        mentions = []
+        for page in pages:
+            document = pipeline(page.text)
+            mentions.extend(
+                EntityMention(
+                    page_number=page.page_number,
+                    label=self.LABEL_MAP[entity.label_],
+                    text=entity.text,
+                    char_start=entity.start_char,
+                    char_end=entity.end_char,
+                )
+                for entity in document.ents
+                if entity.label_ in self.LABEL_MAP
+            )
+        return mentions
+
+    def _get_pipeline(self):
+        if self._pipeline is None:
+            try:
+                import spacy
+            except ImportError as error:
+                raise RuntimeError("The selected spaCy NER runtime is not installed") from error
+            self._pipeline = spacy.load(self.model_name)
+        return self._pipeline
+
+
 class MetadataRepository:
     def __init__(self, database_path: Path) -> None:
         self.database_path = database_path

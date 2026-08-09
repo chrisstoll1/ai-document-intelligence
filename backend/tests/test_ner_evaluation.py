@@ -83,6 +83,9 @@ def test_merge_annotations_requires_exact_passage_coverage() -> None:
 
     assert merged["annotation"]["status"] == "awaiting_human_review"
     assert merged["passages"][0]["entities"][0]["text"] == "Alice"
+    annotations["annotation"]["status"] = "reviewed"
+    reviewed = merge_annotations(manifest, annotations)
+    validate_annotations(reviewed, require_reviewed=True)
     with pytest.raises(ValueError, match="each manifest passage"):
         merge_annotations(manifest, {"passages": []})
 

@@ -4,6 +4,7 @@ from pathlib import Path
 
 from docintel.config import Settings
 from docintel.extraction import MINIMUM_DIRECT_CHARACTERS, OCR_DPI
+from docintel.metadata import SpacyEntityExtractor
 from docintel.search import KEYWORD_WEIGHT, RRF_K, SEMANTIC_WEIGHT
 
 
@@ -14,6 +15,8 @@ def test_settings_reads_data_directory_from_environment(monkeypatch) -> None:
     monkeypatch.setenv("DOCINTEL_EMBEDDING_QUERY_PROMPT", "query prompt: ")
     monkeypatch.setenv("DOCINTEL_CHUNK_MAX_WORDS", "80")
     monkeypatch.setenv("DOCINTEL_CHUNK_OVERLAP", "15")
+    monkeypatch.setenv("DOCINTEL_NER_MODEL", "custom-ner")
+    monkeypatch.setenv("DOCINTEL_NER_MODEL_VERSION", "model-version")
 
     settings = Settings.from_environment()
 
@@ -24,6 +27,8 @@ def test_settings_reads_data_directory_from_environment(monkeypatch) -> None:
     assert settings.embedding_query_prompt == "query prompt: "
     assert settings.chunk_max_words == 80
     assert settings.chunk_overlap == 15
+    assert settings.ner_model == "custom-ner"
+    assert settings.ner_model_version == "model-version"
 
 
 def test_frozen_retrieval_configuration_matches_application_defaults() -> None:
@@ -54,3 +59,16 @@ def test_frozen_ocr_configuration_matches_application_defaults() -> None:
     assert frozen["selection_evidence"]["benchmark_manifest_sha256"] == hashlib.sha256(benchmark_bytes).hexdigest()
     assert frozen["selection_evidence"]["cer"] == result["engines"]["tesseract"]["metrics"]["overall"]["cer"]
     assert frozen["selection_evidence"]["wer"] == result["engines"]["tesseract"]["metrics"]["overall"]["wer"]
+
+
+def test_frozen_ner_configuration_matches_application_defaults() -> None:
+    root = Path(__file__).resolve().parents[2]
+    frozen = json.loads((root / "evaluation" / "config" / "ner_v1.json").read_text(encoding="utf-8"))
+    result = json.loads((root / frozen["selection_evidence"]["result"]).read_text(encoding="utf-8"))
+    settings = Settings(Path("data"))
+    extractor = SpacyEntityExtractor(settings.ner_model, settings.ner_model_version, pipeline=object())
+
+    assert frozen["selected_model"]["package"] == settings.ner_model
+    assert frozen["selected_model"]["package_version"] == settings.ner_model_version
+    assert frozen["selected_model"]["component_version"] == extractor.version
+    assert frozen["selection_evidence"]["strict_f1"] == result["engines"]["spacy"]["metrics"]["strict"]["overall"]["f1"]

@@ -22,7 +22,7 @@ The script selects one general passage and one proper-name challenge passage per
 
 Annotations use exact character offsets into the committed normalized text. Every repeated mention is annotated, spans cannot overlap, and all passages require review before candidate evaluation. Candidate output must not be viewed while creating or reviewing the reference labels.
 
-`development_preannotations.json` contains AI-assisted candidate-blind labels separated from the generated passage manifest. Its `awaiting_human_review` status is intentional: these spans are not evaluation ground truth until a human checks the proposed labels, confirms negative passages, changes every passage to `reviewed`, and changes the top-level status to `reviewed`.
+`development_preannotations.json` contains AI-assisted candidate-blind labels separated from the generated passage manifest. The project owner reviewed and approved the complete annotation set before either candidate was run. Individual entries retain `preannotated` provenance; the reviewed set-level status promotes them to reviewed references when the evaluator merges the files.
 
 Validate the manifest/preannotation link, offsets, and current review status without loading either model:
 
@@ -38,6 +38,8 @@ The full evaluator refuses to load either candidate until the top-level annotati
 ```
 
 Strict exact-span-and-label precision, recall, and F1 are primary. Same-label overlap metrics are diagnostic only. The result also records per-label and per-stratum metrics, initialization, warm-up, sequential CPU latency, failures, package versions, model identities, and every prediction.
+
+The recorded comparison is available in `../results/ner_development_candidate_comparison.md` with complete predictions and timings in the matching JSON file. spaCy `en_core_web_trf` was selected and its evaluated mapping and component identity are frozen in `../config/ner_v1.json`.
 
 ## Limitations
 

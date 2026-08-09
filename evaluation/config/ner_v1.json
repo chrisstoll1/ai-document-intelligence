@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "configuration_id": "ner-v1",
+  "selected_model": {
+    "framework": "spaCy",
+    "framework_version": "3.8.15",
+    "package": "en_core_web_trf",
+    "package_version": "3.8.0",
+    "package_url": "https://github.com/explosion/spacy-models/releases/download/en_core_web_trf-3.8.0/en_core_web_trf-3.8.0-py3-none-any.whl",
+    "license": "MIT",
+    "component_version": "spacy:en_core_web_trf@3.8.0:labels-v1:normalization-v1"
+  },
+  "taxonomy": {
+    "PERSON": ["PERSON"],
+    "ORGANIZATION": ["ORG"],
+    "LOCATION": ["GPE", "LOC", "FAC"]
+  },
+  "selection_evidence": {
+    "split": "development",
+    "benchmark": "evaluation/ner/development_manifest.json",
+    "benchmark_manifest_sha256": "6a123b3e34f330aa403426c225f8a8e5d5e887893a5e9e9be2e1c76fe612111e",
+    "annotations": "evaluation/ner/development_preannotations.json",
+    "annotations_sha256": "7f5b3cb9c38f59d79dabb944395cf865075a4c794e30d3f2a18ea5caeac44ebb",
+    "result": "evaluation/results/ner_development_candidate_comparison.json",
+    "passages": 30,
+    "mentions": 33,
+    "strict_precision": 0.7,
+    "strict_recall": 0.8484848484848485,
+    "strict_f1": 0.7671232876712328,
+    "mean_latency_ms": 35.32801666665364,
+    "failures": 0,
+    "alternative": {
+      "model": "dslim/bert-base-NER",
+      "revision": "d1a3e8f13f8c3566299d95fcfc9a8d2382a9affc",
+      "license": "MIT",
+      "strict_precision": 0.4576271186440678,
+      "strict_recall": 0.8181818181818182,
+      "strict_f1": 0.5869565217391305,
+      "mean_latency_ms": 24.496753333323795,
+      "failures": 0
+    }
+  },
+  "limitations": [
+    "The reviewed development benchmark contains only 33 mentions.",
+    "PERSON has two references and LOCATION has five, so their per-label metrics are descriptive only.",
+    "The financial-report corpus and proper-name challenge stratum limit external validity.",
+    "The selected model does not perform entity linking or alias resolution.",
+    "Metadata-assisted retrieval remains to be evaluated separately from retrieval-v1."
+  ]
+}

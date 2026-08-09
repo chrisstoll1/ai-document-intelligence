@@ -1,0 +1,1753 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-09T15:31:01.938599+00:00",
+  "split": "development",
+  "manifest_sha256": "6a123b3e34f330aa403426c225f8a8e5d5e887893a5e9e9be2e1c76fe612111e",
+  "annotations_sha256": "7f5b3cb9c38f59d79dabb944395cf865075a4c794e30d3f2a18ea5caeac44ebb",
+  "corpus": {
+    "passages": 30,
+    "mentions": 33,
+    "mentions_by_label": {
+      "LOCATION": 5,
+      "ORGANIZATION": 26,
+      "PERSON": 2
+    }
+  },
+  "protocol": {
+    "primary": "Strict exact-span-and-label micro precision, recall, and F1",
+    "secondary": "Same-label overlap precision, recall, and F1",
+    "latency": "Warm model, sequential CPU inference; initialization and warm-up excluded"
+  },
+  "environment": {
+    "python": "3.11.2",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "processor": "AMD64 Family 26 Model 68 Stepping 0, AuthenticAMD",
+    "packages": {
+      "en-core-web-trf": "3.8.0",
+      "spacy": "3.8.15",
+      "spacy-curated-transformers": "0.3.1",
+      "torch": "2.12.0",
+      "transformers": "5.12.0"
+    }
+  },
+  "models": {
+    "spacy": {
+      "package": "en_core_web_trf",
+      "version": "3.8.0"
+    },
+    "bert": {
+      "repository": "dslim/bert-base-NER",
+      "revision": "d1a3e8f13f8c3566299d95fcfc9a8d2382a9affc"
+    }
+  },
+  "engines": {
+    "spacy": {
+      "initialization_seconds": 4.255339300000287,
+      "warmup_seconds": 0.06916460000002189,
+      "metrics": {
+        "strict": {
+          "overall": {
+            "reference": 33,
+            "predicted": 40,
+            "true_positives": 28,
+            "false_positives": 12,
+            "false_negatives": 5,
+            "precision": 0.7,
+            "recall": 0.8484848484848485,
+            "f1": 0.7671232876712328
+          },
+          "by_label": {
+            "PERSON": {
+              "reference": 2,
+              "predicted": 2,
+              "true_positives": 2,
+              "false_positives": 0,
+              "false_negatives": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "ORGANIZATION": {
+              "reference": 26,
+              "predicted": 34,
+              "true_positives": 22,
+              "false_positives": 12,
+              "false_negatives": 4,
+              "precision": 0.6470588235294118,
+              "recall": 0.8461538461538461,
+              "f1": 0.7333333333333334
+            },
+            "LOCATION": {
+              "reference": 5,
+              "predicted": 4,
+              "true_positives": 4,
+              "false_positives": 0,
+              "false_negatives": 1,
+              "precision": 1.0,
+              "recall": 0.8,
+              "f1": 0.888888888888889
+            }
+          }
+        },
+        "relaxed_overlap": {
+          "overall": {
+            "reference": 33,
+            "predicted": 40,
+            "true_positives": 31,
+            "false_positives": 9,
+            "false_negatives": 2,
+            "precision": 0.775,
+            "recall": 0.9393939393939394,
+            "f1": 0.8493150684931509
+          },
+          "by_label": {
+            "PERSON": {
+              "reference": 2,
+              "predicted": 2,
+              "true_positives": 2,
+              "false_positives": 0,
+              "false_negatives": 0,
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0
+            },
+            "ORGANIZATION": {
+              "reference": 26,
+              "predicted": 34,
+              "true_positives": 25,
+              "false_positives": 9,
+              "false_negatives": 1,
+              "precision": 0.7352941176470589,
+              "recall": 0.9615384615384616,
+              "f1": 0.8333333333333333
+            },
+            "LOCATION": {
+              "reference": 5,
+              "predicted": 4,
+              "true_positives": 4,
+              "false_positives": 0,
+              "false_negatives": 1,
+              "precision": 1.0,
+              "recall": 0.8,
+              "f1": 0.888888888888889
+            }
+          }
+        },
+        "by_stratum": {
+          "general": {
+            "reference": 7,
+            "predicted": 12,
+            "true_positives": 7,
+            "false_positives": 5,
+            "false_negatives": 0,
+            "precision": 0.5833333333333334,
+            "recall": 1.0,
+            "f1": 0.7368421052631579
+          },
+          "proper_name_challenge": {
+            "reference": 26,
+            "predicted": 28,
+            "true_positives": 21,
+            "false_positives": 7,
+            "false_negatives": 5,
+            "precision": 0.75,
+            "recall": 0.8076923076923077,
+            "f1": 0.7777777777777779
+          }
+        },
+        "latency": {
+          "mean_ms": 35.32801666665364,
+          "p95_ms": 108.41849999997066
+        },
+        "failures": 0
+      },
+      "passages": [
+        {
+          "id": "2b42cc42dc352351",
+          "stratum": "proper_name_challenge",
+          "latency_ms": 25.856300000214105,
+          "references": [
+            {
+              "label": "PERSON",
+              "start": 69,
+              "end": 87,
+              "text": "Nicholas Wilkinson"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 95,
+              "end": 115,
+              "text": "Willis Towers Watson"
+            }
+          ],
+          "predictions": [
+            {
+              "label": "PERSON",
+              "start": 69,
+              "end": 87,
+              "text": "Nicholas Wilkinson"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 89,
+              "end": 93,
+              "text": "FIAA"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 95,
+              "end": 115,
+              "text": "Willis Towers Watson"
+            }
+          ]
+        },
+        {
+          "id": "1e7891ad1b659a3d",
+          "stratum": "general",
+          "latency_ms": 20.093599999654543,
+          "references": [],
+          "predictions": []
+        },
+        {
+          "id": "5d03a1ad9817466f",
+          "stratum": "proper_name_challenge",
+          "latency_ms": 40.15140000001338,
+          "references": [
+            {
+              "label": "ORGANIZATION",
+              "start": 59,
+              "end": 75,
+              "text": "Navios Logistics"
+            },
+            {
+              "label": "LOCATION",
+              "start": 147,
+              "end": 155,
+              "text": "Paraguay"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 294,
+              "end": 311,
+              "text": "Navios Containers"
+            }
+          ],
+          "predictions": [
+            {
+              "label": "LOCATION",
+              "start": 147,
+              "end": 155,
+              "text": "Paraguay"
+            }
+          ]
+        },
+        {
+          "id": "01038762c8ad6414",
+          "stratum": "general",
+          "latency_ms": 15.662899999824731,
+          "references": [],
+          "predictions": []
+        },
+        {
+          "id": "53f40c1acea3428d",
+          "stratum": "proper_name_challenge",
+          "latency_ms": 108.74990000002072,
+          "references": [],
+          "predictions": [
+            {
+              "label": "ORGANIZATION",
+              "start": 21,
+              "end": 43,
+              "text": "the Board of Directors"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 208,
+              "end": 230,
+              "text": "our Board of Directors"
+            }
+          ]
+        },
+        {
+          "id": "0260ea6072a88b78",
+          "stratum": "general",
+          "latency_ms": 17.945700000382203,
+          "references": [],
+          "predictions": []
+        },
+        {
+          "id": "1b1c6bf5c3cc716b",
+          "stratum": "proper_name_challenge",
+          "latency_ms": 34.32829999974274,
+          "references": [
+            {
+              "label": "ORGANIZATION",
+              "start": 0,
+              "end": 11,
+              "text": "GasLog Ltd."
+            },
+            {
+              "label": "LOCATION",
+              "start": 184,
+              "end": 188,
+              "text": "U.S."
+            }
+          ],
+          "predictions": [
+            {
+              "label": "ORGANIZATION",
+              "start": 0,
+              "end": 11,
+              "text": "GasLog Ltd."
+            }
+          ]
+        },
+        {
+          "id": "5b342e3b6194cdc6",
+          "stratum": "general",
+          "latency_ms": 15.506400000049325,
+          "references": [],
+          "predictions": []
+        },
+        {
+          "id": "1aab55aed17a2c88",
+          "stratum": "proper_name_challenge",
+          "latency_ms": 92.00379999992947,
+          "references": [
+            {
+              "label": "ORGANIZATION",
+              "start": 118,
+              "end": 130,
+              "text": "EIS Business"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 550,
+              "end": 567,
+              "text": "Horizon Clinicals"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 572,
+              "end": 596,
+              "text": "Series2000 Revenue Cycle"
+            }
+          ],
+          "predictions": [
+            {
+              "label": "ORGANIZATION",
+              "start": 114,
+              "end": 130,
+              "text": "the EIS Business"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 550,
+              "end": 567,
+              "text": "Horizon Clinicals"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 572,
+              "end": 596,
+              "text": "Series2000 Revenue Cycle"
+            }
+          ]
+        },
+        {
+          "id": "0156ed1c49a161b9",
+          "stratum": "general",
+          "latency_ms": 21.800699999857898,
+          "references": [
+            {
+              "label": "ORGANIZATION",
+              "start": 33,
+              "end": 41,
+              "text": "Netsmart"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 83,
+              "end": 91,
+              "text": "Netsmart"
+            }
+          ],
+          "predictions": [
+            {
+              "label": "ORGANIZATION",
+              "start": 33,
+              "end": 41,
+              "text": "Netsmart"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 83,
+              "end": 91,
+              "text": "Netsmart"
+            }
+          ]
+        },
+        {
+          "id": "8fd974984d51dae5",
+          "stratum": "proper_name_challenge",
+          "latency_ms": 16.560500000196043,
+          "references": [],
+          "predictions": []
+        },
+        {
+          "id": "107fb20e6be377dd",
+          "stratum": "general",
+          "latency_ms": 16.268700000182434,
+          "references": [],
+          "predictions": []
+        },
+        {
+          "id": "8ed766cc151e6297",
+          "stratum": "proper_name_challenge",
+          "latency_ms": 24.408199999925273,
+          "references": [],
+          "predictions": []
+        },
+        {
+          "id": "14d6952411db04dd",
+          "stratum": "general",
+          "latency_ms": 25.715799999943556,
+          "references": [],
+          "predictions": []
+        },
+        {
+          "id": "02069d55ccee5ae1",
+          "stratum": "proper_name_challenge",
+          "latency_ms": 107.62640000029933,
+          "references": [
+            {
+              "label": "LOCATION",
+              "start": 45,
+              "end": 60,
+              "text": "Cribbs Causeway"
+            },
+            {
+              "label": "LOCATION",
+              "start": 65,
+              "end": 83,
+              "text": "Manchester Arndale"
+            },
+            {
+              "label": "LOCATION",
+              "start": 828,
+              "end": 835,
+              "text": "England"
+            }
+          ],
+          "predictions": [
+            {
+              "label": "LOCATION",
+              "start": 45,
+              "end": 60,
+              "text": "Cribbs Causeway"
+            },
+            {
+              "label": "LOCATION",
+              "start": 65,
+              "end": 83,
+              "text": "Manchester Arndale"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 127,
+              "end": 132,
+              "text": "Group"
+            },
+            {
+              "label": "LOCATION",
+              "start": 828,
+              "end": 835,
+              "text": "England"
+            }
+          ]
+        },
+        {
+          "id": "2ecf8b693726f95a",
+          "stratum": "general",
+          "latency_ms": 85.85210000001098,
+          "references": [
+            {
+              "label": "ORGANIZATION",
+              "start": 73,
+              "end": 80,
+              "text": "Prozone"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 85,
+              "end": 91,
+              "text": "Empire"
+            }
+          ],
+          "predictions": [
+            {
+              "label": "ORGANIZATION",
+              "start": 50,
+              "end": 55,
+              "text": "Group"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 73,
+              "end": 80,
+              "text": "Prozone"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 85,
+              "end": 91,
+              "text": "Empire"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 125,
+              "end": 157,
+              "text": "IAS 28 Investments in Associates"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 162,
+              "end": 176,
+              "text": "Joint Ventures"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 368,
+              "end": 373,
+              "text": "Group"
+            }
+          ]
+        },
+        {
+          "id": "a482b31148d02a44",
+          "stratum": "proper_name_challenge",
+          "latency_ms": 14.853499999844644,
+          "references": [
+            {
+              "label": "ORGANIZATION",
+              "start": 0,
+              "end": 21,
+              "text": "Auto Trader Group plc"
+            }
+          ],
+          "predictions": [
+            {
+              "label": "ORGANIZATION",
+              "start": 0,
+              "end": 21,
+              "text": "Auto Trader Group plc"
+            }
+          ]
+        },
+        {
+          "id": "359c8065b3b40b85",
+          "stratum": "general",
+          "latency_ms": 18.103200000041397,
+          "references": [],
+          "predictions": []
+        },
+        {
+          "id": "04bd0de3ba70a1c9",
+          "stratum": "proper_name_challenge",
+          "latency_ms": 108.41849999997066,
+          "references": [
+            {
+              "label": "ORGANIZATION",
+              "start": 22,
+              "end": 56,
+              "text": "Securities and Exchange Commission"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 572,
+              "end": 579,
+              "text": "Verizon"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 670,
+              "end": 673,
+              "text": "IRS"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 678,
+              "end": 691,
+              "text": "U.S. Treasury"
+            }
+          ],
+          "predictions": [
+            {
+              "label": "ORGANIZATION",
+              "start": 22,
+              "end": 56,
+              "text": "Securities and Exchange Commission"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 572,
+              "end": 579,
+              "text": "Verizon"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 670,
+              "end": 673,
+              "text": "IRS"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 678,
+              "end": 691,
+              "text": "U.S. Treasury"
+            }
+          ]
+        },
+        {
+          "id": "4ac9ee44a22bcf02",
+          "stratum": "general",
+          "latency_ms": 18.566199999895616,
+          "references": [],
+          "predictions": []
+        },
+        {
+          "id": "1b49174a19df00e7",
+          "stratum": "proper_name_challenge",
+          "latency_ms": 17.153999999663938,
+          "references": [],
+          "predictions": []
+        },
+        {
+          "id": "071aa62262b2d951",
+          "stratum": "general",
+          "latency_ms": 17.36220000020694,
+          "references": [],
+          "predictions": []
+        },
+        {
+          "id": "1579cb98d1250086",
+          "stratum": "proper_name_challenge",
+          "latency_ms": 21.10869999978604,
+          "references": [],
+          "predictions": []
+        },
+        {
+          "id": "7937ee0a2f72d542",
+          "stratum": "general",
+          "latency_ms": 18.117000000074768,
+          "references": [],
+          "predictions": []
+        },
+        {
+          "id": "8d8163db3fcb3a1a",
+          "stratum": "proper_name_challenge",
+          "latency_ms": 43.99490000014339,
+          "references": [],
+          "predictions": []
+        },
+        {
+          "id": "13c8974bdaed8f5f",
+          "stratum": "general",
+          "latency_ms": 19.42479999979696,
+          "references": [],
+          "predictions": []
+        },
+        {
+          "id": "01b588765a46a0ea",
+          "stratum": "proper_name_challenge",
+          "latency_ms": 15.938500000174827,
+          "references": [],
+          "predictions": []
+        },
+        {
+          "id": "19683c2be6fac75a",
+          "stratum": "general",
+          "latency_ms": 26.90600000005361,
+          "references": [
+            {
+              "label": "ORGANIZATION",
+              "start": 154,
+              "end": 162,
+              "text": "LinkedIn"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 168,
+              "end": 174,
+              "text": "GitHub"
+            }
+          ],
+          "predictions": [
+            {
+              "label": "ORGANIZATION",
+              "start": 146,
+              "end": 152,
+              "text": "Gaming"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 154,
+              "end": 162,
+              "text": "LinkedIn"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 168,
+              "end": 174,
+              "text": "GitHub"
+            }
+          ]
+        },
+        {
+          "id": "2e8bdc40f81f764e",
+          "stratum": "proper_name_challenge",
+          "latency_ms": 34.3923000000359,
+          "references": [
+            {
+              "label": "ORGANIZATION",
+              "start": 60,
+              "end": 70,
+              "text": "Peel Group"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 72,
+              "end": 76,
+              "text": "Peel"
+            },
+            {
+              "label": "PERSON",
+              "start": 81,
+              "end": 95,
+              "text": "John Whittaker"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 143,
+              "end": 162,
+              "text": "intu properties plc"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 187,
+              "end": 197,
+              "text": "Peel Group"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 199,
+              "end": 203,
+              "text": "Peel"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 217,
+              "end": 221,
+              "text": "Peel"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 312,
+              "end": 316,
+              "text": "Peel"
+            }
+          ],
+          "predictions": [
+            {
+              "label": "ORGANIZATION",
+              "start": 60,
+              "end": 70,
+              "text": "Peel Group"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 72,
+              "end": 76,
+              "text": "Peel"
+            },
+            {
+              "label": "PERSON",
+              "start": 81,
+              "end": 95,
+              "text": "John Whittaker"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 143,
+              "end": 162,
+              "text": "intu properties plc"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 183,
+              "end": 197,
+              "text": "the Peel Group"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 199,
+              "end": 203,
+              "text": "Peel"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 217,
+              "end": 221,
+              "text": "Peel"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 291,
+              "end": 296,
+              "text": "Group"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 312,
+              "end": 316,
+              "text": "Peel"
+            }
+          ]
+        },
+        {
+          "id": "16fbf013e802ea30",
+          "stratum": "general",
+          "latency_ms": 16.969999999673746,
+          "references": [
+            {
+              "label": "ORGANIZATION",
+              "start": 27,
+              "end": 31,
+              "text": "Peel"
+            }
+          ],
+          "predictions": [
+            {
+              "label": "ORGANIZATION",
+              "start": 27,
+              "end": 31,
+              "text": "Peel"
+            }
+          ]
+        }
+      ]
+    },
+    "bert": {
+      "initialization_seconds": 7.956427399999939,
+      "warmup_seconds": 0.05803939999987051,
+      "metrics": {
+        "strict": {
+          "overall": {
+            "reference": 33,
+            "predicted": 59,
+            "true_positives": 27,
+            "false_positives": 32,
+            "false_negatives": 6,
+            "precision": 0.4576271186440678,
+            "recall": 0.8181818181818182,
+            "f1": 0.5869565217391305
+          },
+          "by_label": {
+            "PERSON": {
+              "reference": 2,
+              "predicted": 3,
+              "true_positives": 2,
+              "false_positives": 1,
+              "false_negatives": 0,
+              "precision": 0.6666666666666666,
+              "recall": 1.0,
+              "f1": 0.8
+            },
+            "ORGANIZATION": {
+              "reference": 26,
+              "predicted": 53,
+              "true_positives": 22,
+              "false_positives": 31,
+              "false_negatives": 4,
+              "precision": 0.41509433962264153,
+              "recall": 0.8461538461538461,
+              "f1": 0.5569620253164558
+            },
+            "LOCATION": {
+              "reference": 5,
+              "predicted": 3,
+              "true_positives": 3,
+              "false_positives": 0,
+              "false_negatives": 2,
+              "precision": 1.0,
+              "recall": 0.6,
+              "f1": 0.7499999999999999
+            }
+          }
+        },
+        "relaxed_overlap": {
+          "overall": {
+            "reference": 33,
+            "predicted": 59,
+            "true_positives": 30,
+            "false_positives": 29,
+            "false_negatives": 3,
+            "precision": 0.5084745762711864,
+            "recall": 0.9090909090909091,
+            "f1": 0.6521739130434782
+          },
+          "by_label": {
+            "PERSON": {
+              "reference": 2,
+              "predicted": 3,
+              "true_positives": 2,
+              "false_positives": 1,
+              "false_negatives": 0,
+              "precision": 0.6666666666666666,
+              "recall": 1.0,
+              "f1": 0.8
+            },
+            "ORGANIZATION": {
+              "reference": 26,
+              "predicted": 53,
+              "true_positives": 25,
+              "false_positives": 28,
+              "false_negatives": 1,
+              "precision": 0.4716981132075472,
+              "recall": 0.9615384615384616,
+              "f1": 0.6329113924050632
+            },
+            "LOCATION": {
+              "reference": 5,
+              "predicted": 3,
+              "true_positives": 3,
+              "false_positives": 0,
+              "false_negatives": 2,
+              "precision": 1.0,
+              "recall": 0.6,
+              "f1": 0.7499999999999999
+            }
+          }
+        },
+        "by_stratum": {
+          "general": {
+            "reference": 7,
+            "predicted": 13,
+            "true_positives": 7,
+            "false_positives": 6,
+            "false_negatives": 0,
+            "precision": 0.5384615384615384,
+            "recall": 1.0,
+            "f1": 0.7000000000000001
+          },
+          "proper_name_challenge": {
+            "reference": 26,
+            "predicted": 46,
+            "true_positives": 20,
+            "false_positives": 26,
+            "false_negatives": 6,
+            "precision": 0.43478260869565216,
+            "recall": 0.7692307692307693,
+            "f1": 0.5555555555555555
+          }
+        },
+        "latency": {
+          "mean_ms": 24.496753333323795,
+          "p95_ms": 55.57970000018031
+        },
+        "failures": 0
+      },
+      "passages": [
+        {
+          "id": "2b42cc42dc352351",
+          "stratum": "proper_name_challenge",
+          "latency_ms": 21.72710000013467,
+          "references": [
+            {
+              "label": "PERSON",
+              "start": 69,
+              "end": 87,
+              "text": "Nicholas Wilkinson"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 95,
+              "end": 115,
+              "text": "Willis Towers Watson"
+            }
+          ],
+          "predictions": [
+            {
+              "label": "PERSON",
+              "start": 69,
+              "end": 87,
+              "text": "Nicholas Wilkinson"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 89,
+              "end": 93,
+              "text": "FIAA"
+            },
+            {
+              "label": "PERSON",
+              "start": 95,
+              "end": 115,
+              "text": "Willis Towers Watson"
+            }
+          ]
+        },
+        {
+          "id": "1e7891ad1b659a3d",
+          "stratum": "general",
+          "latency_ms": 16.943999999966763,
+          "references": [],
+          "predictions": []
+        },
+        {
+          "id": "5d03a1ad9817466f",
+          "stratum": "proper_name_challenge",
+          "latency_ms": 33.88889999996536,
+          "references": [
+            {
+              "label": "ORGANIZATION",
+              "start": 59,
+              "end": 75,
+              "text": "Navios Logistics"
+            },
+            {
+              "label": "LOCATION",
+              "start": 147,
+              "end": 155,
+              "text": "Paraguay"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 294,
+              "end": 311,
+              "text": "Navios Containers"
+            }
+          ],
+          "predictions": [
+            {
+              "label": "ORGANIZATION",
+              "start": 59,
+              "end": 75,
+              "text": "Navios Logistics"
+            },
+            {
+              "label": "LOCATION",
+              "start": 147,
+              "end": 155,
+              "text": "Paraguay"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 294,
+              "end": 311,
+              "text": "Navios Containers"
+            }
+          ]
+        },
+        {
+          "id": "01038762c8ad6414",
+          "stratum": "general",
+          "latency_ms": 15.489100000195322,
+          "references": [],
+          "predictions": []
+        },
+        {
+          "id": "53f40c1acea3428d",
+          "stratum": "proper_name_challenge",
+          "latency_ms": 55.57970000018031,
+          "references": [],
+          "predictions": [
+            {
+              "label": "ORGANIZATION",
+              "start": 25,
+              "end": 43,
+              "text": "Board of Directors"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 212,
+              "end": 230,
+              "text": "Board of Directors"
+            }
+          ]
+        },
+        {
+          "id": "0260ea6072a88b78",
+          "stratum": "general",
+          "latency_ms": 15.67769999974189,
+          "references": [],
+          "predictions": []
+        },
+        {
+          "id": "1b1c6bf5c3cc716b",
+          "stratum": "proper_name_challenge",
+          "latency_ms": 25.838499999736086,
+          "references": [
+            {
+              "label": "ORGANIZATION",
+              "start": 0,
+              "end": 11,
+              "text": "GasLog Ltd."
+            },
+            {
+              "label": "LOCATION",
+              "start": 184,
+              "end": 188,
+              "text": "U.S."
+            }
+          ],
+          "predictions": [
+            {
+              "label": "ORGANIZATION",
+              "start": 0,
+              "end": 10,
+              "text": "GasLog Ltd"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 20,
+              "end": 25,
+              "text": "Subsi"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 28,
+              "end": 38,
+              "text": "ries Notes"
+            },
+            {
+              "label": "LOCATION",
+              "start": 184,
+              "end": 188,
+              "text": "U.S."
+            }
+          ]
+        },
+        {
+          "id": "5b342e3b6194cdc6",
+          "stratum": "general",
+          "latency_ms": 12.257899999895017,
+          "references": [],
+          "predictions": []
+        },
+        {
+          "id": "1aab55aed17a2c88",
+          "stratum": "proper_name_challenge",
+          "latency_ms": 45.80369999985123,
+          "references": [
+            {
+              "label": "ORGANIZATION",
+              "start": 118,
+              "end": 130,
+              "text": "EIS Business"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 550,
+              "end": 567,
+              "text": "Horizon Clinicals"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 572,
+              "end": 596,
+              "text": "Series2000 Revenue Cycle"
+            }
+          ],
+          "predictions": [
+            {
+              "label": "ORGANIZATION",
+              "start": 118,
+              "end": 130,
+              "text": "EIS Business"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 550,
+              "end": 567,
+              "text": "Horizon Clinicals"
+            }
+          ]
+        },
+        {
+          "id": "0156ed1c49a161b9",
+          "stratum": "general",
+          "latency_ms": 19.03790000005756,
+          "references": [
+            {
+              "label": "ORGANIZATION",
+              "start": 33,
+              "end": 41,
+              "text": "Netsmart"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 83,
+              "end": 91,
+              "text": "Netsmart"
+            }
+          ],
+          "predictions": [
+            {
+              "label": "ORGANIZATION",
+              "start": 33,
+              "end": 41,
+              "text": "Netsmart"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 83,
+              "end": 91,
+              "text": "Netsmart"
+            }
+          ]
+        },
+        {
+          "id": "8fd974984d51dae5",
+          "stratum": "proper_name_challenge",
+          "latency_ms": 17.144999999800348,
+          "references": [],
+          "predictions": []
+        },
+        {
+          "id": "107fb20e6be377dd",
+          "stratum": "general",
+          "latency_ms": 14.00740000008227,
+          "references": [],
+          "predictions": []
+        },
+        {
+          "id": "8ed766cc151e6297",
+          "stratum": "proper_name_challenge",
+          "latency_ms": 20.37590000009004,
+          "references": [],
+          "predictions": [
+            {
+              "label": "ORGANIZATION",
+              "start": 86,
+              "end": 109,
+              "text": "Display Bridge Solution"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 111,
+              "end": 116,
+              "text": "eFPGA"
+            }
+          ]
+        },
+        {
+          "id": "14d6952411db04dd",
+          "stratum": "general",
+          "latency_ms": 22.206099999948492,
+          "references": [],
+          "predictions": [
+            {
+              "label": "ORGANIZATION",
+              "start": 39,
+              "end": 46,
+              "text": "AI SaaS"
+            }
+          ]
+        },
+        {
+          "id": "02069d55ccee5ae1",
+          "stratum": "proper_name_challenge",
+          "latency_ms": 53.28429999963191,
+          "references": [
+            {
+              "label": "LOCATION",
+              "start": 45,
+              "end": 60,
+              "text": "Cribbs Causeway"
+            },
+            {
+              "label": "LOCATION",
+              "start": 65,
+              "end": 83,
+              "text": "Manchester Arndale"
+            },
+            {
+              "label": "LOCATION",
+              "start": 828,
+              "end": 835,
+              "text": "England"
+            }
+          ],
+          "predictions": [
+            {
+              "label": "ORGANIZATION",
+              "start": 24,
+              "end": 29,
+              "text": "Group"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 45,
+              "end": 60,
+              "text": "Cribbs Causeway"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 65,
+              "end": 83,
+              "text": "Manchester Arndale"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 127,
+              "end": 132,
+              "text": "Group"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 271,
+              "end": 276,
+              "text": "Trust"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 459,
+              "end": 464,
+              "text": "Trust"
+            },
+            {
+              "label": "LOCATION",
+              "start": 828,
+              "end": 835,
+              "text": "England"
+            }
+          ]
+        },
+        {
+          "id": "2ecf8b693726f95a",
+          "stratum": "general",
+          "latency_ms": 41.85989999996309,
+          "references": [
+            {
+              "label": "ORGANIZATION",
+              "start": 73,
+              "end": 80,
+              "text": "Prozone"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 85,
+              "end": 91,
+              "text": "Empire"
+            }
+          ],
+          "predictions": [
+            {
+              "label": "ORGANIZATION",
+              "start": 50,
+              "end": 55,
+              "text": "Group"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 73,
+              "end": 80,
+              "text": "Prozone"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 85,
+              "end": 91,
+              "text": "Empire"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 125,
+              "end": 128,
+              "text": "IAS"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 147,
+              "end": 157,
+              "text": "Associates"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 162,
+              "end": 176,
+              "text": "Joint Ventures"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 368,
+              "end": 373,
+              "text": "Group"
+            }
+          ]
+        },
+        {
+          "id": "a482b31148d02a44",
+          "stratum": "proper_name_challenge",
+          "latency_ms": 11.964799999987008,
+          "references": [
+            {
+              "label": "ORGANIZATION",
+              "start": 0,
+              "end": 21,
+              "text": "Auto Trader Group plc"
+            }
+          ],
+          "predictions": [
+            {
+              "label": "ORGANIZATION",
+              "start": 0,
+              "end": 21,
+              "text": "Auto Trader Group plc"
+            }
+          ]
+        },
+        {
+          "id": "359c8065b3b40b85",
+          "stratum": "general",
+          "latency_ms": 15.986500000053638,
+          "references": [],
+          "predictions": []
+        },
+        {
+          "id": "04bd0de3ba70a1c9",
+          "stratum": "proper_name_challenge",
+          "latency_ms": 59.457800000018324,
+          "references": [
+            {
+              "label": "ORGANIZATION",
+              "start": 22,
+              "end": 56,
+              "text": "Securities and Exchange Commission"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 572,
+              "end": 579,
+              "text": "Verizon"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 670,
+              "end": 673,
+              "text": "IRS"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 678,
+              "end": 691,
+              "text": "U.S. Treasury"
+            }
+          ],
+          "predictions": [
+            {
+              "label": "ORGANIZATION",
+              "start": 22,
+              "end": 56,
+              "text": "Securities and Exchange Commission"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 214,
+              "end": 215,
+              "text": "T"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 215,
+              "end": 218,
+              "text": "CJA"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 292,
+              "end": 293,
+              "text": "T"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 293,
+              "end": 296,
+              "text": "CJA"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 300,
+              "end": 301,
+              "text": "B"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 363,
+              "end": 364,
+              "text": "T"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 364,
+              "end": 367,
+              "text": "CJA"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 572,
+              "end": 579,
+              "text": "Verizon"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 625,
+              "end": 626,
+              "text": "T"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 626,
+              "end": 628,
+              "text": "CJ"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 670,
+              "end": 673,
+              "text": "IRS"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 678,
+              "end": 691,
+              "text": "U.S. Treasury"
+            }
+          ]
+        },
+        {
+          "id": "4ac9ee44a22bcf02",
+          "stratum": "general",
+          "latency_ms": 13.193100000080449,
+          "references": [],
+          "predictions": []
+        },
+        {
+          "id": "1b49174a19df00e7",
+          "stratum": "proper_name_challenge",
+          "latency_ms": 13.172499999654974,
+          "references": [],
+          "predictions": []
+        },
+        {
+          "id": "071aa62262b2d951",
+          "stratum": "general",
+          "latency_ms": 18.621100000018487,
+          "references": [],
+          "predictions": []
+        },
+        {
+          "id": "1579cb98d1250086",
+          "stratum": "proper_name_challenge",
+          "latency_ms": 14.586799999960931,
+          "references": [],
+          "predictions": []
+        },
+        {
+          "id": "7937ee0a2f72d542",
+          "stratum": "general",
+          "latency_ms": 16.45700000017314,
+          "references": [],
+          "predictions": []
+        },
+        {
+          "id": "8d8163db3fcb3a1a",
+          "stratum": "proper_name_challenge",
+          "latency_ms": 38.39860000016415,
+          "references": [],
+          "predictions": []
+        },
+        {
+          "id": "13c8974bdaed8f5f",
+          "stratum": "general",
+          "latency_ms": 16.570400000091468,
+          "references": [],
+          "predictions": []
+        },
+        {
+          "id": "01b588765a46a0ea",
+          "stratum": "proper_name_challenge",
+          "latency_ms": 15.742300000056275,
+          "references": [],
+          "predictions": []
+        },
+        {
+          "id": "19683c2be6fac75a",
+          "stratum": "general",
+          "latency_ms": 22.318400000131078,
+          "references": [
+            {
+              "label": "ORGANIZATION",
+              "start": 154,
+              "end": 162,
+              "text": "LinkedIn"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 168,
+              "end": 174,
+              "text": "GitHub"
+            }
+          ],
+          "predictions": [
+            {
+              "label": "ORGANIZATION",
+              "start": 154,
+              "end": 162,
+              "text": "LinkedIn"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 168,
+              "end": 174,
+              "text": "GitHub"
+            }
+          ]
+        },
+        {
+          "id": "2e8bdc40f81f764e",
+          "stratum": "proper_name_challenge",
+          "latency_ms": 31.9749000000229,
+          "references": [
+            {
+              "label": "ORGANIZATION",
+              "start": 60,
+              "end": 70,
+              "text": "Peel Group"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 72,
+              "end": 76,
+              "text": "Peel"
+            },
+            {
+              "label": "PERSON",
+              "start": 81,
+              "end": 95,
+              "text": "John Whittaker"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 143,
+              "end": 162,
+              "text": "intu properties plc"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 187,
+              "end": 197,
+              "text": "Peel Group"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 199,
+              "end": 203,
+              "text": "Peel"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 217,
+              "end": 221,
+              "text": "Peel"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 312,
+              "end": 316,
+              "text": "Peel"
+            }
+          ],
+          "predictions": [
+            {
+              "label": "ORGANIZATION",
+              "start": 60,
+              "end": 70,
+              "text": "Peel Group"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 72,
+              "end": 76,
+              "text": "Peel"
+            },
+            {
+              "label": "PERSON",
+              "start": 81,
+              "end": 95,
+              "text": "John Whittaker"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 159,
+              "end": 162,
+              "text": "plc"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 187,
+              "end": 197,
+              "text": "Peel Group"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 199,
+              "end": 203,
+              "text": "Peel"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 217,
+              "end": 221,
+              "text": "Peel"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 291,
+              "end": 296,
+              "text": "Group"
+            },
+            {
+              "label": "ORGANIZATION",
+              "start": 312,
+              "end": 316,
+              "text": "Peel"
+            }
+          ]
+        },
+        {
+          "id": "16fbf013e802ea30",
+          "stratum": "general",
+          "latency_ms": 15.33530000006067,
+          "references": [
+            {
+              "label": "ORGANIZATION",
+              "start": 27,
+              "end": 31,
+              "text": "Peel"
+            }
+          ],
+          "predictions": [
+            {
+              "label": "ORGANIZATION",
+              "start": 27,
+              "end": 31,
+              "text": "Peel"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
