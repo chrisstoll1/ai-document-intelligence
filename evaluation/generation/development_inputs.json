@@ -1,0 +1,1509 @@
+{
+  "schema_version": 1,
+  "benchmark_sha256": "fbaa7916c4bc86f6951d4667f2520f54800517144dec2890e377ab39f34d489e",
+  "retrieval_configuration": {
+    "version": "retrieval-v1",
+    "embedding_model": "sentence-transformers/all-MiniLM-L6-v2",
+    "embedding_revision": "1110a243fdf4706b3f48f1d95db1a4f5529b4d41",
+    "chunker_version": "blocks-v1-120-20",
+    "limit": 5,
+    "fusion": "weighted_reciprocal_rank_fusion",
+    "keyword_weight": 0.5,
+    "semantic_weight": 0.5,
+    "rrf_k": 60
+  },
+  "questions": [
+    {
+      "uid": "0b6fbe9a9b5d492522bbb89246fface7",
+      "expected_status": "answered",
+      "question": "What is another name for the defined benefit plan?",
+      "answer_type": "span",
+      "answer": [
+        "Woolworths Group Superannuation Plan"
+      ],
+      "scale": "",
+      "derivation": "",
+      "document_uid": "018ba3b4adee47eef3555fc300cbde94",
+      "document_sha256": "9d544da2edaa996cc0f5dfe0372358c89822d3af490a00ab2190b2247ee91a38",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "0c343de6-35f3-41d0-81cb-c90ee1885a85",
+          "page": 1,
+          "char_start": 71,
+          "char_end": 107,
+          "text": "Woolworths Group Superannuation Plan",
+          "block_text": "Defined benefit plans The Company sponsors a defined benefit plan, the Woolworths Group Superannuation Plan (WGSP or the Plan), that provides superannuation benefits for employees upon retirement. The defined benefit plan is closed to new members. The assets of the WGSP are held in a sub-plan within AMP SignatureSuper that is legally separated from the Group. The WGSP invests entirely in pooled unit trust products where prices are quoted on a daily basis."
+        }
+      ],
+      "retrieval_evidence_available": true,
+      "context_expected_status": "answered",
+      "contexts": [
+        {
+          "chunk_id": "3f841e7ed2964b0e04c12503f5477b578a8abf37b6aa0461b2cfbe71e024a9d7",
+          "document_id": "9d544da2edaa996cc0f5dfe0372358c89822d3af490a00ab2190b2247ee91a38",
+          "document_name": "018ba3b4adee47eef3555fc300cbde94.pdf",
+          "text": "The Company sponsors a defined benefit plan, the Woolworths Group Superannuation Plan (WGSP or the Plan), that provides\nExercise date 1 Jul 2020 1 Jul 2021\nsuperannuation benefits for employees upon retirement. The defined benefit plan is closed to new members. The assets of the 5\n2 16.0% Expected volatility 15.0% WGSP are held in a sub-plan within AMP SignatureSuper that is legally separated from the Group. The WGSP invests entirely\nExpected dividend yield 4.0% 4.0% in pooled unit trust products where prices are quoted on a daily basis.\nINFORMATION OTHER\nRisk-free interest rate 1.9% 2.1%\nThe WGSP consists of members with defined benefit entitlements and defined contribution benefits. The plan also pays",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01639344262295082,
+          "keyword_rank": 1,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "e436bd223d7d5392dc5ea6992d9ef883f5c8138668bc3e76dcaba59cfa2b232d",
+          "document_id": "9d544da2edaa996cc0f5dfe0372358c89822d3af490a00ab2190b2247ee91a38",
+          "document_name": "018ba3b4adee47eef3555fc300cbde94.pdf",
+          "text": "category. The plan provides lump sum defined benefits that are defined by salary and period of membership.\nAn actuarial valuation was carried out at both reporting dates by Mr Nicholas Wilkinson, FIAA, Willis Towers Watson.\nThe principal actuarial assumptions used for the purpose of the valuation are as follows:\n2019 2018\n% %\nDiscount rate 3.8 2.9\nExpected rate of salary increase 2.5 2.5\nRate of price inflation 2.0 2.0",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015877016129032258,
+          "keyword_rank": 2,
+          "semantic_rank": 4
+        },
+        {
+          "chunk_id": "b36e9cb2826d65dd02739b45b050e7ae2be8f46e39d2df50c6e56e36f47cc67d",
+          "document_id": "9d544da2edaa996cc0f5dfe0372358c89822d3af490a00ab2190b2247ee91a38",
+          "document_name": "018ba3b4adee47eef3555fc300cbde94.pdf",
+          "text": "or over with the opportunity to purchase shares from pre-tax income via salary sacrifice. The Group pays the associated\nbrokerage costs. Share-based payments expense for the period was $62,028,117 (2018: $57,710,434).\n4\nThe variables in the table below are used as inputs into the model to determine the fair value of performance rights. Non-executive Directors\u2019 Equity Plan (NEDP)\nThe NEDP allows Non-executive Directors to acquire share rights through a pre-tax fee sacrifice plan. REPORT FINANCIAL\n2019 2018\nF19 LTI F18 LTI\n6.2.4 Retirement plans\n1 Grant date 31 Oct 2017 30 Nov 2018\nDefined benefit plans\nPerformance period start date 1 Jul 2017 1 Jul 2018",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015873015873015872,
+          "keyword_rank": 3,
+          "semantic_rank": 3
+        },
+        {
+          "chunk_id": "6f98e186ff92d3baf119acf307f402824dec93d13eaed61b4da99a3c299fffb7",
+          "document_id": "dc1c6b6db682684e3bc33a457b230c1bfc514e6cd01b297e08d4b60d99eed3e9",
+          "document_name": "1b54b462b06a8786c7b0b63587f93122.pdf",
+          "text": "(\"Directors' Plan\"), the 2004 Omnibus Long-Term Incentive Plan (\"2004 Plan\"), the 2009 Omnibus Equity and Performance\nIncentive Plan (\"2009 Plan\"), the 2014 Performance & Incentive Plan (\"2014 Plan\"), and the 2018 Equity and Incentive\nCompensation Plan (\"2018 Plan\"). Future grants can only be made under the 2018 Plan.\nThese plans allow for grants of stock options, stock appreciation rights, restricted stock, restricted stock units (\"RSUs\"), performance\nshares, performance units, and other stock awards subject to the terms of the specific plans under which the awards are granted.\nThe following table summarizes the compensation expense included in selling, general and administrative expenses in the\nConsolidated Statements of Earnings related to stock-based compensation plans:\nYears Ended December 31,\n2019 2018 2017",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015417457305502846,
+          "keyword_rank": 8,
+          "semantic_rank": 2
+        },
+        {
+          "chunk_id": "0293956b2ca977fb02080d9f10afad84a46f4eac01e5288503c5526de107d546",
+          "document_id": "9d544da2edaa996cc0f5dfe0372358c89822d3af490a00ab2190b2247ee91a38",
+          "document_name": "018ba3b4adee47eef3555fc300cbde94.pdf",
+          "text": "126 127\nANNUAL WOOLWORTHS Notes to the Consolidated Financial Statements\n6\nOTHER\nREPORT\nGROUP\n2019\n6.2 EMPLOYEE BENEFITS (CONTINUED) 6.2 EMPLOYEE BENEFITS (CONTINUED)\n6.2.2 Share\u2010based payments (continued) 6.2.2 Share\u2010based payments (continued)\nSign-on and retention rights\nThe performance rights sub-plan has also been used to compensate new hires for foregone equity, and ensure that key\nSIGNIFICANT ACCOUNTING POLICIES\nemployees are retained to protect and deliver on the Group\u2019s strategic direction. It has been offered to:\n\u2022 Executives of newly acquired businesses in order to retain intellectual property during transition periods; or\n1 Share\u2010based payments\n\u2022 Attract new executives, generally from overseas; or\nThe grant date fair value of equity-settled share-based payments is recognised as an expense proportionally over",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015154994259471873,
+          "keyword_rank": 7,
+          "semantic_rank": 5
+        }
+      ]
+    },
+    {
+      "uid": "1194b30d85fa5c35b867687d6bba2f20",
+      "expected_status": "answered",
+      "question": "What is the total proportion of cost of revenue as a percentage of revenue in 2017 and 2018?",
+      "answer_type": "arithmetic",
+      "answer": 105,
+      "scale": "percent",
+      "derivation": "(55 + 50) ",
+      "document_uid": "4d41ea7a63b2d9b5cc3cb24ca6c7e9ac",
+      "document_sha256": "62871983ea38b52b09a6a2ad94aad52bd6cae634f9105bd65ad9ce5f4faa3ca9",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "a63724e4-d6cc-483f-a7dd-efcc43eea8a4",
+          "page": 1,
+          "char_start": 21,
+          "char_end": 23,
+          "text": "50",
+          "block_text": "Cost of revenue 43 % 50 % 55 %"
+        },
+        {
+          "block_id": "a63724e4-d6cc-483f-a7dd-efcc43eea8a4",
+          "page": 1,
+          "char_start": 26,
+          "char_end": 28,
+          "text": "55",
+          "block_text": "Cost of revenue 43 % 50 % 55 %"
+        }
+      ],
+      "retrieval_evidence_available": true,
+      "context_expected_status": "answered",
+      "contexts": [
+        {
+          "chunk_id": "a889dba57df1a63421e1d475602c91a55c967352d75512919ef97819a8fb2fca",
+          "document_id": "62871983ea38b52b09a6a2ad94aad52bd6cae634f9105bd65ad9ce5f4faa3ca9",
+          "document_name": "4d41ea7a63b2d9b5cc3cb24ca6c7e9ac.pdf",
+          "text": "Gross Profit. The table below sets forth the changes in gross profit for fiscal year ended December 29, 2019, as compared to fiscal year ended December 30, 2018\n(in thousands, except percentage data):\nFiscal Years\n2019 2018\n% of Total % of Total Year-Over-Year\nAmount Revenues Amount Revenues Change\nRevenue $ 10,310 100% $ 12,629 100% $ (2,319) (18)%\nCost of revenue 4,405 43% 6,295 50% (1,890) (30)%\nGross profit $ 5,905 57% $ 6,334 50% $ (429) (7)%\n41",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.016133229247983348,
+          "keyword_rank": 1,
+          "semantic_rank": 3
+        },
+        {
+          "chunk_id": "36c8866efa3b2c7193a63f823aceb9621d10db3099899373a303657487f04cc8",
+          "document_id": "62871983ea38b52b09a6a2ad94aad52bd6cae634f9105bd65ad9ce5f4faa3ca9",
+          "document_name": "4d41ea7a63b2d9b5cc3cb24ca6c7e9ac.pdf",
+          "text": "Impact of inflation and product price changes on our revenue and on income was immaterial in 2019, 2018 and 2017.\nComparison of Fiscal Years 2019 and 2018\nRevenue. The table below sets forth the changes in revenue for fiscal year ended December 29, 2019, as compared to fiscal year ended December 30, 2018 (in\nthousands, except percentage data):\nFiscal Years\n2019 2018\n% of Total % of Total Year-Over-Year\nAmount Revenues Amount Revenues Change\n(1): Revenue by product family\nNew products $ 3,123 30% $ 5,735 45% $ (2,612) (46)%\nMature products 7,187 70% 6,894 55% 293 4%\nTotal revenue $ 10,310 100% $ 12,629 100% $ (2,319) (18)%",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.016129032258064516,
+          "keyword_rank": 2,
+          "semantic_rank": 2
+        },
+        {
+          "chunk_id": "7b94962a60347d8af0e68bc7dc547f14f0011461f6a3fc927fc9103ee9e4925a",
+          "document_id": "62871983ea38b52b09a6a2ad94aad52bd6cae634f9105bd65ad9ce5f4faa3ca9",
+          "document_name": "4d41ea7a63b2d9b5cc3cb24ca6c7e9ac.pdf",
+          "text": "Results of Operations\nThe following table sets forth the percentage of revenue for certain items in our statements of operations for the periods indicated:\nFiscal Years\n2019 2018 2017\nStatements of Operations:\nRevenue 100% 100% 100%\nCost of revenue 43% 50% 55%\nGross profit 57% 50% 45%\nOperating expenses:\nResearch and development 120% 79% 79%\nSelling, general and administrative 86% 79% 81%\nLoss from operations (149)% (108)% (115)%\nInterest expense (3)% (1)% (1)%\nInterest income and other expense, net 2% 1% \u2014%\nLoss before income taxes (150)% (108)% (116)%\nProvision for income taxes 1% 1% 1%\nNet loss (151)% (109)% (117)%",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015889029003783105,
+          "keyword_rank": 5,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "8e534bb48fb6007b9e7fe531b1abc472522ef9aad006ff16ab60fae36d3ea16b",
+          "document_id": "eef0c83a184fbf1bd76ed91b876c1496b7d9b852f465b06aeafe56eb115bbcaf",
+          "document_name": "eb2a796ed0547c324297fb88898b9d71.pdf",
+          "text": "increased, driven by server products and cloud services. Productivity and Business Processes revenue increased, driven\nby Office and LinkedIn. More Personal Computing revenue increased, driven by Surface, Gaming, and Windows.\nGross margin increased $10.9 billion or 15%, driven by growth across each of our segments. Gross margin percentage\nincreased slightly, due to gross margin percentage improvement across each of our segments and favorable segment\nsales mix. Gross margin included a 5 percentage point improvement in commercial cloud, primarily from Azure.\nOperating income increased $7.9 billion or 23%, driven by growth across each of our segments.\nKey changes in expenses were:\n\u2022 Cost of revenue increased $4.6 billion or 12%, driven by growth in commercial cloud, Surface, and Gaming.",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014955357142857142,
+          "keyword_rank": 4,
+          "semantic_rank": 10
+        },
+        {
+          "chunk_id": "d0e981afc5418273fcc95f35fc4988ff27298672db2b9d3c50121c00421c4d67",
+          "document_id": "c3c9b323f32db5ba1d02fcf9ed6254d42b894ea8186f7c3c4cf84368275e2bd6",
+          "document_name": "c1ea2ff4819e824e68f44b1b60a1cd8a.pdf",
+          "text": "Products and services provided under long-term, fixed-price contracts represented approximately 97% of our sales for\n2019. Because of the significance of the judgments and estimation processes, it is likely that materially different amounts\ncould be recorded if we used different assumptions or if our underlying circumstances were to change. For example, if\nunderlying assumptions were to change such that our estimated profit rate at completion for all fixed-price contracts\naccounted for under the cost-to-cost percentage-of-completion method was higher or lower by one percentage point, our\n2019 operating income would have increased or decreased by approximately $6.5 million. When adjustments in\nestimated contract revenues or estimated costs at completion are required, any changes from prior estimates are",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014709063378758382,
+          "keyword_rank": 7,
+          "semantic_rank": 9
+        }
+      ]
+    },
+    {
+      "uid": "15cd3644a86e8daa20923764f700bc62",
+      "expected_status": "answered",
+      "question": "What are the respective proportion of cost of revenue as a percentage of revenue in 2018 and 2019?",
+      "answer_type": "multi-span",
+      "answer": [
+        "50%",
+        "43%"
+      ],
+      "scale": "",
+      "derivation": "",
+      "document_uid": "4d41ea7a63b2d9b5cc3cb24ca6c7e9ac",
+      "document_sha256": "62871983ea38b52b09a6a2ad94aad52bd6cae634f9105bd65ad9ce5f4faa3ca9",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "a63724e4-d6cc-483f-a7dd-efcc43eea8a4",
+          "page": 1,
+          "char_start": 16,
+          "char_end": 18,
+          "text": "43",
+          "block_text": "Cost of revenue 43 % 50 % 55 %"
+        },
+        {
+          "block_id": "a63724e4-d6cc-483f-a7dd-efcc43eea8a4",
+          "page": 1,
+          "char_start": 21,
+          "char_end": 23,
+          "text": "50",
+          "block_text": "Cost of revenue 43 % 50 % 55 %"
+        }
+      ],
+      "retrieval_evidence_available": true,
+      "context_expected_status": "answered",
+      "contexts": [
+        {
+          "chunk_id": "7b94962a60347d8af0e68bc7dc547f14f0011461f6a3fc927fc9103ee9e4925a",
+          "document_id": "62871983ea38b52b09a6a2ad94aad52bd6cae634f9105bd65ad9ce5f4faa3ca9",
+          "document_name": "4d41ea7a63b2d9b5cc3cb24ca6c7e9ac.pdf",
+          "text": "Results of Operations\nThe following table sets forth the percentage of revenue for certain items in our statements of operations for the periods indicated:\nFiscal Years\n2019 2018 2017\nStatements of Operations:\nRevenue 100% 100% 100%\nCost of revenue 43% 50% 55%\nGross profit 57% 50% 45%\nOperating expenses:\nResearch and development 120% 79% 79%\nSelling, general and administrative 86% 79% 81%\nLoss from operations (149)% (108)% (115)%\nInterest expense (3)% (1)% (1)%\nInterest income and other expense, net 2% 1% \u2014%\nLoss before income taxes (150)% (108)% (116)%\nProvision for income taxes 1% 1% 1%\nNet loss (151)% (109)% (117)%",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015877016129032258,
+          "keyword_rank": 4,
+          "semantic_rank": 2
+        },
+        {
+          "chunk_id": "a889dba57df1a63421e1d475602c91a55c967352d75512919ef97819a8fb2fca",
+          "document_id": "62871983ea38b52b09a6a2ad94aad52bd6cae634f9105bd65ad9ce5f4faa3ca9",
+          "document_name": "4d41ea7a63b2d9b5cc3cb24ca6c7e9ac.pdf",
+          "text": "Gross Profit. The table below sets forth the changes in gross profit for fiscal year ended December 29, 2019, as compared to fiscal year ended December 30, 2018\n(in thousands, except percentage data):\nFiscal Years\n2019 2018\n% of Total % of Total Year-Over-Year\nAmount Revenues Amount Revenues Change\nRevenue $ 10,310 100% $ 12,629 100% $ (2,319) (18)%\nCost of revenue 4,405 43% 6,295 50% (1,890) (30)%\nGross profit $ 5,905 57% $ 6,334 50% $ (429) (7)%\n41",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015873015873015872,
+          "keyword_rank": 3,
+          "semantic_rank": 3
+        },
+        {
+          "chunk_id": "36c8866efa3b2c7193a63f823aceb9621d10db3099899373a303657487f04cc8",
+          "document_id": "62871983ea38b52b09a6a2ad94aad52bd6cae634f9105bd65ad9ce5f4faa3ca9",
+          "document_name": "4d41ea7a63b2d9b5cc3cb24ca6c7e9ac.pdf",
+          "text": "Impact of inflation and product price changes on our revenue and on income was immaterial in 2019, 2018 and 2017.\nComparison of Fiscal Years 2019 and 2018\nRevenue. The table below sets forth the changes in revenue for fiscal year ended December 29, 2019, as compared to fiscal year ended December 30, 2018 (in\nthousands, except percentage data):\nFiscal Years\n2019 2018\n% of Total % of Total Year-Over-Year\nAmount Revenues Amount Revenues Change\n(1): Revenue by product family\nNew products $ 3,123 30% $ 5,735 45% $ (2,612) (46)%\nMature products 7,187 70% 6,894 55% 293 4%\nTotal revenue $ 10,310 100% $ 12,629 100% $ (2,319) (18)%",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015549662487945998,
+          "keyword_rank": 8,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "d0e981afc5418273fcc95f35fc4988ff27298672db2b9d3c50121c00421c4d67",
+          "document_id": "c3c9b323f32db5ba1d02fcf9ed6254d42b894ea8186f7c3c4cf84368275e2bd6",
+          "document_name": "c1ea2ff4819e824e68f44b1b60a1cd8a.pdf",
+          "text": "Products and services provided under long-term, fixed-price contracts represented approximately 97% of our sales for\n2019. Because of the significance of the judgments and estimation processes, it is likely that materially different amounts\ncould be recorded if we used different assumptions or if our underlying circumstances were to change. For example, if\nunderlying assumptions were to change such that our estimated profit rate at completion for all fixed-price contracts\naccounted for under the cost-to-cost percentage-of-completion method was higher or lower by one percentage point, our\n2019 operating income would have increased or decreased by approximately $6.5 million. When adjustments in\nestimated contract revenues or estimated costs at completion are required, any changes from prior estimates are",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015443098123069612,
+          "keyword_rank": 1,
+          "semantic_rank": 9
+        },
+        {
+          "chunk_id": "8e534bb48fb6007b9e7fe531b1abc472522ef9aad006ff16ab60fae36d3ea16b",
+          "document_id": "eef0c83a184fbf1bd76ed91b876c1496b7d9b852f465b06aeafe56eb115bbcaf",
+          "document_name": "eb2a796ed0547c324297fb88898b9d71.pdf",
+          "text": "increased, driven by server products and cloud services. Productivity and Business Processes revenue increased, driven\nby Office and LinkedIn. More Personal Computing revenue increased, driven by Surface, Gaming, and Windows.\nGross margin increased $10.9 billion or 15%, driven by growth across each of our segments. Gross margin percentage\nincreased slightly, due to gross margin percentage improvement across each of our segments and favorable segment\nsales mix. Gross margin included a 5 percentage point improvement in commercial cloud, primarily from Azure.\nOperating income increased $7.9 billion or 23%, driven by growth across each of our segments.\nKey changes in expenses were:\n\u2022 Cost of revenue increased $4.6 billion or 12%, driven by growth in commercial cloud, Surface, and Gaming.",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01510676965015902,
+          "keyword_rank": 2,
+          "semantic_rank": 11
+        }
+      ]
+    },
+    {
+      "uid": "53ac9622cc64aacf1ef57afb58d6d055",
+      "expected_status": "answered",
+      "question": "What was the percentage change in the total between 2018 and 2019?",
+      "answer_type": "arithmetic",
+      "answer": -4.59,
+      "scale": "percent",
+      "derivation": "(5,015-5,256)/5,256",
+      "document_uid": "1b54b462b06a8786c7b0b63587f93122",
+      "document_sha256": "dc1c6b6db682684e3bc33a457b230c1bfc514e6cd01b297e08d4b60d99eed3e9",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "f7d93e55-2c37-4e17-a6f8-f4b2c000b70d",
+          "page": 1,
+          "char_start": 8,
+          "char_end": 13,
+          "text": "5,015",
+          "block_text": "Total $ 5,015 $ 5,256 $ 4,184"
+        },
+        {
+          "block_id": "f7d93e55-2c37-4e17-a6f8-f4b2c000b70d",
+          "page": 1,
+          "char_start": 16,
+          "char_end": 21,
+          "text": "5,256",
+          "block_text": "Total $ 5,015 $ 5,256 $ 4,184"
+        }
+      ],
+      "retrieval_evidence_available": false,
+      "context_expected_status": "insufficient_evidence",
+      "contexts": [
+        {
+          "chunk_id": "36c8866efa3b2c7193a63f823aceb9621d10db3099899373a303657487f04cc8",
+          "document_id": "62871983ea38b52b09a6a2ad94aad52bd6cae634f9105bd65ad9ce5f4faa3ca9",
+          "document_name": "4d41ea7a63b2d9b5cc3cb24ca6c7e9ac.pdf",
+          "text": "Impact of inflation and product price changes on our revenue and on income was immaterial in 2019, 2018 and 2017.\nComparison of Fiscal Years 2019 and 2018\nRevenue. The table below sets forth the changes in revenue for fiscal year ended December 29, 2019, as compared to fiscal year ended December 30, 2018 (in\nthousands, except percentage data):\nFiscal Years\n2019 2018\n% of Total % of Total Year-Over-Year\nAmount Revenues Amount Revenues Change\n(1): Revenue by product family\nNew products $ 3,123 30% $ 5,735 45% $ (2,612) (46)%\nMature products 7,187 70% 6,894 55% 293 4%\nTotal revenue $ 10,310 100% $ 12,629 100% $ (2,319) (18)%",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01626123744050767,
+          "keyword_rank": 2,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "a889dba57df1a63421e1d475602c91a55c967352d75512919ef97819a8fb2fca",
+          "document_id": "62871983ea38b52b09a6a2ad94aad52bd6cae634f9105bd65ad9ce5f4faa3ca9",
+          "document_name": "4d41ea7a63b2d9b5cc3cb24ca6c7e9ac.pdf",
+          "text": "Gross Profit. The table below sets forth the changes in gross profit for fiscal year ended December 29, 2019, as compared to fiscal year ended December 30, 2018\n(in thousands, except percentage data):\nFiscal Years\n2019 2018\n% of Total % of Total Year-Over-Year\nAmount Revenues Amount Revenues Change\nRevenue $ 10,310 100% $ 12,629 100% $ (2,319) (18)%\nCost of revenue 4,405 43% 6,295 50% (1,890) (30)%\nGross profit $ 5,905 57% $ 6,334 50% $ (429) (7)%\n41",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015873015873015872,
+          "keyword_rank": 3,
+          "semantic_rank": 3
+        },
+        {
+          "chunk_id": "0a37f26fcde63c4f8c372a255d776ab112d2735e946a575be50a66cc1ee1ea99",
+          "document_id": "eef0c83a184fbf1bd76ed91b876c1496b7d9b852f465b06aeafe56eb115bbcaf",
+          "document_name": "eb2a796ed0547c324297fb88898b9d71.pdf",
+          "text": "TCJA, which resulted in a decrease to net income and diluted earnings per share of $13.7 billion and $1.75, respectively.\nFiscal year 2017 operating income, net income, and diluted EPS were negatively impacted by restructuring expenses,\nwhich resulted in a decrease to operating income, net income, and diluted EPS of $306 million, $243 million, and $0.04,\nrespectively.\nSEGMENT RESULTS OF OPERATIONS\nPercentage Percentage\nChange 2019 Change 2018\n(In millions, except percentages) Versus 2018 Versus 2017 2019 2018 2017\nR evenue\nProductivity and Business Processes $ 41,160 $ 35,865 $ 29,870 15% 20%\nIntelligent Cloud 38,985 32,219 27,407 21% 18%\nMore Personal Computing 45,698 42,276 39,294 8% 8%\nTotal $ 125,843 $ 110,360 $ 96,571 14% 14%\nO perating Income (Loss)",
+          "page_start": 2,
+          "page_end": 2,
+          "score": 0.015625,
+          "keyword_rank": 4,
+          "semantic_rank": 4
+        },
+        {
+          "chunk_id": "1209525d13cdfe9de169847a6c1374fd5698f60a3b028093085443019773e380",
+          "document_id": "eef0c83a184fbf1bd76ed91b876c1496b7d9b852f465b06aeafe56eb115bbcaf",
+          "document_name": "eb2a796ed0547c324297fb88898b9d71.pdf",
+          "text": "consistent with our internal management reporting. All differences between our internal management reporting basis and\naccounting principles generally accepted in the United States of America (\u201cGAAP\u201d), along with certain corporate-level and\nother activity, are included in Corporate and Other.\nAdditional information on our reportable segments is contained in Note 20 \u2013 Segment Information and Geographic Data of\nthe Notes to Financial Statements.\nSUMMARY RESULTS OF OPERATIONS\nPercentage Percentage\nChange 2019 Change 2018\n(In millions, except percentages and per share amounts) Versus 2018 Versus 2017 2019 2018 2017\nRevenue $ 125,843 $ 110,360 $ 96,571 14% 14%\nGross margin 82,933 72,007 62,310 15% 16%\nOperating income 42,959 35,058 29,025 23% 21%\nNet income 39,240 16,571 25,489 137% (35)%",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015443098123069612,
+          "keyword_rank": 1,
+          "semantic_rank": 9
+        },
+        {
+          "chunk_id": "d0e981afc5418273fcc95f35fc4988ff27298672db2b9d3c50121c00421c4d67",
+          "document_id": "c3c9b323f32db5ba1d02fcf9ed6254d42b894ea8186f7c3c4cf84368275e2bd6",
+          "document_name": "c1ea2ff4819e824e68f44b1b60a1cd8a.pdf",
+          "text": "Products and services provided under long-term, fixed-price contracts represented approximately 97% of our sales for\n2019. Because of the significance of the judgments and estimation processes, it is likely that materially different amounts\ncould be recorded if we used different assumptions or if our underlying circumstances were to change. For example, if\nunderlying assumptions were to change such that our estimated profit rate at completion for all fixed-price contracts\naccounted for under the cost-to-cost percentage-of-completion method was higher or lower by one percentage point, our\n2019 operating income would have increased or decreased by approximately $6.5 million. When adjustments in\nestimated contract revenues or estimated costs at completion are required, any changes from prior estimates are",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015384615384615385,
+          "keyword_rank": 5,
+          "semantic_rank": 5
+        }
+      ]
+    },
+    {
+      "uid": "5ad5529129e5d30c96a0c61c2294431e",
+      "expected_status": "answered",
+      "question": "In which years was the fair value of the derivative liabilities recorded for?",
+      "answer_type": "multi-span",
+      "answer": [
+        "2018",
+        "2019"
+      ],
+      "scale": "",
+      "derivation": "",
+      "document_uid": "1dcc49e0d122ddd39f5df46093f57e4d",
+      "document_sha256": "930ae864353cb163b40fad3ac381fb954f8e455f2d09ce733080352c88472964",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "b629c103-b3c4-4fbf-939a-69b65babf3cf",
+          "page": 1,
+          "char_start": 140,
+          "char_end": 144,
+          "text": "2019",
+          "block_text": "GasLog Ltd. and its Subsidiaries Notes to the consolidated financial statements (Continued) For the years ended December 31, 2017, 2018 and 2019 (All amounts expressed in thousands of U.S. Dollars, except share and per share data)"
+        },
+        {
+          "block_id": "b629c103-b3c4-4fbf-939a-69b65babf3cf",
+          "page": 1,
+          "char_start": 131,
+          "char_end": 135,
+          "text": "2018",
+          "block_text": "GasLog Ltd. and its Subsidiaries Notes to the consolidated financial statements (Continued) For the years ended December 31, 2017, 2018 and 2019 (All amounts expressed in thousands of U.S. Dollars, except share and per share data)"
+        }
+      ],
+      "retrieval_evidence_available": true,
+      "context_expected_status": "answered",
+      "contexts": [
+        {
+          "chunk_id": "e49c62953538c079ae34ee4a52c1fa742ec0fe4648c0d71217ae4fde98440c36",
+          "document_id": "930ae864353cb163b40fad3ac381fb954f8e455f2d09ce733080352c88472964",
+          "document_name": "1dcc49e0d122ddd39f5df46093f57e4d.pdf",
+          "text": "GasLog Ltd. and its Subsidiaries\nNotes to the consolidated financial statements (Continued)\nFor the years ended December 31, 2017, 2018 and 2019\n(All amounts expressed in thousands of U.S. Dollars, except share and per share data)\n26. Derivative Financial Instruments (Continued)\nThe fair value of the derivative liabilities is as follows:\nAs of\nDecember 31,\n2018 2019\nDerivative liabilities carried at fair value through profit or loss\n(FVTPL)\nInterest rate swaps. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9,196 49,891",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01639344262295082,
+          "keyword_rank": 1,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "6c31675df45ebc724fb6e33df9d35d53b280efc2d51b3bf8c1b97e733bf87a71",
+          "document_id": "930ae864353cb163b40fad3ac381fb954f8e455f2d09ce733080352c88472964",
+          "document_name": "1dcc49e0d122ddd39f5df46093f57e4d.pdf",
+          "text": "Forward foreign exchange contracts . . . . . . . . . . . . . . . . . . . . . . . 1,467 41\nDerivative liabilities designated and effective as hedging\ninstruments carried at fair value\nCross currency swaps . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1,429 \u2014",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.016129032258064516,
+          "keyword_rank": 2,
+          "semantic_rank": 2
+        },
+        {
+          "chunk_id": "74a170f8cba25d5e8ad8fa6347b4277e7731f93d101078bb03cd068233cc98d0",
+          "document_id": "930ae864353cb163b40fad3ac381fb954f8e455f2d09ce733080352c88472964",
+          "document_name": "1dcc49e0d122ddd39f5df46093f57e4d.pdf",
+          "text": "Total. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 12,092 49,932\nDerivative financial instruments, current liability . . . . . . . . . . . . . . 2,091 8,095\nDerivative financial instruments, non-current liability . . . . . . . . . . . 10,001 41,837",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015873015873015872,
+          "keyword_rank": 3,
+          "semantic_rank": 3
+        },
+        {
+          "chunk_id": "6a99db2e12f73924450ffcd04592aae4a41cd4a652ea243a3777aeec002ee1ee",
+          "document_id": "d635fcbdf692e4a668de62401ed43d363ac0e8323996bd70c3d92586924b9569",
+          "document_name": "6c7eaa692c25edb5cc125d550deb77ca.pdf",
+          "text": "(where the fair value less costs to sell was considered) were the independent third-party valuations received for the investment and\ndevelopment properties, representing the underlying value of the associate\u2019s net assets. Assumptions were also made for tax and other\ncosts that would be reasonably expected if these assets were to be disposed of. Following this review, an impairment of \u00a37.4 million\nwas recognised.\n11 3366 iinnttuu pprrooppeerrttieiess p plclc A Annnunaul arel preoprto 2rt0 2109\n19",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015625,
+          "keyword_rank": 4,
+          "semantic_rank": 4
+        },
+        {
+          "chunk_id": "1dd5be1da3821fa6443797a8790190cb67a7ebd2805b631b6ee513ac3589f45e",
+          "document_id": "5d401bb25b0b1ec3f41845f261e97951651381c8ea7559c4ab208b7deaefe99a",
+          "document_name": "adaad2efcb109915eb3a70e2d992555c.pdf",
+          "text": "the provision for income taxes was primarily due to the non-recurring, non-cash income tax benefit of $16.8 billion recorded in 2017\nfor the re-measurement of U.S. deferred tax liabilities at the lower 21% U.S. federal corporate income tax rate, as a result of the\nenactment of the TCJA on December 22, 2017. In addition, the provision for income taxes for 2018 includes the tax impact of the\nMedia goodwill impairment charge not deductible for tax purposes, offset by the reduction in the statutory U.S federal corporate\nincome tax rate from 35% to 21%, effective January 1, 2018 under the TCJA and a non-recurring deferred tax benefit of",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014718614718614718,
+          "keyword_rank": 6,
+          "semantic_rank": 10
+        }
+      ]
+    },
+    {
+      "uid": "91c9bc066bcc324bbaf20d1316f9e928",
+      "expected_status": "answered",
+      "question": "What was the change in the statutory federal income tax rate from 2018 to 2019?",
+      "answer_type": "arithmetic",
+      "answer": 0,
+      "scale": "percent",
+      "derivation": "21.0% - 21.0%",
+      "document_uid": "adaad2efcb109915eb3a70e2d992555c",
+      "document_sha256": "5d401bb25b0b1ec3f41845f261e97951651381c8ea7559c4ab208b7deaefe99a",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "ca99d549-561f-445b-917c-512bfb14275d",
+          "page": 1,
+          "char_start": 34,
+          "char_end": 38,
+          "text": "21.0",
+          "block_text": "Statutory federal income tax rate 21.0% 21.0% 35.0%"
+        }
+      ],
+      "retrieval_evidence_available": true,
+      "context_expected_status": "answered",
+      "contexts": [
+        {
+          "chunk_id": "76d13eb4c26d6996079a0bc31bd810e2b353276827270a3ad780c7446382e421",
+          "document_id": "5d401bb25b0b1ec3f41845f261e97951651381c8ea7559c4ab208b7deaefe99a",
+          "document_name": "adaad2efcb109915eb3a70e2d992555c.pdf",
+          "text": "2019 Annual Report\ncontinued Notes to Consolidated Financial Statements\nThe components of the provision (benefit) for income taxes are as follows:\n(dollars in millions)\nYears Ended December 31, 2019 2018 2017\nCurrent\n$ 518 Federal $ 2,187 $ 3,630\n221 Foreign 267 200\n974 State and Local 741 677\n1,713 Total 3,195 4,507\nDeferred\n1,150 Federal 175 (14,360)\n(13) Foreign 30 (66)\n95 State and Local 184 (37)\n1,232 Total 389 (14,463)\nTotal income tax provision (benefit) $ 2,945 $ 3,584 $ (9,956)\nThe following table shows the principal reasons for the difference between the effective income tax rate and the statutory federal\nincome tax rate:\nYears Ended December 31, 2019 2018 2017",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.016133229247983348,
+          "keyword_rank": 3,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "a23d2d4c40fa983670c423e2cb4d9a3d4c1ec0852a7f7a474cc517542e45ab00",
+          "document_id": "5d401bb25b0b1ec3f41845f261e97951651381c8ea7559c4ab208b7deaefe99a",
+          "document_name": "adaad2efcb109915eb3a70e2d992555c.pdf",
+          "text": "21.0% Statutory federal income tax rate 21.0% 35.0%\n3.7 State and local income tax rate, net of federal tax benefits 3.7 1.6\n(9.9) Preferred stock disposition \u2014 \u2014\n(0.4) Affordable housing credit (0.6) (0.6)\n(0.3) Employee benefits including ESOP dividend (0.3) (0.5)\n\u2014 Impact of tax reform re-measurement \u2014 (81.6)\n\u2014 Internal restructure (9.1) (0.6)\n(0.5) Noncontrolling interests (0.5) (0.6)\n0.1 Non-deductible goodwill 4.7 1.0\n(0.7) Other, net (0.6) (2.0)\nEffective income tax rate 13.0% 18.3% (48.3)%\nThe effective income tax rate for 2019 was 13.0% compared to 18.3% for 2018. The decrease in the effective income tax rate and",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.016129032258064516,
+          "keyword_rank": 2,
+          "semantic_rank": 2
+        },
+        {
+          "chunk_id": "1dd5be1da3821fa6443797a8790190cb67a7ebd2805b631b6ee513ac3589f45e",
+          "document_id": "5d401bb25b0b1ec3f41845f261e97951651381c8ea7559c4ab208b7deaefe99a",
+          "document_name": "adaad2efcb109915eb3a70e2d992555c.pdf",
+          "text": "the provision for income taxes was primarily due to the non-recurring, non-cash income tax benefit of $16.8 billion recorded in 2017\nfor the re-measurement of U.S. deferred tax liabilities at the lower 21% U.S. federal corporate income tax rate, as a result of the\nenactment of the TCJA on December 22, 2017. In addition, the provision for income taxes for 2018 includes the tax impact of the\nMedia goodwill impairment charge not deductible for tax purposes, offset by the reduction in the statutory U.S federal corporate\nincome tax rate from 35% to 21%, effective January 1, 2018 under the TCJA and a non-recurring deferred tax benefit of",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.016009221311475412,
+          "keyword_rank": 1,
+          "semantic_rank": 4
+        },
+        {
+          "chunk_id": "8e1a037662b1d16b29f8cf15c6862b8e24c0782b4789e3e01bacbaf8e14cc55d",
+          "document_id": "5d401bb25b0b1ec3f41845f261e97951651381c8ea7559c4ab208b7deaefe99a",
+          "document_name": "adaad2efcb109915eb3a70e2d992555c.pdf",
+          "text": "the provision for income taxes was primarily due to the recognition of approximately $2.2 billion of a non-recurring tax benefit in\nconnection with the disposition of preferred stock, representing a minority interest in a foreign affiliate in 2019 compared to the\nnon-recurring deferred tax benefit of approximately $2.1 billion, as a result of an internal reorganization of legal entities within the\nhistorical Wireless business, which was offset by a goodwill charge that is not deductible for tax purposes in 2018.\nThe effective income tax rate for 2018 was 18.3% compared to (48.3)% for 2017. The increase in the effective income tax rate and",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015384615384615385,
+          "keyword_rank": 5,
+          "semantic_rank": 5
+        },
+        {
+          "chunk_id": "b0d3da90b22cd3dceb3e1980043cfb3d7047d8a035a2cd05347f749459151904",
+          "document_id": "3660ae51b95604ca907a3527049b2233f3d38402e967bd38bbc9ebf47361c328",
+          "document_name": "e2018edc5002efd48cf4cd9a7f7040d3.pdf",
+          "text": "Net cash provided by operating activities decreased during fiscal 2019 compared to fiscal 2018 primarily due to certain unfavorable cash changes in working\ncapital balances, primarily unfavorable changes associated with income taxes including the first installment payment made pursuant to the transition tax\nprovisions of the Tax Act during fiscal 2019 (see additional discussion of future installment payments pursuant to the Tax Act\u2019s transition tax under \u201cContractual\nObligations\u201d below).\nCash flows from investing activities: The changes in cash flows from investing activities primarily relate to our acquisitions, the timing of our purchases,\nmaturities and sales of our investments in marketable debt securities and investments in capital and other assets, including certain intangible assets, to support\nour growth.",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015038444142921756,
+          "keyword_rank": 7,
+          "semantic_rank": 6
+        }
+      ]
+    },
+    {
+      "uid": "9bb527db8bb1623864d225c61c78ccd9",
+      "expected_status": "answered",
+      "question": "How much was the accrued expenses associated with the Horizon Clinicals and Series2000 Revenue Cycle businesses on the consolidated balance sheets as of December 31, 2018?",
+      "answer_type": "span",
+      "answer": [
+        "$0.9 million"
+      ],
+      "scale": "",
+      "derivation": "",
+      "document_uid": "23c221a22dd69ef8fb163f78614aa1d6",
+      "document_sha256": "799d0e71387e6d9ae8448cec9907ff7d67342a1b81b654ef69c96f5a4b5bc336",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "1e8a9e1c-2fce-4e7d-938f-1706af896060",
+          "page": 1,
+          "char_start": 496,
+          "char_end": 510,
+          "text": " $0.9 million ",
+          "block_text": "2018. The decision to discontinue maintaining and supporting these solutions was made prior to our acquisition of the EIS Business and, therefore, they are presented below as discontinued operations. Until the end of the first quarter of 2018, we were involved in ongoing maintenance and support for these solutions until customers transitioned to other platforms. No disposal gains or losses were recognized during the year ended December 31, 2018 related to these discontinued solutions. We had $0.9 million of accrued expenses associated with the Horizon Clinicals and Series2000 Revenue Cycle businesses on the consolidated balance sheets as of December 31, 2018"
+        }
+      ],
+      "retrieval_evidence_available": true,
+      "context_expected_status": "answered",
+      "contexts": [
+        {
+          "chunk_id": "9d13bfa7e43f08c466be6c895862403b2694fac0c63756ba2d5cb9778e0db1a2",
+          "document_id": "799d0e71387e6d9ae8448cec9907ff7d67342a1b81b654ef69c96f5a4b5bc336",
+          "document_name": "23c221a22dd69ef8fb163f78614aa1d6.pdf",
+          "text": "2018. The decision to discontinue maintaining and supporting these solutions was made prior to our acquisition of the EIS Business and, therefore, they are\npresented below as discontinued operations. Until the end of the first quarter of 2018, we were involved in ongoing maintenance and support for these\nsolutions until customers transitioned to other platforms. No disposal gains or losses were recognized during the year ended December 31, 2018 related to\nthese discontinued solutions. We had $0.9 million of accrued expenses associated with the Horizon Clinicals and Series2000 Revenue Cycle businesses on the\nconsolidated balance sheets as of December 31, 2018\n103",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01639344262295082,
+          "keyword_rank": 1,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "652e00f0af14954ae1e9e4da50ede83f3d8806889a7297abf0577947904842c1",
+          "document_id": "799d0e71387e6d9ae8448cec9907ff7d67342a1b81b654ef69c96f5a4b5bc336",
+          "document_name": "23c221a22dd69ef8fb163f78614aa1d6.pdf",
+          "text": "The following table summarizes the major income and expense line items of these discontinued solutions, as reported in the consolidated statements\nof operations for the years ended December 31, 2018 and 2017:\nYear ended December 31,\n(In thousands) 2018 2017\nMajor classes of line items constituting pretax profit (loss) of\ndiscontinued operations for Horizon Clinicals and\nSeries2000 Revenue Cycle:\nRevenue:\nSoftware delivery, support and maintenance $ 9,441 $ 10,949\nClient services 404 1,044\nTotal revenue 9,845 11,993\nCost of revenue:\nSoftware delivery, support and maintenance 2,322 2,918\nClient services 830 261\nTotal cost of revenue 3,152 3,179\nGross profit 6,693 8,814\nResearch and development 1,651 1,148\nIncome from discontinued operations for Horizon Clinicals",
+          "page_start": 2,
+          "page_end": 2,
+          "score": 0.016001024065540194,
+          "keyword_rank": 3,
+          "semantic_rank": 2
+        },
+        {
+          "chunk_id": "d987385449d85539f6309382363de19b9c03ebd0083160f92d57d07fbe3066cb",
+          "document_id": "799d0e71387e6d9ae8448cec9907ff7d67342a1b81b654ef69c96f5a4b5bc336",
+          "document_name": "23c221a22dd69ef8fb163f78614aa1d6.pdf",
+          "text": "Income from discontinued operations of Netsmart (18,438) 29,433\nInterest expense (59,541) (49,939)\nOther income 101 925\nLoss from discontinued operations of Netsmart before\nincome taxes (77,878) (19,581)\nIncome tax benefit 22,933 45,253\n(Loss) income from discontinued operations, net of tax for Netsmart $ (54,945) $ 25,672\n(1) Activity includes both Netsmart and intercompany transactions that would not have been eliminated if Netsmart\u2019s results were not consolidated.\nHorizon Clinicals and Series2000 Revenue Cycle Discontinued Operation\nTwo of the product offerings acquired with the EIS Business in 2017, Horizon Clinicals and Series2000 Revenue Cycle, were sunset after March 31,",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015877016129032258,
+          "keyword_rank": 2,
+          "semantic_rank": 4
+        },
+        {
+          "chunk_id": "6aeb4a3253fa7c71ee7ea64189a637ee3bfc1336cf5ad037b0cd0f6d76e8c155",
+          "document_id": "799d0e71387e6d9ae8448cec9907ff7d67342a1b81b654ef69c96f5a4b5bc336",
+          "document_name": "23c221a22dd69ef8fb163f78614aa1d6.pdf",
+          "text": "and Series2000 Revenue Cycle before income taxes 5,042 7,666\nIncome tax provision (1,311) (2,990)\nIncome from discontinued operations, net of tax for Horizon\nClinicals and Series2000 Revenue Cycle $ 3,731 $ 4,676\n18. Business Segments\nWe primarily derive our revenues from sales of our proprietary software (either as a direct license sale or under a subscription delivery model), which\nalso serves as the basis for our recurring service contracts for software support and maintenance and certain transaction-related services. In addition, we\nprovide various other client services, including installation, and managed services such as outsourcing, private cloud hosting and revenue cycle management.",
+          "page_start": 2,
+          "page_end": 2,
+          "score": 0.015749007936507936,
+          "keyword_rank": 4,
+          "semantic_rank": 3
+        },
+        {
+          "chunk_id": "ad25315c385b67f02734e130704b5a833fb5e94d63ed1bd0ff683cf2f26b9c67",
+          "document_id": "799d0e71387e6d9ae8448cec9907ff7d67342a1b81b654ef69c96f5a4b5bc336",
+          "document_name": "23c221a22dd69ef8fb163f78614aa1d6.pdf",
+          "text": "ended December 31, 2018 and 2017 have been revised to our current presentation.\nWe sold all of our investment in Netsmart on December 31, 2018. Prior to the sale, Netsmart comprised a separate reportable segment, which due to\nits significance to our historical consolidated financial statements and results of operations, is reported as a discontinued operation as a result of the sale. In\naddition, the results of operations related to two of the product offerings acquired with the EIS Business (Horizon Clinicals and Series2000) are also presented\nthroughout these financial statements as discontinued operations and are included within the Provider reportable segment, except for acquisition-related\ndeferred revenue adjustments, which are included in \u201cUnallocated Amounts\u201d. Refer to Note 17, \u201cDiscontinued Operations.\u201d",
+          "page_start": 2,
+          "page_end": 2,
+          "score": 0.015268065268065269,
+          "keyword_rank": 5,
+          "semantic_rank": 6
+        }
+      ]
+    },
+    {
+      "uid": "bcae48bb6aff1a6ecabd924db9207aa4",
+      "expected_status": "answered",
+      "question": "What was the percentage change in Capital redemption reserve in 2019 from 2018?",
+      "answer_type": "arithmetic",
+      "answer": 40,
+      "scale": "percent",
+      "derivation": "(0.7-0.5)/0.5",
+      "document_uid": "8151aa1c9aa6f6a7c9cd3b003dec18e3",
+      "document_sha256": "6b6f8ac6fd7c12e259df8ff7a4660a9997a3e7a0f53876e31dda0584590527af",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "177035d8-c8f8-4429-9149-f5dc6272e9e3",
+          "page": 1,
+          "char_start": 27,
+          "char_end": 30,
+          "text": "0.7",
+          "block_text": "Capital redemption reserve 0.7 0.5"
+        },
+        {
+          "block_id": "177035d8-c8f8-4429-9149-f5dc6272e9e3",
+          "page": 1,
+          "char_start": 31,
+          "char_end": 34,
+          "text": "0.5",
+          "block_text": "Capital redemption reserve 0.7 0.5"
+        }
+      ],
+      "retrieval_evidence_available": true,
+      "context_expected_status": "answered",
+      "contexts": [
+        {
+          "chunk_id": "ff4772eb92ac821f8770989575945edac0fa81ce63ecbb0217475fd3e3b898a1",
+          "document_id": "6b6f8ac6fd7c12e259df8ff7a4660a9997a3e7a0f53876e31dda0584590527af",
+          "document_name": "8151aa1c9aa6f6a7c9cd3b003dec18e3.pdf",
+          "text": "Company balance sheet\nAt 31 March 2019\n2018 2019\nNote \u00a3m \u00a3m\nFixed assets\nInvestments 3 1,212.9 1,216.0\n1,212.9 1,216.0\nCurrent assets\nDebtors 4 440.7 415.9\nCash and cash equivalents 5 \u2013 0.2\n440.9 415.9\n6 (288.4) Creditors: amounts falling due within one year (411.4)\n152.5 Net current assets 4.5\n1,365.4 Net assets 1,220.5\nCapital and reserves\nCalled-up share capital 9 9.5 9.3\nOwn shares held 10 (16.9) (16.5)\nCapital redemption reserve 0.5 0.7\nRetained earnings 1,372.3 1,227.0\n1,365.4 Total equity 1,220.5\nThe financial statements were approved by the Board of Directors on 6 June 2019 and authorised for issue.\nNathan Coe\nChief Financial Officer and Chief Operating Officer-designate\n6 June 2019\nAuto Trader Group plc Registered number 09439967",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01639344262295082,
+          "keyword_rank": 1,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "1bf93b057dd142660445d757e5b8baf485dc061362107ee6de7180b17adf8604",
+          "document_id": "3660ae51b95604ca907a3527049b2233f3d38402e967bd38bbc9ebf47361c328",
+          "document_name": "e2018edc5002efd48cf4cd9a7f7040d3.pdf",
+          "text": "balance sheets and is also presented as a line item in our consolidated statements of comprehensive income included elsewhere in this Annual report). As the\nU.S. Dollar generally strengthened against certain major international currencies during fiscal 2019, the amount of cash, cash equivalents and marketable\nsecurities that we reported in U.S. Dollars for these subsidiaries decreased on a net basis as of May 31, 2019 relative to what we would have reported using\nconstant currency rates from the May 31, 2018 balance sheet date.\nYear Ended May 31,\n(Dollars in millions) 2019 Change 2018\nNet cash provided by operating activities $ 14,551 -5% $ 15,386\nNet cash provided by (used for) investing activities $ 26,557 572% $ (5,625)",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015877016129032258,
+          "keyword_rank": 4,
+          "semantic_rank": 2
+        },
+        {
+          "chunk_id": "05e93cd114c9e05dcdd92f13a1da0369bdf4e5618e370b0872a727bfa97e113c",
+          "document_id": "dc2adc93656717163a18f601c1058a7d68ecc0aa3dd2eb453b83482bd08c8338",
+          "document_name": "11ba155b7577c83fe5f3c4f766039e93.pdf",
+          "text": "Table of Contents\nrefinance of indebtedness of Navios Containers for the period from January 1, 2019 to August 30, 2019 (date of losing control); (v) $31.2 million related\nto prepayment of indebtedness of Navios Holdings; (vi) $13.4 million related to repayment of loan payable to affiliate companies; (vii) $10.2 million\npayments relating to the redemption of preferred stock; (viii) $4.0 million proceeds from Navios Holdings\u2019 long term debt; and (ix) $3.4 million related\nto prepayment of indebtedness of Navios Logistics .\nCash used in financing activities for the year ended December 31, 2018 was the result of (i) $40.0 million related to scheduled repayment",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015268065268065269,
+          "keyword_rank": 5,
+          "semantic_rank": 6
+        },
+        {
+          "chunk_id": "36c8866efa3b2c7193a63f823aceb9621d10db3099899373a303657487f04cc8",
+          "document_id": "62871983ea38b52b09a6a2ad94aad52bd6cae634f9105bd65ad9ce5f4faa3ca9",
+          "document_name": "4d41ea7a63b2d9b5cc3cb24ca6c7e9ac.pdf",
+          "text": "Impact of inflation and product price changes on our revenue and on income was immaterial in 2019, 2018 and 2017.\nComparison of Fiscal Years 2019 and 2018\nRevenue. The table below sets forth the changes in revenue for fiscal year ended December 29, 2019, as compared to fiscal year ended December 30, 2018 (in\nthousands, except percentage data):\nFiscal Years\n2019 2018\n% of Total % of Total Year-Over-Year\nAmount Revenues Amount Revenues Change\n(1): Revenue by product family\nNew products $ 3,123 30% $ 5,735 45% $ (2,612) (46)%\nMature products 7,187 70% 6,894 55% 293 4%\nTotal revenue $ 10,310 100% $ 12,629 100% $ (2,319) (18)%",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014709063378758382,
+          "keyword_rank": 7,
+          "semantic_rank": 9
+        },
+        {
+          "chunk_id": "0f961e491f88b9c95fd1a71d373f65ba5b151c34446b87c536532553b342f7a8",
+          "document_id": "3660ae51b95604ca907a3527049b2233f3d38402e967bd38bbc9ebf47361c328",
+          "document_name": "e2018edc5002efd48cf4cd9a7f7040d3.pdf",
+          "text": "Net cash provided by investing activities was $26.6 billion during fiscal 2019 compared to $5.6 billion of net cash used for investing during fiscal 2018. The\nincrease in net cash provided by investing activities during fiscal 2019 was primarily due to an increase in sales and maturities of, and a decrease in purchases of,\nmarketable securities and other investments.\nCash flows from financing activities: The changes in cash flows from financing activities primarily relate to borrowings and repayments related to our debt\ninstruments as well as stock repurchases, dividend payments and net proceeds related to employee stock programs.",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014636752136752137,
+          "keyword_rank": 12,
+          "semantic_rank": 5
+        }
+      ]
+    },
+    {
+      "uid": "c077022aa0f19adfb4fa87807bb140a5",
+      "expected_status": "answered",
+      "question": "What is the difference between the net cash provided by operating activities from 2018 to 2019?",
+      "answer_type": "arithmetic",
+      "answer": -835,
+      "scale": "million",
+      "derivation": "14,551-15,386",
+      "document_uid": "e2018edc5002efd48cf4cd9a7f7040d3",
+      "document_sha256": "3660ae51b95604ca907a3527049b2233f3d38402e967bd38bbc9ebf47361c328",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "9a71aa02-a450-40cc-b75f-f93f6128a9a1",
+          "page": 1,
+          "char_start": 57,
+          "char_end": 63,
+          "text": "15,386",
+          "block_text": "Net cash provided by operating activities $ 14,551 -5% $ 15,386"
+        },
+        {
+          "block_id": "9a71aa02-a450-40cc-b75f-f93f6128a9a1",
+          "page": 1,
+          "char_start": 44,
+          "char_end": 50,
+          "text": "14,551",
+          "block_text": "Net cash provided by operating activities $ 14,551 -5% $ 15,386"
+        }
+      ],
+      "retrieval_evidence_available": true,
+      "context_expected_status": "answered",
+      "contexts": [
+        {
+          "chunk_id": "0f961e491f88b9c95fd1a71d373f65ba5b151c34446b87c536532553b342f7a8",
+          "document_id": "3660ae51b95604ca907a3527049b2233f3d38402e967bd38bbc9ebf47361c328",
+          "document_name": "e2018edc5002efd48cf4cd9a7f7040d3.pdf",
+          "text": "Net cash provided by investing activities was $26.6 billion during fiscal 2019 compared to $5.6 billion of net cash used for investing during fiscal 2018. The\nincrease in net cash provided by investing activities during fiscal 2019 was primarily due to an increase in sales and maturities of, and a decrease in purchases of,\nmarketable securities and other investments.\nCash flows from financing activities: The changes in cash flows from financing activities primarily relate to borrowings and repayments related to our debt\ninstruments as well as stock repurchases, dividend payments and net proceeds related to employee stock programs.",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.016133229247983348,
+          "keyword_rank": 3,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "1bf93b057dd142660445d757e5b8baf485dc061362107ee6de7180b17adf8604",
+          "document_id": "3660ae51b95604ca907a3527049b2233f3d38402e967bd38bbc9ebf47361c328",
+          "document_name": "e2018edc5002efd48cf4cd9a7f7040d3.pdf",
+          "text": "balance sheets and is also presented as a line item in our consolidated statements of comprehensive income included elsewhere in this Annual report). As the\nU.S. Dollar generally strengthened against certain major international currencies during fiscal 2019, the amount of cash, cash equivalents and marketable\nsecurities that we reported in U.S. Dollars for these subsidiaries decreased on a net basis as of May 31, 2019 relative to what we would have reported using\nconstant currency rates from the May 31, 2018 balance sheet date.\nYear Ended May 31,\n(Dollars in millions) 2019 Change 2018\nNet cash provided by operating activities $ 14,551 -5% $ 15,386\nNet cash provided by (used for) investing activities $ 26,557 572% $ (5,625)",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015889029003783105,
+          "keyword_rank": 1,
+          "semantic_rank": 5
+        },
+        {
+          "chunk_id": "75e8a700004069339dfcd0bf56bb7a9eb4d9c7088dd0d10f43443554f9eb7869",
+          "document_id": "dc2adc93656717163a18f601c1058a7d68ecc0aa3dd2eb453b83482bd08c8338",
+          "document_name": "11ba155b7577c83fe5f3c4f766039e93.pdf",
+          "text": "Net cash provided by operating activities increased by $7.5 million to $55.6 million for the year ended December 31, 2018, as compared to\n$48.1 million for the year ended December 31, 2017. In determining net cash provided by operating activities, net loss is adjusted for the effects of\ncertain non-cash items, which may be analyzed in detail as follows:\nYear Ended Year Ended\nDecember 31, December 31,\n(in thousands of U.S. dollars) 2018 2017\nNet loss $ (265,511) $ (164,787)\nAdjustments to reconcile net loss to net cash provided by operating\nactivities:\nDepreciation and amortization 102,839 104,112\nAmortization and write-off of deferred financing costs 7,880 6,391\nAmortization of deferred drydock and special survey costs 13,828 14,727",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015877016129032258,
+          "keyword_rank": 2,
+          "semantic_rank": 4
+        },
+        {
+          "chunk_id": "b0d3da90b22cd3dceb3e1980043cfb3d7047d8a035a2cd05347f749459151904",
+          "document_id": "3660ae51b95604ca907a3527049b2233f3d38402e967bd38bbc9ebf47361c328",
+          "document_name": "e2018edc5002efd48cf4cd9a7f7040d3.pdf",
+          "text": "Net cash provided by operating activities decreased during fiscal 2019 compared to fiscal 2018 primarily due to certain unfavorable cash changes in working\ncapital balances, primarily unfavorable changes associated with income taxes including the first installment payment made pursuant to the transition tax\nprovisions of the Tax Act during fiscal 2019 (see additional discussion of future installment payments pursuant to the Tax Act\u2019s transition tax under \u201cContractual\nObligations\u201d below).\nCash flows from investing activities: The changes in cash flows from investing activities primarily relate to our acquisitions, the timing of our purchases,\nmaturities and sales of our investments in marketable debt securities and investments in capital and other assets, including certain intangible assets, to support\nour growth.",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01575682382133995,
+          "keyword_rank": 5,
+          "semantic_rank": 2
+        },
+        {
+          "chunk_id": "bdcafdf70f6a18d4f20a53189cccb0cc1a007fc030493bb4cf504109be59fd89",
+          "document_id": "3660ae51b95604ca907a3527049b2233f3d38402e967bd38bbc9ebf47361c328",
+          "document_name": "e2018edc5002efd48cf4cd9a7f7040d3.pdf",
+          "text": "Net cash used for financing activities $ (42,056) 321% $ (9,982)\nCash flows from operating activities: Our largest source of operating cash flows is cash collections from our customers following the purchase and renewal of\ntheir license support agreements. Payments from customers for these support agreements are generally received near the beginning of the contracts\u2019 terms,\nwhich are generally one year in length. Over the course of a fiscal year, we also have historically generated cash from the sales of new licenses, cloud services,\nhardware offerings and services. Our primary uses of cash from operating activities are for employee related expenditures, material and manufacturing costs\nrelated to the production of our hardware products, taxes, interest payments and leased facilities.",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015512265512265512,
+          "keyword_rank": 6,
+          "semantic_rank": 3
+        }
+      ]
+    },
+    {
+      "uid": "c11ea0f3ddc8a0bcb68c4e8ea960bb82",
+      "expected_status": "answered",
+      "question": "What is the Revenue from UK in 2019?",
+      "answer_type": "span",
+      "answer": [
+        "83.2"
+      ],
+      "scale": "million",
+      "derivation": "",
+      "document_uid": "4bac0b8169e05a0e8d1220fab5e165d5",
+      "document_sha256": "052e257d30eb71b17dcd4ee1e9bb7415804496abac12e104626d18cd2c574d14",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "6329c525-6f61-457b-a1b2-1387b5383477",
+          "page": 1,
+          "char_start": 3,
+          "char_end": 7,
+          "text": "83.2",
+          "block_text": "UK 83.2 73.5"
+        }
+      ],
+      "retrieval_evidence_available": true,
+      "context_expected_status": "answered",
+      "contexts": [
+        {
+          "chunk_id": "025f1f286dfd27fbcd5aec9ad1dbc1919ad2f3e1f0938892fb22cfda6cf5a59f",
+          "document_id": "052e257d30eb71b17dcd4ee1e9bb7415804496abac12e104626d18cd2c574d14",
+          "document_name": "4bac0b8169e05a0e8d1220fab5e165d5.pdf",
+          "text": "Year-ended Year-ended\n31 March 2019 31 March 2018\nRestated\nSee note 2\nRevenue from external customers by country $M $M\nUK 83.2 73.5\nUSA 222.2 199.0\nGermany 143.5 128.4\nOther countries 261.7 238.1\nTotal revenue from external customers by country 710.6 639.0\nThe Group\u2019s revenue is diversified across its entire end customer base and no single end user accounted for greater than\n10 per cent of the Group\u2019s revenue in either 2018 or 2019. In 2019 two distributors accounted for 15 per cent each, and one\ndistributor for 11 per cent of Group billings which were attributable to all segments of the Group (2018: three distributors\naccounted for 15 per cent, 14 per cent and 12 per cent each).",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01639344262295082,
+          "keyword_rank": 1,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "1bf93b057dd142660445d757e5b8baf485dc061362107ee6de7180b17adf8604",
+          "document_id": "3660ae51b95604ca907a3527049b2233f3d38402e967bd38bbc9ebf47361c328",
+          "document_name": "e2018edc5002efd48cf4cd9a7f7040d3.pdf",
+          "text": "balance sheets and is also presented as a line item in our consolidated statements of comprehensive income included elsewhere in this Annual report). As the\nU.S. Dollar generally strengthened against certain major international currencies during fiscal 2019, the amount of cash, cash equivalents and marketable\nsecurities that we reported in U.S. Dollars for these subsidiaries decreased on a net basis as of May 31, 2019 relative to what we would have reported using\nconstant currency rates from the May 31, 2018 balance sheet date.\nYear Ended May 31,\n(Dollars in millions) 2019 Change 2018\nNet cash provided by operating activities $ 14,551 -5% $ 15,386\nNet cash provided by (used for) investing activities $ 26,557 572% $ (5,625)",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015527202696196438,
+          "keyword_rank": 2,
+          "semantic_rank": 7
+        },
+        {
+          "chunk_id": "6aeb4a3253fa7c71ee7ea64189a637ee3bfc1336cf5ad037b0cd0f6d76e8c155",
+          "document_id": "799d0e71387e6d9ae8448cec9907ff7d67342a1b81b654ef69c96f5a4b5bc336",
+          "document_name": "23c221a22dd69ef8fb163f78614aa1d6.pdf",
+          "text": "and Series2000 Revenue Cycle before income taxes 5,042 7,666\nIncome tax provision (1,311) (2,990)\nIncome from discontinued operations, net of tax for Horizon\nClinicals and Series2000 Revenue Cycle $ 3,731 $ 4,676\n18. Business Segments\nWe primarily derive our revenues from sales of our proprietary software (either as a direct license sale or under a subscription delivery model), which\nalso serves as the basis for our recurring service contracts for software support and maintenance and certain transaction-related services. In addition, we\nprovide various other client services, including installation, and managed services such as outsourcing, private cloud hosting and revenue cycle management.",
+          "page_start": 2,
+          "page_end": 2,
+          "score": 0.015151515151515152,
+          "keyword_rank": 6,
+          "semantic_rank": 6
+        },
+        {
+          "chunk_id": "2d472da4b4adc4c141818971bfe66eb2b6f59b5bd1cfde300a2bc4e43b246822",
+          "document_id": "eef0c83a184fbf1bd76ed91b876c1496b7d9b852f465b06aeafe56eb115bbcaf",
+          "document_name": "eb2a796ed0547c324297fb88898b9d71.pdf",
+          "text": "diluted EPS of $2.4 billion and $0.31, respectively. Prior year net income and diluted EPS were negatively impacted by\nthe net charge related to the enactment of the TCJA, which resulted in a decrease to net income and diluted EPS of\n$13.7 billion and $1.75, respectively.\n26\nF iscal Year 2018 Compared with Fiscal Year 2017\nRevenue increased $13.8 billion or 14%, driven by growth across each of our segments. Productivity and Business\nProcesses revenue increased, driven by LinkedIn and higher revenue from Office. Intelligent Cloud revenue increased,\nprimarily due to higher revenue from server products and cloud services. More Personal Computing revenue increased,",
+          "page_start": 1,
+          "page_end": 2,
+          "score": 0.015058876811594204,
+          "keyword_rank": 4,
+          "semantic_rank": 9
+        },
+        {
+          "chunk_id": "2e40899184aa6335592fd271b0b21eedcb091ab652c7dfb61974545f17f2e6f5",
+          "document_id": "052e257d30eb71b17dcd4ee1e9bb7415804496abac12e104626d18cd2c574d14",
+          "document_name": "4bac0b8169e05a0e8d1220fab5e165d5.pdf",
+          "text": "Cybersecurity evolved 142\nNOTES TO THE CONSOLIDATED FINANCIAL STATEMENTS CONTINUED\nFor the year-ended 31 March 2019\n6 Segment Information continued\nYear-ended Year-ended\n31 March 2019 31 March 2018\nDepreciation and amortisation $M $M\nAmericas 6.6 7.5\nEMEA 18.1 24.9\nAPJ 4.0 4.4\nTotal depreciation and amortisation 28.7 36.8\n31 March 2018 31 March 2019\nRestated\nSee note 2\n$M Non-current assets by country $M\nUK 42.5 43.4\nUSA 22.0 18.5\nGermany 5.1 5.9\nOther countries 22.4 19.0\nTotal non-current assets by country 92.0 86.8\nNon-current assets by country excludes deferred tax assets and goodwill. Goodwill has been excluded as a split by country\nis not available and the Directors consider that the cost to develop such analysis would be excessive.",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01488095238095238,
+          "keyword_rank": 3,
+          "semantic_rank": 12
+        }
+      ]
+    },
+    {
+      "uid": "cf02810f6d9b8a88deb2943aba76fa71",
+      "expected_status": "answered",
+      "question": "What is the total guarantee in respect of Section 106 planning obligation liabilities at Barton Square which at 31 December 2018?",
+      "answer_type": "span",
+      "answer": [
+        "\u00a312.4 million"
+      ],
+      "scale": "",
+      "derivation": "",
+      "document_uid": "fc6df82265ed5153ed1fe3cdbc4e7b62",
+      "document_sha256": "b7f58d90a42fd1476c1e1a69a5bc7bef4a1fbd43aee972008a4610532636f8b9",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "dcaff28e-e755-44df-ae8e-3a17505ce330",
+          "page": 1,
+          "char_start": 246,
+          "char_end": 260,
+          "text": " \u00a312.4 million",
+          "block_text": "Under the terms of the Group\u2019s acquisition of intu Trafford Centre from Peel in 2011, Peel has provided a guarantee in respect of Section 106 planning obligation liabilities at Barton Square which at 31 December 2019 totalled \u00a313.0 million (2018: \u00a312.4 million)."
+        }
+      ],
+      "retrieval_evidence_available": true,
+      "context_expected_status": "answered",
+      "contexts": [
+        {
+          "chunk_id": "bc5df540ebc4f8592a797ff81389a8c0aa75dd23070622dfd86f8aa0f6fbfd76",
+          "document_id": "b7f58d90a42fd1476c1e1a69a5bc7bef4a1fbd43aee972008a4610532636f8b9",
+          "document_name": "fc6df82265ed5153ed1fe3cdbc4e7b62.pdf",
+          "text": "Balances outstanding between the Group and members of Peel at 31 December 2019 and 31 December 2018 are shown below:\n2018 \u00a3m 2019\nNet investment in finance lease 1.2 0.8\nAmounts owed by members of Peel 0.3 0.3\nAmounts owed to members of Peel (0.1) (0.1)\nUnder the terms of the Group\u2019s acquisition of intu Trafford Centre from Peel in 2011, Peel has provided a guarantee in respect of Section\n106 planning obligation liabilities at Barton Square which at 31 December 2019 totalled \u00a313.0 million (2018: \u00a312.4 million).\nThe net investment in finance leases above relate to three advertising services agreements related to digital screens with Peel Advertising",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01639344262295082,
+          "keyword_rank": 1,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "6f98e186ff92d3baf119acf307f402824dec93d13eaed61b4da99a3c299fffb7",
+          "document_id": "dc1c6b6db682684e3bc33a457b230c1bfc514e6cd01b297e08d4b60d99eed3e9",
+          "document_name": "1b54b462b06a8786c7b0b63587f93122.pdf",
+          "text": "(\"Directors' Plan\"), the 2004 Omnibus Long-Term Incentive Plan (\"2004 Plan\"), the 2009 Omnibus Equity and Performance\nIncentive Plan (\"2009 Plan\"), the 2014 Performance & Incentive Plan (\"2014 Plan\"), and the 2018 Equity and Incentive\nCompensation Plan (\"2018 Plan\"). Future grants can only be made under the 2018 Plan.\nThese plans allow for grants of stock options, stock appreciation rights, restricted stock, restricted stock units (\"RSUs\"), performance\nshares, performance units, and other stock awards subject to the terms of the specific plans under which the awards are granted.\nThe following table summarizes the compensation expense included in selling, general and administrative expenses in the\nConsolidated Statements of Earnings related to stock-based compensation plans:\nYears Ended December 31,\n2019 2018 2017",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015058876811594204,
+          "keyword_rank": 9,
+          "semantic_rank": 4
+        },
+        {
+          "chunk_id": "c5101517382057f43fe9b5364929d17378c674bd32a5bcf351b5dea88f233396",
+          "document_id": "d635fcbdf692e4a668de62401ed43d363ac0e8323996bd70c3d92586924b9569",
+          "document_name": "6c7eaa692c25edb5cc125d550deb77ca.pdf",
+          "text": "Notes to the financial statements continued\n17 Joint operations\nThe Group\u2019s interests in Cribbs Causeway and Manchester Arndale are accounted for as joint operations. The Group holds 50 per cent\nbeneficial interests in the relevant freehold or leasehold of these properties. Each joint arrangement is governed by a Trust Deed giving\neach party rights to income and obligations for expenses in respect of their beneficial interest in the property. The management of the\nproperty is established under the Trust Deed as being undertaken by an entity jointly controlled by the beneficial owners of the property.",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014605543710021322,
+          "keyword_rank": 10,
+          "semantic_rank": 7
+        },
+        {
+          "chunk_id": "68d6e5478a59c86b8d7cc8de402864c95ab17a9b6bce750a5a89b8d142e55796",
+          "document_id": "dc1c6b6db682684e3bc33a457b230c1bfc514e6cd01b297e08d4b60d99eed3e9",
+          "document_name": "1b54b462b06a8786c7b0b63587f93122.pdf",
+          "text": "the year ended December 31, 2019 we purchased 420,770 shares for approximately $11,746, of which $566 was repurchased under\nthe previous plan and $11,180 was repurchased under the most recent board-authorized share repurchase program. During the year\nended December 31, 2018 we purchased 342,100 shares for $9,440 under the previous authorized plan. Approximately $13,820\nwas available for future purchases.\nA roll forward of common shares outstanding is as follows:\nAs of December 31,\n2019 2018\nBalance at beginning of the year 32,750,727 32,938,466\nRepurchases (420,770) (342,100)\nRestricted stock unit issuances 142,449 154,361\nBalance at end of period 32,472,406 32,750,727\nNOTE 16 \u2014 Stock-Based Compensation\nAt December 31, 2019, we had five stock-based compensation plans: the Non-Employee Directors' Stock Retirement Plan",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014474772539288668,
+          "keyword_rank": 2,
+          "semantic_rank": 18
+        },
+        {
+          "chunk_id": "c17bbb77173a4af814d3068059ce3229030761d51dc179133a8065fc5880edc1",
+          "document_id": "c3c9b323f32db5ba1d02fcf9ed6254d42b894ea8186f7c3c4cf84368275e2bd6",
+          "document_name": "c1ea2ff4819e824e68f44b1b60a1cd8a.pdf",
+          "text": "estimated costs at completion may also be required if contract modifications occur. The revisions in contract estimates, if\nsignificant, can materially affect our results of operations and cash flows, and in some cases result in liabilities to\ncomplete contracts in a loss position. Based upon our history, we believe we have the ability to make reasonable\nestimates for these items. We have accounting policies and controls in place to address these, as well as other contractual\nand business arrangements to properly account for long-term contracts, and we continue to monitor and improve such\npolicies, controls, and arrangements. For other information on such policies, controls and arrangements, see our\ndiscussion in Item 9A of this Form 10-K.",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014265621860558568,
+          "keyword_rank": 19,
+          "semantic_rank": 3
+        }
+      ]
+    },
+    {
+      "uid": "d534bc8beaefb6a159e37407fcd17ee9",
+      "expected_status": "answered",
+      "question": "What was the fair value of derivatives non-current liability in 2019?",
+      "answer_type": "span",
+      "answer": [
+        "41,837"
+      ],
+      "scale": "thousand",
+      "derivation": "",
+      "document_uid": "1dcc49e0d122ddd39f5df46093f57e4d",
+      "document_sha256": "930ae864353cb163b40fad3ac381fb954f8e455f2d09ce733080352c88472964",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "d80efd8a-e203-4089-8176-dd3bd2ac97a4",
+          "page": 1,
+          "char_start": 131,
+          "char_end": 137,
+          "text": "41,837",
+          "block_text": "Derivative financial instruments, current liability . 2,091 8,095 Derivative financial instruments, non-current liability . 10,001 41,837"
+        }
+      ],
+      "retrieval_evidence_available": true,
+      "context_expected_status": "answered",
+      "contexts": [
+        {
+          "chunk_id": "74a170f8cba25d5e8ad8fa6347b4277e7731f93d101078bb03cd068233cc98d0",
+          "document_id": "930ae864353cb163b40fad3ac381fb954f8e455f2d09ce733080352c88472964",
+          "document_name": "1dcc49e0d122ddd39f5df46093f57e4d.pdf",
+          "text": "Total. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 12,092 49,932\nDerivative financial instruments, current liability . . . . . . . . . . . . . . 2,091 8,095\nDerivative financial instruments, non-current liability . . . . . . . . . . . 10,001 41,837",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01626123744050767,
+          "keyword_rank": 1,
+          "semantic_rank": 2
+        },
+        {
+          "chunk_id": "e49c62953538c079ae34ee4a52c1fa742ec0fe4648c0d71217ae4fde98440c36",
+          "document_id": "930ae864353cb163b40fad3ac381fb954f8e455f2d09ce733080352c88472964",
+          "document_name": "1dcc49e0d122ddd39f5df46093f57e4d.pdf",
+          "text": "GasLog Ltd. and its Subsidiaries\nNotes to the consolidated financial statements (Continued)\nFor the years ended December 31, 2017, 2018 and 2019\n(All amounts expressed in thousands of U.S. Dollars, except share and per share data)\n26. Derivative Financial Instruments (Continued)\nThe fair value of the derivative liabilities is as follows:\nAs of\nDecember 31,\n2018 2019\nDerivative liabilities carried at fair value through profit or loss\n(FVTPL)\nInterest rate swaps. . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 9,196 49,891",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01626123744050767,
+          "keyword_rank": 2,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "6c31675df45ebc724fb6e33df9d35d53b280efc2d51b3bf8c1b97e733bf87a71",
+          "document_id": "930ae864353cb163b40fad3ac381fb954f8e455f2d09ce733080352c88472964",
+          "document_name": "1dcc49e0d122ddd39f5df46093f57e4d.pdf",
+          "text": "Forward foreign exchange contracts . . . . . . . . . . . . . . . . . . . . . . . 1,467 41\nDerivative liabilities designated and effective as hedging\ninstruments carried at fair value\nCross currency swaps . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . 1,429 \u2014",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015512265512265512,
+          "keyword_rank": 3,
+          "semantic_rank": 6
+        },
+        {
+          "chunk_id": "6a99db2e12f73924450ffcd04592aae4a41cd4a652ea243a3777aeec002ee1ee",
+          "document_id": "d635fcbdf692e4a668de62401ed43d363ac0e8323996bd70c3d92586924b9569",
+          "document_name": "6c7eaa692c25edb5cc125d550deb77ca.pdf",
+          "text": "(where the fair value less costs to sell was considered) were the independent third-party valuations received for the investment and\ndevelopment properties, representing the underlying value of the associate\u2019s net assets. Assumptions were also made for tax and other\ncosts that would be reasonably expected if these assets were to be disposed of. Following this review, an impairment of \u00a37.4 million\nwas recognised.\n11 3366 iinnttuu pprrooppeerrttieiess p plclc A Annnunaul arel preoprto 2rt0 2109\n19",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015504807692307693,
+          "keyword_rank": 5,
+          "semantic_rank": 4
+        },
+        {
+          "chunk_id": "1dd5be1da3821fa6443797a8790190cb67a7ebd2805b631b6ee513ac3589f45e",
+          "document_id": "5d401bb25b0b1ec3f41845f261e97951651381c8ea7559c4ab208b7deaefe99a",
+          "document_name": "adaad2efcb109915eb3a70e2d992555c.pdf",
+          "text": "the provision for income taxes was primarily due to the non-recurring, non-cash income tax benefit of $16.8 billion recorded in 2017\nfor the re-measurement of U.S. deferred tax liabilities at the lower 21% U.S. federal corporate income tax rate, as a result of the\nenactment of the TCJA on December 22, 2017. In addition, the provision for income taxes for 2018 includes the tax impact of the\nMedia goodwill impairment charge not deductible for tax purposes, offset by the reduction in the statutory U.S federal corporate\nincome tax rate from 35% to 21%, effective January 1, 2018 under the TCJA and a non-recurring deferred tax benefit of",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015399194503672116,
+          "keyword_rank": 7,
+          "semantic_rank": 3
+        }
+      ]
+    },
+    {
+      "uid": "unanswerable-rainfall",
+      "expected_status": "insufficient_evidence",
+      "question": "What was the average rainfall in Tokyo during 2019?",
+      "answer_type": "unanswerable",
+      "answer": null,
+      "scale": "",
+      "derivation": "",
+      "document_uid": null,
+      "document_sha256": null,
+      "relevant_pages": [],
+      "evidence": [],
+      "retrieval_evidence_available": false,
+      "context_expected_status": "insufficient_evidence",
+      "contexts": [
+        {
+          "chunk_id": "0f961e491f88b9c95fd1a71d373f65ba5b151c34446b87c536532553b342f7a8",
+          "document_id": "3660ae51b95604ca907a3527049b2233f3d38402e967bd38bbc9ebf47361c328",
+          "document_name": "e2018edc5002efd48cf4cd9a7f7040d3.pdf",
+          "text": "Net cash provided by investing activities was $26.6 billion during fiscal 2019 compared to $5.6 billion of net cash used for investing during fiscal 2018. The\nincrease in net cash provided by investing activities during fiscal 2019 was primarily due to an increase in sales and maturities of, and a decrease in purchases of,\nmarketable securities and other investments.\nCash flows from financing activities: The changes in cash flows from financing activities primarily relate to borrowings and repayments related to our debt\ninstruments as well as stock repurchases, dividend payments and net proceeds related to employee stock programs.",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015504807692307693,
+          "keyword_rank": 4,
+          "semantic_rank": 5
+        },
+        {
+          "chunk_id": "1bf93b057dd142660445d757e5b8baf485dc061362107ee6de7180b17adf8604",
+          "document_id": "3660ae51b95604ca907a3527049b2233f3d38402e967bd38bbc9ebf47361c328",
+          "document_name": "e2018edc5002efd48cf4cd9a7f7040d3.pdf",
+          "text": "balance sheets and is also presented as a line item in our consolidated statements of comprehensive income included elsewhere in this Annual report). As the\nU.S. Dollar generally strengthened against certain major international currencies during fiscal 2019, the amount of cash, cash equivalents and marketable\nsecurities that we reported in U.S. Dollars for these subsidiaries decreased on a net basis as of May 31, 2019 relative to what we would have reported using\nconstant currency rates from the May 31, 2018 balance sheet date.\nYear Ended May 31,\n(Dollars in millions) 2019 Change 2018\nNet cash provided by operating activities $ 14,551 -5% $ 15,386\nNet cash provided by (used for) investing activities $ 26,557 572% $ (5,625)",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015417457305502846,
+          "keyword_rank": 2,
+          "semantic_rank": 8
+        },
+        {
+          "chunk_id": "bea394b1becd36ec9620b50d3ab7b5f9bef350e3d196c7c99462355ed9d2001c",
+          "document_id": "3660ae51b95604ca907a3527049b2233f3d38402e967bd38bbc9ebf47361c328",
+          "document_name": "e2018edc5002efd48cf4cd9a7f7040d3.pdf",
+          "text": "Net cash used for financing activities during fiscal 2019 increased compared to fiscal 2018 primarily due to increased stock repurchases as we used $36.1 billion of\ncash to repurchase common stock during fiscal 2019 compared to $11.3 billion during fiscal 2018.\n54",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014407131011608624,
+          "keyword_rank": 7,
+          "semantic_rank": 12
+        },
+        {
+          "chunk_id": "b2ab0c599ce7ed020ce4f0e489dfb1487622fdd0ec487ca3b521f206e216615b",
+          "document_id": "62871983ea38b52b09a6a2ad94aad52bd6cae634f9105bd65ad9ce5f4faa3ca9",
+          "document_name": "4d41ea7a63b2d9b5cc3cb24ca6c7e9ac.pdf",
+          "text": "(1) New products include all products manufactured on 180 nanometer or smaller semiconductor processes, eFPGA IP license, QuickAI and SensiML AI software as a\nservice (SaaS) revenues. Mature products include all products produced on semiconductor processes larger than 180 nanometer.\nThe 46% decrease in new product revenue in 2019 was primarily due to lower sales from Display Bridge Solution, eFPGA license and connectivity product, which\nwas partially offset by an increase in AI SaaS revenue. The increase in mature product revenue was due primarily to increased orders from our customers in the defense,\naerospace, test and instrumentation sectors.",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.013793759512937594,
+          "keyword_rank": 12,
+          "semantic_rank": 13
+        },
+        {
+          "chunk_id": "36c8866efa3b2c7193a63f823aceb9621d10db3099899373a303657487f04cc8",
+          "document_id": "62871983ea38b52b09a6a2ad94aad52bd6cae634f9105bd65ad9ce5f4faa3ca9",
+          "document_name": "4d41ea7a63b2d9b5cc3cb24ca6c7e9ac.pdf",
+          "text": "Impact of inflation and product price changes on our revenue and on income was immaterial in 2019, 2018 and 2017.\nComparison of Fiscal Years 2019 and 2018\nRevenue. The table below sets forth the changes in revenue for fiscal year ended December 29, 2019, as compared to fiscal year ended December 30, 2018 (in\nthousands, except percentage data):\nFiscal Years\n2019 2018\n% of Total % of Total Year-Over-Year\nAmount Revenues Amount Revenues Change\n(1): Revenue by product family\nNew products $ 3,123 30% $ 5,735 45% $ (2,612) (46)%\nMature products 7,187 70% 6,894 55% 293 4%\nTotal revenue $ 10,310 100% $ 12,629 100% $ (2,319) (18)%",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.00819672131147541,
+          "keyword_rank": null,
+          "semantic_rank": 1
+        }
+      ]
+    },
+    {
+      "uid": "unanswerable-spacecraft",
+      "expected_status": "insufficient_evidence",
+      "question": "Which spacecraft first landed on Mars?",
+      "answer_type": "unanswerable",
+      "answer": null,
+      "scale": "",
+      "derivation": "",
+      "document_uid": null,
+      "document_sha256": null,
+      "relevant_pages": [],
+      "evidence": [],
+      "retrieval_evidence_available": false,
+      "context_expected_status": "insufficient_evidence",
+      "contexts": [
+        {
+          "chunk_id": "8e1a037662b1d16b29f8cf15c6862b8e24c0782b4789e3e01bacbaf8e14cc55d",
+          "document_id": "5d401bb25b0b1ec3f41845f261e97951651381c8ea7559c4ab208b7deaefe99a",
+          "document_name": "adaad2efcb109915eb3a70e2d992555c.pdf",
+          "text": "the provision for income taxes was primarily due to the recognition of approximately $2.2 billion of a non-recurring tax benefit in\nconnection with the disposition of preferred stock, representing a minority interest in a foreign affiliate in 2019 compared to the\nnon-recurring deferred tax benefit of approximately $2.1 billion, as a result of an internal reorganization of legal entities within the\nhistorical Wireless business, which was offset by a goodwill charge that is not deductible for tax purposes in 2018.\nThe effective income tax rate for 2018 was 18.3% compared to (48.3)% for 2017. The increase in the effective income tax rate and",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01393188854489164,
+          "keyword_rank": 16,
+          "semantic_rank": 8
+        },
+        {
+          "chunk_id": "05fc819005cf07b30d30cc4874e3776ddd7807c339ddc2f3a363cac8f9f5e572",
+          "document_id": "dc1c6b6db682684e3bc33a457b230c1bfc514e6cd01b297e08d4b60d99eed3e9",
+          "document_name": "1b54b462b06a8786c7b0b63587f93122.pdf",
+          "text": "Table of Contents\nNOTE 15 \u2014 Shareholders' Equity\nShare count and par value data related to shareholders' equity are as follows:\nAs of December 31,\n2019 2018\nPreferred Stock\nPar value per share No par value No par value\nShares authorized 25,000,000 25,000,000\nShares outstanding \u2014 \u2014\nCommon Stock\nPar value per share No par value No par value\nShares authorized 75,000,000 75,000,000\nShares issued 56,929,298 56,786,849\nShares outstanding 32,472,406 32,750,727\nTreasury stock\nShares held 24,456,892 24,036,122\nOn February 7, 2019, the Board of Directors authorized a stock repurchase program with a maximum dollar limit of $25,000 in\nstock repurchases, which replaced the previous authorized plan that was approved by our Board of Directors in April 2015. During",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.013888888888888888,
+          "keyword_rank": 12,
+          "semantic_rank": 12
+        },
+        {
+          "chunk_id": "05e93cd114c9e05dcdd92f13a1da0369bdf4e5618e370b0872a727bfa97e113c",
+          "document_id": "dc2adc93656717163a18f601c1058a7d68ecc0aa3dd2eb453b83482bd08c8338",
+          "document_name": "11ba155b7577c83fe5f3c4f766039e93.pdf",
+          "text": "Table of Contents\nrefinance of indebtedness of Navios Containers for the period from January 1, 2019 to August 30, 2019 (date of losing control); (v) $31.2 million related\nto prepayment of indebtedness of Navios Holdings; (vi) $13.4 million related to repayment of loan payable to affiliate companies; (vii) $10.2 million\npayments relating to the redemption of preferred stock; (viii) $4.0 million proceeds from Navios Holdings\u2019 long term debt; and (ix) $3.4 million related\nto prepayment of indebtedness of Navios Logistics .\nCash used in financing activities for the year ended December 31, 2018 was the result of (i) $40.0 million related to scheduled repayment",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.00819672131147541,
+          "keyword_rank": null,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "f54a73004982e7f0cbe56d33d5dcd6d8da92513b2a50c70728782cec5371be24",
+          "document_id": "b7f58d90a42fd1476c1e1a69a5bc7bef4a1fbd43aee972008a4610532636f8b9",
+          "document_name": "fc6df82265ed5153ed1fe3cdbc4e7b62.pdf",
+          "text": "Limited (a member of Peel) under which Peel will procure advertising on behalf of the Group. The minimum fixed payments in these\nagreements have been classified as a finance lease.\nDuring the year intu shareholders approved, at a General Meeting held on 31 May 2019, the sale to the Peel Group of a 30.96 acre site near\nintu Braehead known as King George V docks (West) and additional plots of adjacent ancillary land for cash consideration of \u00a36.1 million.\nOther transactions\nDuring the year, the Group sold a wholly owned subsidiary, which holds a plot of sundry land near intu Xanad\u00fa, to the intu Xanad\u00fa joint",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.00819672131147541,
+          "keyword_rank": 1,
+          "semantic_rank": null
+        },
+        {
+          "chunk_id": "2d0cb7260d1806f7842e9e545d48e1799020068b9c5303ce0a00c93708f1873c",
+          "document_id": "799d0e71387e6d9ae8448cec9907ff7d67342a1b81b654ef69c96f5a4b5bc336",
+          "document_name": "23c221a22dd69ef8fb163f78614aa1d6.pdf",
+          "text": "During the first quarter of 2019, we realigned our reporting structure as a result of the divestiture of our investment in Netsmart on December 31,\n2018, the evolution of the healthcare IT industry and our increased focus on the payer and life sciences market. As a result, we changed the presentation of\nour reportable segments to Provider and Veradigm. The new Provider segment is comprised of our core integrated clinical software applications, financial\nmanagement and patient engagement solutions targeted at clients across the entire continuum of care. The new Veradigm segment primarily focuses on the\npayer and life sciences market. These changes to our reportable segments had no impact on operating segments. The segment disclosures below for the years",
+          "page_start": 2,
+          "page_end": 2,
+          "score": 0.008064516129032258,
+          "keyword_rank": 2,
+          "semantic_rank": null
+        }
+      ]
+    },
+    {
+      "uid": "unanswerable-graduates",
+      "expected_status": "insufficient_evidence",
+      "question": "How many students graduated from Oxford University in 2018?",
+      "answer_type": "unanswerable",
+      "answer": null,
+      "scale": "",
+      "derivation": "",
+      "document_uid": null,
+      "document_sha256": null,
+      "relevant_pages": [],
+      "evidence": [],
+      "retrieval_evidence_available": false,
+      "context_expected_status": "insufficient_evidence",
+      "contexts": [
+        {
+          "chunk_id": "025f1f286dfd27fbcd5aec9ad1dbc1919ad2f3e1f0938892fb22cfda6cf5a59f",
+          "document_id": "052e257d30eb71b17dcd4ee1e9bb7415804496abac12e104626d18cd2c574d14",
+          "document_name": "4bac0b8169e05a0e8d1220fab5e165d5.pdf",
+          "text": "Year-ended Year-ended\n31 March 2019 31 March 2018\nRestated\nSee note 2\nRevenue from external customers by country $M $M\nUK 83.2 73.5\nUSA 222.2 199.0\nGermany 143.5 128.4\nOther countries 261.7 238.1\nTotal revenue from external customers by country 710.6 639.0\nThe Group\u2019s revenue is diversified across its entire end customer base and no single end user accounted for greater than\n10 per cent of the Group\u2019s revenue in either 2018 or 2019. In 2019 two distributors accounted for 15 per cent each, and one\ndistributor for 11 per cent of Group billings which were attributable to all segments of the Group (2018: three distributors\naccounted for 15 per cent, 14 per cent and 12 per cent each).",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014913831197525408,
+          "keyword_rank": 13,
+          "semantic_rank": 2
+        },
+        {
+          "chunk_id": "7b94962a60347d8af0e68bc7dc547f14f0011461f6a3fc927fc9103ee9e4925a",
+          "document_id": "62871983ea38b52b09a6a2ad94aad52bd6cae634f9105bd65ad9ce5f4faa3ca9",
+          "document_name": "4d41ea7a63b2d9b5cc3cb24ca6c7e9ac.pdf",
+          "text": "Results of Operations\nThe following table sets forth the percentage of revenue for certain items in our statements of operations for the periods indicated:\nFiscal Years\n2019 2018 2017\nStatements of Operations:\nRevenue 100% 100% 100%\nCost of revenue 43% 50% 55%\nGross profit 57% 50% 45%\nOperating expenses:\nResearch and development 120% 79% 79%\nSelling, general and administrative 86% 79% 81%\nLoss from operations (149)% (108)% (115)%\nInterest expense (3)% (1)% (1)%\nInterest income and other expense, net 2% 1% \u2014%\nLoss before income taxes (150)% (108)% (116)%\nProvision for income taxes 1% 1% 1%\nNet loss (151)% (109)% (117)%",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014693264693264693,
+          "keyword_rank": 14,
+          "semantic_rank": 3
+        },
+        {
+          "chunk_id": "bc5df540ebc4f8592a797ff81389a8c0aa75dd23070622dfd86f8aa0f6fbfd76",
+          "document_id": "b7f58d90a42fd1476c1e1a69a5bc7bef4a1fbd43aee972008a4610532636f8b9",
+          "document_name": "fc6df82265ed5153ed1fe3cdbc4e7b62.pdf",
+          "text": "Balances outstanding between the Group and members of Peel at 31 December 2019 and 31 December 2018 are shown below:\n2018 \u00a3m 2019\nNet investment in finance lease 1.2 0.8\nAmounts owed by members of Peel 0.3 0.3\nAmounts owed to members of Peel (0.1) (0.1)\nUnder the terms of the Group\u2019s acquisition of intu Trafford Centre from Peel in 2011, Peel has provided a guarantee in respect of Section\n106 planning obligation liabilities at Barton Square which at 31 December 2019 totalled \u00a313.0 million (2018: \u00a312.4 million).\nThe net investment in finance leases above relate to three advertising services agreements related to digital screens with Peel Advertising",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014525835235526044,
+          "keyword_rank": 19,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "b2ab0c599ce7ed020ce4f0e489dfb1487622fdd0ec487ca3b521f206e216615b",
+          "document_id": "62871983ea38b52b09a6a2ad94aad52bd6cae634f9105bd65ad9ce5f4faa3ca9",
+          "document_name": "4d41ea7a63b2d9b5cc3cb24ca6c7e9ac.pdf",
+          "text": "(1) New products include all products manufactured on 180 nanometer or smaller semiconductor processes, eFPGA IP license, QuickAI and SensiML AI software as a\nservice (SaaS) revenues. Mature products include all products produced on semiconductor processes larger than 180 nanometer.\nThe 46% decrease in new product revenue in 2019 was primarily due to lower sales from Display Bridge Solution, eFPGA license and connectivity product, which\nwas partially offset by an increase in AI SaaS revenue. The increase in mature product revenue was due primarily to increased orders from our customers in the defense,\naerospace, test and instrumentation sectors.",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014041633935585232,
+          "keyword_rank": 7,
+          "semantic_rank": 16
+        },
+        {
+          "chunk_id": "9243956a9f62b589e41904bd13356d77de10f59a663ffa179545a17973a91e3a",
+          "document_id": "d635fcbdf692e4a668de62401ed43d363ac0e8323996bd70c3d92586924b9569",
+          "document_name": "6c7eaa692c25edb5cc125d550deb77ca.pdf",
+          "text": "This entity does not have the right to a share of the income or expenditure from the property, other than the receipt of a management fee.\nTherefore these interests are accounted for as joint operations. The principal place of business of both joint operations is England.\n18 Investment in associates\n2018 \u00a3m 2019\nAt 1 January 64.8 65.6\nShare of post-tax (loss)/profit of associates 2.3 (0.3)\nImpairment \u2013 (7.4)\nForeign exchange movements (1.5) (4.2)\n65.6 At 31 December 53.7\nInvestment in associates comprises a 32.4 per cent holding in the ordinary shares of Prozone Intu Properties Limited (Prozone), a listed",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.013846447669977082,
+          "keyword_rank": 17,
+          "semantic_rank": 8
+        }
+      ]
+    },
+    {
+      "uid": "unanswerable-dosage",
+      "expected_status": "insufficient_evidence",
+      "question": "What dosage was administered in the clinical trial?",
+      "answer_type": "unanswerable",
+      "answer": null,
+      "scale": "",
+      "derivation": "",
+      "document_uid": null,
+      "document_sha256": null,
+      "relevant_pages": [],
+      "evidence": [],
+      "retrieval_evidence_available": false,
+      "context_expected_status": "insufficient_evidence",
+      "contexts": [
+        {
+          "chunk_id": "652e00f0af14954ae1e9e4da50ede83f3d8806889a7297abf0577947904842c1",
+          "document_id": "799d0e71387e6d9ae8448cec9907ff7d67342a1b81b654ef69c96f5a4b5bc336",
+          "document_name": "23c221a22dd69ef8fb163f78614aa1d6.pdf",
+          "text": "The following table summarizes the major income and expense line items of these discontinued solutions, as reported in the consolidated statements\nof operations for the years ended December 31, 2018 and 2017:\nYear ended December 31,\n(In thousands) 2018 2017\nMajor classes of line items constituting pretax profit (loss) of\ndiscontinued operations for Horizon Clinicals and\nSeries2000 Revenue Cycle:\nRevenue:\nSoftware delivery, support and maintenance $ 9,441 $ 10,949\nClient services 404 1,044\nTotal revenue 9,845 11,993\nCost of revenue:\nSoftware delivery, support and maintenance 2,322 2,918\nClient services 830 261\nTotal cost of revenue 3,152 3,179\nGross profit 6,693 8,814\nResearch and development 1,651 1,148\nIncome from discontinued operations for Horizon Clinicals",
+          "page_start": 2,
+          "page_end": 2,
+          "score": 0.015889029003783105,
+          "keyword_rank": 5,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "949744542c1122cd3946990985676f0b5286cd80b892f0f6645ed222cdaefcc7",
+          "document_id": "799d0e71387e6d9ae8448cec9907ff7d67342a1b81b654ef69c96f5a4b5bc336",
+          "document_name": "23c221a22dd69ef8fb163f78614aa1d6.pdf",
+          "text": "represents a separate operating segment. This reportable segment provides data-driven clinical insights with actionable tools for clinical workflow, research,\nanalytics and media. Its solutions, targeted at key healthcare stakeholders, help improve the quality, efficiency and value of healthcare delivery.\n104",
+          "page_start": 2,
+          "page_end": 2,
+          "score": 0.01575682382133995,
+          "keyword_rank": 2,
+          "semantic_rank": 5
+        },
+        {
+          "chunk_id": "9d13bfa7e43f08c466be6c895862403b2694fac0c63756ba2d5cb9778e0db1a2",
+          "document_id": "799d0e71387e6d9ae8448cec9907ff7d67342a1b81b654ef69c96f5a4b5bc336",
+          "document_name": "23c221a22dd69ef8fb163f78614aa1d6.pdf",
+          "text": "2018. The decision to discontinue maintaining and supporting these solutions was made prior to our acquisition of the EIS Business and, therefore, they are\npresented below as discontinued operations. Until the end of the first quarter of 2018, we were involved in ongoing maintenance and support for these\nsolutions until customers transitioned to other platforms. No disposal gains or losses were recognized during the year ended December 31, 2018 related to\nthese discontinued solutions. We had $0.9 million of accrued expenses associated with the Horizon Clinicals and Series2000 Revenue Cycle businesses on the\nconsolidated balance sheets as of December 31, 2018\n103",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015399194503672116,
+          "keyword_rank": 3,
+          "semantic_rank": 7
+        },
+        {
+          "chunk_id": "ca7660542b38d6b88777eef44d07f82c03cde9abb03bc9db588f56f3b4bcdfba",
+          "document_id": "799d0e71387e6d9ae8448cec9907ff7d67342a1b81b654ef69c96f5a4b5bc336",
+          "document_name": "23c221a22dd69ef8fb163f78614aa1d6.pdf",
+          "text": "As a result of the above changes, as of December 31, 2019, we had eight operating segments, which are aggregated into two reportable segments. The\nFollowMyHealth\u00ae, EPSiTM, Provider reportable segment includes the Hospitals and Health Systems, Ambulatory, CarePort, EIS-Classics and 2bPrecise\nstrategic business units, each of which represents a separate operating segment. This reportable segment derives its revenue from the sale of integrated clinical\nsoftware applications, financial management and patient engagement solutions, which primarily include EHR-related software, connectivity and coordinated\ncare solutions, financial and practice management software, related installation, support and maintenance, outsourcing, private cloud hosting, revenue cycle\nmanagement, training and electronic claims administration services. The Veradigm reportable segment is comprised of the Veradigm business unit, which",
+          "page_start": 2,
+          "page_end": 2,
+          "score": 0.015165441176470588,
+          "keyword_rank": 8,
+          "semantic_rank": 4
+        },
+        {
+          "chunk_id": "d987385449d85539f6309382363de19b9c03ebd0083160f92d57d07fbe3066cb",
+          "document_id": "799d0e71387e6d9ae8448cec9907ff7d67342a1b81b654ef69c96f5a4b5bc336",
+          "document_name": "23c221a22dd69ef8fb163f78614aa1d6.pdf",
+          "text": "Income from discontinued operations of Netsmart (18,438) 29,433\nInterest expense (59,541) (49,939)\nOther income 101 925\nLoss from discontinued operations of Netsmart before\nincome taxes (77,878) (19,581)\nIncome tax benefit 22,933 45,253\n(Loss) income from discontinued operations, net of tax for Netsmart $ (54,945) $ 25,672\n(1) Activity includes both Netsmart and intercompany transactions that would not have been eliminated if Netsmart\u2019s results were not consolidated.\nHorizon Clinicals and Series2000 Revenue Cycle Discontinued Operation\nTwo of the product offerings acquired with the EIS Business in 2017, Horizon Clinicals and Series2000 Revenue Cycle, were sunset after March 31,",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014955357142857142,
+          "keyword_rank": 4,
+          "semantic_rank": 10
+        }
+      ]
+    },
+    {
+      "uid": "unanswerable-election",
+      "expected_status": "insufficient_evidence",
+      "question": "Who won the 2019 federal election in Canada?",
+      "answer_type": "unanswerable",
+      "answer": null,
+      "scale": "",
+      "derivation": "",
+      "document_uid": null,
+      "document_sha256": null,
+      "relevant_pages": [],
+      "evidence": [],
+      "retrieval_evidence_available": false,
+      "context_expected_status": "insufficient_evidence",
+      "contexts": [
+        {
+          "chunk_id": "76d13eb4c26d6996079a0bc31bd810e2b353276827270a3ad780c7446382e421",
+          "document_id": "5d401bb25b0b1ec3f41845f261e97951651381c8ea7559c4ab208b7deaefe99a",
+          "document_name": "adaad2efcb109915eb3a70e2d992555c.pdf",
+          "text": "2019 Annual Report\ncontinued Notes to Consolidated Financial Statements\nThe components of the provision (benefit) for income taxes are as follows:\n(dollars in millions)\nYears Ended December 31, 2019 2018 2017\nCurrent\n$ 518 Federal $ 2,187 $ 3,630\n221 Foreign 267 200\n974 State and Local 741 677\n1,713 Total 3,195 4,507\nDeferred\n1,150 Federal 175 (14,360)\n(13) Foreign 30 (66)\n95 State and Local 184 (37)\n1,232 Total 389 (14,463)\nTotal income tax provision (benefit) $ 2,945 $ 3,584 $ (9,956)\nThe following table shows the principal reasons for the difference between the effective income tax rate and the statutory federal\nincome tax rate:\nYears Ended December 31, 2019 2018 2017",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01639344262295082,
+          "keyword_rank": 1,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "a23d2d4c40fa983670c423e2cb4d9a3d4c1ec0852a7f7a474cc517542e45ab00",
+          "document_id": "5d401bb25b0b1ec3f41845f261e97951651381c8ea7559c4ab208b7deaefe99a",
+          "document_name": "adaad2efcb109915eb3a70e2d992555c.pdf",
+          "text": "21.0% Statutory federal income tax rate 21.0% 35.0%\n3.7 State and local income tax rate, net of federal tax benefits 3.7 1.6\n(9.9) Preferred stock disposition \u2014 \u2014\n(0.4) Affordable housing credit (0.6) (0.6)\n(0.3) Employee benefits including ESOP dividend (0.3) (0.5)\n\u2014 Impact of tax reform re-measurement \u2014 (81.6)\n\u2014 Internal restructure (9.1) (0.6)\n(0.5) Noncontrolling interests (0.5) (0.6)\n0.1 Non-deductible goodwill 4.7 1.0\n(0.7) Other, net (0.6) (2.0)\nEffective income tax rate 13.0% 18.3% (48.3)%\nThe effective income tax rate for 2019 was 13.0% compared to 18.3% for 2018. The decrease in the effective income tax rate and",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015873015873015872,
+          "keyword_rank": 3,
+          "semantic_rank": 3
+        },
+        {
+          "chunk_id": "1dd5be1da3821fa6443797a8790190cb67a7ebd2805b631b6ee513ac3589f45e",
+          "document_id": "5d401bb25b0b1ec3f41845f261e97951651381c8ea7559c4ab208b7deaefe99a",
+          "document_name": "adaad2efcb109915eb3a70e2d992555c.pdf",
+          "text": "the provision for income taxes was primarily due to the non-recurring, non-cash income tax benefit of $16.8 billion recorded in 2017\nfor the re-measurement of U.S. deferred tax liabilities at the lower 21% U.S. federal corporate income tax rate, as a result of the\nenactment of the TCJA on December 22, 2017. In addition, the provision for income taxes for 2018 includes the tax impact of the\nMedia goodwill impairment charge not deductible for tax purposes, offset by the reduction in the statutory U.S federal corporate\nincome tax rate from 35% to 21%, effective January 1, 2018 under the TCJA and a non-recurring deferred tax benefit of",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.015008960573476702,
+          "keyword_rank": 2,
+          "semantic_rank": 12
+        },
+        {
+          "chunk_id": "b0d3da90b22cd3dceb3e1980043cfb3d7047d8a035a2cd05347f749459151904",
+          "document_id": "3660ae51b95604ca907a3527049b2233f3d38402e967bd38bbc9ebf47361c328",
+          "document_name": "e2018edc5002efd48cf4cd9a7f7040d3.pdf",
+          "text": "Net cash provided by operating activities decreased during fiscal 2019 compared to fiscal 2018 primarily due to certain unfavorable cash changes in working\ncapital balances, primarily unfavorable changes associated with income taxes including the first installment payment made pursuant to the transition tax\nprovisions of the Tax Act during fiscal 2019 (see additional discussion of future installment payments pursuant to the Tax Act\u2019s transition tax under \u201cContractual\nObligations\u201d below).\nCash flows from investing activities: The changes in cash flows from investing activities primarily relate to our acquisitions, the timing of our purchases,\nmaturities and sales of our investments in marketable debt securities and investments in capital and other assets, including certain intangible assets, to support\nour growth.",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014928698752228164,
+          "keyword_rank": 8,
+          "semantic_rank": 6
+        },
+        {
+          "chunk_id": "36c8866efa3b2c7193a63f823aceb9621d10db3099899373a303657487f04cc8",
+          "document_id": "62871983ea38b52b09a6a2ad94aad52bd6cae634f9105bd65ad9ce5f4faa3ca9",
+          "document_name": "4d41ea7a63b2d9b5cc3cb24ca6c7e9ac.pdf",
+          "text": "Impact of inflation and product price changes on our revenue and on income was immaterial in 2019, 2018 and 2017.\nComparison of Fiscal Years 2019 and 2018\nRevenue. The table below sets forth the changes in revenue for fiscal year ended December 29, 2019, as compared to fiscal year ended December 30, 2018 (in\nthousands, except percentage data):\nFiscal Years\n2019 2018\n% of Total % of Total Year-Over-Year\nAmount Revenues Amount Revenues Change\n(1): Revenue by product family\nNew products $ 3,123 30% $ 5,735 45% $ (2,612) (46)%\nMature products 7,187 70% 6,894 55% 293 4%\nTotal revenue $ 10,310 100% $ 12,629 100% $ (2,319) (18)%",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01466181506849315,
+          "keyword_rank": 13,
+          "semantic_rank": 4
+        }
+      ]
+    },
+    {
+      "uid": "unanswerable-electricity",
+      "expected_status": "insufficient_evidence",
+      "question": "What was the building's annual electricity consumption?",
+      "answer_type": "unanswerable",
+      "answer": null,
+      "scale": "",
+      "derivation": "",
+      "document_uid": null,
+      "document_sha256": null,
+      "relevant_pages": [],
+      "evidence": [],
+      "retrieval_evidence_available": false,
+      "context_expected_status": "insufficient_evidence",
+      "contexts": [
+        {
+          "chunk_id": "1bf93b057dd142660445d757e5b8baf485dc061362107ee6de7180b17adf8604",
+          "document_id": "3660ae51b95604ca907a3527049b2233f3d38402e967bd38bbc9ebf47361c328",
+          "document_name": "e2018edc5002efd48cf4cd9a7f7040d3.pdf",
+          "text": "balance sheets and is also presented as a line item in our consolidated statements of comprehensive income included elsewhere in this Annual report). As the\nU.S. Dollar generally strengthened against certain major international currencies during fiscal 2019, the amount of cash, cash equivalents and marketable\nsecurities that we reported in U.S. Dollars for these subsidiaries decreased on a net basis as of May 31, 2019 relative to what we would have reported using\nconstant currency rates from the May 31, 2018 balance sheet date.\nYear Ended May 31,\n(Dollars in millions) 2019 Change 2018\nNet cash provided by operating activities $ 14,551 -5% $ 15,386\nNet cash provided by (used for) investing activities $ 26,557 572% $ (5,625)",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.01444672131147541,
+          "keyword_rank": 1,
+          "semantic_rank": 20
+        },
+        {
+          "chunk_id": "36c8866efa3b2c7193a63f823aceb9621d10db3099899373a303657487f04cc8",
+          "document_id": "62871983ea38b52b09a6a2ad94aad52bd6cae634f9105bd65ad9ce5f4faa3ca9",
+          "document_name": "4d41ea7a63b2d9b5cc3cb24ca6c7e9ac.pdf",
+          "text": "Impact of inflation and product price changes on our revenue and on income was immaterial in 2019, 2018 and 2017.\nComparison of Fiscal Years 2019 and 2018\nRevenue. The table below sets forth the changes in revenue for fiscal year ended December 29, 2019, as compared to fiscal year ended December 30, 2018 (in\nthousands, except percentage data):\nFiscal Years\n2019 2018\n% of Total % of Total Year-Over-Year\nAmount Revenues Amount Revenues Change\n(1): Revenue by product family\nNew products $ 3,123 30% $ 5,735 45% $ (2,612) (46)%\nMature products 7,187 70% 6,894 55% 293 4%\nTotal revenue $ 10,310 100% $ 12,629 100% $ (2,319) (18)%",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014346764346764346,
+          "keyword_rank": 18,
+          "semantic_rank": 3
+        },
+        {
+          "chunk_id": "76d13eb4c26d6996079a0bc31bd810e2b353276827270a3ad780c7446382e421",
+          "document_id": "5d401bb25b0b1ec3f41845f261e97951651381c8ea7559c4ab208b7deaefe99a",
+          "document_name": "adaad2efcb109915eb3a70e2d992555c.pdf",
+          "text": "2019 Annual Report\ncontinued Notes to Consolidated Financial Statements\nThe components of the provision (benefit) for income taxes are as follows:\n(dollars in millions)\nYears Ended December 31, 2019 2018 2017\nCurrent\n$ 518 Federal $ 2,187 $ 3,630\n221 Foreign 267 200\n974 State and Local 741 677\n1,713 Total 3,195 4,507\nDeferred\n1,150 Federal 175 (14,360)\n(13) Foreign 30 (66)\n95 State and Local 184 (37)\n1,232 Total 389 (14,463)\nTotal income tax provision (benefit) $ 2,945 $ 3,584 $ (9,956)\nThe following table shows the principal reasons for the difference between the effective income tax rate and the statutory federal\nincome tax rate:\nYears Ended December 31, 2019 2018 2017",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.014141613924050632,
+          "keyword_rank": 4,
+          "semantic_rank": 19
+        },
+        {
+          "chunk_id": "7b94962a60347d8af0e68bc7dc547f14f0011461f6a3fc927fc9103ee9e4925a",
+          "document_id": "62871983ea38b52b09a6a2ad94aad52bd6cae634f9105bd65ad9ce5f4faa3ca9",
+          "document_name": "4d41ea7a63b2d9b5cc3cb24ca6c7e9ac.pdf",
+          "text": "Results of Operations\nThe following table sets forth the percentage of revenue for certain items in our statements of operations for the periods indicated:\nFiscal Years\n2019 2018 2017\nStatements of Operations:\nRevenue 100% 100% 100%\nCost of revenue 43% 50% 55%\nGross profit 57% 50% 45%\nOperating expenses:\nResearch and development 120% 79% 79%\nSelling, general and administrative 86% 79% 81%\nLoss from operations (149)% (108)% (115)%\nInterest expense (3)% (1)% (1)%\nInterest income and other expense, net 2% 1% \u2014%\nLoss before income taxes (150)% (108)% (116)%\nProvision for income taxes 1% 1% 1%\nNet loss (151)% (109)% (117)%",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.00819672131147541,
+          "keyword_rank": null,
+          "semantic_rank": 1
+        },
+        {
+          "chunk_id": "2ba676cc60dd7cafdd49d45ce960161d216fcc8e5eaabfd44cd1f498703b5606",
+          "document_id": "6b6f8ac6fd7c12e259df8ff7a4660a9997a3e7a0f53876e31dda0584590527af",
+          "document_name": "8151aa1c9aa6f6a7c9cd3b003dec18e3.pdf",
+          "text": "| Annual Report and Financial Statements 2019 130 Auto Trader Group plc",
+          "page_start": 1,
+          "page_end": 1,
+          "score": 0.008064516129032258,
+          "keyword_rank": 2,
+          "semantic_rank": null
+        }
+      ]
+    }
+  ]
+}

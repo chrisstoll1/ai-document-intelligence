@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "configuration_name": "generation-v1",
+  "selected_model": {
+    "repository": "Qwen/Qwen2.5-7B-Instruct",
+    "revision": "a09a35458c702b33eeacc393d103063234e8bc28",
+    "license": "Apache-2.0"
+  },
+  "inference": {
+    "device": "CUDA",
+    "dtype": "bfloat16",
+    "temperature": 0,
+    "do_sample": false,
+    "max_new_tokens": 384,
+    "context_limit": 5,
+    "structured_decoding": "lm-format-enforcer JSON Schema",
+    "system_prompt_sha256": "e8827a26069403daf12b27e412be8bae7bd17cd3586dadf7bed0b27e85475451"
+  },
+  "grounding_contract": {
+    "context_ids": "Server-assigned C1 to C5 in frozen retrieval-v1 order",
+    "answered_output": "One or more non-empty claims, each citing at least one supplied context ID",
+    "insufficient_output": "No claims and a server-authored insufficient-evidence message",
+    "failure_policy": "Reject malformed structures, uncited claims, and unknown citation IDs without repair"
+  },
+  "selection_evidence": {
+    "benchmark": "evaluation/generation/development_manifest.json",
+    "inputs": "evaluation/generation/development_inputs.json",
+    "inputs_sha256": "a57fe1d83f6203142e1931009149990501234103a86552389898d065a771bb13",
+    "qwen_result": "evaluation/results/generation_development_qwen.json",
+    "qwen_result_sha256": "57c165b492dc3af00ab580b8e867f51e6824c072d47f1285ba1a57c565ea06e9",
+    "mistral_result": "evaluation/results/generation_development_mistral.json",
+    "mistral_result_sha256": "cdebd4e449937a111aea1f3f98f906e79baaec92dcfa7886429fc2feb4d74892",
+    "metrics": {
+      "qwen": {
+        "valid_generation_rate": 1.0,
+        "end_to_end_status_accuracy": 1.0,
+        "context_status_accuracy": 0.9444444444444444,
+        "answerable_reference_coverage": 0.6666666666666666,
+        "retrieval_conditioned_reference_coverage": 0.7272727272727273,
+        "refusal_accuracy": 1.0,
+        "unsupported_answer_rate": 0.14285714285714285,
+        "evidence_page_citation_relevance": 0.9166666666666666,
+        "mean_latency_ms": 1427.0549277779437
+      },
+      "mistral": {
+        "valid_generation_rate": 1.0,
+        "end_to_end_status_accuracy": 0.7222222222222222,
+        "context_status_accuracy": 0.7777777777777778,
+        "answerable_reference_coverage": 0.5,
+        "retrieval_conditioned_reference_coverage": 0.5454545454545454,
+        "refusal_accuracy": 1.0,
+        "unsupported_answer_rate": 0.0,
+        "evidence_page_citation_relevance": 1.0,
+        "mean_latency_ms": 1166.7051277777318
+      }
+    }
+  },
+  "decision": "Qwen was selected for materially higher answer coverage and context-status accuracy. Mistral was faster and more conservative but incorrectly refused four answerable questions with retrieved evidence.",
+  "known_limitations": [
+    "The development benchmark contains only 18 questions from financial reports.",
+    "Qwen answered the one answerable query whose top-five contexts lacked judged evidence instead of refusing.",
+    "Three Qwen arithmetic answers were incorrect despite retrieved evidence.",
+    "Page-relevant citations do not by themselves prove semantic claim support.",
+    "Human claim-support and citation-completeness review remains required before final evaluation."
+  ]
+}

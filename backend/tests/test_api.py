@@ -6,6 +6,7 @@ from docintel.config import Settings
 from docintel.db import initialize_database
 from docintel.documents import DocumentCatalog, DocumentRecord, DocumentRepository
 from docintel.extraction import ExtractedBlock, ExtractedPage, ExtractionRepository
+from docintel.generation import GroundedAnswer, GroundedClaim, GroundingContext
 from docintel.indexing import ChromaSemanticIndex
 from docintel.ingestion import IngestionService
 from docintel.metadata import EntityMention
@@ -62,6 +63,18 @@ class FakeSearch:
         ][:limit]
 
 
+class FakeGeneration:
+    def answer(self, query: str, *, limit: int = 5) -> GroundedAnswer:
+        assert query == "What is supported?"
+        context = GroundingContext("C1", FakeSearch().search(query, limit=limit)[0])
+        return GroundedAnswer(
+            status="answered",
+            answer="Matching evidence supports the answer.",
+            claims=(GroundedClaim("Matching evidence supports the answer.", ("C1",)),),
+            contexts=(context,),
+        )
+
+
 class FakePageExtractor:
     def extract(self, path) -> list[ExtractedPage]:
         assert path.exists()
@@ -88,7 +101,14 @@ class FakeEncoder:
 
 
 def _services(settings: Settings) -> AppServices:
-    return AppServices(FakeIngestion(), FakeDocuments(), object(), FakeSearch(), metadata=FakeMetadata())
+    return AppServices(
+        FakeIngestion(),
+        FakeDocuments(),
+        object(),
+        FakeSearch(),
+        metadata=FakeMetadata(),
+        generation=FakeGeneration(),
+    )
 
 
 def _integration_services(settings: Settings) -> AppServices:
@@ -139,6 +159,7 @@ def test_upload_and_search_endpoints_return_typed_results(tmp_path) -> None:
             files={"upload": ("example.pdf", BytesIO(b"%PDF-1.7\nexample\n%%EOF"), "application/pdf")},
         )
         search = client.post("/api/search", json={"query": "evidence", "limit": 3})
+        answer = client.post("/api/answer", json={"query": "What is supported?"})
         metadata = client.get(f"/api/documents/{'a' * 64}/metadata")
 
     assert upload.status_code == 200
@@ -147,8 +168,30 @@ def test_upload_and_search_endpoints_return_typed_results(tmp_path) -> None:
     assert search.status_code == 200
     assert search.json()[0]["document_name"] == "example.pdf"
     assert search.json()[0]["keyword_rank"] == 1
+    assert answer.status_code == 200
+    assert answer.json()["status"] == "answered"
+    assert answer.json()["claims"][0]["citation_ids"] == ["C1"]
+    assert answer.json()["contexts"][0]["document_name"] == "example.pdf"
     assert metadata.status_code == 200
     assert metadata.json()["entities"][0]["text"] == "Example Ltd"
+
+
+def test_answer_endpoint_reports_unavailable_without_generator(tmp_path) -> None:
+    services = _services(Settings(tmp_path))
+
+    def without_generation(settings: Settings) -> AppServices:
+        return AppServices(
+            services.ingestion,
+            services.documents,
+            services.pdf_store,
+            services.search,
+            metadata=services.metadata,
+        )
+
+    with TestClient(create_app(Settings(tmp_path), service_builder=without_generation)) as client:
+        response = client.post("/api/answer", json={"query": "What is supported?"})
+
+    assert response.status_code == 503
 
 
 def test_api_vertical_slice_persists_and_searches_uploaded_pdf(tmp_path) -> None:

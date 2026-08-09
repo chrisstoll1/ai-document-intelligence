@@ -1,0 +1,454 @@
+{
+  "schema_version": 1,
+  "name": "TAT-DQA grounded generation development benchmark",
+  "split": "development",
+  "source_dataset": "TAT-DQA",
+  "source_dataset_url": "https://nextplusplus.github.io/TAT-DQA/",
+  "license": "CC BY 4.0",
+  "retrieval_manifest": "evaluation/tat_dqa/development_manifest.json",
+  "retrieval_manifest_sha256": "f87799c0627def3bd74984d19997afa9287bf6e7343590f31c57986036f8df3a",
+  "raw_development_gold_sha256": "07395642f317754ed22bd8330525af7c1e15b7189efdf046cd0a257fc3178fcb",
+  "selection": {
+    "seed": "docintel-generation-development-v1",
+    "method": "SHA-256 ordering within official answer types plus fixed candidate-blind unanswerable questions",
+    "answerable_quotas": {
+      "span": 5,
+      "arithmetic": 5,
+      "multi-span": 2
+    },
+    "answerable_count": 12,
+    "unanswerable_count": 6
+  },
+  "questions": [
+    {
+      "uid": "0b6fbe9a9b5d492522bbb89246fface7",
+      "expected_status": "answered",
+      "question": "What is another name for the defined benefit plan?",
+      "answer_type": "span",
+      "answer": [
+        "Woolworths Group Superannuation Plan"
+      ],
+      "scale": "",
+      "derivation": "",
+      "document_uid": "018ba3b4adee47eef3555fc300cbde94",
+      "document_sha256": "9d544da2edaa996cc0f5dfe0372358c89822d3af490a00ab2190b2247ee91a38",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "0c343de6-35f3-41d0-81cb-c90ee1885a85",
+          "page": 1,
+          "char_start": 71,
+          "char_end": 107,
+          "text": "Woolworths Group Superannuation Plan",
+          "block_text": "Defined benefit plans The Company sponsors a defined benefit plan, the Woolworths Group Superannuation Plan (WGSP or the Plan), that provides superannuation benefits for employees upon retirement. The defined benefit plan is closed to new members. The assets of the WGSP are held in a sub-plan within AMP SignatureSuper that is legally separated from the Group. The WGSP invests entirely in pooled unit trust products where prices are quoted on a daily basis."
+        }
+      ]
+    },
+    {
+      "uid": "1194b30d85fa5c35b867687d6bba2f20",
+      "expected_status": "answered",
+      "question": "What is the total proportion of cost of revenue as a percentage of revenue in 2017 and 2018?",
+      "answer_type": "arithmetic",
+      "answer": 105,
+      "scale": "percent",
+      "derivation": "(55 + 50) ",
+      "document_uid": "4d41ea7a63b2d9b5cc3cb24ca6c7e9ac",
+      "document_sha256": "62871983ea38b52b09a6a2ad94aad52bd6cae634f9105bd65ad9ce5f4faa3ca9",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "a63724e4-d6cc-483f-a7dd-efcc43eea8a4",
+          "page": 1,
+          "char_start": 21,
+          "char_end": 23,
+          "text": "50",
+          "block_text": "Cost of revenue 43 % 50 % 55 %"
+        },
+        {
+          "block_id": "a63724e4-d6cc-483f-a7dd-efcc43eea8a4",
+          "page": 1,
+          "char_start": 26,
+          "char_end": 28,
+          "text": "55",
+          "block_text": "Cost of revenue 43 % 50 % 55 %"
+        }
+      ]
+    },
+    {
+      "uid": "15cd3644a86e8daa20923764f700bc62",
+      "expected_status": "answered",
+      "question": "What are the respective proportion of cost of revenue as a percentage of revenue in 2018 and 2019?",
+      "answer_type": "multi-span",
+      "answer": [
+        "50%",
+        "43%"
+      ],
+      "scale": "",
+      "derivation": "",
+      "document_uid": "4d41ea7a63b2d9b5cc3cb24ca6c7e9ac",
+      "document_sha256": "62871983ea38b52b09a6a2ad94aad52bd6cae634f9105bd65ad9ce5f4faa3ca9",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "a63724e4-d6cc-483f-a7dd-efcc43eea8a4",
+          "page": 1,
+          "char_start": 16,
+          "char_end": 18,
+          "text": "43",
+          "block_text": "Cost of revenue 43 % 50 % 55 %"
+        },
+        {
+          "block_id": "a63724e4-d6cc-483f-a7dd-efcc43eea8a4",
+          "page": 1,
+          "char_start": 21,
+          "char_end": 23,
+          "text": "50",
+          "block_text": "Cost of revenue 43 % 50 % 55 %"
+        }
+      ]
+    },
+    {
+      "uid": "53ac9622cc64aacf1ef57afb58d6d055",
+      "expected_status": "answered",
+      "question": "What was the percentage change in the total between 2018 and 2019?",
+      "answer_type": "arithmetic",
+      "answer": -4.59,
+      "scale": "percent",
+      "derivation": "(5,015-5,256)/5,256",
+      "document_uid": "1b54b462b06a8786c7b0b63587f93122",
+      "document_sha256": "dc1c6b6db682684e3bc33a457b230c1bfc514e6cd01b297e08d4b60d99eed3e9",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "f7d93e55-2c37-4e17-a6f8-f4b2c000b70d",
+          "page": 1,
+          "char_start": 8,
+          "char_end": 13,
+          "text": "5,015",
+          "block_text": "Total $ 5,015 $ 5,256 $ 4,184"
+        },
+        {
+          "block_id": "f7d93e55-2c37-4e17-a6f8-f4b2c000b70d",
+          "page": 1,
+          "char_start": 16,
+          "char_end": 21,
+          "text": "5,256",
+          "block_text": "Total $ 5,015 $ 5,256 $ 4,184"
+        }
+      ]
+    },
+    {
+      "uid": "5ad5529129e5d30c96a0c61c2294431e",
+      "expected_status": "answered",
+      "question": "In which years was the fair value of the derivative liabilities recorded for?",
+      "answer_type": "multi-span",
+      "answer": [
+        "2018",
+        "2019"
+      ],
+      "scale": "",
+      "derivation": "",
+      "document_uid": "1dcc49e0d122ddd39f5df46093f57e4d",
+      "document_sha256": "930ae864353cb163b40fad3ac381fb954f8e455f2d09ce733080352c88472964",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "b629c103-b3c4-4fbf-939a-69b65babf3cf",
+          "page": 1,
+          "char_start": 140,
+          "char_end": 144,
+          "text": "2019",
+          "block_text": "GasLog Ltd. and its Subsidiaries Notes to the consolidated financial statements (Continued) For the years ended December 31, 2017, 2018 and 2019 (All amounts expressed in thousands of U.S. Dollars, except share and per share data)"
+        },
+        {
+          "block_id": "b629c103-b3c4-4fbf-939a-69b65babf3cf",
+          "page": 1,
+          "char_start": 131,
+          "char_end": 135,
+          "text": "2018",
+          "block_text": "GasLog Ltd. and its Subsidiaries Notes to the consolidated financial statements (Continued) For the years ended December 31, 2017, 2018 and 2019 (All amounts expressed in thousands of U.S. Dollars, except share and per share data)"
+        }
+      ]
+    },
+    {
+      "uid": "91c9bc066bcc324bbaf20d1316f9e928",
+      "expected_status": "answered",
+      "question": "What was the change in the statutory federal income tax rate from 2018 to 2019?",
+      "answer_type": "arithmetic",
+      "answer": 0,
+      "scale": "percent",
+      "derivation": "21.0% - 21.0%",
+      "document_uid": "adaad2efcb109915eb3a70e2d992555c",
+      "document_sha256": "5d401bb25b0b1ec3f41845f261e97951651381c8ea7559c4ab208b7deaefe99a",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "ca99d549-561f-445b-917c-512bfb14275d",
+          "page": 1,
+          "char_start": 34,
+          "char_end": 38,
+          "text": "21.0",
+          "block_text": "Statutory federal income tax rate 21.0% 21.0% 35.0%"
+        }
+      ]
+    },
+    {
+      "uid": "9bb527db8bb1623864d225c61c78ccd9",
+      "expected_status": "answered",
+      "question": "How much was the accrued expenses associated with the Horizon Clinicals and Series2000 Revenue Cycle businesses on the consolidated balance sheets as of December 31, 2018?",
+      "answer_type": "span",
+      "answer": [
+        "$0.9 million"
+      ],
+      "scale": "",
+      "derivation": "",
+      "document_uid": "23c221a22dd69ef8fb163f78614aa1d6",
+      "document_sha256": "799d0e71387e6d9ae8448cec9907ff7d67342a1b81b654ef69c96f5a4b5bc336",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "1e8a9e1c-2fce-4e7d-938f-1706af896060",
+          "page": 1,
+          "char_start": 496,
+          "char_end": 510,
+          "text": " $0.9 million ",
+          "block_text": "2018. The decision to discontinue maintaining and supporting these solutions was made prior to our acquisition of the EIS Business and, therefore, they are presented below as discontinued operations. Until the end of the first quarter of 2018, we were involved in ongoing maintenance and support for these solutions until customers transitioned to other platforms. No disposal gains or losses were recognized during the year ended December 31, 2018 related to these discontinued solutions. We had $0.9 million of accrued expenses associated with the Horizon Clinicals and Series2000 Revenue Cycle businesses on the consolidated balance sheets as of December 31, 2018"
+        }
+      ]
+    },
+    {
+      "uid": "bcae48bb6aff1a6ecabd924db9207aa4",
+      "expected_status": "answered",
+      "question": "What was the percentage change in Capital redemption reserve in 2019 from 2018?",
+      "answer_type": "arithmetic",
+      "answer": 40,
+      "scale": "percent",
+      "derivation": "(0.7-0.5)/0.5",
+      "document_uid": "8151aa1c9aa6f6a7c9cd3b003dec18e3",
+      "document_sha256": "6b6f8ac6fd7c12e259df8ff7a4660a9997a3e7a0f53876e31dda0584590527af",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "177035d8-c8f8-4429-9149-f5dc6272e9e3",
+          "page": 1,
+          "char_start": 27,
+          "char_end": 30,
+          "text": "0.7",
+          "block_text": "Capital redemption reserve 0.7 0.5"
+        },
+        {
+          "block_id": "177035d8-c8f8-4429-9149-f5dc6272e9e3",
+          "page": 1,
+          "char_start": 31,
+          "char_end": 34,
+          "text": "0.5",
+          "block_text": "Capital redemption reserve 0.7 0.5"
+        }
+      ]
+    },
+    {
+      "uid": "c077022aa0f19adfb4fa87807bb140a5",
+      "expected_status": "answered",
+      "question": "What is the difference between the net cash provided by operating activities from 2018 to 2019?",
+      "answer_type": "arithmetic",
+      "answer": -835,
+      "scale": "million",
+      "derivation": "14,551-15,386",
+      "document_uid": "e2018edc5002efd48cf4cd9a7f7040d3",
+      "document_sha256": "3660ae51b95604ca907a3527049b2233f3d38402e967bd38bbc9ebf47361c328",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "9a71aa02-a450-40cc-b75f-f93f6128a9a1",
+          "page": 1,
+          "char_start": 57,
+          "char_end": 63,
+          "text": "15,386",
+          "block_text": "Net cash provided by operating activities $ 14,551 -5% $ 15,386"
+        },
+        {
+          "block_id": "9a71aa02-a450-40cc-b75f-f93f6128a9a1",
+          "page": 1,
+          "char_start": 44,
+          "char_end": 50,
+          "text": "14,551",
+          "block_text": "Net cash provided by operating activities $ 14,551 -5% $ 15,386"
+        }
+      ]
+    },
+    {
+      "uid": "c11ea0f3ddc8a0bcb68c4e8ea960bb82",
+      "expected_status": "answered",
+      "question": "What is the Revenue from UK in 2019?",
+      "answer_type": "span",
+      "answer": [
+        "83.2"
+      ],
+      "scale": "million",
+      "derivation": "",
+      "document_uid": "4bac0b8169e05a0e8d1220fab5e165d5",
+      "document_sha256": "052e257d30eb71b17dcd4ee1e9bb7415804496abac12e104626d18cd2c574d14",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "6329c525-6f61-457b-a1b2-1387b5383477",
+          "page": 1,
+          "char_start": 3,
+          "char_end": 7,
+          "text": "83.2",
+          "block_text": "UK 83.2 73.5"
+        }
+      ]
+    },
+    {
+      "uid": "cf02810f6d9b8a88deb2943aba76fa71",
+      "expected_status": "answered",
+      "question": "What is the total guarantee in respect of Section 106 planning obligation liabilities at Barton Square which at 31 December 2018?",
+      "answer_type": "span",
+      "answer": [
+        "\u00a312.4 million"
+      ],
+      "scale": "",
+      "derivation": "",
+      "document_uid": "fc6df82265ed5153ed1fe3cdbc4e7b62",
+      "document_sha256": "b7f58d90a42fd1476c1e1a69a5bc7bef4a1fbd43aee972008a4610532636f8b9",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "dcaff28e-e755-44df-ae8e-3a17505ce330",
+          "page": 1,
+          "char_start": 246,
+          "char_end": 260,
+          "text": " \u00a312.4 million",
+          "block_text": "Under the terms of the Group\u2019s acquisition of intu Trafford Centre from Peel in 2011, Peel has provided a guarantee in respect of Section 106 planning obligation liabilities at Barton Square which at 31 December 2019 totalled \u00a313.0 million (2018: \u00a312.4 million)."
+        }
+      ]
+    },
+    {
+      "uid": "d534bc8beaefb6a159e37407fcd17ee9",
+      "expected_status": "answered",
+      "question": "What was the fair value of derivatives non-current liability in 2019?",
+      "answer_type": "span",
+      "answer": [
+        "41,837"
+      ],
+      "scale": "thousand",
+      "derivation": "",
+      "document_uid": "1dcc49e0d122ddd39f5df46093f57e4d",
+      "document_sha256": "930ae864353cb163b40fad3ac381fb954f8e455f2d09ce733080352c88472964",
+      "relevant_pages": [
+        1
+      ],
+      "evidence": [
+        {
+          "block_id": "d80efd8a-e203-4089-8176-dd3bd2ac97a4",
+          "page": 1,
+          "char_start": 131,
+          "char_end": 137,
+          "text": "41,837",
+          "block_text": "Derivative financial instruments, current liability . 2,091 8,095 Derivative financial instruments, non-current liability . 10,001 41,837"
+        }
+      ]
+    },
+    {
+      "uid": "unanswerable-rainfall",
+      "expected_status": "insufficient_evidence",
+      "question": "What was the average rainfall in Tokyo during 2019?",
+      "answer_type": "unanswerable",
+      "answer": null,
+      "scale": "",
+      "derivation": "",
+      "document_uid": null,
+      "document_sha256": null,
+      "relevant_pages": [],
+      "evidence": []
+    },
+    {
+      "uid": "unanswerable-spacecraft",
+      "expected_status": "insufficient_evidence",
+      "question": "Which spacecraft first landed on Mars?",
+      "answer_type": "unanswerable",
+      "answer": null,
+      "scale": "",
+      "derivation": "",
+      "document_uid": null,
+      "document_sha256": null,
+      "relevant_pages": [],
+      "evidence": []
+    },
+    {
+      "uid": "unanswerable-graduates",
+      "expected_status": "insufficient_evidence",
+      "question": "How many students graduated from Oxford University in 2018?",
+      "answer_type": "unanswerable",
+      "answer": null,
+      "scale": "",
+      "derivation": "",
+      "document_uid": null,
+      "document_sha256": null,
+      "relevant_pages": [],
+      "evidence": []
+    },
+    {
+      "uid": "unanswerable-dosage",
+      "expected_status": "insufficient_evidence",
+      "question": "What dosage was administered in the clinical trial?",
+      "answer_type": "unanswerable",
+      "answer": null,
+      "scale": "",
+      "derivation": "",
+      "document_uid": null,
+      "document_sha256": null,
+      "relevant_pages": [],
+      "evidence": []
+    },
+    {
+      "uid": "unanswerable-election",
+      "expected_status": "insufficient_evidence",
+      "question": "Who won the 2019 federal election in Canada?",
+      "answer_type": "unanswerable",
+      "answer": null,
+      "scale": "",
+      "derivation": "",
+      "document_uid": null,
+      "document_sha256": null,
+      "relevant_pages": [],
+      "evidence": []
+    },
+    {
+      "uid": "unanswerable-electricity",
+      "expected_status": "insufficient_evidence",
+      "question": "What was the building's annual electricity consumption?",
+      "answer_type": "unanswerable",
+      "answer": null,
+      "scale": "",
+      "derivation": "",
+      "document_uid": null,
+      "document_sha256": null,
+      "relevant_pages": [],
+      "evidence": []
+    }
+  ]
+}

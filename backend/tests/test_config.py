@@ -17,6 +17,9 @@ def test_settings_reads_data_directory_from_environment(monkeypatch) -> None:
     monkeypatch.setenv("DOCINTEL_CHUNK_OVERLAP", "15")
     monkeypatch.setenv("DOCINTEL_NER_MODEL", "custom-ner")
     monkeypatch.setenv("DOCINTEL_NER_MODEL_VERSION", "model-version")
+    monkeypatch.setenv("DOCINTEL_GENERATION_MODEL", "custom-generator")
+    monkeypatch.setenv("DOCINTEL_GENERATION_REVISION", "generator-revision")
+    monkeypatch.setenv("DOCINTEL_GENERATION_MAX_NEW_TOKENS", "128")
 
     settings = Settings.from_environment()
 
@@ -29,6 +32,9 @@ def test_settings_reads_data_directory_from_environment(monkeypatch) -> None:
     assert settings.chunk_overlap == 15
     assert settings.ner_model == "custom-ner"
     assert settings.ner_model_version == "model-version"
+    assert settings.generation_model == "custom-generator"
+    assert settings.generation_revision == "generator-revision"
+    assert settings.generation_max_new_tokens == 128
 
 
 def test_frozen_retrieval_configuration_matches_application_defaults() -> None:
@@ -72,3 +78,28 @@ def test_frozen_ner_configuration_matches_application_defaults() -> None:
     assert frozen["selected_model"]["package_version"] == settings.ner_model_version
     assert frozen["selected_model"]["component_version"] == extractor.version
     assert frozen["selection_evidence"]["strict_f1"] == result["engines"]["spacy"]["metrics"]["strict"]["overall"]["f1"]
+
+
+def test_frozen_generation_configuration_matches_application_defaults() -> None:
+    root = Path(__file__).resolve().parents[2]
+    frozen = json.loads((root / "evaluation" / "config" / "generation_v1.json").read_text(encoding="utf-8"))
+    qwen_bytes = (root / frozen["selection_evidence"]["qwen_result"]).read_bytes()
+    mistral_bytes = (root / frozen["selection_evidence"]["mistral_result"]).read_bytes()
+    qwen = json.loads(qwen_bytes)
+    mistral = json.loads(mistral_bytes)
+    settings = Settings(Path("data"))
+
+    assert frozen["selected_model"]["repository"] == settings.generation_model
+    assert frozen["selected_model"]["revision"] == settings.generation_revision
+    assert frozen["inference"]["max_new_tokens"] == settings.generation_max_new_tokens
+    assert frozen["selection_evidence"]["qwen_result_sha256"] == hashlib.sha256(qwen_bytes).hexdigest()
+    assert frozen["selection_evidence"]["mistral_result_sha256"] == hashlib.sha256(mistral_bytes).hexdigest()
+    assert frozen["selection_evidence"]["inputs_sha256"] == qwen["inputs_sha256"] == mistral["inputs_sha256"]
+    assert (
+        frozen["selection_evidence"]["metrics"]["qwen"]["answerable_reference_coverage"]
+        == qwen["metrics"]["answerable_reference_coverage"]
+    )
+    assert (
+        frozen["selection_evidence"]["metrics"]["mistral"]["answerable_reference_coverage"]
+        == mistral["metrics"]["answerable_reference_coverage"]
+    )

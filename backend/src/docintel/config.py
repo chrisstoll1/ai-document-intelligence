@@ -10,6 +10,9 @@ DEFAULT_CHUNK_MAX_WORDS = 120
 DEFAULT_CHUNK_OVERLAP = 20
 DEFAULT_NER_MODEL = "en_core_web_trf"
 DEFAULT_NER_MODEL_VERSION = "3.8.0"
+DEFAULT_GENERATION_MODEL = "Qwen/Qwen2.5-7B-Instruct"
+DEFAULT_GENERATION_REVISION = "a09a35458c702b33eeacc393d103063234e8bc28"
+DEFAULT_GENERATION_MAX_NEW_TOKENS = 384
 
 
 @dataclass(frozen=True)
@@ -22,6 +25,9 @@ class Settings:
     chunk_overlap: int = DEFAULT_CHUNK_OVERLAP
     ner_model: str = DEFAULT_NER_MODEL
     ner_model_version: str = DEFAULT_NER_MODEL_VERSION
+    generation_model: str = DEFAULT_GENERATION_MODEL
+    generation_revision: str = DEFAULT_GENERATION_REVISION
+    generation_max_new_tokens: int = DEFAULT_GENERATION_MAX_NEW_TOKENS
 
     @property
     def database_path(self) -> Path:
@@ -38,4 +44,9 @@ class Settings:
             chunk_overlap=int(os.environ.get("DOCINTEL_CHUNK_OVERLAP", DEFAULT_CHUNK_OVERLAP)),
             ner_model=os.environ.get("DOCINTEL_NER_MODEL", DEFAULT_NER_MODEL),
             ner_model_version=os.environ.get("DOCINTEL_NER_MODEL_VERSION", DEFAULT_NER_MODEL_VERSION),
+            generation_model=os.environ.get("DOCINTEL_GENERATION_MODEL", DEFAULT_GENERATION_MODEL),
+            generation_revision=os.environ.get("DOCINTEL_GENERATION_REVISION", DEFAULT_GENERATION_REVISION),
+            generation_max_new_tokens=int(
+                os.environ.get("DOCINTEL_GENERATION_MAX_NEW_TOKENS", DEFAULT_GENERATION_MAX_NEW_TOKENS)
+            ),
         )

@@ -4,6 +4,7 @@ from collections.abc import Callable
 from contextlib import asynccontextmanager
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Literal
 
 from fastapi import FastAPI, File, HTTPException, UploadFile
 from fastapi.responses import FileResponse
@@ -14,6 +15,8 @@ from docintel.config import Settings
 from docintel.db import initialize_database
 from docintel.documents import DocumentCatalog, DocumentRecord, DocumentRepository
 from docintel.extraction import ExtractionRepository, OcrUnavailableError, PdfExtractionError, PdfExtractor
+from docintel.generation import GroundedGenerationService
+from docintel.generators import HuggingFaceStructuredGenerator
 from docintel.indexing import ChromaSemanticIndex
 from docintel.ingestion import IngestionService
 from docintel.metadata import MetadataRepository, SpacyEntityExtractor
@@ -68,6 +71,28 @@ class SearchResultResponse(BaseModel):
     semantic_rank: int | None
 
 
+class AnswerRequest(BaseModel):
+    query: str = Field(min_length=1)
+    limit: int = Field(default=5, ge=1, le=10)
+
+
+class GroundedClaimResponse(BaseModel):
+    text: str
+    citation_ids: list[str]
+
+
+class GroundingContextResponse(SearchResultResponse):
+    context_id: str
+
+
+class AnswerResponse(BaseModel):
+    status: Literal["answered", "insufficient_evidence", "generation_failed"]
+    answer: str | None
+    claims: list[GroundedClaimResponse]
+    contexts: list[GroundingContextResponse]
+    failure_reason: str | None
+
+
 @dataclass(frozen=True)
 class AppServices:
     ingestion: IngestionService
@@ -76,6 +101,7 @@ class AppServices:
     search: HybridSearchService
     semantic_index: ChromaSemanticIndex | None = None
     metadata: MetadataRepository | None = None
+    generation: GroundedGenerationService | None = None
 
 
 def build_services(settings: Settings) -> AppServices:
@@ -94,6 +120,12 @@ def build_services(settings: Settings) -> AppServices:
     )
     metadata = MetadataRepository(settings.database_path)
     metadata_extractor = SpacyEntityExtractor(settings.ner_model, settings.ner_model_version)
+    search = HybridSearchService(settings.database_path, chunks, semantic_index)
+    generator = HuggingFaceStructuredGenerator(
+        settings.generation_model,
+        settings.generation_revision,
+        max_new_tokens=settings.generation_max_new_tokens,
+    )
     return AppServices(
         ingestion=IngestionService(
             DocumentCatalog(pdf_store, documents),
@@ -107,9 +139,10 @@ def build_services(settings: Settings) -> AppServices:
         ),
         documents=documents,
         pdf_store=pdf_store,
-        search=HybridSearchService(settings.database_path, chunks, semantic_index),
+        search=search,
         semantic_index=semantic_index,
         metadata=metadata,
+        generation=GroundedGenerationService(search, generator),
     )
 
 
@@ -199,6 +232,26 @@ def create_app(
             SearchResultResponse(**result.__dict__)
             for result in application.state.services.search.search(request.query, limit=request.limit)
         ]
+
+    @application.post("/api/answer", response_model=AnswerResponse)
+    def answer(request: AnswerRequest) -> AnswerResponse:
+        generation = application.state.services.generation
+        if generation is None:
+            raise HTTPException(status_code=503, detail="Grounded generation is unavailable")
+        result = generation.answer(request.query, limit=request.limit)
+        return AnswerResponse(
+            status=result.status,
+            answer=result.answer,
+            claims=[
+                GroundedClaimResponse(text=claim.text, citation_ids=list(claim.citation_ids))
+                for claim in result.claims
+            ],
+            contexts=[
+                GroundingContextResponse(context_id=context.context_id, **context.result.__dict__)
+                for context in result.contexts
+            ],
+            failure_reason=result.failure_reason,
+        )
 
     return application
 

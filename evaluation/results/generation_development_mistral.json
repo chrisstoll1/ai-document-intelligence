@@ -1,0 +1,394 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-08-09T16:47:30.475506+00:00",
+  "split": "development",
+  "inputs_sha256": "a57fe1d83f6203142e1931009149990501234103a86552389898d065a771bb13",
+  "model": {
+    "repository": "mistralai/Mistral-7B-Instruct-v0.3",
+    "revision": "c170c708c41dac9275d15a8fff4eca08d52bab71",
+    "license": "Apache-2.0",
+    "key": "mistral"
+  },
+  "configuration": {
+    "temperature": 0,
+    "do_sample": false,
+    "max_new_tokens": 384,
+    "dtype": "bfloat16",
+    "structured_decoding": "lm-format-enforcer JSON Schema",
+    "context_limit": 5,
+    "initialization_seconds": 14.096851799999968
+  },
+  "environment": {
+    "python": "3.11.2",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "processor": "AMD64 Family 26 Model 68 Stepping 0, AuthenticAMD",
+    "packages": {
+      "accelerate": "1.14.0",
+      "lm-format-enforcer": "0.11.3",
+      "torch": "2.12.0+cu130",
+      "transformers": "5.12.0"
+    },
+    "gpu": "NVIDIA GeForce RTX 4090"
+  },
+  "metrics": {
+    "questions": 18,
+    "answerable_questions": 12,
+    "unanswerable_questions": 6,
+    "valid_generation_rate": 1.0,
+    "end_to_end_status_accuracy": 0.7222222222222222,
+    "context_status_accuracy": 0.7777777777777778,
+    "answerable_reference_coverage": 0.5,
+    "retrieval_conditioned_reference_coverage": 0.5454545454545454,
+    "answerable_token_f1": 0.14101770262760974,
+    "refusal_accuracy": 1.0,
+    "unsupported_answer_rate": 0.0,
+    "evidence_page_citation_relevance": 1.0,
+    "retrieval_evidence_available_rate": 0.9166666666666666,
+    "latency": {
+      "mean_ms": 1166.7051277777318,
+      "p95_ms": 2369.7087999998985
+    }
+  },
+  "questions": [
+    {
+      "uid": "0b6fbe9a9b5d492522bbb89246fface7",
+      "question": "What is another name for the defined benefit plan?",
+      "expected_status": "answered",
+      "context_expected_status": "answered",
+      "status": "answered",
+      "answer": "The defined benefit plan is also referred to as the Woolworths Group Superannuation Plan (WGSP).",
+      "claims": [
+        {
+          "text": "The defined benefit plan is also referred to as the Woolworths Group Superannuation Plan (WGSP).",
+          "citation_ids": [
+            "C1"
+          ]
+        }
+      ],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"answered\",\"claims\":[{\"text\":\"The defined benefit plan is also referred to as the Woolworths Group Superannuation Plan (WGSP).\",\"citation_ids\":[\"C1\"]}]}",
+      "latency_ms": 2183.3543000002464,
+      "reference_coverage": 1.0,
+      "token_f1": 0.4210526315789474,
+      "evidence_page_citation_relevance": 1.0,
+      "retrieval_evidence_available": true
+    },
+    {
+      "uid": "1194b30d85fa5c35b867687d6bba2f20",
+      "question": "What is the total proportion of cost of revenue as a percentage of revenue in 2017 and 2018?",
+      "expected_status": "answered",
+      "context_expected_status": "answered",
+      "status": "insufficient_evidence",
+      "answer": "Insufficient evidence in the retrieved passages.",
+      "claims": [],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"insufficient_evidence\",\"claims\":[]}",
+      "latency_ms": 688.5049000002255,
+      "reference_coverage": 0.0,
+      "token_f1": 0.0,
+      "evidence_page_citation_relevance": null,
+      "retrieval_evidence_available": true
+    },
+    {
+      "uid": "15cd3644a86e8daa20923764f700bc62",
+      "question": "What are the respective proportion of cost of revenue as a percentage of revenue in 2018 and 2019?",
+      "expected_status": "answered",
+      "context_expected_status": "answered",
+      "status": "answered",
+      "answer": "The cost of revenue as a percentage of revenue in 2018 was 50% and in 2019 was 43%",
+      "claims": [
+        {
+          "text": "The cost of revenue as a percentage of revenue in 2018 was 50% and in 2019 was 43%",
+          "citation_ids": [
+            "C2",
+            "C3"
+          ]
+        }
+      ],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"answered\",\"claims\":[{\"text\":\"The cost of revenue as a percentage of revenue in 2018 was 50% and in 2019 was 43%\",\"citation_ids\":[\"C2\",\"C3\"]}]}",
+      "latency_ms": 2027.1208999993178,
+      "reference_coverage": 1.0,
+      "token_f1": 0.19999999999999998,
+      "evidence_page_citation_relevance": 1.0,
+      "retrieval_evidence_available": true
+    },
+    {
+      "uid": "53ac9622cc64aacf1ef57afb58d6d055",
+      "question": "What was the percentage change in the total between 2018 and 2019?",
+      "expected_status": "answered",
+      "context_expected_status": "insufficient_evidence",
+      "status": "insufficient_evidence",
+      "answer": "Insufficient evidence in the retrieved passages.",
+      "claims": [],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"insufficient_evidence\",\"claims\":[]}",
+      "latency_ms": 765.8093000000008,
+      "reference_coverage": 0.0,
+      "token_f1": 0.0,
+      "evidence_page_citation_relevance": null,
+      "retrieval_evidence_available": false
+    },
+    {
+      "uid": "5ad5529129e5d30c96a0c61c2294431e",
+      "question": "In which years was the fair value of the derivative liabilities recorded for?",
+      "expected_status": "answered",
+      "context_expected_status": "answered",
+      "status": "answered",
+      "answer": "The fair value of the derivative liabilities was recorded for the years 2018 and 2019.",
+      "claims": [
+        {
+          "text": "The fair value of the derivative liabilities was recorded for the years 2018 and 2019.",
+          "citation_ids": [
+            "C1",
+            "C3"
+          ]
+        }
+      ],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"answered\",\"claims\":[{\"text\":\"The fair value of the derivative liabilities was recorded for the years 2018 and 2019.\",\"citation_ids\":[\"C1\",\"C3\"]}]}",
+      "latency_ms": 1681.2567999995736,
+      "reference_coverage": 1.0,
+      "token_f1": 0.23529411764705882,
+      "evidence_page_citation_relevance": 1.0,
+      "retrieval_evidence_available": true
+    },
+    {
+      "uid": "91c9bc066bcc324bbaf20d1316f9e928",
+      "question": "What was the change in the statutory federal income tax rate from 2018 to 2019?",
+      "expected_status": "answered",
+      "context_expected_status": "answered",
+      "status": "insufficient_evidence",
+      "answer": "Insufficient evidence in the retrieved passages.",
+      "claims": [],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"insufficient_evidence\",\"claims\":[]}",
+      "latency_ms": 673.9632999997411,
+      "reference_coverage": 0.0,
+      "token_f1": 0.0,
+      "evidence_page_citation_relevance": null,
+      "retrieval_evidence_available": true
+    },
+    {
+      "uid": "9bb527db8bb1623864d225c61c78ccd9",
+      "question": "How much was the accrued expenses associated with the Horizon Clinicals and Series2000 Revenue Cycle businesses on the consolidated balance sheets as of December 31, 2018?",
+      "expected_status": "answered",
+      "context_expected_status": "answered",
+      "status": "answered",
+      "answer": "The accrued expenses associated with the Horizon Clinicals and Series2000 Revenue Cycle businesses on the consolidated balance sheets as of December 31, 2018 was $0.9 million",
+      "claims": [
+        {
+          "text": "The accrued expenses associated with the Horizon Clinicals and Series2000 Revenue Cycle businesses on the consolidated balance sheets as of December 31, 2018 was $0.9 million",
+          "citation_ids": [
+            "C1"
+          ]
+        }
+      ],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"answered\",\"claims\":[{\"text\":\"The accrued expenses associated with the Horizon Clinicals and Series2000 Revenue Cycle businesses on the consolidated balance sheets as of December 31, 2018 was $0.9 million\",\"citation_ids\":[\"C1\"]}]}",
+      "latency_ms": 2369.7087999998985,
+      "reference_coverage": 1.0,
+      "token_f1": 0.19999999999999998,
+      "evidence_page_citation_relevance": 1.0,
+      "retrieval_evidence_available": true
+    },
+    {
+      "uid": "bcae48bb6aff1a6ecabd924db9207aa4",
+      "question": "What was the percentage change in Capital redemption reserve in 2019 from 2018?",
+      "expected_status": "answered",
+      "context_expected_status": "answered",
+      "status": "insufficient_evidence",
+      "answer": "Insufficient evidence in the retrieved passages.",
+      "claims": [],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"insufficient_evidence\",\"claims\":[]}",
+      "latency_ms": 713.3076000000074,
+      "reference_coverage": 0.0,
+      "token_f1": 0.0,
+      "evidence_page_citation_relevance": null,
+      "retrieval_evidence_available": true
+    },
+    {
+      "uid": "c077022aa0f19adfb4fa87807bb140a5",
+      "question": "What is the difference between the net cash provided by operating activities from 2018 to 2019?",
+      "expected_status": "answered",
+      "context_expected_status": "answered",
+      "status": "answered",
+      "answer": "The net cash provided by operating activities decreased from 2018 to 2019 by $1,835 million.",
+      "claims": [
+        {
+          "text": "The net cash provided by operating activities decreased from 2018 to 2019 by $1,835 million.",
+          "citation_ids": [
+            "C2"
+          ]
+        }
+      ],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"answered\",\"claims\":[{\"text\":\"The net cash provided by operating activities decreased from 2018 to 2019 by $1,835 million.\",\"citation_ids\":[\"C2\"]}]}",
+      "latency_ms": 1831.299299999955,
+      "reference_coverage": 0.0,
+      "token_f1": 0.11764705882352941,
+      "evidence_page_citation_relevance": 1.0,
+      "retrieval_evidence_available": true
+    },
+    {
+      "uid": "c11ea0f3ddc8a0bcb68c4e8ea960bb82",
+      "question": "What is the Revenue from UK in 2019?",
+      "expected_status": "answered",
+      "context_expected_status": "answered",
+      "status": "answered",
+      "answer": "The Revenue from UK in 2019 was 83.2 million dollars",
+      "claims": [
+        {
+          "text": "The Revenue from UK in 2019 was 83.2 million dollars",
+          "citation_ids": [
+            "C1"
+          ]
+        }
+      ],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"answered\",\"claims\":[{\"text\":\"The Revenue from UK in 2019 was 83.2 million dollars\",\"citation_ids\":[\"C1\"]}]}",
+      "latency_ms": 1571.525099999235,
+      "reference_coverage": 1.0,
+      "token_f1": 0.3076923076923077,
+      "evidence_page_citation_relevance": 1.0,
+      "retrieval_evidence_available": true
+    },
+    {
+      "uid": "cf02810f6d9b8a88deb2943aba76fa71",
+      "question": "What is the total guarantee in respect of Section 106 planning obligation liabilities at Barton Square which at 31 December 2018?",
+      "expected_status": "answered",
+      "context_expected_status": "answered",
+      "status": "insufficient_evidence",
+      "answer": "Insufficient evidence in the retrieved passages.",
+      "claims": [],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"insufficient_evidence\",\"claims\":[]}",
+      "latency_ms": 665.4896999998527,
+      "reference_coverage": 0.0,
+      "token_f1": 0.0,
+      "evidence_page_citation_relevance": null,
+      "retrieval_evidence_available": true
+    },
+    {
+      "uid": "d534bc8beaefb6a159e37407fcd17ee9",
+      "question": "What was the fair value of derivatives non-current liability in 2019?",
+      "expected_status": "answered",
+      "context_expected_status": "answered",
+      "status": "answered",
+      "answer": "The fair value of derivatives non-current liability in 2019 was 41,837 thousand U.S. Dollars.",
+      "claims": [
+        {
+          "text": "The fair value of derivatives non-current liability in 2019 was 41,837 thousand U.S. Dollars.",
+          "citation_ids": [
+            "C1",
+            "C2"
+          ]
+        }
+      ],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"answered\",\"claims\":[{\"text\":\"The fair value of derivatives non-current liability in 2019 was 41,837 thousand U.S. Dollars.\",\"citation_ids\":[\"C1\",\"C2\"]}]}",
+      "latency_ms": 1911.1410999994405,
+      "reference_coverage": 1.0,
+      "token_f1": 0.21052631578947367,
+      "evidence_page_citation_relevance": 1.0,
+      "retrieval_evidence_available": true
+    },
+    {
+      "uid": "unanswerable-rainfall",
+      "question": "What was the average rainfall in Tokyo during 2019?",
+      "expected_status": "insufficient_evidence",
+      "context_expected_status": "insufficient_evidence",
+      "status": "insufficient_evidence",
+      "answer": "Insufficient evidence in the retrieved passages.",
+      "claims": [],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"insufficient_evidence\",\"claims\":[]}",
+      "latency_ms": 601.3933000003817,
+      "reference_coverage": null,
+      "token_f1": null,
+      "evidence_page_citation_relevance": null,
+      "retrieval_evidence_available": false
+    },
+    {
+      "uid": "unanswerable-spacecraft",
+      "question": "Which spacecraft first landed on Mars?",
+      "expected_status": "insufficient_evidence",
+      "context_expected_status": "insufficient_evidence",
+      "status": "insufficient_evidence",
+      "answer": "Insufficient evidence in the retrieved passages.",
+      "claims": [],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"insufficient_evidence\",\"claims\":[]}",
+      "latency_ms": 645.0182000007771,
+      "reference_coverage": null,
+      "token_f1": null,
+      "evidence_page_citation_relevance": null,
+      "retrieval_evidence_available": false
+    },
+    {
+      "uid": "unanswerable-graduates",
+      "question": "How many students graduated from Oxford University in 2018?",
+      "expected_status": "insufficient_evidence",
+      "context_expected_status": "insufficient_evidence",
+      "status": "insufficient_evidence",
+      "answer": "Insufficient evidence in the retrieved passages.",
+      "claims": [],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"insufficient_evidence\",\"claims\":[]}",
+      "latency_ms": 669.2132999996829,
+      "reference_coverage": null,
+      "token_f1": null,
+      "evidence_page_citation_relevance": null,
+      "retrieval_evidence_available": false
+    },
+    {
+      "uid": "unanswerable-dosage",
+      "question": "What dosage was administered in the clinical trial?",
+      "expected_status": "insufficient_evidence",
+      "context_expected_status": "insufficient_evidence",
+      "status": "insufficient_evidence",
+      "answer": "Insufficient evidence in the retrieved passages.",
+      "claims": [],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"insufficient_evidence\",\"claims\":[]}",
+      "latency_ms": 627.726700000494,
+      "reference_coverage": null,
+      "token_f1": null,
+      "evidence_page_citation_relevance": null,
+      "retrieval_evidence_available": false
+    },
+    {
+      "uid": "unanswerable-election",
+      "question": "Who won the 2019 federal election in Canada?",
+      "expected_status": "insufficient_evidence",
+      "context_expected_status": "insufficient_evidence",
+      "status": "insufficient_evidence",
+      "answer": "Insufficient evidence in the retrieved passages.",
+      "claims": [],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"insufficient_evidence\",\"claims\":[]}",
+      "latency_ms": 709.5177999999578,
+      "reference_coverage": null,
+      "token_f1": null,
+      "evidence_page_citation_relevance": null,
+      "retrieval_evidence_available": false
+    },
+    {
+      "uid": "unanswerable-electricity",
+      "question": "What was the building's annual electricity consumption?",
+      "expected_status": "insufficient_evidence",
+      "context_expected_status": "insufficient_evidence",
+      "status": "insufficient_evidence",
+      "answer": "Insufficient evidence in the retrieved passages.",
+      "claims": [],
+      "failure_reason": null,
+      "raw_output": "{\"status\":\"insufficient_evidence\",\"claims\":[]}",
+      "latency_ms": 665.3419000003851,
+      "reference_coverage": null,
+      "token_f1": null,
+      "evidence_page_citation_relevance": null,
+      "retrieval_evidence_available": false
+    }
+  ]
+}
