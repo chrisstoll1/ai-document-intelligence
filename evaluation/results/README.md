@@ -24,3 +24,10 @@ The first development baseline is recorded in:
 - `ner_development_candidate_comparison.md`: reviewed spaCy/BERT NER comparison and selection decision.
 - `ner_development_candidate_comparison.json`: complete NER environment, metrics, predictions, and timings.
 - `../config/ner_v1.json`: selected spaCy model, evaluated taxonomy, version identity, and evidence.
+- `tat_dqa_locked_test_selected.json`: complete frozen direct-text locked retrieval rankings and metrics.
+- `tat_dqa_development_metadata_rerank.json`: exact selected-NER metadata ablation over frozen rankings.
+- `ocr_retrieval_development.json` and `ocr_retrieval_locked_test.json`: paired clean/degraded full-page OCR retrieval results.
+- `generation_development_qwen.json` and `generation_development_mistral.json`: generation candidate-selection outputs.
+- `generation_locked_test_qwen.json`: selected Qwen locked outputs, citations, refusals, and automatic metrics.
+- `generation_qwen_resource_profile.json`: selected generator initialization, latency, RAM, and GPU measurements.
+- `reproducibility_check.md`: clean Python/CUDA and frontend installation verification.
