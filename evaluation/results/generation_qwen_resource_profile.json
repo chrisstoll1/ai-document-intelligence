@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "model": "Qwen/Qwen2.5-7B-Instruct@a09a35458c702b33eeacc393d103063234e8bc28",
+  "device": "NVIDIA GeForce RTX 4090",
+  "questions": 18,
+  "initialization_seconds": 19.193874600001436,
+  "latency_ms": {
+    "mean": 1600.3485222222985,
+    "minimum": 514.3471999999747,
+    "maximum": 2462.4498000011954
+  },
+  "memory_bytes": {
+    "process_rss_before_load": 71553024,
+    "process_rss_after_load": 1085915136,
+    "process_rss_increase": 1014362112,
+    "gpu_allocated_after_load": 15231234048,
+    "gpu_reserved_after_load": 15252586496,
+    "gpu_peak_allocated_during_inference": 16067216384,
+    "gpu_peak_reserved_during_inference": 16838033408
+  },
+  "statuses": {
+    "answered": 12,
+    "insufficient_evidence": 6
+  }
+}
