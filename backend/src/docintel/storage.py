@@ -66,6 +66,17 @@ class PdfStore:
             raise ValueError("document_id must be a lowercase SHA-256 digest")
         return self.pdf_dir / document_id[:2] / f"{document_id}.pdf"
 
+    def delete(self, document_id: str) -> bool:
+        path = self.path_for(document_id)
+        if not path.exists():
+            return False
+        path.unlink()
+        try:
+            path.parent.rmdir()
+        except OSError:
+            pass
+        return True
+
     def _write_temporary(self, source: BinaryIO) -> Path:
         temporary_file = tempfile.NamedTemporaryFile(dir=self.pdf_dir, suffix=".tmp", delete=False)
         temporary_path = Path(temporary_file.name)

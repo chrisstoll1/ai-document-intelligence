@@ -34,3 +34,18 @@ def test_document_repository_returns_none_for_unknown_document(tmp_path) -> None
     initialize_database(database_path)
 
     assert DocumentRepository(database_path).get("missing") is None
+
+
+def test_document_repository_deletes_records_and_reset_is_idempotent(tmp_path) -> None:
+    database_path = tmp_path / "docintel.sqlite3"
+    initialize_database(database_path)
+    repository = DocumentRepository(database_path)
+    catalog = DocumentCatalog(PdfStore(tmp_path), repository)
+    first = catalog.add_pdf(BytesIO(b"%PDF-1.7\nfirst\n%%EOF"), "first.pdf")
+    catalog.add_pdf(BytesIO(b"%PDF-1.7\nsecond\n%%EOF"), "second.pdf")
+
+    assert repository.delete(first.id) is True
+    assert repository.delete(first.id) is False
+    assert len(repository.list_all()) == 1
+    assert repository.delete_all() == 1
+    assert repository.delete_all() == 0

@@ -141,6 +141,21 @@ class DocumentRepository:
             ).fetchone()
         return row["original_filename"] if row is not None else None
 
+    def delete(self, document_id: str) -> bool:
+        with database_connection(self.database_path) as connection, connection:
+            connection.execute(
+                "DELETE FROM chunks_fts WHERE chunk_id IN (SELECT id FROM chunks WHERE document_id = ?)",
+                (document_id,),
+            )
+            cursor = connection.execute("DELETE FROM documents WHERE id = ?", (document_id,))
+        return cursor.rowcount > 0
+
+    def delete_all(self) -> int:
+        with database_connection(self.database_path) as connection, connection:
+            connection.execute("DELETE FROM chunks_fts")
+            cursor = connection.execute("DELETE FROM documents")
+        return cursor.rowcount
+
 
 class DocumentCatalog:
     def __init__(self, pdf_store: PdfStore, repository: DocumentRepository) -> None:

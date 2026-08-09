@@ -69,3 +69,33 @@ def test_chroma_index_identity_includes_model_revision(tmp_path) -> None:
     assert index.collection.metadata["embedding_model"] == index.model_name
 
     index.close()
+
+
+def test_chroma_document_delete_reset_and_stale_cleanup(tmp_path) -> None:
+    path = tmp_path / "chroma"
+    index = ChromaSemanticIndex(path, encoder=FakeEncoder(), model_name="active-model")
+    other = ChromaSemanticIndex(path, encoder=FakeEncoder(), model_name="stale-model")
+    first = _chunk("a" * 64, "Privacy controls", 1)
+    second = ProvenanceChunk("b" * 64, "e" * 64, 1, "Weather", 1, 1, "test-v1", ())
+    index.replace_document("d" * 64, [first])
+    index.replace_document("e" * 64, [second])
+    index.client.get_or_create_collection("unrelated")
+
+    index.delete_document("d" * 64)
+    assert [hit.chunk_id for hit in index.query("weather")] == [second.id]
+    assert index.cleanup_stale_collections() == [other.collection_name]
+    assert sorted(collection.name for collection in index.client.list_collections()) == [
+        index.collection_name,
+        "unrelated",
+    ]
+
+    deleted = index.reset()
+    assert deleted == [index.collection_name]
+    assert index.query("weather") == []
+    assert sorted(collection.name for collection in index.client.list_collections()) == [
+        index.collection_name,
+        "unrelated",
+    ]
+
+    other.close()
+    index.close()

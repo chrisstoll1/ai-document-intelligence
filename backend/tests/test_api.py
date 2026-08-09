@@ -9,6 +9,7 @@ from docintel.extraction import ExtractedBlock, ExtractedPage, ExtractionReposit
 from docintel.generation import GroundedAnswer, GroundedClaim, GroundingContext
 from docintel.indexing import ChromaSemanticIndex
 from docintel.ingestion import IngestionService
+from docintel.lifecycle import DocumentLifecycleService
 from docintel.metadata import EntityMention
 from docintel.search import HybridSearchService, PersistentSearchResult
 from docintel.storage import PdfStore
@@ -75,6 +76,14 @@ class FakeGeneration:
         )
 
 
+class FakeLifecycle:
+    def delete(self, document_id: str) -> bool:
+        return document_id == "a" * 64
+
+    def reset(self) -> int:
+        return 2
+
+
 class FakePageExtractor:
     def extract(self, path) -> list[ExtractedPage]:
         assert path.exists()
@@ -108,6 +117,7 @@ def _services(settings: Settings) -> AppServices:
         FakeSearch(),
         metadata=FakeMetadata(),
         generation=FakeGeneration(),
+        lifecycle=FakeLifecycle(),
     )
 
 
@@ -119,6 +129,7 @@ def _integration_services(settings: Settings) -> AppServices:
     semantic_index = ChromaSemanticIndex(
         settings.data_dir / "chroma", encoder=FakeEncoder(), model_name="fake-model"
     )
+    search = HybridSearchService(settings.database_path, chunks, semantic_index)
     return AppServices(
         IngestionService(
             DocumentCatalog(pdf_store, documents),
@@ -130,8 +141,9 @@ def _integration_services(settings: Settings) -> AppServices:
         ),
         documents,
         pdf_store,
-        HybridSearchService(settings.database_path, chunks, semantic_index),
+        search,
         semantic_index,
+        lifecycle=DocumentLifecycleService(documents, pdf_store, semantic_index),
     )
 
 
@@ -194,6 +206,17 @@ def test_answer_endpoint_reports_unavailable_without_generator(tmp_path) -> None
     assert response.status_code == 503
 
 
+def test_document_delete_and_reset_endpoints_report_results(tmp_path) -> None:
+    with TestClient(create_app(Settings(tmp_path), service_builder=_services)) as client:
+        deleted = client.delete(f"/api/documents/{'a' * 64}")
+        missing = client.delete(f"/api/documents/{'b' * 64}")
+        reset = client.delete("/api/documents")
+
+    assert deleted.status_code == 204
+    assert missing.status_code == 404
+    assert reset.json() == {"deleted_count": 2}
+
+
 def test_api_vertical_slice_persists_and_searches_uploaded_pdf(tmp_path) -> None:
     pdf_bytes = b"%PDF-1.7\nexample\n%%EOF"
     with TestClient(create_app(Settings(tmp_path), service_builder=_integration_services)) as client:
@@ -206,6 +229,10 @@ def test_api_vertical_slice_persists_and_searches_uploaded_pdf(tmp_path) -> None
         detail = client.get(f"/api/documents/{document_id}")
         source = client.get(f"/api/documents/{document_id}/pdf")
         search = client.post("/api/search", json={"query": "confidential information"})
+        deleted = client.delete(f"/api/documents/{document_id}")
+        missing_detail = client.get(f"/api/documents/{document_id}")
+        search_after_delete = client.post("/api/search", json={"query": "confidential information"})
+        reset = client.delete("/api/documents")
 
     assert upload.json()["status"] == "ready"
     assert listing.json()[0]["filename"] == "privacy.pdf"
@@ -213,3 +240,7 @@ def test_api_vertical_slice_persists_and_searches_uploaded_pdf(tmp_path) -> None
     assert source.content == pdf_bytes
     assert search.json()[0]["document_id"] == document_id
     assert search.json()[0]["semantic_rank"] == 1
+    assert deleted.status_code == 204
+    assert missing_detail.status_code == 404
+    assert search_after_delete.json() == []
+    assert reset.json() == {"deleted_count": 0}

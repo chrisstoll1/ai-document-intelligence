@@ -76,8 +76,12 @@ class ChromaSemanticIndex:
         self.query_prompt = query_prompt
         fingerprint = hashlib.sha256(self.model_name.encode()).hexdigest()[:12]
         self.client = chromadb.PersistentClient(path=str(path))
-        self.collection = self.client.get_or_create_collection(
-            name=f"chunks-{fingerprint}",
+        self.collection_name = f"chunks-{fingerprint}"
+        self.collection = self._create_collection()
+
+    def _create_collection(self):
+        return self.client.get_or_create_collection(
+            name=self.collection_name,
             metadata={"embedding_model": self.model_name, "hnsw:space": "cosine"},
         )
 
@@ -98,6 +102,26 @@ class ChromaSemanticIndex:
                 for chunk in chunks
             ],
         )
+
+    def delete_document(self, document_id: str) -> None:
+        self.collection.delete(where={"document_id": document_id})
+
+    def cleanup_stale_collections(self) -> list[str]:
+        deleted = []
+        for collection in self.client.list_collections():
+            if collection.name.startswith("chunks-") and collection.name != self.collection_name:
+                self.client.delete_collection(collection.name)
+                deleted.append(collection.name)
+        return sorted(deleted)
+
+    def reset(self) -> list[str]:
+        deleted = []
+        for collection in self.client.list_collections():
+            if collection.name.startswith("chunks-"):
+                self.client.delete_collection(collection.name)
+                deleted.append(collection.name)
+        self.collection = self._create_collection()
+        return sorted(deleted)
 
     def query(self, query: str, *, limit: int = 20) -> list[SemanticHit]:
         query = query.strip()

@@ -38,3 +38,15 @@ def test_pdf_store_rejects_invalid_input_without_leaving_files(
         store.put(BytesIO(pdf_bytes))
 
     assert list((tmp_path / "pdfs").rglob("*.*")) == []
+
+
+def test_pdf_store_delete_is_idempotent_and_prunes_hash_directory(tmp_path) -> None:
+    store = PdfStore(tmp_path)
+    stored = store.put(BytesIO(b"%PDF-1.7\ndelete me\n%%EOF"))
+
+    assert store.delete(stored.document_id) is True
+    assert store.delete(stored.document_id) is False
+    assert not stored.path.exists()
+    assert not stored.path.parent.exists()
+    with pytest.raises(ValueError, match="SHA-256"):
+        store.delete("invalid")

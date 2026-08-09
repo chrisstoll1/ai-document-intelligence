@@ -6,7 +6,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Literal
 
-from fastapi import FastAPI, File, HTTPException, UploadFile
+from fastapi import FastAPI, File, HTTPException, Response, UploadFile
 from fastapi.responses import FileResponse
 from pydantic import BaseModel, Field
 
@@ -19,6 +19,7 @@ from docintel.generation import GroundedGenerationService
 from docintel.generators import HuggingFaceStructuredGenerator
 from docintel.indexing import ChromaSemanticIndex
 from docintel.ingestion import IngestionService
+from docintel.lifecycle import DocumentLifecycleService
 from docintel.metadata import MetadataRepository, SpacyEntityExtractor
 from docintel.search import HybridSearchService
 from docintel.storage import InvalidPdfError, PdfStore, PdfTooLargeError
@@ -93,6 +94,10 @@ class AnswerResponse(BaseModel):
     failure_reason: str | None
 
 
+class ResetResponse(BaseModel):
+    deleted_count: int
+
+
 @dataclass(frozen=True)
 class AppServices:
     ingestion: IngestionService
@@ -102,6 +107,7 @@ class AppServices:
     semantic_index: ChromaSemanticIndex | None = None
     metadata: MetadataRepository | None = None
     generation: GroundedGenerationService | None = None
+    lifecycle: DocumentLifecycleService | None = None
 
 
 def build_services(settings: Settings) -> AppServices:
@@ -126,6 +132,8 @@ def build_services(settings: Settings) -> AppServices:
         settings.generation_revision,
         max_new_tokens=settings.generation_max_new_tokens,
     )
+    lifecycle = DocumentLifecycleService(documents, pdf_store, semantic_index)
+    semantic_index.cleanup_stale_collections()
     return AppServices(
         ingestion=IngestionService(
             DocumentCatalog(pdf_store, documents),
@@ -143,6 +151,7 @@ def build_services(settings: Settings) -> AppServices:
         semantic_index=semantic_index,
         metadata=metadata,
         generation=GroundedGenerationService(search, generator),
+        lifecycle=lifecycle,
     )
 
 
@@ -225,6 +234,22 @@ def create_app(
             error_message=document.metadata_error,
             entities=[EntityMentionResponse(**entity.__dict__) for entity in entities],
         )
+
+    @application.delete("/api/documents/{document_id}", status_code=204)
+    def delete_document(document_id: str) -> Response:
+        lifecycle = application.state.services.lifecycle
+        if lifecycle is None:
+            raise HTTPException(status_code=503, detail="Document lifecycle management is unavailable")
+        if not lifecycle.delete(document_id):
+            raise HTTPException(status_code=404, detail="Document not found")
+        return Response(status_code=204)
+
+    @application.delete("/api/documents", response_model=ResetResponse)
+    def reset_documents() -> ResetResponse:
+        lifecycle = application.state.services.lifecycle
+        if lifecycle is None:
+            raise HTTPException(status_code=503, detail="Document lifecycle management is unavailable")
+        return ResetResponse(deleted_count=lifecycle.reset())
 
     @application.post("/api/search", response_model=list[SearchResultResponse])
     def search(request: SearchRequest) -> list[SearchResultResponse]:
