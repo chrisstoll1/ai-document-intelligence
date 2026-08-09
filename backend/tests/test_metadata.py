@@ -106,3 +106,23 @@ def test_spacy_extractor_maps_evaluated_labels_and_preserves_offsets() -> None:
         EntityMention(1, "ORGANIZATION", "Example Ltd", 13, 24),
     ]
     assert extractor.version == "spacy:en_core_web_trf@3.8.0:labels-v1:normalization-v1"
+
+
+def test_exact_metadata_page_matches_require_label_normalization_and_current_model(tmp_path) -> None:
+    _, repository, document_id = _document(tmp_path)
+    repository.replace_document(
+        document_id,
+        "selected-model",
+        [EntityMention(1, "ORGANIZATION", "Example Ltd", 13, 24)],
+    )
+
+    matches = repository.find_exact_pages(
+        [("ORGANIZATION", "example ltd"), ("LOCATION", "example ltd")],
+        model_version="selected-model",
+    )
+
+    assert [(match.document_id, match.page_number, match.label) for match in matches] == [
+        (document_id, 1, "ORGANIZATION")
+    ]
+    assert repository.find_exact_pages([("ORGANIZATION", "example")], model_version="selected-model") == []
+    assert repository.find_exact_pages([("ORGANIZATION", "example ltd")], model_version="stale-model") == []

@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "configuration_id": "metadata-rerank-v1",
+  "status": "evaluated_not_selected_for_default_retrieval",
+  "split": "development",
+  "metadata_model": "spacy:en_core_web_trf@3.8.0:labels-v1:normalization-v1",
+  "policy": {
+    "query_entities": "Selected spaCy PERSON, ORGANIZATION, and LOCATION labels",
+    "matching": "Exact same-label NFKC-casefolded normalized text",
+    "scope": "Candidate document and overlapping source page",
+    "combination": "OR semantics with binary stable partition",
+    "fallback": "Preserve frozen retrieval-v1 ranking"
+  },
+  "evidence": {
+    "matches": "evaluation/metadata/development_matches.json",
+    "matches_sha256": "3adfae8b60e6de0cdba9f5b865988845b67dc6ae039bbca6e785258634083e18",
+    "result": "evaluation/results/tat_dqa_development_metadata_rerank.json",
+    "result_sha256": "b436d780219b4b2dfe72828987bb4c21a8b50c4bcdca1409db75bba366a4b378",
+    "queries": 30,
+    "queries_with_entities": 8,
+    "queries_with_global_matches": 6,
+    "rankings_changed": 2
+  },
+  "metrics": {
+    "mrr_at_10_delta": 0.0,
+    "evidence_hit_at_1_delta": 0.0,
+    "hit_at_1_delta": 0.0,
+    "ndcg_at_10_delta": 0.0027215968523177647
+  },
+  "decision": "Do not add metadata to the default retrieval score because activation was sparse and no first-result, first-evidence, reciprocal-rank, or top-ten coverage metric improved. Keep mentions inspectable and retain the policy as a reproducible ablation."
+}

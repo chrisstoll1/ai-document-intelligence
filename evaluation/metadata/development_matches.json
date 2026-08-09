@@ -1,0 +1,445 @@
+{
+  "schema_version": 1,
+  "split": "development",
+  "manifest_sha256": "f87799c0627def3bd74984d19997afa9287bf6e7343590f31c57986036f8df3a",
+  "metadata_model": "spacy:en_core_web_trf@3.8.0:labels-v1:normalization-v1",
+  "policy": "Exact same-label normalized entity match with page-aware OR semantics",
+  "corpus_mentions_by_label": {
+    "LOCATION": 23,
+    "ORGANIZATION": 163,
+    "PERSON": 4
+  },
+  "queries": [
+    {
+      "uid": "0b6fbe9a9b5d492522bbb89246fface7",
+      "question": "What is another name for the defined benefit plan?",
+      "entities": [],
+      "matches": [],
+      "latency_ms": {
+        "query_ner": 21.888299999773153,
+        "exact_match": 0.004300000000512227
+      }
+    },
+    {
+      "uid": "0db4ccdc316a0f8a51a24a8b971e4975",
+      "question": "What is the average discount rate for 2018 and 2019?",
+      "entities": [],
+      "matches": [],
+      "latency_ms": {
+        "query_ner": 21.549199998844415,
+        "exact_match": 0.003099999958067201
+      }
+    },
+    {
+      "uid": "aa7bf316bf3fc1fc60d6094ee163490e",
+      "question": "What does the table show?",
+      "entities": [],
+      "matches": [],
+      "latency_ms": {
+        "query_ner": 18.788499999573105,
+        "exact_match": 0.0032999996619764715
+      }
+    },
+    {
+      "uid": "6453d82fa4fe65b323407550d83156c7",
+      "question": "What was the Provision for losses on accounts receivable in 2017?",
+      "entities": [],
+      "matches": [],
+      "latency_ms": {
+        "query_ner": 20.76359999955457,
+        "exact_match": 0.0029000002541579306
+      }
+    },
+    {
+      "uid": "d72d6259210e4c2b10b45c7bd213d0f5",
+      "question": "Which years does the table provide information for share count and par value data related to shareholders' equity?",
+      "entities": [],
+      "matches": [],
+      "latency_ms": {
+        "query_ner": 20.66469999954279,
+        "exact_match": 0.003099999958067201
+      }
+    },
+    {
+      "uid": "53ac9622cc64aacf1ef57afb58d6d055",
+      "question": "What was the percentage change in the total between 2018 and 2019?",
+      "entities": [],
+      "matches": [],
+      "latency_ms": {
+        "query_ner": 18.0884999990667,
+        "exact_match": 0.0024000000848900527
+      }
+    },
+    {
+      "uid": "d534bc8beaefb6a159e37407fcd17ee9",
+      "question": "What was the fair value of derivatives non-current liability in 2019?",
+      "entities": [],
+      "matches": [],
+      "latency_ms": {
+        "query_ner": 17.979899999772897,
+        "exact_match": 0.003099999958067201
+      }
+    },
+    {
+      "uid": "5ad5529129e5d30c96a0c61c2294431e",
+      "question": "In which years was the fair value of the derivative liabilities recorded for?",
+      "entities": [],
+      "matches": [],
+      "latency_ms": {
+        "query_ner": 17.141399999673013,
+        "exact_match": 0.004399998942972161
+      }
+    },
+    {
+      "uid": "b17a38d8207aaad3ba2f66530902d30c",
+      "question": "What is the change in Revenue of Software delivery, support and maintenance between 2017 and 2018?",
+      "entities": [],
+      "matches": [],
+      "latency_ms": {
+        "query_ner": 20.59749999898486,
+        "exact_match": 0.0013999997463542968
+      }
+    },
+    {
+      "uid": "9bb527db8bb1623864d225c61c78ccd9",
+      "question": "How much was the accrued expenses associated with the Horizon Clinicals and Series2000 Revenue Cycle businesses on the consolidated balance sheets as of December 31, 2018?",
+      "entities": [
+        {
+          "label": "ORGANIZATION",
+          "text": "Horizon Clinicals",
+          "normalized_text": "horizon clinicals",
+          "char_start": 54,
+          "char_end": 71
+        },
+        {
+          "label": "ORGANIZATION",
+          "text": "Series2000 Revenue Cycle",
+          "normalized_text": "series2000 revenue cycle",
+          "char_start": 76,
+          "char_end": 100
+        }
+      ],
+      "matches": [
+        {
+          "document_id": "799d0e71387e6d9ae8448cec9907ff7d67342a1b81b654ef69c96f5a4b5bc336",
+          "page_number": 1,
+          "label": "ORGANIZATION",
+          "normalized_text": "horizon clinicals"
+        },
+        {
+          "document_id": "799d0e71387e6d9ae8448cec9907ff7d67342a1b81b654ef69c96f5a4b5bc336",
+          "page_number": 1,
+          "label": "ORGANIZATION",
+          "normalized_text": "series2000 revenue cycle"
+        },
+        {
+          "document_id": "799d0e71387e6d9ae8448cec9907ff7d67342a1b81b654ef69c96f5a4b5bc336",
+          "page_number": 2,
+          "label": "ORGANIZATION",
+          "normalized_text": "horizon clinicals"
+        }
+      ],
+      "latency_ms": {
+        "query_ner": 24.549300000217045,
+        "exact_match": 1.1105000012321398
+      }
+    },
+    {
+      "uid": "76aea549fce1101a2efdaae35c3eee7e",
+      "question": "How is the Group's revenue diversified?",
+      "entities": [],
+      "matches": [],
+      "latency_ms": {
+        "query_ner": 18.824299999323557,
+        "exact_match": 0.002200000380980782
+      }
+    },
+    {
+      "uid": "c11ea0f3ddc8a0bcb68c4e8ea960bb82",
+      "question": "What is the Revenue from UK in 2019?",
+      "entities": [
+        {
+          "label": "LOCATION",
+          "text": "UK",
+          "normalized_text": "uk",
+          "char_start": 25,
+          "char_end": 27
+        }
+      ],
+      "matches": [
+        {
+          "document_id": "052e257d30eb71b17dcd4ee1e9bb7415804496abac12e104626d18cd2c574d14",
+          "page_number": 1,
+          "label": "LOCATION",
+          "normalized_text": "uk"
+        }
+      ],
+      "latency_ms": {
+        "query_ner": 18.29590000124881,
+        "exact_match": 0.750700000935467
+      }
+    },
+    {
+      "uid": "15cd3644a86e8daa20923764f700bc62",
+      "question": "What are the respective proportion of cost of revenue as a percentage of revenue in 2018 and 2019?",
+      "entities": [],
+      "matches": [],
+      "latency_ms": {
+        "query_ner": 21.495699998922646,
+        "exact_match": 0.0014999986888142303
+      }
+    },
+    {
+      "uid": "1194b30d85fa5c35b867687d6bba2f20",
+      "question": "What is the total proportion of cost of revenue as a percentage of revenue in 2017 and 2018?",
+      "entities": [],
+      "matches": [],
+      "latency_ms": {
+        "query_ner": 20.77119999921706,
+        "exact_match": 0.0014999986888142303
+      }
+    },
+    {
+      "uid": "1d2e7bc0ac0cc8745298288d880b3a39",
+      "question": "What is the percentage change in the total investment in associates from 31 December 2018 to 31 December  2019?",
+      "entities": [],
+      "matches": [],
+      "latency_ms": {
+        "query_ner": 21.314499999789405,
+        "exact_match": 0.0015000005078036338
+      }
+    },
+    {
+      "uid": "710a356e3abccae068bbe658b8f8bda6",
+      "question": "What was the market price per share of Prozone at 31 December 2019?",
+      "entities": [
+        {
+          "label": "ORGANIZATION",
+          "text": "Prozone",
+          "normalized_text": "prozone",
+          "char_start": 39,
+          "char_end": 46
+        }
+      ],
+      "matches": [
+        {
+          "document_id": "d635fcbdf692e4a668de62401ed43d363ac0e8323996bd70c3d92586924b9569",
+          "page_number": 1,
+          "label": "ORGANIZATION",
+          "normalized_text": "prozone"
+        }
+      ],
+      "latency_ms": {
+        "query_ner": 18.24529999976221,
+        "exact_match": 0.753199999962817
+      }
+    },
+    {
+      "uid": "e2a2582d121a7da6712ad4092532a6ab",
+      "question": "What was the change in Capital redemption reserve in 2019 from 2018?",
+      "entities": [
+        {
+          "label": "ORGANIZATION",
+          "text": "Capital",
+          "normalized_text": "capital",
+          "char_start": 23,
+          "char_end": 30
+        }
+      ],
+      "matches": [],
+      "latency_ms": {
+        "query_ner": 17.963199999940116,
+        "exact_match": 0.8324999998876592
+      }
+    },
+    {
+      "uid": "bcae48bb6aff1a6ecabd924db9207aa4",
+      "question": "What was the percentage change in Capital redemption reserve in 2019 from 2018?",
+      "entities": [
+        {
+          "label": "ORGANIZATION",
+          "text": "Capital",
+          "normalized_text": "capital",
+          "char_start": 34,
+          "char_end": 41
+        }
+      ],
+      "matches": [],
+      "latency_ms": {
+        "query_ner": 19.83250000012049,
+        "exact_match": 0.8887000003596768
+      }
+    },
+    {
+      "uid": "91c9bc066bcc324bbaf20d1316f9e928",
+      "question": "What was the change in the statutory federal income tax rate from 2018 to 2019?",
+      "entities": [],
+      "matches": [],
+      "latency_ms": {
+        "query_ner": 18.969299999298528,
+        "exact_match": 0.0018999999156221747
+      }
+    },
+    {
+      "uid": "a419fa0f7bbc3031e194e3ff422cd9d6",
+      "question": "What was the effective tax rate in 2019?",
+      "entities": [],
+      "matches": [],
+      "latency_ms": {
+        "query_ner": 16.7767000002641,
+        "exact_match": 0.0015000005078036338
+      }
+    },
+    {
+      "uid": "2cd619c6e5fc16f0f72bb2b0e7dbc15d",
+      "question": "What is the percentage of capital leases in the total liabilities?",
+      "entities": [],
+      "matches": [],
+      "latency_ms": {
+        "query_ner": 17.555000000356813,
+        "exact_match": 0.0018000009731622413
+      }
+    },
+    {
+      "uid": "111aba0a989f1fa3c1503831eb6a9cea",
+      "question": "What is the  one-time transition tax on accumulated unrepatriated foreign earnings during the December 2017 quarter?",
+      "entities": [],
+      "matches": [],
+      "latency_ms": {
+        "query_ner": 21.134999999048887,
+        "exact_match": 0.0020000006770715117
+      }
+    },
+    {
+      "uid": "7f08d5aba8573202a49f37d777a8c54a",
+      "question": "What is the average operating income (loss) across 2017, 2018 and 2019?",
+      "entities": [],
+      "matches": [],
+      "latency_ms": {
+        "query_ner": 19.288900000901776,
+        "exact_match": 0.002200000380980782
+      }
+    },
+    {
+      "uid": "cc3acc137c80ad7865b887540d4d9453",
+      "question": "What could result in the 2019 operating income increasing or decreasing by approximately $6.5 million?",
+      "entities": [],
+      "matches": [],
+      "latency_ms": {
+        "query_ner": 19.843199999741046,
+        "exact_match": 0.0015999994502635673
+      }
+    },
+    {
+      "uid": "c077022aa0f19adfb4fa87807bb140a5",
+      "question": "What is the difference between the net cash provided by operating activities from 2018 to 2019?",
+      "entities": [],
+      "matches": [],
+      "latency_ms": {
+        "query_ner": 19.802199998594006,
+        "exact_match": 0.0013999997463542968
+      }
+    },
+    {
+      "uid": "3ad8d1154939ab4d10d0c9b392945868",
+      "question": "What is the difference between the net cash used for financing activities in 2018 and 2019?",
+      "entities": [],
+      "matches": [],
+      "latency_ms": {
+        "query_ner": 22.089300000516232,
+        "exact_match": 0.0013999997463542968
+      }
+    },
+    {
+      "uid": "8342d4e791595a3bf62aa3ffb1d17718",
+      "question": "What were the total expenses in 2019?",
+      "entities": [],
+      "matches": [],
+      "latency_ms": {
+        "query_ner": 16.822100000354112,
+        "exact_match": 0.0018000009731622413
+      }
+    },
+    {
+      "uid": "c59fe1ab423cb7edefe3a4be39526e19",
+      "question": "How much was the LinkedIn operating loss in 2018?",
+      "entities": [
+        {
+          "label": "ORGANIZATION",
+          "text": "LinkedIn",
+          "normalized_text": "linkedin",
+          "char_start": 17,
+          "char_end": 25
+        }
+      ],
+      "matches": [
+        {
+          "document_id": "eef0c83a184fbf1bd76ed91b876c1496b7d9b852f465b06aeafe56eb115bbcaf",
+          "page_number": 1,
+          "label": "ORGANIZATION",
+          "normalized_text": "linkedin"
+        },
+        {
+          "document_id": "eef0c83a184fbf1bd76ed91b876c1496b7d9b852f465b06aeafe56eb115bbcaf",
+          "page_number": 2,
+          "label": "ORGANIZATION",
+          "normalized_text": "linkedin"
+        }
+      ],
+      "latency_ms": {
+        "query_ner": 17.320099999778904,
+        "exact_match": 0.7382000003417488
+      }
+    },
+    {
+      "uid": "cf02810f6d9b8a88deb2943aba76fa71",
+      "question": "What is the total guarantee in respect of Section 106 planning obligation liabilities at Barton Square which at 31 December 2018?",
+      "entities": [
+        {
+          "label": "LOCATION",
+          "text": "Barton Square",
+          "normalized_text": "barton square",
+          "char_start": 89,
+          "char_end": 102
+        }
+      ],
+      "matches": [
+        {
+          "document_id": "b7f58d90a42fd1476c1e1a69a5bc7bef4a1fbd43aee972008a4610532636f8b9",
+          "page_number": 1,
+          "label": "LOCATION",
+          "normalized_text": "barton square"
+        }
+      ],
+      "latency_ms": {
+        "query_ner": 23.782600001140963,
+        "exact_match": 0.7552000006398885
+      }
+    },
+    {
+      "uid": "73583522ac2e10f8bcea063b27953d6d",
+      "question": "What is the total guarantee in respect of Section 106 planning obligation liabilities at Barton Square which at 31 December 2019?",
+      "entities": [
+        {
+          "label": "LOCATION",
+          "text": "Barton Square",
+          "normalized_text": "barton square",
+          "char_start": 89,
+          "char_end": 102
+        }
+      ],
+      "matches": [
+        {
+          "document_id": "b7f58d90a42fd1476c1e1a69a5bc7bef4a1fbd43aee972008a4610532636f8b9",
+          "page_number": 1,
+          "label": "LOCATION",
+          "normalized_text": "barton square"
+        }
+      ],
+      "latency_ms": {
+        "query_ner": 22.133899999971618,
+        "exact_match": 2.2540999998454936
+      }
+    }
+  ]
+}

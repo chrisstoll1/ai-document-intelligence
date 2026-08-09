@@ -39,6 +39,14 @@ class EntityMention:
             object.__setattr__(self, "normalized_text", normalize_entity_text(self.text))
 
 
+@dataclass(frozen=True)
+class MetadataPageMatch:
+    document_id: str
+    page_number: int
+    label: str
+    normalized_text: str
+
+
 def normalize_entity_text(text: str) -> str:
     return " ".join(unicodedata.normalize("NFKC", text).casefold().split())
 
@@ -122,6 +130,36 @@ class MetadataRepository:
                 (document_id,),
             ).fetchall()
         return [EntityMention(**dict(row)) for row in rows]
+
+    def find_exact_pages(
+        self,
+        entity_keys: Sequence[tuple[str, str]],
+        *,
+        model_version: str,
+    ) -> list[MetadataPageMatch]:
+        unique_keys = sorted(set(entity_keys))
+        if not unique_keys:
+            return []
+        conditions = " OR ".join(
+            "(entity_mentions.label = ? AND entity_mentions.normalized_text = ?)" for _ in unique_keys
+        )
+        parameters = [value for key in unique_keys for value in key]
+        with database_connection(self.database_path) as connection:
+            rows = connection.execute(
+                f"""
+                SELECT DISTINCT entity_mentions.document_id, entity_mentions.page_number,
+                                entity_mentions.label, entity_mentions.normalized_text
+                FROM entity_mentions
+                JOIN documents ON documents.id = entity_mentions.document_id
+                WHERE documents.metadata_status = 'ready'
+                  AND documents.metadata_model = ?
+                  AND ({conditions})
+                ORDER BY entity_mentions.document_id, entity_mentions.page_number,
+                         entity_mentions.label, entity_mentions.normalized_text
+                """,
+                [model_version, *parameters],
+            ).fetchall()
+        return [MetadataPageMatch(**dict(row)) for row in rows]
 
     def mark_processing(self, document_id: str) -> None:
         self._set_status(document_id, "processing")
