@@ -6,6 +6,7 @@ from docintel.db import initialize_database
 from docintel.documents import DocumentCatalog, DocumentRepository
 from docintel.extraction import ExtractedBlock, ExtractedPage, ExtractionRepository
 from docintel.ingestion import IngestionService
+from docintel.metadata import EntityMention, MetadataRepository
 from docintel.storage import PdfStore
 
 
@@ -42,11 +43,26 @@ class FakeSemanticIndex:
             raise self.error
 
 
+class FakeMetadataExtractor:
+    def __init__(self, version: str = "fake-ner-v1", *, error: Exception | None = None) -> None:
+        self.version = version
+        self.calls = 0
+        self.error = error
+
+    def extract(self, pages):
+        self.calls += 1
+        if self.error is not None:
+            raise self.error
+        assert pages[0].text == "Persistent evidence"
+        return [EntityMention(1, "ORGANIZATION", "Persistent", 0, 10, 0.9)]
+
+
 def _service(
     tmp_path,
     extractor: FakeExtractor,
     semantic_index: FakeSemanticIndex | None = None,
     chunker: ProvenanceChunker | None = None,
+    metadata_extractor: FakeMetadataExtractor | None = None,
 ) -> IngestionService:
     database_path = tmp_path / "docintel.sqlite3"
     initialize_database(database_path)
@@ -58,6 +74,8 @@ def _service(
         ExtractionRepository(database_path),
         ChunkRepository(database_path, chunker),
         semantic_index,
+        MetadataRepository(database_path) if metadata_extractor is not None else None,
+        metadata_extractor,
     )
 
 
@@ -136,4 +154,52 @@ def test_ingestion_preserves_lexical_data_when_semantic_index_fails(tmp_path) ->
     document = service.documents.get(document_id)
     assert document is not None
     assert document.status == "index_failed"
+    assert service.chunks.search("evidence")
+
+
+def test_ingestion_enriches_once_and_reuses_current_metadata(tmp_path) -> None:
+    extractor = FakeExtractor()
+    semantic_index = FakeSemanticIndex()
+    metadata_extractor = FakeMetadataExtractor()
+    service = _service(tmp_path, extractor, semantic_index, metadata_extractor=metadata_extractor)
+    pdf_bytes = b"%PDF-1.7\nexample\n%%EOF"
+
+    first = service.ingest(BytesIO(pdf_bytes), "first.pdf")
+    second = service.ingest(BytesIO(pdf_bytes), "second.pdf")
+
+    assert first.metadata_status == second.metadata_status == "ready"
+    assert first.metadata_model == "fake-ner-v1"
+    assert extractor.calls == 1
+    assert semantic_index.calls == 1
+    assert metadata_extractor.calls == 1
+
+
+def test_changed_metadata_version_does_not_reextract_or_reembed(tmp_path) -> None:
+    extractor = FakeExtractor()
+    semantic_index = FakeSemanticIndex()
+    initial_metadata = FakeMetadataExtractor("fake-ner-v1")
+    pdf_bytes = b"%PDF-1.7\nexample\n%%EOF"
+    initial = _service(tmp_path, extractor, semantic_index, metadata_extractor=initial_metadata)
+    initial.ingest(BytesIO(pdf_bytes), "first.pdf")
+
+    changed_metadata = FakeMetadataExtractor("fake-ner-v2")
+    changed = _service(tmp_path, extractor, semantic_index, metadata_extractor=changed_metadata)
+    result = changed.ingest(BytesIO(pdf_bytes), "second.pdf")
+
+    assert result.metadata_model == "fake-ner-v2"
+    assert extractor.calls == 1
+    assert semantic_index.calls == 1
+    assert initial_metadata.calls == 1
+    assert changed_metadata.calls == 1
+
+
+def test_metadata_failure_preserves_ready_search_state(tmp_path) -> None:
+    metadata_extractor = FakeMetadataExtractor(error=RuntimeError("NER unavailable"))
+    service = _service(tmp_path, FakeExtractor(), FakeSemanticIndex(), metadata_extractor=metadata_extractor)
+
+    result = service.ingest(BytesIO(b"%PDF-1.7\nexample\n%%EOF"), "example.pdf")
+
+    assert result.status == "ready"
+    assert result.metadata_status == "failed"
+    assert result.metadata_error == "NER unavailable"
     assert service.chunks.search("evidence")

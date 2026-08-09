@@ -5,7 +5,7 @@ from collections.abc import Iterator
 from contextlib import contextmanager
 from pathlib import Path
 
-SCHEMA_VERSION = 5
+SCHEMA_VERSION = 6
 
 SCHEMA_V1_SQL = """
 CREATE TABLE documents (
@@ -92,12 +92,39 @@ SCHEMA_V5_SQL = """
 ALTER TABLE documents ADD COLUMN chunker_version TEXT;
 """
 
+SCHEMA_V6_SQL = """
+ALTER TABLE documents ADD COLUMN metadata_status TEXT NOT NULL DEFAULT 'pending';
+ALTER TABLE documents ADD COLUMN metadata_model TEXT;
+ALTER TABLE documents ADD COLUMN metadata_error TEXT;
+
+CREATE TABLE entity_mentions (
+    id INTEGER PRIMARY KEY,
+    document_id TEXT NOT NULL,
+    page_number INTEGER NOT NULL CHECK (page_number > 0),
+    label TEXT NOT NULL CHECK (label IN ('PERSON', 'ORGANIZATION', 'LOCATION')),
+    text TEXT NOT NULL,
+    normalized_text TEXT NOT NULL,
+    char_start INTEGER NOT NULL CHECK (char_start >= 0),
+    char_end INTEGER NOT NULL CHECK (char_end > char_start),
+    confidence REAL CHECK (confidence IS NULL OR (confidence >= 0 AND confidence <= 1)),
+    FOREIGN KEY (document_id, page_number)
+        REFERENCES pages(document_id, page_number) ON DELETE CASCADE,
+    UNIQUE (document_id, page_number, label, char_start, char_end)
+);
+
+CREATE INDEX entity_mentions_document_idx
+    ON entity_mentions(document_id, page_number, char_start);
+CREATE INDEX entity_mentions_filter_idx
+    ON entity_mentions(label, normalized_text, document_id);
+"""
+
 MIGRATIONS = {
     1: SCHEMA_V1_SQL,
     2: SCHEMA_V2_SQL,
     3: SCHEMA_V3_SQL,
     4: SCHEMA_V4_SQL,
     5: SCHEMA_V5_SQL,
+    6: SCHEMA_V6_SQL,
 }
 
 

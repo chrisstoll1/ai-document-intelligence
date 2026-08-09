@@ -16,6 +16,7 @@ from docintel.documents import DocumentCatalog, DocumentRecord, DocumentReposito
 from docintel.extraction import ExtractionRepository, OcrUnavailableError, PdfExtractionError, PdfExtractor
 from docintel.indexing import ChromaSemanticIndex
 from docintel.ingestion import IngestionService
+from docintel.metadata import MetadataRepository
 from docintel.search import HybridSearchService
 from docintel.storage import InvalidPdfError, PdfStore, PdfTooLargeError
 
@@ -27,6 +28,27 @@ class DocumentResponse(BaseModel):
     status: str
     error_message: str | None
     embedding_model: str | None
+    metadata_status: str
+    metadata_model: str | None
+    metadata_error: str | None
+
+
+class EntityMentionResponse(BaseModel):
+    page_number: int
+    label: str
+    text: str
+    normalized_text: str
+    char_start: int
+    char_end: int
+    confidence: float | None
+
+
+class DocumentMetadataResponse(BaseModel):
+    document_id: str
+    status: str
+    model: str | None
+    error_message: str | None
+    entities: list[EntityMentionResponse]
 
 
 class SearchRequest(BaseModel):
@@ -53,6 +75,7 @@ class AppServices:
     pdf_store: PdfStore
     search: HybridSearchService
     semantic_index: ChromaSemanticIndex | None = None
+    metadata: MetadataRepository | None = None
 
 
 def build_services(settings: Settings) -> AppServices:
@@ -69,6 +92,7 @@ def build_services(settings: Settings) -> AppServices:
         model_revision=settings.embedding_revision,
         query_prompt=settings.embedding_query_prompt,
     )
+    metadata = MetadataRepository(settings.database_path)
     return AppServices(
         ingestion=IngestionService(
             DocumentCatalog(pdf_store, documents),
@@ -82,6 +106,7 @@ def build_services(settings: Settings) -> AppServices:
         pdf_store=pdf_store,
         search=HybridSearchService(settings.database_path, chunks, semantic_index),
         semantic_index=semantic_index,
+        metadata=metadata,
     )
 
 
@@ -150,6 +175,21 @@ def create_app(
             filename=filename,
         )
 
+    @application.get("/api/documents/{document_id}/metadata", response_model=DocumentMetadataResponse)
+    def get_document_metadata(document_id: str) -> DocumentMetadataResponse:
+        document = application.state.services.documents.get(document_id)
+        if document is None:
+            raise HTTPException(status_code=404, detail="Document not found")
+        metadata = application.state.services.metadata
+        entities = metadata.list_document(document_id) if metadata is not None else []
+        return DocumentMetadataResponse(
+            document_id=document_id,
+            status=document.metadata_status,
+            model=document.metadata_model,
+            error_message=document.metadata_error,
+            entities=[EntityMentionResponse(**entity.__dict__) for entity in entities],
+        )
+
     @application.post("/api/search", response_model=list[SearchResultResponse])
     def search(request: SearchRequest) -> list[SearchResultResponse]:
         return [
@@ -168,6 +208,9 @@ def _document_response(document: DocumentRecord, filename: str) -> DocumentRespo
         status=document.status,
         error_message=document.error_message,
         embedding_model=document.embedding_model,
+        metadata_status=document.metadata_status,
+        metadata_model=document.metadata_model,
+        metadata_error=document.metadata_error,
     )
 
 

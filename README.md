@@ -39,6 +39,7 @@ The first document upload may download `sentence-transformers/all-MiniLM-L6-v2`.
 - `GET /api/documents`: list locally stored documents and processing status.
 - `GET /api/documents/{id}`: retrieve document status and metadata.
 - `GET /api/documents/{id}/pdf`: retrieve the original PDF.
+- `GET /api/documents/{id}/metadata`: retrieve enrichment status and page-relative entity mentions.
 - `POST /api/search`: run weighted reciprocal-rank fusion over FTS5 and Chroma candidates.
 - `GET /api/health`: liveness check.
 
@@ -72,3 +73,12 @@ The controlled development-only OCR comparison can then be reproduced with:
 ```
 
 Tesseract 5.4 was selected over EasyOCR 1.7.2 for `ocr-v1` from clean and degraded prose/number-heavy evidence. The protocol, complete predictions, limitations, and frozen configuration are recorded under `evaluation/ocr/`, `evaluation/results/`, and `evaluation/config/`.
+
+The candidate-blind NER development set can be regenerated and its current annotations validated without loading either candidate:
+
+```powershell
+.\.venv\Scripts\python.exe scripts\prepare_ner_benchmark.py
+.\.venv\Scripts\python.exe scripts\evaluate_ner.py --validate-only
+```
+
+The full spaCy/BERT evaluator remains locked until the AI-assisted preannotations in `evaluation/ner/development_preannotations.json` receive human review. See `evaluation/ner/README.md` for the taxonomy, review rules, exact candidates, and evaluation protocol.

@@ -18,6 +18,9 @@ class DocumentRecord:
     error_message: str | None
     embedding_model: str | None
     chunker_version: str | None
+    metadata_status: str = "pending"
+    metadata_model: str | None = None
+    metadata_error: str | None = None
 
 
 class DocumentRepository:
@@ -52,7 +55,7 @@ class DocumentRepository:
             row = connection.execute(
                 """
                 SELECT id, storage_key, media_type, size_bytes, status, error_message,
-                       embedding_model, chunker_version
+                       embedding_model, chunker_version, metadata_status, metadata_model, metadata_error
                 FROM documents
                 WHERE id = ?
                 """,
@@ -93,7 +96,8 @@ class DocumentRepository:
                 """
                 SELECT documents.id, documents.storage_key, documents.media_type,
                        documents.size_bytes, documents.status, documents.error_message,
-                       documents.embedding_model, documents.chunker_version,
+                        documents.embedding_model, documents.chunker_version,
+                        documents.metadata_status, documents.metadata_model, documents.metadata_error,
                        COALESCE(
                            (SELECT original_filename FROM document_names
                             WHERE document_id = documents.id ORDER BY id DESC LIMIT 1),
@@ -114,6 +118,9 @@ class DocumentRepository:
                     error_message=row["error_message"],
                     embedding_model=row["embedding_model"],
                     chunker_version=row["chunker_version"],
+                    metadata_status=row["metadata_status"],
+                    metadata_model=row["metadata_model"],
+                    metadata_error=row["metadata_error"],
                 ),
                 row["original_filename"],
             )

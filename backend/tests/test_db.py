@@ -24,7 +24,7 @@ def test_initialize_database_creates_schema_and_preserves_existing_rows(tmp_path
         schema_version = connection.execute("PRAGMA user_version").fetchone()[0]
         journal_mode = connection.execute("PRAGMA journal_mode").fetchone()[0]
 
-    assert {"documents", "document_names", "pages", "blocks", "chunks", "chunks_fts"} <= table_names
+    assert {"documents", "document_names", "pages", "blocks", "chunks", "chunks_fts", "entity_mentions"} <= table_names
     assert document_count == 1
     assert schema_version == SCHEMA_VERSION
     assert journal_mode == "delete"
@@ -59,4 +59,10 @@ def test_initialize_database_upgrades_version_one_schema(tmp_path) -> None:
         }
     assert schema_version == SCHEMA_VERSION
     assert page_table["name"] == "pages"
-    assert {"embedding_model", "chunker_version"} <= document_columns
+    assert {
+        "embedding_model",
+        "chunker_version",
+        "metadata_status",
+        "metadata_model",
+        "metadata_error",
+    } <= document_columns

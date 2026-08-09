@@ -258,7 +258,9 @@ class ExtractionRepository:
             connection.execute(
                 """
                 UPDATE documents
-                SET status = 'extracted', error_message = NULL, updated_at = CURRENT_TIMESTAMP
+                SET status = 'extracted', error_message = NULL,
+                    metadata_status = 'pending', metadata_model = NULL, metadata_error = NULL,
+                    updated_at = CURRENT_TIMESTAMP
                 WHERE id = ?
                 """,
                 (document_id,),

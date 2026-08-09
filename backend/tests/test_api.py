@@ -8,6 +8,7 @@ from docintel.documents import DocumentCatalog, DocumentRecord, DocumentReposito
 from docintel.extraction import ExtractedBlock, ExtractedPage, ExtractionRepository
 from docintel.indexing import ChromaSemanticIndex
 from docintel.ingestion import IngestionService
+from docintel.metadata import EntityMention
 from docintel.search import HybridSearchService, PersistentSearchResult
 from docintel.storage import PdfStore
 from fastapi.testclient import TestClient
@@ -31,6 +32,17 @@ class FakeIngestion:
 class FakeDocuments:
     def list_all(self):
         return []
+
+    def get(self, document_id: str):
+        if document_id != "a" * 64:
+            return None
+        return FakeIngestion().ingest(BytesIO(b"%PDF-1.7\nexample\n%%EOF"), "example.pdf")
+
+
+class FakeMetadata:
+    def list_document(self, document_id: str):
+        assert document_id == "a" * 64
+        return [EntityMention(1, "ORGANIZATION", "Example Ltd", 0, 11, 0.9)]
 
 
 class FakeSearch:
@@ -76,7 +88,7 @@ class FakeEncoder:
 
 
 def _services(settings: Settings) -> AppServices:
-    return AppServices(FakeIngestion(), FakeDocuments(), object(), FakeSearch())
+    return AppServices(FakeIngestion(), FakeDocuments(), object(), FakeSearch(), metadata=FakeMetadata())
 
 
 def _integration_services(settings: Settings) -> AppServices:
@@ -127,12 +139,16 @@ def test_upload_and_search_endpoints_return_typed_results(tmp_path) -> None:
             files={"upload": ("example.pdf", BytesIO(b"%PDF-1.7\nexample\n%%EOF"), "application/pdf")},
         )
         search = client.post("/api/search", json={"query": "evidence", "limit": 3})
+        metadata = client.get(f"/api/documents/{'a' * 64}/metadata")
 
     assert upload.status_code == 200
     assert upload.json()["status"] == "ready"
+    assert upload.json()["metadata_status"] == "pending"
     assert search.status_code == 200
     assert search.json()[0]["document_name"] == "example.pdf"
     assert search.json()[0]["keyword_rank"] == 1
+    assert metadata.status_code == 200
+    assert metadata.json()["entities"][0]["text"] == "Example Ltd"
 
 
 def test_api_vertical_slice_persists_and_searches_uploaded_pdf(tmp_path) -> None:
