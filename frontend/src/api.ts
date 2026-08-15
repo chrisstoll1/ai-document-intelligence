@@ -28,6 +28,35 @@ export type DocumentMetadata = {
   entities: EntityMention[]
 }
 
+export type SearchResult = {
+  chunk_id: string
+  document_id: string
+  document_name: string
+  text: string
+  page_start: number
+  page_end: number
+  score: number
+  keyword_rank: number | null
+  semantic_rank: number | null
+}
+
+export type GroundingContext = SearchResult & {
+  context_id: string
+}
+
+export type GroundedClaim = {
+  text: string
+  citation_ids: string[]
+}
+
+export type AnswerResult = {
+  status: 'answered' | 'insufficient_evidence' | 'generation_failed'
+  answer: string | null
+  claims: GroundedClaim[]
+  contexts: GroundingContext[]
+  failure_reason: string | null
+}
+
 function errorDetail(payload: unknown, fallback: string) {
   if (typeof payload === 'object' && payload !== null && 'detail' in payload) {
     const detail = payload.detail
@@ -71,4 +100,12 @@ export function resetDocuments() {
 
 export function getDocumentMetadata(documentId: string) {
   return request<DocumentMetadata>(`/api/documents/${documentId}/metadata`)
+}
+
+export function answerQuestion(query: string) {
+  return request<AnswerResult>('/api/answer', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ query, limit: 5 }),
+  })
 }

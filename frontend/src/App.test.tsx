@@ -74,4 +74,61 @@ describe('document collection', () => {
     await waitFor(() => expect(screen.queryByText('annual-report.pdf')).not.toBeInTheDocument())
     expect(screen.getByText('No documents yet')).toBeInTheDocument()
   })
+
+  it('renders grounded claims, evidence, and source-page links', async () => {
+    const user = userEvent.setup()
+    vi.mocked(fetch)
+      .mockResolvedValueOnce(jsonResponse([readyDocument]))
+      .mockResolvedValueOnce(jsonResponse({
+        status: 'answered',
+        answer: 'Revenue increased.',
+        claims: [{ text: 'Revenue increased.', citation_ids: ['C1'] }],
+        contexts: [{
+          context_id: 'C1',
+          chunk_id: 'b'.repeat(64),
+          document_id: readyDocument.id,
+          document_name: readyDocument.filename,
+          text: 'Revenue increased from 2018 to 2019.',
+          page_start: 2,
+          page_end: 2,
+          score: 0.01,
+          keyword_rank: 1,
+          semantic_rank: 2,
+        }],
+        failure_reason: null,
+      }))
+    render(<App />)
+    await screen.findByText('annual-report.pdf')
+
+    await user.type(screen.getByLabelText('Ask a question'), 'How did revenue change?')
+    await user.click(screen.getByRole('button', { name: 'Find evidence' }))
+
+    expect(await screen.findByText('Revenue increased.')).toBeInTheDocument()
+    expect(screen.getByText('Revenue increased from 2018 to 2019.')).toBeInTheDocument()
+    expect(screen.getByRole('link', { name: 'Open source' })).toHaveAttribute(
+      'href',
+      `/api/documents/${readyDocument.id}/pdf#page=2`,
+    )
+    await user.click(screen.getByRole('button', { name: 'C1' }))
+  })
+
+  it('shows the insufficient-evidence state', async () => {
+    const user = userEvent.setup()
+    vi.mocked(fetch)
+      .mockResolvedValueOnce(jsonResponse([readyDocument]))
+      .mockResolvedValueOnce(jsonResponse({
+        status: 'insufficient_evidence',
+        answer: 'Insufficient evidence in the retrieved passages.',
+        claims: [],
+        contexts: [],
+        failure_reason: null,
+      }))
+    render(<App />)
+    await screen.findByText('annual-report.pdf')
+
+    await user.type(screen.getByLabelText('Ask a question'), 'What is not in the collection?')
+    await user.click(screen.getByRole('button', { name: 'Find evidence' }))
+
+    expect(await screen.findByText(/did not provide enough evidence/)).toBeInTheDocument()
+  })
 })

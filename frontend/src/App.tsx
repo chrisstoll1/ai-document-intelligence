@@ -27,6 +27,7 @@ import {
   resetDocuments,
   uploadDocument,
 } from './api'
+import EvidenceDesk from './EvidenceDesk'
 
 const statusColors: Record<string, 'success' | 'error' | 'warning' | 'default'> = {
   ready: 'success',
@@ -237,31 +238,10 @@ export default function App() {
             )}
           </Paper>
 
-          <Paper
-            variant="outlined"
-            sx={{
-              flex: 1,
-              width: '100%',
-              minHeight: 480,
-              p: { xs: 3, md: 5 },
-              backgroundImage: 'linear-gradient(rgba(24, 64, 78, 0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(24, 64, 78, 0.035) 1px, transparent 1px)',
-              backgroundSize: '28px 28px',
-            }}
-          >
-            <Typography variant="overline" color="primary.main" sx={{ letterSpacing: '0.16em' }}>Evidence desk</Typography>
-            <Typography variant="h3" sx={{ maxWidth: 720, mt: 1, mb: 2, fontFamily: 'Georgia, serif' }}>
-              Ask the collection, then inspect the source.
-            </Typography>
-            <Typography color="text.secondary" sx={{ maxWidth: 660, lineHeight: 1.75 }}>
-              Hybrid retrieval and grounded answers will appear here. Every citation remains connected to its stored passage and original PDF page.
-            </Typography>
-            <Divider sx={{ my: 4 }} />
-            <Stack direction={{ xs: 'column', sm: 'row' }} spacing={3}>
-              <Box><Typography variant="h5" fontFamily="Georgia, serif">01</Typography><Typography variant="body2">Upload and index locally</Typography></Box>
-              <Box><Typography variant="h5" fontFamily="Georgia, serif">02</Typography><Typography variant="body2">Retrieve lexical + semantic evidence</Typography></Box>
-              <Box><Typography variant="h5" fontFamily="Georgia, serif">03</Typography><Typography variant="body2">Trace claims back to pages</Typography></Box>
-            </Stack>
-          </Paper>
+          <EvidenceDesk
+            key={documents.map((document) => document.id).join(':')}
+            enabled={documents.some((document) => ['ready', 'indexed_lexical'].includes(document.status))}
+          />
         </Stack>
       </Container>
     </Box>
