@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="650" viewBox="0 0 1100 650">
+<rect width="100%" height="100%" fill="#fffdf8"/>
+<text x="95.0" y="48.0" text-anchor="start" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700" fill="#17262d">Locked retrieval performance</text>
+<text x="95.0" y="78.0" text-anchor="start" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#17262d">20 TAT-DQA questions; higher is better for every metric.</text>
+<rect x="95" y="101" width="15" height="15" rx="2" fill="#176b62"/>
+<text x="118.0" y="114.0" text-anchor="start" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#17262d">Keyword</text>
+<rect x="240" y="101" width="15" height="15" rx="2" fill="#b65b3d"/>
+<text x="263.0" y="114.0" text-anchor="start" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#17262d">Semantic</text>
+<rect x="385" y="101" width="15" height="15" rx="2" fill="#405b78"/>
+<text x="408.0" y="114.0" text-anchor="start" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#17262d">Hybrid</text>
+<line x1="95" y1="540.0" x2="1060" y2="540.0" stroke="#dedbd2"/>
+<text x="81.0" y="545.0" text-anchor="end" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#17262d">0.00</text>
+<line x1="95" y1="441.2" x2="1060" y2="441.2" stroke="#dedbd2"/>
+<text x="81.0" y="446.2" text-anchor="end" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#17262d">0.25</text>
+<line x1="95" y1="342.5" x2="1060" y2="342.5" stroke="#dedbd2"/>
+<text x="81.0" y="347.5" text-anchor="end" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#17262d">0.50</text>
+<line x1="95" y1="243.8" x2="1060" y2="243.8" stroke="#dedbd2"/>
+<text x="81.0" y="248.8" text-anchor="end" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#17262d">0.75</text>
+<line x1="95" y1="145.0" x2="1060" y2="145.0" stroke="#dedbd2"/>
+<text x="81.0" y="150.0" text-anchor="end" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#17262d">1.00</text>
+<rect x="124.0" y="184.5" width="42.3" height="355.5" rx="3" fill="#176b62"/>
+<text x="145.2" y="176.5" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#17262d">0.900</text>
+<rect x="170.3" y="303.0" width="42.3" height="237.0" rx="3" fill="#b65b3d"/>
+<text x="191.5" y="295.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#17262d">0.600</text>
+<rect x="216.7" y="204.2" width="42.3" height="335.8" rx="3" fill="#405b78"/>
+<text x="237.8" y="196.2" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#17262d">0.850</text>
+<text x="191.5" y="572.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#17262d">Hit@1</text>
+<rect x="317.0" y="145.0" width="42.3" height="395.0" rx="3" fill="#176b62"/>
+<text x="338.2" y="137.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#17262d">1.000</text>
+<rect x="363.3" y="164.8" width="42.3" height="375.2" rx="3" fill="#b65b3d"/>
+<text x="384.5" y="156.8" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#17262d">0.950</text>
+<rect x="409.7" y="145.0" width="42.3" height="395.0" rx="3" fill="#405b78"/>
+<text x="430.8" y="137.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#17262d">1.000</text>
+<text x="384.5" y="572.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#17262d">Hit@5</text>
+<rect x="510.0" y="297.0" width="42.3" height="243.0" rx="3" fill="#176b62"/>
+<text x="531.2" y="289.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#17262d">0.615</text>
+<rect x="556.3" y="312.3" width="42.3" height="227.7" rx="3" fill="#b65b3d"/>
+<text x="577.5" y="304.3" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#17262d">0.576</text>
+<rect x="602.7" y="294.7" width="42.3" height="245.3" rx="3" fill="#405b78"/>
+<text x="623.8" y="286.7" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#17262d">0.621</text>
+<text x="577.5" y="572.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#17262d">Recall@10</text>
+<rect x="703.0" y="173.0" width="42.3" height="367.0" rx="3" fill="#176b62"/>
+<text x="724.2" y="165.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#17262d">0.929</text>
+<rect x="749.3" y="241.4" width="42.3" height="298.6" rx="3" fill="#b65b3d"/>
+<text x="770.5" y="233.4" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#17262d">0.756</text>
+<rect x="795.7" y="179.6" width="42.3" height="360.4" rx="3" fill="#405b78"/>
+<text x="816.8" y="171.6" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#17262d">0.912</text>
+<text x="770.5" y="572.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#17262d">MRR@10</text>
+<rect x="896.0" y="235.1" width="42.3" height="304.9" rx="3" fill="#176b62"/>
+<text x="917.2" y="227.1" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#17262d">0.772</text>
+<rect x="942.3" y="292.2" width="42.3" height="247.8" rx="3" fill="#b65b3d"/>
+<text x="963.5" y="284.2" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#17262d">0.627</text>
+<rect x="988.7" y="245.8" width="42.3" height="294.2" rx="3" fill="#405b78"/>
+<text x="1009.8" y="237.8" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#17262d">0.745</text>
+<text x="963.5" y="572.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#17262d">nDCG@10</text>
+<line x1="95" y1="540" x2="1060" y2="540" stroke="#17262d"/>
+<text x="95.0" y="626.0" text-anchor="start" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="400" fill="#17262d">Values read from committed frozen evaluation artifacts.</text>
+</svg>

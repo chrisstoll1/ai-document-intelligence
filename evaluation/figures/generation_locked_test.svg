@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="650" viewBox="0 0 1100 650">
+<rect width="100%" height="100%" fill="#fffdf8"/>
+<text x="95.0" y="48.0" text-anchor="start" font-family="Segoe UI, Arial, sans-serif" font-size="28" font-weight="700" fill="#17262d">Selected Qwen locked-test outcomes</text>
+<text x="95.0" y="78.0" text-anchor="start" font-family="Segoe UI, Arial, sans-serif" font-size="15" font-weight="400" fill="#17262d">Reference coverage by answer type; unanswerable questions use refusal accuracy.</text>
+<rect x="95" y="101" width="15" height="15" rx="2" fill="#176b62"/>
+<text x="118.0" y="114.0" text-anchor="start" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#17262d">Success rate</text>
+<line x1="95" y1="540.0" x2="1060" y2="540.0" stroke="#dedbd2"/>
+<text x="81.0" y="545.0" text-anchor="end" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#17262d">0.00</text>
+<line x1="95" y1="441.2" x2="1060" y2="441.2" stroke="#dedbd2"/>
+<text x="81.0" y="446.2" text-anchor="end" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#17262d">0.25</text>
+<line x1="95" y1="342.5" x2="1060" y2="342.5" stroke="#dedbd2"/>
+<text x="81.0" y="347.5" text-anchor="end" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#17262d">0.50</text>
+<line x1="95" y1="243.8" x2="1060" y2="243.8" stroke="#dedbd2"/>
+<text x="81.0" y="248.8" text-anchor="end" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#17262d">0.75</text>
+<line x1="95" y1="145.0" x2="1060" y2="145.0" stroke="#dedbd2"/>
+<text x="81.0" y="150.0" text-anchor="end" font-family="Segoe UI, Arial, sans-serif" font-size="13" font-weight="400" fill="#17262d">1.00</text>
+<rect x="130.8" y="257.9" width="169.7" height="282.1" rx="3" fill="#176b62"/>
+<text x="215.6" y="249.9" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#17262d">0.714</text>
+<text x="215.6" y="572.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#17262d">Span</text>
+<rect x="372.0" y="276.7" width="169.7" height="263.3" rx="3" fill="#176b62"/>
+<text x="456.9" y="268.7" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#17262d">0.667</text>
+<text x="456.9" y="572.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#17262d">Multi-span</text>
+<rect x="613.3" y="540.0" width="169.7" height="0.0" rx="3" fill="#176b62"/>
+<text x="698.1" y="532.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#17262d">0.000</text>
+<text x="698.1" y="572.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#17262d">Arithmetic</text>
+<rect x="854.5" y="145.0" width="169.7" height="395.0" rx="3" fill="#176b62"/>
+<text x="939.4" y="137.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="600" fill="#17262d">1.000</text>
+<text x="939.4" y="572.0" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="14" font-weight="400" fill="#17262d">Unanswerable</text>
+<line x1="95" y1="540" x2="1060" y2="540" stroke="#17262d"/>
+<text x="95.0" y="626.0" text-anchor="start" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="400" fill="#17262d">Values read from committed frozen evaluation artifacts.</text>
+</svg>

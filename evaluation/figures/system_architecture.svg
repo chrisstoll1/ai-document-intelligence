@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720">
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto">
+      <path d="M0,0 L9,4.5 L0,9 z" fill="#405b78"/>
+    </marker>
+    <style>
+      .title { font: 700 28px 'Segoe UI', Arial, sans-serif; fill: #17262d; }
+      .subtitle { font: 400 15px 'Segoe UI', Arial, sans-serif; fill: #56666d; }
+      .label { font: 700 16px 'Segoe UI', Arial, sans-serif; fill: #17262d; }
+      .detail { font: 400 13px 'Segoe UI', Arial, sans-serif; fill: #56666d; }
+      .lane { font: 700 13px 'Segoe UI', Arial, sans-serif; letter-spacing: 2px; fill: #176b62; }
+      .box { fill: #fffdf8; stroke: #aeb9b9; stroke-width: 1.5; rx: 5; }
+      .model { fill: #e8f2ee; stroke: #176b62; stroke-width: 2; rx: 5; }
+      .store { fill: #eef1f5; stroke: #405b78; stroke-width: 1.5; rx: 5; }
+      .flow { stroke: #405b78; stroke-width: 2; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+  <rect width="1200" height="720" fill="#f7f4ed"/>
+  <text x="55" y="48" class="title">As-built local document-intelligence architecture</text>
+  <text x="55" y="77" class="subtitle">Four selected model roles share stable document, page, chunk and citation provenance.</text>
+
+  <text x="55" y="125" class="lane">USER WORKFLOW</text>
+  <rect x="55" y="145" width="200" height="78" class="box"/>
+  <text x="155" y="177" text-anchor="middle" class="label">React application</text>
+  <text x="155" y="200" text-anchor="middle" class="detail">Upload, query, inspect source</text>
+  <rect x="330" y="145" width="200" height="78" class="box"/>
+  <text x="430" y="177" text-anchor="middle" class="label">FastAPI contract</text>
+  <text x="430" y="200" text-anchor="middle" class="detail">Documents, search, answers</text>
+  <path d="M255 184 H330" class="flow"/>
+  <path d="M330 205 H255" class="flow"/>
+
+  <text x="55" y="285" class="lane">INGESTION</text>
+  <rect x="55" y="305" width="170" height="78" class="store"/>
+  <text x="140" y="337" text-anchor="middle" class="label">PDF store</text>
+  <text x="140" y="360" text-anchor="middle" class="detail">SHA-256 content address</text>
+  <rect x="275" y="305" width="190" height="78" class="box"/>
+  <text x="370" y="337" text-anchor="middle" class="label">Page extraction</text>
+  <text x="370" y="360" text-anchor="middle" class="detail">pdfplumber + layout blocks</text>
+  <rect x="515" y="305" width="170" height="78" class="model"/>
+  <text x="600" y="337" text-anchor="middle" class="label">Tesseract OCR</text>
+  <text x="600" y="360" text-anchor="middle" class="detail">Image-only page fallback</text>
+  <rect x="735" y="305" width="180" height="78" class="box"/>
+  <text x="825" y="337" text-anchor="middle" class="label">Block chunking</text>
+  <text x="825" y="360" text-anchor="middle" class="detail">120 words / 20 overlap</text>
+  <path d="M225 344 H275" class="flow"/>
+  <path d="M465 344 H515" class="flow"/>
+  <path d="M685 344 H735" class="flow"/>
+
+  <rect x="275" y="430" width="190" height="82" class="model"/>
+  <text x="370" y="461" text-anchor="middle" class="label">MiniLM embeddings</text>
+  <text x="370" y="484" text-anchor="middle" class="detail">384-dimensional vectors</text>
+  <rect x="515" y="430" width="170" height="82" class="model"/>
+  <text x="600" y="461" text-anchor="middle" class="label">spaCy NER</text>
+  <text x="600" y="484" text-anchor="middle" class="detail">People, organisations, places</text>
+  <rect x="735" y="430" width="180" height="82" class="store"/>
+  <text x="825" y="461" text-anchor="middle" class="label">SQLite + FTS5</text>
+  <text x="825" y="484" text-anchor="middle" class="detail">Records, text, entities, spans</text>
+  <rect x="965" y="430" width="180" height="82" class="store"/>
+  <text x="1055" y="461" text-anchor="middle" class="label">Chroma</text>
+  <text x="1055" y="484" text-anchor="middle" class="detail">Persistent semantic vectors</text>
+  <path d="M825 383 V414 H370 V430" class="flow"/>
+  <path d="M825 383 V414 H600 V430" class="flow"/>
+  <path d="M825 383 V430" class="flow"/>
+  <path d="M465 471 H965" class="flow"/>
+
+  <text x="55" y="575" class="lane">QUERY AND GROUNDING</text>
+  <rect x="55" y="595" width="205" height="78" class="box"/>
+  <text x="157" y="627" text-anchor="middle" class="label">Weighted RRF retrieval</text>
+  <text x="157" y="650" text-anchor="middle" class="detail">Lexical + semantic ranks</text>
+  <rect x="335" y="595" width="190" height="78" class="model"/>
+  <text x="430" y="627" text-anchor="middle" class="label">Qwen 2.5 7B</text>
+  <text x="430" y="650" text-anchor="middle" class="detail">Structured cited claims</text>
+  <rect x="600" y="595" width="220" height="78" class="box"/>
+  <text x="710" y="627" text-anchor="middle" class="label">Citation validation</text>
+  <text x="710" y="650" text-anchor="middle" class="detail">Only supplied C1-C5 identifiers</text>
+  <rect x="895" y="595" width="250" height="78" class="box"/>
+  <text x="1020" y="627" text-anchor="middle" class="label">Answer + source contexts</text>
+  <text x="1020" y="650" text-anchor="middle" class="detail">Claims, passages and PDF pages</text>
+  <path d="M260 634 H335" class="flow"/>
+  <path d="M525 634 H600" class="flow"/>
+  <path d="M820 634 H895" class="flow"/>
+</svg>
