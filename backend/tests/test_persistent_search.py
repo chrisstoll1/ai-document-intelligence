@@ -60,3 +60,39 @@ def test_persistent_hybrid_search_fuses_and_hydrates_candidates(tmp_path) -> Non
         semantic_weight=1,
     ).search("zebra")
     assert semantic_only[0].chunk_id == indexed[1].id
+
+
+def test_persistent_hybrid_search_orders_tied_results_deterministically(tmp_path) -> None:
+    database_path = tmp_path / "docintel.sqlite3"
+    initialize_database(database_path)
+    document = DocumentCatalog(PdfStore(tmp_path), DocumentRepository(database_path)).add_pdf(
+        BytesIO(b"%PDF-1.7\nexample\n%%EOF"), "evidence.pdf"
+    )
+    ExtractionRepository(database_path).replace_pages(
+        document.id,
+        [
+            ExtractedPage(
+                1,
+                612,
+                792,
+                "Alpha evidence\nBeta evidence",
+                (
+                    ExtractedBlock(1, "Alpha evidence", (10, 10, 150, 20)),
+                    ExtractedBlock(2, "Beta evidence", (10, 30, 150, 40)),
+                ),
+            )
+        ],
+    )
+    chunks = ChunkRepository(database_path, ProvenanceChunker(max_words=2, overlap=0))
+    indexed = chunks.rebuild(document.id)
+    semantic = FakeSemanticIndex([SemanticHit(chunk.id, 0.1) for chunk in indexed])
+
+    results = HybridSearchService(
+        database_path,
+        chunks,
+        semantic,
+        keyword_weight=0,
+        semantic_weight=1,
+    ).search("missing keyword")
+
+    assert [result.chunk_id for result in results] == [chunk.id for chunk in indexed]

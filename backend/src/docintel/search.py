@@ -294,4 +294,13 @@ class HybridSearchService:
                     semantic_rank=semantic_rank,
                 )
             )
-        return sorted(results, key=lambda result: result.score, reverse=True)[:limit]
+        missing_rank = candidate_limit + 1
+        return sorted(
+            results,
+            key=lambda result: (
+                -result.score,
+                result.keyword_rank if result.keyword_rank is not None else missing_rank,
+                result.semantic_rank if result.semantic_rank is not None else missing_rank,
+                result.chunk_id,
+            ),
+        )[:limit]

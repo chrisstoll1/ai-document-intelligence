@@ -4,21 +4,29 @@ import pytest
 from docintel.chunking import ChunkRepository, ProvenanceChunker
 from docintel.db import initialize_database
 from docintel.documents import DocumentCatalog, DocumentRepository
-from docintel.extraction import ExtractedBlock, ExtractedPage, ExtractionRepository
+from docintel.extraction import ExtractedBlock, ExtractedPage, ExtractionRepository, PdfExtractionError
 from docintel.ingestion import IngestionService
 from docintel.metadata import EntityMention, MetadataRepository
 from docintel.storage import PdfStore
 
 
 class FakeExtractor:
-    def __init__(self, *, error: Exception | None = None) -> None:
+    def __init__(
+        self,
+        *,
+        error: Exception | None = None,
+        pages: list[ExtractedPage] | None = None,
+    ) -> None:
         self.calls = 0
         self.error = error
+        self.pages = pages
 
     def extract(self, path) -> list[ExtractedPage]:
         self.calls += 1
         if self.error is not None:
             raise self.error
+        if self.pages is not None:
+            return self.pages
         return [
             ExtractedPage(
                 1,
@@ -105,6 +113,21 @@ def test_ingestion_records_extraction_failure(tmp_path) -> None:
     assert document is not None
     assert document.status == "failed"
     assert document.error_message == "extraction failed"
+
+
+def test_ingestion_rejects_pdf_without_searchable_text(tmp_path) -> None:
+    extractor = FakeExtractor(pages=[ExtractedPage(1, 612, 792, "", ())])
+    service = _service(tmp_path, extractor)
+
+    with pytest.raises(PdfExtractionError, match="no searchable text"):
+        service.ingest(BytesIO(b"%PDF-1.7\nexample\n%%EOF"), "empty.pdf")
+
+    document_id = next((tmp_path / "pdfs").rglob("*.pdf")).stem
+    document = service.documents.get(document_id)
+    assert document is not None
+    assert document.status == "failed"
+    assert document.error_message == "PDF contains no searchable text"
+    assert service.chunks.list_document(document_id) == []
 
 
 def test_ingestion_records_semantic_index_and_reuses_ready_document(tmp_path) -> None:

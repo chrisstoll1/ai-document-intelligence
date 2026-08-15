@@ -206,6 +206,15 @@ def test_answer_endpoint_reports_unavailable_without_generator(tmp_path) -> None
     assert response.status_code == 503
 
 
+def test_search_and_answer_reject_blank_queries(tmp_path) -> None:
+    with TestClient(create_app(Settings(tmp_path), service_builder=_services)) as client:
+        search = client.post("/api/search", json={"query": "   "})
+        answer = client.post("/api/answer", json={"query": "\t"})
+
+    assert search.status_code == 422
+    assert answer.status_code == 422
+
+
 def test_document_delete_and_reset_endpoints_report_results(tmp_path) -> None:
     with TestClient(create_app(Settings(tmp_path), service_builder=_services)) as client:
         deleted = client.delete(f"/api/documents/{'a' * 64}")
@@ -244,3 +253,19 @@ def test_api_vertical_slice_persists_and_searches_uploaded_pdf(tmp_path) -> None
     assert missing_detail.status_code == 404
     assert search_after_delete.json() == []
     assert reset.json() == {"deleted_count": 0}
+
+
+def test_pdf_endpoint_reports_missing_stored_file(tmp_path) -> None:
+    pdf_bytes = b"%PDF-1.7\nexample\n%%EOF"
+    with TestClient(create_app(Settings(tmp_path), service_builder=_integration_services)) as client:
+        upload = client.post(
+            "/api/documents",
+            files={"upload": ("privacy.pdf", BytesIO(pdf_bytes), "application/pdf")},
+        )
+        document_id = upload.json()["id"]
+        next((tmp_path / "pdfs").rglob("*.pdf")).unlink()
+
+        response = client.get(f"/api/documents/{document_id}/pdf")
+
+    assert response.status_code == 404
+    assert response.json() == {"detail": "Document file not found"}

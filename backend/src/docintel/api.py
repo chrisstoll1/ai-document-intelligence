@@ -8,7 +8,7 @@ from typing import Literal
 
 from fastapi import FastAPI, File, HTTPException, Response, UploadFile
 from fastapi.responses import FileResponse
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, field_validator
 
 from docintel.chunking import ChunkRepository, ProvenanceChunker
 from docintel.config import Settings
@@ -55,8 +55,19 @@ class DocumentMetadataResponse(BaseModel):
     entities: list[EntityMentionResponse]
 
 
-class SearchRequest(BaseModel):
+class QueryRequest(BaseModel):
     query: str = Field(min_length=1)
+
+    @field_validator("query")
+    @classmethod
+    def query_must_not_be_blank(cls, value: str) -> str:
+        query = value.strip()
+        if not query:
+            raise ValueError("query must not be blank")
+        return query
+
+
+class SearchRequest(QueryRequest):
     limit: int = Field(default=5, ge=1, le=50)
 
 
@@ -72,8 +83,7 @@ class SearchResultResponse(BaseModel):
     semantic_rank: int | None
 
 
-class AnswerRequest(BaseModel):
-    query: str = Field(min_length=1)
+class AnswerRequest(QueryRequest):
     limit: int = Field(default=5, ge=1, le=10)
 
 
@@ -214,8 +224,11 @@ def create_app(
         filename = application.state.services.documents.latest_name(document_id)
         if document is None or filename is None:
             raise HTTPException(status_code=404, detail="Document not found")
+        pdf_path = application.state.services.pdf_store.path_for(document_id)
+        if not pdf_path.is_file():
+            raise HTTPException(status_code=404, detail="Document file not found")
         return FileResponse(
-            application.state.services.pdf_store.path_for(document_id),
+            pdf_path,
             media_type="application/pdf",
             filename=filename,
         )

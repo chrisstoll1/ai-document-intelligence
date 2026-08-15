@@ -5,7 +5,7 @@ from typing import BinaryIO, Protocol
 
 from docintel.chunking import ChunkRepository
 from docintel.documents import DocumentCatalog, DocumentRecord, DocumentRepository
-from docintel.extraction import ExtractedPage, ExtractionRepository
+from docintel.extraction import ExtractedPage, ExtractionRepository, PdfExtractionError
 from docintel.metadata import EntityExtractor, MetadataRepository
 
 
@@ -67,6 +67,8 @@ class IngestionService:
                 self.documents.set_status(document.id, "processing")
                 if not self.extractions.has_pages(document.id):
                     pages = self.extractor.extract(self.catalog.pdf_store.path_for(document.id))
+                    if not any(block.text.strip() for page in pages for block in page.blocks):
+                        raise PdfExtractionError("PDF contains no searchable text")
                     self.extractions.replace_pages(document.id, pages)
                 chunks = self.chunks.rebuild(document.id)
                 lexical_ready = True
