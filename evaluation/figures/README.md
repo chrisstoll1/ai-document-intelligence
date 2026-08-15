@@ -12,3 +12,4 @@ Run:
 - `generation_locked_test.svg` joins `evaluation/results/generation_locked_test_qwen.json` to `evaluation/generation/locked_test_manifest.json` by question UID.
 - `system_architecture.svg` documents the as-built model, storage, API, and browser components.
 - `workflow_sequence.svg` documents ingestion and grounded-query message flow.
+- `application_collection.png` captures the implemented React workflow against a real indexed TAT-DQA PDF.
