@@ -2,7 +2,7 @@
 
 Local-first PDF ingestion, entity enrichment, hybrid evidence retrieval, and grounded generation. The backend stores original PDFs and application records locally, indexes chunks with SQLite FTS5 and Chroma, and preserves page/block/entity/citation provenance.
 
-The React frontend is still a minimal shell. Use the generated API documentation to exercise the implemented backend workflow.
+The React frontend provides PDF collection management, grounded questions, claim-level citation navigation, evidence cards, and original-page links. FastAPI also exposes generated interactive API documentation.
 
 ## Setup
 
@@ -59,6 +59,7 @@ Metadata enrichment runs after core indexing. Its status and errors are independ
 .\.venv\Scripts\python.exe -m pytest
 .\.venv\Scripts\python.exe -m ruff check .
 npm --prefix frontend run lint
+npm --prefix frontend test
 npm --prefix frontend run build
 ```
 
