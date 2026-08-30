@@ -18,10 +18,18 @@ SEMANTIC_WEIGHT = 0.5
 KEYWORD_WEIGHT = 0.5
 RRF_K = 60
 ALPHANUMERIC_BOUNDARY_RE = re.compile(r"(?<=[A-Za-z])(?=\d)|(?<=\d)(?=[A-Za-z])")
+CONTINUATION_END_RE = re.compile(
+    r"(?:\b(?:and|or|plus|including|include|following|with)\b|[:,;])[^\w]*$",
+    re.IGNORECASE,
+)
 
 
 def normalize_query(query: str) -> str:
     return ALPHANUMERIC_BOUNDARY_RE.sub(" ", query.strip())
+
+
+def has_following_continuation(text: str) -> bool:
+    return CONTINUATION_END_RE.search(text) is not None
 
 
 class TextEncoder(Protocol):
@@ -259,8 +267,31 @@ class HybridSearchService:
         if not candidate_ids:
             return []
 
-        placeholders = ", ".join("?" for _ in candidate_ids)
+        source_leader_ids = list(
+            dict.fromkeys(hits[0].chunk_id for hits in (keyword_hits, semantic_hits) if hits)
+        )
         with database_connection(self.database_path) as connection:
+            leader_placeholders = ", ".join("?" for _ in source_leader_ids)
+            adjacent_rows = connection.execute(
+                f"""
+                SELECT leader.id AS leader_id, following.id
+                FROM chunks AS leader
+                JOIN chunks AS following
+                  ON following.document_id = leader.document_id
+                 AND following.ordinal = leader.ordinal + 1
+                 AND following.page_start = leader.page_start
+                 AND following.page_end = leader.page_end
+                JOIN documents ON documents.id = following.document_id
+                WHERE leader.id IN ({leader_placeholders})
+                  AND documents.status IN ('indexed_lexical', 'ready')
+                ORDER BY leader.ordinal
+                """,
+                source_leader_ids,
+            ).fetchall()
+            adjacent_by_leader = {row["leader_id"]: row["id"] for row in adjacent_rows}
+            adjacent_ids = list(adjacent_by_leader.values())
+            candidate_ids = list(dict.fromkeys([*candidate_ids, *adjacent_ids]))
+            placeholders = ", ".join("?" for _ in candidate_ids)
             rows = connection.execute(
                 f"""
                 SELECT chunks.id, chunks.document_id, chunks.text, chunks.page_start, chunks.page_end,
@@ -309,13 +340,27 @@ class HybridSearchService:
                 result.chunk_id,
             ),
         )
-        source_leaders = {
-            hits[0].chunk_id for hits in (keyword_hits, semantic_hits) if hits
-        }
-        selected = [result for result in ranked if result.chunk_id in source_leaders][:limit]
+        source_leaders = set(source_leader_ids)
+        leaders = [result for result in ranked if result.chunk_id in source_leaders][:limit]
+        result_by_id = {result.chunk_id: result for result in ranked}
+        available_adjacent = max(0, limit - len(leaders))
+        included_adjacent = []
+        for leader in leaders:
+            adjacent_id = adjacent_by_leader.get(leader.chunk_id)
+            if (
+                adjacent_id in result_by_id
+                and has_following_continuation(leader.text)
+                and adjacent_id not in source_leaders
+                and adjacent_id not in included_adjacent
+                and len(included_adjacent) < available_adjacent
+            ):
+                included_adjacent.append(adjacent_id)
+        selected = []
+        for leader in leaders:
+            selected.append(leader)
+            adjacent_id = adjacent_by_leader.get(leader.chunk_id)
+            if adjacent_id in included_adjacent and adjacent_id in result_by_id:
+                selected.append(result_by_id[adjacent_id])
         selected_ids = {result.chunk_id for result in selected}
-        selected.extend(
-            result for result in ranked if result.chunk_id not in selected_ids
-        )
-        rank_by_id = {result.chunk_id: rank for rank, result in enumerate(ranked)}
-        return sorted(selected[:limit], key=lambda result: rank_by_id[result.chunk_id])
+        selected.extend(result for result in ranked if result.chunk_id not in selected_ids)
+        return selected[:limit]

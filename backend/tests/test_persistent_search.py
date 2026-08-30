@@ -139,6 +139,49 @@ def test_persistent_hybrid_search_reserves_results_for_each_source(tmp_path) -> 
     assert {result.chunk_id for result in results} == {indexed[0].id, indexed[2].id}
 
 
+def test_persistent_hybrid_search_includes_following_same_page_chunk(tmp_path) -> None:
+    database_path = tmp_path / "docintel.sqlite3"
+    initialize_database(database_path)
+    document = DocumentCatalog(PdfStore(tmp_path), DocumentRepository(database_path)).add_pdf(
+        BytesIO(b"%PDF-1.7\nexample\n%%EOF"), "requirements.pdf"
+    )
+    ExtractionRepository(database_path).replace_pages(
+        document.id,
+        [
+            ExtractedPage(
+                1,
+                612,
+                792,
+                "Degree requirements include two stages and\na compulsory final project worth credits",
+                (
+                    ExtractedBlock(1, "Degree requirements include two stages and", (10, 10, 250, 20)),
+                    ExtractedBlock(2, "a compulsory final project worth credits", (10, 30, 250, 40)),
+                ),
+            ),
+            ExtractedPage(
+                2,
+                612,
+                792,
+                "Unrelated admissions overview text",
+                (ExtractedBlock(1, "Unrelated admissions overview text", (10, 10, 250, 20)),),
+            ),
+        ],
+    )
+    chunks = ChunkRepository(database_path, ProvenanceChunker(max_words=6, overlap=0))
+    indexed = chunks.rebuild(document.id)
+    semantic = FakeSemanticIndex(
+        [SemanticHit(indexed[0].id, 0.1), SemanticHit(indexed[2].id, 0.2)]
+    )
+
+    results = HybridSearchService(database_path, chunks, semantic).search(
+        "degree requirements", limit=2
+    )
+
+    assert [result.chunk_id for result in results] == [indexed[0].id, indexed[1].id]
+    assert results[1].keyword_rank is None
+    assert results[1].semantic_rank is None
+
+
 def test_persistent_hybrid_search_normalizes_joined_alphanumeric_terms(tmp_path) -> None:
     database_path = tmp_path / "docintel.sqlite3"
     initialize_database(database_path)

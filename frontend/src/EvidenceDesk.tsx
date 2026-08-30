@@ -8,7 +8,6 @@ import {
   Button,
   Chip,
   CircularProgress,
-  Divider,
   Paper,
   Stack,
   TextField,
@@ -68,19 +67,10 @@ export default function EvidenceDesk({ enabled }: EvidenceDeskProps) {
         width: '100%',
         minHeight: 520,
         p: { xs: 3, md: 5 },
-        backgroundImage: 'linear-gradient(rgba(24, 64, 78, 0.035) 1px, transparent 1px), linear-gradient(90deg, rgba(24, 64, 78, 0.035) 1px, transparent 1px)',
-        backgroundSize: '28px 28px',
+        bgcolor: '#fff',
       }}
     >
-      <Typography variant="overline" color="primary.main" sx={{ letterSpacing: '0.16em' }}>Evidence desk</Typography>
-      <Typography variant="h3" sx={{ maxWidth: 760, mt: 1, mb: 2, fontFamily: 'Georgia, serif' }}>
-        Ask the collection, then inspect the source.
-      </Typography>
-      <Typography color="text.secondary" sx={{ maxWidth: 700, lineHeight: 1.75 }}>
-        One query runs lexical and semantic retrieval, then asks the local generator to answer only from five identified passages.
-      </Typography>
-
-      <Box component="form" onSubmit={submitQuestion} sx={{ mt: 3.5 }}>
+      <Box component="form" onSubmit={submitQuestion}>
         <Stack direction={{ xs: 'column', sm: 'row' }} spacing={1.5}>
           <TextField
             fullWidth
@@ -98,29 +88,17 @@ export default function EvidenceDesk({ enabled }: EvidenceDeskProps) {
             disabled={answering || !enabled || !query.trim()}
             sx={{ minWidth: 160, alignSelf: 'flex-start', height: 56 }}
           >
-            {answering ? 'Grounding' : 'Find evidence'}
+            {answering ? 'Grounding' : 'Query'}
           </Button>
         </Stack>
       </Box>
 
       {error && <Alert severity="error" sx={{ mt: 3 }}>{error}</Alert>}
 
-      {!result && !answering && !error && (
-        <>
-          <Divider sx={{ my: 4 }} />
-          <Stack direction={{ xs: 'column', sm: 'row' }} spacing={3}>
-            <Box><Typography variant="h5" fontFamily="Georgia, serif">01</Typography><Typography variant="body2">Retrieve lexical + semantic evidence</Typography></Box>
-            <Box><Typography variant="h5" fontFamily="Georgia, serif">02</Typography><Typography variant="body2">Constrain claims to context IDs</Typography></Box>
-            <Box><Typography variant="h5" fontFamily="Georgia, serif">03</Typography><Typography variant="body2">Open the original source page</Typography></Box>
-          </Stack>
-        </>
-      )}
-
       {answering && (
         <Stack alignItems="center" spacing={2} sx={{ py: 8 }} role="status">
           <CircularProgress />
-          <Typography fontFamily="Georgia, serif" variant="h6">Retrieving and grounding locally</Typography>
-          <Typography variant="body2" color="text.secondary">No document content is sent to an external model API.</Typography>
+          <Typography>Loading</Typography>
         </Stack>
       )}
 
@@ -152,9 +130,6 @@ export default function EvidenceDesk({ enabled }: EvidenceDeskProps) {
                   </Box>
                 ))}
               </Stack>
-              <Typography variant="caption" color="text.secondary" display="block" sx={{ mt: 2 }}>
-                Citation IDs establish provenance. Inspect the passages before relying on a claim, especially numerical reasoning.
-              </Typography>
             </Paper>
           )}
 

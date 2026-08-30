@@ -14,6 +14,13 @@ Return exactly one JSON object and no markdown. Use this schema:
 or {"status":"insufficient_evidence","claims":[]}.
 Every answered claim must cite one or more supplied context IDs that directly support it.
 Never invent a context ID. If the passages do not contain enough evidence, return insufficient_evidence.
+Answer every part of the question. For requirements or lists, include every relevant item supported by the passages.
+Answer only what was asked. Keep requirements for different options, variants, or headings separate.
+If the question names a base option without a variant, answer only for that base option.
+Do not add alternatives, classifications, or background details unless the question asks for them.
+When alternatives are relevant, state each independently.
+Never call variant requirements additional unless the passage does.
+Put context IDs only in citation_ids, never in claim text.
 Perform arithmetic only from values stated in the passages."""
 
 

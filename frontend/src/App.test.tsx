@@ -101,7 +101,7 @@ describe('document collection', () => {
     await screen.findByText('annual-report.pdf')
 
     await user.type(screen.getByLabelText('Ask a question'), 'How did revenue change?')
-    await user.click(screen.getByRole('button', { name: 'Find evidence' }))
+    await user.click(screen.getByRole('button', { name: 'Query' }))
 
     expect(await screen.findByText('Revenue increased.')).toBeInTheDocument()
     expect(screen.getByText('Revenue increased from 2018 to 2019.')).toBeInTheDocument()
@@ -127,7 +127,7 @@ describe('document collection', () => {
     await screen.findByText('annual-report.pdf')
 
     await user.type(screen.getByLabelText('Ask a question'), 'What is not in the collection?')
-    await user.click(screen.getByRole('button', { name: 'Find evidence' }))
+    await user.click(screen.getByRole('button', { name: 'Query' }))
 
     expect(await screen.findByText(/did not provide enough evidence/)).toBeInTheDocument()
   })

@@ -2,7 +2,6 @@ import DeleteOutlineRounded from '@mui/icons-material/DeleteOutlineRounded'
 import DescriptionOutlined from '@mui/icons-material/DescriptionOutlined'
 import FileUploadOutlined from '@mui/icons-material/FileUploadOutlined'
 import FolderOpenOutlined from '@mui/icons-material/FolderOpenOutlined'
-import LocalLibraryOutlined from '@mui/icons-material/LocalLibraryOutlined'
 import RestartAltRounded from '@mui/icons-material/RestartAltRounded'
 import {
   Alert,
@@ -130,21 +129,11 @@ export default function App() {
   return (
     <Box sx={{ minHeight: '100vh', bgcolor: 'background.default', color: 'text.primary', pb: 8 }}>
       <Box component="header" sx={{ borderBottom: '1px solid', borderColor: 'divider', bgcolor: '#0f2632' }}>
-        <Container maxWidth="xl" sx={{ py: { xs: 3, md: 4 } }}>
-          <Stack direction={{ xs: 'column', md: 'row' }} justifyContent="space-between" gap={3}>
-            <Stack direction="row" spacing={2} alignItems="center">
-              <Box sx={{ width: 46, height: 46, border: '1px solid #7bb7a7', display: 'grid', placeItems: 'center' }}>
-                <LocalLibraryOutlined sx={{ color: '#b7e4d7' }} />
-              </Box>
-              <Box>
-                <Typography variant="overline" sx={{ color: '#91c8ba', letterSpacing: '0.18em' }}>
-                  Local evidence workspace
-                </Typography>
-                <Typography variant="h4" sx={{ color: '#f5f0e8', fontFamily: 'Georgia, serif' }}>
-                  Document Intelligence
-                </Typography>
-              </Box>
-            </Stack>
+        <Container maxWidth="xl" sx={{ py: 2.25 }}>
+          <Stack direction={{ xs: 'column', sm: 'row' }} justifyContent="space-between" gap={2}>
+            <Typography variant="h5" sx={{ color: '#f5f0e8', fontFamily: 'Georgia, serif', alignSelf: 'center' }}>
+              Document Intelligence
+            </Typography>
             <Stack direction="row" spacing={1.5} alignItems="center">
               <Button
                 component="label"
