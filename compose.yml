@@ -1,0 +1,21 @@
+services:
+  document-intelligence:
+    build: .
+    image: document-intelligence:dev
+    container_name: document-intelligence
+    init: true
+    ports:
+      - "127.0.0.1:3000:8000"
+    environment:
+      DOCINTEL_DATA_DIR: /data
+      DOCINTEL_FRONTEND_DIR: /app/frontend/dist
+      HF_HOME: /models/huggingface
+      TORCH_HOME: /models/torch
+    volumes:
+      - docintel-data:/data
+      - docintel-model-cache:/models
+    restart: unless-stopped
+
+volumes:
+  docintel-data:
+  docintel-model-cache:

@@ -28,6 +28,7 @@ class Settings:
     generation_model: str = DEFAULT_GENERATION_MODEL
     generation_revision: str = DEFAULT_GENERATION_REVISION
     generation_max_new_tokens: int = DEFAULT_GENERATION_MAX_NEW_TOKENS
+    frontend_dir: Path | None = None
 
     @property
     def database_path(self) -> Path:
@@ -48,5 +49,8 @@ class Settings:
             generation_revision=os.environ.get("DOCINTEL_GENERATION_REVISION", DEFAULT_GENERATION_REVISION),
             generation_max_new_tokens=int(
                 os.environ.get("DOCINTEL_GENERATION_MAX_NEW_TOKENS", DEFAULT_GENERATION_MAX_NEW_TOKENS)
+            ),
+            frontend_dir=(
+                Path(frontend_dir) if (frontend_dir := os.environ.get("DOCINTEL_FRONTEND_DIR")) else None
             ),
         )

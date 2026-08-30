@@ -20,6 +20,7 @@ def test_settings_reads_data_directory_from_environment(monkeypatch) -> None:
     monkeypatch.setenv("DOCINTEL_GENERATION_MODEL", "custom-generator")
     monkeypatch.setenv("DOCINTEL_GENERATION_REVISION", "generator-revision")
     monkeypatch.setenv("DOCINTEL_GENERATION_MAX_NEW_TOKENS", "128")
+    monkeypatch.setenv("DOCINTEL_FRONTEND_DIR", "built-frontend")
 
     settings = Settings.from_environment()
 
@@ -35,6 +36,7 @@ def test_settings_reads_data_directory_from_environment(monkeypatch) -> None:
     assert settings.generation_model == "custom-generator"
     assert settings.generation_revision == "generator-revision"
     assert settings.generation_max_new_tokens == 128
+    assert settings.frontend_dir == Path("built-frontend")
 
 
 def test_frozen_retrieval_configuration_matches_application_defaults() -> None:

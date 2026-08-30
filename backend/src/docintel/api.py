@@ -8,6 +8,7 @@ from typing import Literal
 
 from fastapi import FastAPI, File, HTTPException, Response, UploadFile
 from fastapi.responses import FileResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field, field_validator
 
 from docintel.chunking import ChunkRepository, ProvenanceChunker
@@ -290,6 +291,12 @@ def create_app(
             ],
             failure_reason=result.failure_reason,
         )
+
+    if resolved_settings.frontend_dir is not None:
+        index_path = resolved_settings.frontend_dir / "index.html"
+        if not index_path.is_file():
+            raise RuntimeError(f"Frontend index not found: {index_path}")
+        application.mount("/", StaticFiles(directory=resolved_settings.frontend_dir, html=True), name="frontend")
 
     return application
 

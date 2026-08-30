@@ -155,6 +155,21 @@ def test_health_endpoint_reports_ok(tmp_path) -> None:
     assert response.json() == {"status": "ok"}
 
 
+def test_application_serves_configured_frontend(tmp_path) -> None:
+    frontend_dir = tmp_path / "frontend"
+    frontend_dir.mkdir()
+    (frontend_dir / "index.html").write_text("<h1>Document Intelligence</h1>", encoding="utf-8")
+
+    settings = Settings(tmp_path / "data", frontend_dir=frontend_dir)
+    with TestClient(create_app(settings, service_builder=_services)) as client:
+        response = client.get("/")
+        health = client.get("/api/health")
+
+    assert response.status_code == 200
+    assert "Document Intelligence" in response.text
+    assert health.json() == {"status": "ok"}
+
+
 def test_application_lifespan_initializes_local_stores(tmp_path) -> None:
     with TestClient(create_app(Settings(tmp_path))) as client:
         response = client.get("/api/health")

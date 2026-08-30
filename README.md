@@ -4,6 +4,41 @@ Local-first PDF ingestion, entity enrichment, hybrid evidence retrieval, and gro
 
 The React frontend provides PDF collection management, grounded questions, claim-level citation navigation, evidence cards, and original-page links. FastAPI also exposes generated interactive API documentation.
 
+## Docker
+
+The container uses a multi-stage build: Node compiles the React application, then FastAPI serves the compiled UI and API from a Python image that includes Tesseract and CUDA-enabled PyTorch. Docker Compose keeps the service bound to localhost and persists application data and downloaded model weights in named volumes.
+
+The default stack runs ingestion, enrichment, retrieval, and the UI without requesting a GPU. Grounded generation requires an NVIDIA GPU exposed to containers. On Windows, use a current Docker Desktop release with the WSL 2 backend, current NVIDIA drivers, and GPU support enabled.
+
+Build and start the application:
+
+```powershell
+docker compose up -d --build
+```
+
+To enable grounded generation, add the GPU override:
+
+```powershell
+docker compose -f compose.yml -f compose.gpu.yml up -d --build
+```
+
+- App: http://127.0.0.1:3000
+- API docs: http://127.0.0.1:3000/docs
+
+Follow startup and model-loading logs with:
+
+```powershell
+docker compose logs -f
+```
+
+Uploaded PDFs, SQLite records, and Chroma indexes are stored in the `docintel-data` Docker volume. Hugging Face and PyTorch downloads are stored in the `docintel-model-cache` Docker volume, so later container rebuilds reuse both data stores. The first upload downloads MiniLM if necessary; the first generated answer may download Qwen and requires approximately 17 GB of GPU memory on the evaluated configuration.
+
+Stop the application without deleting either data store:
+
+```powershell
+docker compose down
+```
+
 ## Setup
 
 Requires Python 3.11-3.13, Node.js, and Tesseract 5. Selected Qwen generation requires a CUDA-capable NVIDIA GPU; the evaluated setup uses an RTX 4090 with 24 GB VRAM and PyTorch 2.12 CUDA 13.0. On Windows, the backend detects the standard `C:\Program Files\Tesseract-OCR` installation automatically. For another location, set `TESSERACT_CMD` to the full executable path.
