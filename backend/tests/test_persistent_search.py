@@ -12,8 +12,10 @@ from docintel.storage import PdfStore
 class FakeSemanticIndex:
     def __init__(self, hits: list[SemanticHit]) -> None:
         self.hits = hits
+        self.queries: list[str] = []
 
     def query(self, query: str, *, limit: int = 20) -> list[SemanticHit]:
+        self.queries.append(query)
         return self.hits[:limit]
 
 
@@ -96,3 +98,34 @@ def test_persistent_hybrid_search_orders_tied_results_deterministically(tmp_path
     ).search("missing keyword")
 
     assert [result.chunk_id for result in results] == [chunk.id for chunk in indexed]
+
+
+def test_persistent_hybrid_search_promotes_address_evidence_for_joined_name(tmp_path) -> None:
+    database_path = tmp_path / "docintel.sqlite3"
+    initialize_database(database_path)
+    document = DocumentCatalog(PdfStore(tmp_path), DocumentRepository(database_path)).add_pdf(
+        BytesIO(b"%PDF-1.7\nexample\n%%EOF"), "handbook.pdf"
+    )
+    ExtractionRepository(database_path).replace_pages(
+        document.id,
+        [
+            ExtractedPage(
+                1,
+                612,
+                792,
+                "Square 9 phone policy\n127 Church Street, New Haven, CT 06510",
+                (
+                    ExtractedBlock(1, "Square 9 phone policy", (10, 10, 150, 20)),
+                    ExtractedBlock(2, "127 Church Street, New Haven, CT 06510", (10, 30, 250, 40)),
+                ),
+            )
+        ],
+    )
+    chunks = ChunkRepository(database_path, ProvenanceChunker(max_words=7, overlap=0))
+    indexed = chunks.rebuild(document.id)
+    semantic = FakeSemanticIndex([SemanticHit(indexed[0].id, 0.1)])
+
+    results = HybridSearchService(database_path, chunks, semantic).search("what is the square9 address")
+
+    assert semantic.queries == ["what is the square 9 address"]
+    assert results[0].chunk_id == indexed[1].id
