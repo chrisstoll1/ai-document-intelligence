@@ -100,7 +100,46 @@ def test_persistent_hybrid_search_orders_tied_results_deterministically(tmp_path
     assert [result.chunk_id for result in results] == [chunk.id for chunk in indexed]
 
 
-def test_persistent_hybrid_search_promotes_address_evidence_for_joined_name(tmp_path) -> None:
+def test_persistent_hybrid_search_reserves_results_for_each_source(tmp_path) -> None:
+    database_path = tmp_path / "docintel.sqlite3"
+    initialize_database(database_path)
+    document = DocumentCatalog(PdfStore(tmp_path), DocumentRepository(database_path)).add_pdf(
+        BytesIO(b"%PDF-1.7\nexample\n%%EOF"), "evidence.pdf"
+    )
+    ExtractionRepository(database_path).replace_pages(
+        document.id,
+        [
+            ExtractedPage(
+                1,
+                612,
+                792,
+                "zebra alpha\nzebra beta\ngamma delta\nzebra epsilon",
+                (
+                    ExtractedBlock(1, "zebra alpha", (10, 10, 150, 20)),
+                    ExtractedBlock(2, "zebra beta", (10, 30, 150, 40)),
+                    ExtractedBlock(3, "gamma delta", (10, 50, 150, 60)),
+                    ExtractedBlock(4, "zebra epsilon", (10, 70, 150, 80)),
+                ),
+            )
+        ],
+    )
+    chunks = ChunkRepository(database_path, ProvenanceChunker(max_words=2, overlap=0))
+    indexed = chunks.rebuild(document.id)
+    semantic = FakeSemanticIndex(
+        [
+            SemanticHit(indexed[2].id, 0.1),
+            SemanticHit(indexed[1].id, 0.2),
+            SemanticHit(indexed[0].id, 0.3),
+            SemanticHit(indexed[3].id, 0.4),
+        ]
+    )
+
+    results = HybridSearchService(database_path, chunks, semantic).search("zebra", limit=2)
+
+    assert {result.chunk_id for result in results} == {indexed[0].id, indexed[2].id}
+
+
+def test_persistent_hybrid_search_normalizes_joined_alphanumeric_terms(tmp_path) -> None:
     database_path = tmp_path / "docintel.sqlite3"
     initialize_database(database_path)
     document = DocumentCatalog(PdfStore(tmp_path), DocumentRepository(database_path)).add_pdf(
@@ -113,10 +152,10 @@ def test_persistent_hybrid_search_promotes_address_evidence_for_joined_name(tmp_
                 1,
                 612,
                 792,
-                "Square 9 phone policy\n127 Church Street, New Haven, CT 06510",
+                "Square 9 phone policy\nUnrelated evidence",
                 (
                     ExtractedBlock(1, "Square 9 phone policy", (10, 10, 150, 20)),
-                    ExtractedBlock(2, "127 Church Street, New Haven, CT 06510", (10, 30, 250, 40)),
+                    ExtractedBlock(2, "Unrelated evidence", (10, 30, 250, 40)),
                 ),
             )
         ],
@@ -125,7 +164,7 @@ def test_persistent_hybrid_search_promotes_address_evidence_for_joined_name(tmp_
     indexed = chunks.rebuild(document.id)
     semantic = FakeSemanticIndex([SemanticHit(indexed[0].id, 0.1)])
 
-    results = HybridSearchService(database_path, chunks, semantic).search("what is the square9 address")
+    results = HybridSearchService(database_path, chunks, semantic).search("what is square9 policy")
 
-    assert semantic.queries == ["what is the square 9 address"]
-    assert results[0].chunk_id == indexed[1].id
+    assert semantic.queries == ["what is square 9 policy"]
+    assert results[0].chunk_id == indexed[0].id

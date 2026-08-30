@@ -47,9 +47,11 @@ class FakeGenerator:
         )
         self.error = error
         self.calls = 0
+        self.questions = []
 
     def generate(self, question, contexts):
         self.calls += 1
+        self.questions.append(question)
         if self.error:
             raise self.error
         return self.output
@@ -136,6 +138,17 @@ def test_generation_service_uses_requested_limit_and_handles_contract_error() ->
     assert answer.status == "generation_failed"
     assert answer.failure_reason == "invalid_output"
     assert len(answer.contexts) == 1
+
+
+def test_generation_service_normalizes_joined_alphanumeric_terms() -> None:
+    search = FakeSearch()
+    generator = FakeGenerator()
+    service = GroundedGenerationService(search, generator)
+
+    service.answer("What is square9 policy?")
+
+    assert search.calls == [("What is square 9 policy?", 5)]
+    assert generator.questions == ["What is square 9 policy?"]
 
 
 def test_generation_service_rejects_blank_queries_and_invalid_limits() -> None:

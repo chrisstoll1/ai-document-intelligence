@@ -65,7 +65,7 @@ class ProvenanceChunker:
             raise ValueError("overlap must be between zero and max_words")
         self.max_words = max_words
         self.overlap = overlap
-        self.version = f"blocks-v1-{max_words}-{overlap}"
+        self.version = f"blocks-v2-pages-{max_words}-{overlap}"
 
     def chunk(self, document_id: str, blocks: list[SourceBlock]) -> list[ProvenanceChunk]:
         chunks: list[ProvenanceChunk] = []
@@ -80,6 +80,8 @@ class ProvenanceChunker:
             pending_words = 0
 
         for block in blocks:
+            if pending and pending[-1].block.page_number != block.page_number:
+                flush()
             for segment in self._segments(block):
                 if pending and pending_words + segment.word_count > self.max_words:
                     flush()

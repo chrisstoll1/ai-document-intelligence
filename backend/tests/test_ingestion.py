@@ -162,7 +162,7 @@ def test_ingestion_rebuilds_changed_chunker_without_reextracting(tmp_path) -> No
 
     assert extractor.calls == 1
     assert semantic_index.calls == 2
-    assert rebuilt.chunker_version == "blocks-v1-80-15"
+    assert rebuilt.chunker_version == "blocks-v2-pages-80-15"
 
 
 def test_ingestion_preserves_lexical_data_when_semantic_index_fails(tmp_path) -> None:

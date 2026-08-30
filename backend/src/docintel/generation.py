@@ -6,7 +6,7 @@ from typing import Literal, Protocol
 
 from pydantic import BaseModel, ConfigDict, Field, field_validator, model_validator
 
-from docintel.search import PersistentSearchResult
+from docintel.search import PersistentSearchResult, normalize_query
 
 INSUFFICIENT_EVIDENCE_MESSAGE = "Insufficient evidence in the retrieved passages."
 
@@ -125,7 +125,7 @@ class GroundedGenerationService:
         self.generator = generator
 
     def answer(self, query: str, *, limit: int = 5) -> GroundedAnswer:
-        normalized_query = query.strip()
+        normalized_query = normalize_query(query)
         if not normalized_query:
             raise ValueError("query must not be blank")
         if limit <= 0:

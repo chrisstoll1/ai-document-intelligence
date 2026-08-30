@@ -19,6 +19,25 @@ def test_chunker_splits_long_blocks_with_exact_overlapping_spans() -> None:
     assert chunks[0].page_start == chunks[0].page_end == 2
 
 
+def test_chunker_does_not_merge_content_across_page_boundaries() -> None:
+    chunker = ProvenanceChunker(max_words=10, overlap=0)
+
+    chunks = chunker.chunk(
+        "a" * 64,
+        [
+            SourceBlock(id=1, page_number=1, text="Short high value cover detail"),
+            SourceBlock(id=2, page_number=2, text="Unrelated contents from the following page"),
+        ],
+    )
+
+    assert [chunk.text for chunk in chunks] == [
+        "Short high value cover detail",
+        "Unrelated contents from the following page",
+    ]
+    assert all(chunk.page_start == chunk.page_end for chunk in chunks)
+    assert chunks[0].chunker_version == "blocks-v2-pages-10-0"
+
+
 def test_chunk_repository_rebuilds_fts_and_provenance(tmp_path) -> None:
     database_path = tmp_path / "docintel.sqlite3"
     initialize_database(database_path)

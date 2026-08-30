@@ -18,13 +18,10 @@ SEMANTIC_WEIGHT = 0.5
 KEYWORD_WEIGHT = 0.5
 RRF_K = 60
 ALPHANUMERIC_BOUNDARY_RE = re.compile(r"(?<=[A-Za-z])(?=\d)|(?<=\d)(?=[A-Za-z])")
-ADDRESS_QUERY_RE = re.compile(r"\b(?:address|location|located|headquarters|head office)\b", re.IGNORECASE)
-STREET_ADDRESS_RE = re.compile(
-    r"\b\d{1,6}\s+(?:[A-Za-z0-9.'-]+\s+){0,5}"
-    r"(?:street|st|road|rd|avenue|ave|boulevard|blvd|lane|ln|drive|dr|court|ct|way|parkway|pkwy)\b",
-    re.IGNORECASE,
-)
-ADDRESS_EVIDENCE_QUERY = "street road avenue boulevard lane drive court way parkway"
+
+
+def normalize_query(query: str) -> str:
+    return ALPHANUMERIC_BOUNDARY_RE.sub(" ", query.strip())
 
 
 class TextEncoder(Protocol):
@@ -250,21 +247,15 @@ class HybridSearchService:
         self.rrf_k = rrf_k
 
     def search(self, query: str, *, limit: int = 5) -> list[PersistentSearchResult]:
-        query = ALPHANUMERIC_BOUNDARY_RE.sub(" ", query.strip())
+        query = normalize_query(query)
         if not query or limit <= 0:
             return []
-        address_query = ADDRESS_QUERY_RE.search(query) is not None
         candidate_limit = max(20, limit * 4)
         keyword_hits = self.chunks.search(query, limit=candidate_limit)
         semantic_hits = self.semantic_index.query(query, limit=candidate_limit)
         keyword_ranks = {hit.chunk_id: rank for rank, hit in enumerate(keyword_hits, start=1)}
         semantic_ranks = {hit.chunk_id: rank for rank, hit in enumerate(semantic_hits, start=1)}
-        address_ids = (
-            [hit.chunk_id for hit in self.chunks.search(ADDRESS_EVIDENCE_QUERY, limit=candidate_limit)]
-            if address_query
-            else []
-        )
-        candidate_ids = list(dict.fromkeys([*keyword_ranks, *semantic_ranks, *address_ids]))
+        candidate_ids = list(dict.fromkeys([*keyword_ranks, *semantic_ranks]))
         if not candidate_ids:
             return []
 
@@ -309,13 +300,22 @@ class HybridSearchService:
                 )
             )
         missing_rank = candidate_limit + 1
-        return sorted(
+        ranked = sorted(
             results,
             key=lambda result: (
-                0 if address_query and STREET_ADDRESS_RE.search(result.text) else 1,
                 -result.score,
                 result.keyword_rank if result.keyword_rank is not None else missing_rank,
                 result.semantic_rank if result.semantic_rank is not None else missing_rank,
                 result.chunk_id,
             ),
-        )[:limit]
+        )
+        source_leaders = {
+            hits[0].chunk_id for hits in (keyword_hits, semantic_hits) if hits
+        }
+        selected = [result for result in ranked if result.chunk_id in source_leaders][:limit]
+        selected_ids = {result.chunk_id for result in selected}
+        selected.extend(
+            result for result in ranked if result.chunk_id not in selected_ids
+        )
+        rank_by_id = {result.chunk_id: rank for rank, result in enumerate(ranked)}
+        return sorted(selected[:limit], key=lambda result: rank_by_id[result.chunk_id])
